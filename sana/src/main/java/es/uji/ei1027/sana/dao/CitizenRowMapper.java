@@ -15,7 +15,7 @@ public final class CitizenRowMapper implements RowMapper<Citizen> {
         citizen.setNIE(rs.getString("NIE"));
         citizen.setEmail(rs.getString("email"));
         citizen.setAddress(rs.getString("address"));
-        citizen.setAddress(rs.getString("town"));
+        citizen.setTown(rs.getString("town"));
         citizen.setCountry(rs.getString("country"));
 
         return citizen;

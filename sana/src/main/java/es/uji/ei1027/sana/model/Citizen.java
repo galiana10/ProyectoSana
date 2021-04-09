@@ -59,7 +59,7 @@ public class Citizen {
 
     @Override
     public String toString() {
-        return "Citizen{" +
+        return "citizen{" +
                 "name='" + name + '\'' +
                 ", NIE='" + NIE + '\'' +
                 ", email='" + email + '\'' +

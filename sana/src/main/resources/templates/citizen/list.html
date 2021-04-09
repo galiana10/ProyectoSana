@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar Citizens</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Lista de Citizens</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>NIE</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Town</th>
+        <th>Country</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="citizen: ${citizens}">
+        <td th:text="${citizen.name}"></td>
+        <td th:text="${citizen.NIE}"></td>
+        <td th:text="${citizen.email}"></td>
+        <td th:text="${citizen.address}"></td>
+        <td th:text="${citizen.town}"></td>
+        <td th:text="${citizen.country}"></td>
+        <td><a th:href="@{/citizen/update/{NIE}(NIE=${citizen.NIE})}">Editar</a>
+        </td>
+        <td><a th:href="@{/citizen/delete/{NIE}(NIE=${citizen.NIE})}">Borrar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="add">Añadir citizen</a>
+</body>
+</html>
