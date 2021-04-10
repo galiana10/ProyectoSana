@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar Reservations</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Lista de Reservations</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Date</th>
+        <th>PeopleNumber</th>
+        <th>QR</th>
+        <th>ReservationLimit</th>
+        <th>NIE_citizen</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="reservation: ${reservations}">
+        <td th:text="${reservation.date}"></td>
+        <td th:text="${reservation.peopleNumber}"></td>
+        <td th:text="${reservation.QR}"></td>
+        <td th:text="${reservation.reservationLimit}"></td>
+        <td th:text="${reservation.NIE_citizen}"></td>
+        <td><a th:href="@{/reservation/update/{QR}(QR=${reservation.QR})}">Editar</a>
+        </td>
+        <td><a th:href="@{/reservation/delete/{QR}(QR=${reservation.QR})}">Anular</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="add">Añadir reserva</a>
+</body>
+</html>

@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
+
+
 public final class CitizenRowMapper implements RowMapper<Citizen> {
 
     public Citizen mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -21,5 +23,3 @@ public final class CitizenRowMapper implements RowMapper<Citizen> {
         return citizen;
     }
 }
-
-
