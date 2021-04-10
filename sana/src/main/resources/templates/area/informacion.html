@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Informacion Area</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Informacion Area</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>NumberOfZones</th>
+        <th>AccessType</th>
+        <th>GeographicalLocation</th>
+        <th>AreaType</th>
+        <th>PhysiscalCharacteristic</th>
+        <th>orientation</th>
+        <th>facility</th>
+        <th>comment</th>
+        <th>image</th>
+        <th>name_M</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="area: ${areasInfo}">
+        <td th:text="${area.name}"></td>
+        <td th:text="${area.description}"></td>
+        <td th:text="${area.numberOfZone}"></td>
+        <td th:text="${area.accessType}"></td>
+        <td th:text="${area.getGeographicalLocation()}"></td>
+        <td th:text="${area.areaType}"></td>
+        <td th:text="${area.physiscalCharacteristic}"></td>
+        <td th:text="${area.orientation}"></td>
+        <td th:text="${area.facility}"></td>
+        <td th:text="${area.comment}"></td>
+        <td th:text="${area.image}"></td>
+        <td th:text="${area.name_M}"></td>
+
+    </tr>
+    </tbody>
+</table>
+<a href="/area/list">Volver</a>
+</body>
+</html>

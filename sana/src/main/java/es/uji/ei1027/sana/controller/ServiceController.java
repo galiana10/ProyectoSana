@@ -23,7 +23,7 @@ public class ServiceController {
 
 
     @RequestMapping("/list")
-    public String listCitizens(Model model) {
+    public String listServices(Model model) {
         model.addAttribute("services", serviceDAO.getServices());
         return "service/list";
     }
@@ -46,7 +46,7 @@ public class ServiceController {
     }
 
     @RequestMapping(value="/update/{name}", method = RequestMethod.GET)
-    public String editCitizen(Model model, @PathVariable String name) {
+    public String editService(Model model, @PathVariable String name) {
         model.addAttribute("service", serviceDAO.getService(name));
         return "service/update";
     }

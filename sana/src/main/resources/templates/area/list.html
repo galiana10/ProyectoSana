@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar Areas</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Lista de Area</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Areas</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="area: ${areas}">
+        <td th:text="${area.name}"></td>
+        <td><a href="/area/informacion">Informacion</a></td>
+        <td><a th:href="@{/area/update/{name}(name=${area.name})}">Editar</a>
+        </td>
+        <td><a th:href="@{/area/delete/{name}(name=${area.name})}">Borrar</a>
+        </td>
+
+
+    </tr>
+    </tbody>
+</table>
+<a href="add">Añadir area</a>
+</body>
+</html>

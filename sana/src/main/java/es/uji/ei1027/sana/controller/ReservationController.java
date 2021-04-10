@@ -21,7 +21,7 @@ public class ReservationController {
 
 
     @Autowired
-    public void setCitizenDao(ReservationDao reservationDao) {
+    public void setReservationDao(ReservationDao reservationDao) {
         this.reservationDao=reservationDao;
     }
 
