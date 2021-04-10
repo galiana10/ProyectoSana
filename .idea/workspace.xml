@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9dda0573-6a59-4a17-9d67-a1b66160d3c0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/MunicipalityController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/MunicipalityDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/MunicipalityRowMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/Municipality.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/municipality/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/SanaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/SanaApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/CitizenRowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/CitizenRowMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/MunicipalityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/MunicipalityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/MunicipalityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/MunicipalityDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/MunicipalityRowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/MunicipalityRowMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/static/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
