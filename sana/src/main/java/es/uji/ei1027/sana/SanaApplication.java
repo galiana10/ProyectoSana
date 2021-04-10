@@ -24,7 +24,5 @@ public class SanaApplication {
 		// Auto-configura l'aplicació
 		new SpringApplicationBuilder(SanaApplication.class).run(args);
 	}
-
-
 }
 
