@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
-@RequestMapping("/municipalty")
+@RequestMapping("/municipality")
 public class MunicipalityController {
 
     private MunicipalityDao municipalityDao;
