@@ -439,7 +439,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.SanaApplication">
     <configuration name="SanaApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="es.uji.ei1027.sana.SanaApplication" />
       <module name="SANA" />
@@ -449,6 +449,24 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SanaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="SANA" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="es.uji.ei1027.sana.SanaApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
