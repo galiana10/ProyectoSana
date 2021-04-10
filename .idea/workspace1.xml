@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e7012238-9256-42dd-8aa2-854284320472" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/AreaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/AreaDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/static/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="e7012238-9256-42dd-8aa2-854284320472" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/../ProyectoSana2/sana/target/" />
     <ignored path="$PROJECT_DIR$/sana/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -99,8 +96,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/AreaDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="43" column="241" selection-start-line="43" selection-start-column="241" selection-end-line="43" selection-end-column="241" />
+            <state relative-caret-position="217">
+              <caret line="42" column="120" selection-start-line="42" selection-start-column="120" selection-end-line="42" selection-end-column="120" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1173#1174#0" expanded="true" />
@@ -217,8 +214,8 @@
         <option value="$PROJECT_DIR$/sana/src/main/resources/templates/area/update.html" />
         <option value="$PROJECT_DIR$/sana/src/main/resources/templates/area/list.html" />
         <option value="$PROJECT_DIR$/sana/src/main/resources/static/index.html" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/AreaDao.java" />
         <option value="$PROJECT_DIR$/sana/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/AreaDao.java" />
       </list>
     </option>
   </component>
@@ -396,7 +393,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1618062812292" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1618062975107" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -487,7 +484,7 @@
       <workItem from="1617980478892" duration="1788000" />
       <workItem from="1617982299129" duration="3003000" />
       <workItem from="1617985348485" duration="238000" />
-      <workItem from="1618046296097" duration="14199000" />
+      <workItem from="1618046296097" duration="14441000" />
     </task>
     <task id="LOCAL-00001" summary="Creación">
       <created>1617808544857</created>
@@ -543,13 +540,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31594000" />
+    <option name="totallyTimeSpent" value="31836000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2818792" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2818792" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -559,7 +556,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.36685553" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36685553" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -974,8 +971,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/AreaDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="43" column="241" selection-start-line="43" selection-start-column="241" selection-end-line="43" selection-end-column="241" />
+        <state relative-caret-position="217">
+          <caret line="42" column="120" selection-start-line="42" selection-start-column="120" selection-end-line="42" selection-end-column="120" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1173#1174#0" expanded="true" />
