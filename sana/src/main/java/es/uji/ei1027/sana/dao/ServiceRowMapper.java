@@ -18,6 +18,6 @@ public class ServiceRowMapper implements RowMapper<Service> {
         service.setServicetype(rs.getString("servicetype"));
 
 
-        return null;
+        return service;
     }
 }

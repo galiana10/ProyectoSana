@@ -6,12 +6,13 @@ import es.uji.ei1027.sana.model.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Repository
 public class ServiceDAO {
 
     private JdbcTemplate jdbcTemplate;
@@ -42,8 +43,8 @@ public class ServiceDAO {
 
     /*Actualiza un service*/
     public void updateService(Service service){
-        jdbcTemplate.update("UPDATE service set description=?,typeservice=?",
-                service.getDescription(),service.getServicetype());
+        jdbcTemplate.update("UPDATE service set description=?,servicetype=? where name=?",
+                service.getDescription(),service.getServicetype(),service.getName());
     }
 
 
