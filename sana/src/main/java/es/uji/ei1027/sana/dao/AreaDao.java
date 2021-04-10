@@ -25,7 +25,7 @@ public class AreaDao {
     /* Afegeix el area a la base de dades */
     public void addArea(Area area) {
         jdbcTemplate.update("INSERT INTO AREA VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                area.getName(),area.getDescription(),area.getNumberOfZone(),area.getAccessType(),area.getGeographicalLocation(),area.getAreaType(),area.getPhysiscalCharacteristic(),area.getOrientation(),area.getFacility(),area.getComment(),area.getName_M());
+                area.getName(),area.getDescription(),area.getNumberOfZone(),area.getAccessType(),area.getGeographicalLocation(),area.getAreaType(),area.getPhysiscalCharacteristic(),area.getOrientation(),area.getFacility(),area.getComment(),area.getImage(),area.getName_M());
     }
 
     /* Esborra el area de la base de dades por Objeto*/
@@ -40,8 +40,8 @@ public class AreaDao {
 
     /* Actualitza els atributs del area*/
     public void updateArea(Area area) {
-        jdbcTemplate.update("UPDATE AREA SET description=?,numberOfZone=?,accessType=?,geographicalLocation=?,geographicalLocation=?,physiscalCharacteristic=?,orientation=?,facility=?,comment=?,image=?,name_M=? WHERE name=?",
-                area.getDescription(),area.getNumberOfZone(),area.getAccessType(),area.getGeographicalLocation(),area.getAreaType(),area.getPhysiscalCharacteristic(),area.getOrientation(),area.getFacility(),area.getComment(),area.getName_M(),area.getName());
+        jdbcTemplate.update("UPDATE AREA SET description=?,numberOfZone=?,accessType=?,geographicalLocation=?,areaType=?,physiscalCharacteristic=?,orientation=?,facility=?,comment=?,image=?,name_M=? WHERE name=?",
+                area.getDescription(),area.getNumberOfZone(),area.getAccessType(),area.getGeographicalLocation(),area.getAreaType(),area.getPhysiscalCharacteristic(),area.getOrientation(),area.getFacility(),area.getComment(),area.getImage(),area.getName_M(),area.getName());
     }
 
     /* Obté el area amb el name Torna null si no existeix. */
