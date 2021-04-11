@@ -38,7 +38,7 @@ public class MunicipalityController {
     }
 
     @RequestMapping(value="/add", method= RequestMethod.POST)
-    public String processAddSubmit(@ModelAttribute("municipalty") Municipality municipality,
+    public String processAddSubmit(@ModelAttribute("municipality") Municipality municipality,
                                    BindingResult bindingResult) {
         if (bindingResult.hasErrors())
             return "municipality/add";
@@ -54,7 +54,7 @@ public class MunicipalityController {
 
     @RequestMapping(value="/update", method = RequestMethod.POST)
     public String processUpdateSubmit(
-            @ModelAttribute("municipalty") Municipality municipality,
+            @ModelAttribute("municipality") Municipality municipality,
             BindingResult bindingResult) {
         if (bindingResult.hasErrors())
             return "municipality/update";
@@ -67,7 +67,6 @@ public class MunicipalityController {
         municipalityDao.deleteMunicipality(name);
         return "redirect:../list";
     }
-
 
 
 }

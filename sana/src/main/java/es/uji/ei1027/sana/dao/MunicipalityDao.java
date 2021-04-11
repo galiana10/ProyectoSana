@@ -29,12 +29,12 @@ public class MunicipalityDao {
 
     /* Esborra el municipality de la base de dades por Objeto*/
     public void deleteMunicipality(Municipality municipality) {
-        jdbcTemplate.update("DELETE FROM MUNICIPALITY WHERE NIE='"+municipality.getName()+"' ");
+        jdbcTemplate.update("DELETE FROM MUNICIPALITY WHERE name='"+municipality.getName()+"' ");
     }
 
     /* Esborra el municipality de la base de dades por Nombre*/
     public void deleteMunicipality(String municipalityName) {
-        jdbcTemplate.update("DELETE FROM CITIZEN WHERE NIE='"+municipalityName+"' ");
+        jdbcTemplate.update("DELETE FROM MUNICIPALITY WHERE name='"+municipalityName+"' ");
     }
 
     /* Actualitza els atributs del municipality*/
@@ -46,7 +46,7 @@ public class MunicipalityDao {
     /* Obté el municipality amb el nombre Torna null si no existeix. */
     public Municipality getMunicipality(String nombreMunicipality) {
         try {
-            return jdbcTemplate.queryForObject("SELECT * FROM MUNICIPALIY WHERE NOMBRE=?",
+            return jdbcTemplate.queryForObject("SELECT * FROM MUNICIPALITY WHERE name=?",
                     new MunicipalityRowMapper(),
                     nombreMunicipality);
         }
