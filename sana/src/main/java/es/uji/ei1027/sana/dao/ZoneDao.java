@@ -21,13 +21,13 @@ public class ZoneDao {
 
     /* Afegeix el zone a la base de dades */
     public void addZone(Zone zone) {
-        jdbcTemplate.update("INSERT INTO zone VALUES(?, ?, ?)",
+        jdbcTemplate.update("INSERT INTO zone VALUES(?, ?)",
                 zone.getNumberLetter(),zone.getName_Area()) ;
     }
 
     /*Esborra un servici*/
     public void deleteZone(Zone zone) {
-        jdbcTemplate.update("DELETE FROM zone where name = ?",
+        jdbcTemplate.update("DELETE FROM zone where numberLetter = ?",
                 zone.getNumberLetter()) ;
     }
 
@@ -41,7 +41,7 @@ public class ZoneDao {
     /* Obté la classificacio amb el nom donat. Torna null si no existeix. */
     public Zone getZone(String zoneName) {
         try {
-            return jdbcTemplate.queryForObject("SELECT * from zone WHERE name=?",
+            return jdbcTemplate.queryForObject("SELECT * from zone WHERE numberLetter=?",
                     new ZoneRowMapper(),zoneName);
         }
         catch(EmptyResultDataAccessException e) {
