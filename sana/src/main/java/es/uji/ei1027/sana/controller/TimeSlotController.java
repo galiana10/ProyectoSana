@@ -1,7 +1,6 @@
 package es.uji.ei1027.sana.controller;
 
 import es.uji.ei1027.sana.dao.TimeSlotDao;
-import es.uji.ei1027.sana.model.Municipality;
 import es.uji.ei1027.sana.model.TimeSlot;
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -43,7 +43,6 @@ public class TimeSlotDao {
                 timeSlot.getFinalhour(),timeSlot.getSeason(),timeSlot.getName_a(), timeSlot.getInicialhour());
     }
 
-
     /* Obté el timeSlot amb el name_a and inicialHour, Torna null si no existeix. */
     public TimeSlot getTimeSlot(String name_a, LocalTime inicialhour) {
         try {
