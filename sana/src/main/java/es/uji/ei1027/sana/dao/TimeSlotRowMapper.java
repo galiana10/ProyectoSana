@@ -1,6 +1,5 @@
 package es.uji.ei1027.sana.dao;
 
-import es.uji.ei1027.sana.model.Municipality;
 import es.uji.ei1027.sana.model.TimeSlot;
 
 import org.springframework.jdbc.core.RowMapper;
@@ -12,9 +11,9 @@ public class TimeSlotRowMapper implements RowMapper<TimeSlot>{
     @Override
     public TimeSlot mapRow(ResultSet rs, int rowNum) throws SQLException {
         TimeSlot timeSlot = new TimeSlot();
-        timeSlot.setName_A(rs.getString("name_A"));
-        timeSlot.setInicialHour(rs.getObject("initialHour", LocalTime.class));
-        timeSlot.setFinalHour(rs.getObject("finalHour", LocalTime.class));
+        timeSlot.setName_a(rs.getString("name_a"));
+        timeSlot.setInicialhour(rs.getObject("inicialhour", LocalTime.class));
+        timeSlot.setFinalhour(rs.getObject("finalhour", LocalTime.class));
         timeSlot.setSeason(rs.getString("season"));
         return timeSlot;
     }

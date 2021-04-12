@@ -1,36 +1,35 @@
 package es.uji.ei1027.sana.model;
 
-import java.sql.Time;
 import java.time.LocalTime;
 
 public class TimeSlot {
-    String name_A;
-    LocalTime inicialHour;
-    LocalTime finalHour;
+    String name_a;
+    LocalTime inicialhour;
+    LocalTime finalhour;
     String season;
 
-    public String getName_A() {
-        return name_A;
+    public String getName_a() {
+        return name_a;
     }
 
-    public void setName_A(String name_A) {
-        this.name_A = name_A;
+    public void setName_a(String name_a) {
+        this.name_a = name_a;
     }
 
-    public LocalTime getInicialHour() {
-        return inicialHour;
+    public LocalTime getInicialhour() {
+        return inicialhour;
     }
 
-    public void setInicialHour(LocalTime inicialHour) {
-        this.inicialHour = inicialHour;
+    public void setInicialhour(LocalTime inicialhour) {
+        this.inicialhour = inicialhour;
     }
 
-    public LocalTime getFinalHour() {
-        return finalHour;
+    public LocalTime getFinalhour() {
+        return finalhour;
     }
 
-    public void setFinalHour(LocalTime finalHour) {
-        this.finalHour = finalHour;
+    public void setFinalhour(LocalTime finalhour) {
+        this.finalhour = finalhour;
     }
 
     public String getSeason() {
@@ -44,9 +43,9 @@ public class TimeSlot {
     @Override
     public String toString() {
         return "TimeSlot{" +
-                "name_A='" + name_A + '\'' +
-                ", inicialHour=" + inicialHour +
-                ", finalHour=" + finalHour +
+                "name_A='" + name_a + '\'' +
+                ", inicialHour=" + inicialhour +
+                ", finalHour=" + finalhour +
                 ", season='" + season + '\'' +
                 '}';
     }
