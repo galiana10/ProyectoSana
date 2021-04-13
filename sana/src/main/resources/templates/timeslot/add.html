@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Añadir nuevo timeslot</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+<h2>Nuevo TimeSlot</h2>
+<form action="#" th:action="@{/timeslot/add}"
+      th:object="${timeslot}" method="post">
+  <table>
+    <tr>
+      <td><label>Name Area</label></td>
+      <td><input type="text" th:field="*{name_a}" /></td>
+    </tr>
+    <tr>
+      <td><label>Inicial Hour</label></td>
+      <td><input type="text" th:field="*{inicialhour}" /></td>
+    </tr>
+    <tr>
+      <td><label>Final Hour</label></td>
+      <td><input type="text" th:field="*{finalhour}" /></td>
+    </tr>
+    <tr>
+      <td><label>Season</label></td>
+      <td><input type="text" th:field="*{season}" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="submit" value="Añadir Timeslot" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

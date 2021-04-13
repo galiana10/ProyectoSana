@@ -6,9 +6,6 @@ import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
-
-
 public final class CitizenRowMapper implements RowMapper<Citizen> {
 
     public Citizen mapRow(ResultSet rs, int rowNum) throws SQLException {

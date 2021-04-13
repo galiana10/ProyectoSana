@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar TimeSlot</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+</head>
+<body>
+<h1>Lista de TimeSlot</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Name Area</th>
+        <th>Inicial hour</th>
+        <th>Final hour</th>
+        <th>Season</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="timeslot: ${timeslots}">
+        <td th:text="${timeslot.name_a}"></td>
+        <td th:text="${timeslot.inicialhour}"></td>
+        <td th:text="${timeslot.finalhour}"></td>
+        <td th:text="${timeslot.season}"></td>
+
+        <td><a th:href="@{/timeslot/update/{name_a}/{inicialhour}(name_a=${timeslot.name_a}, inicialhour=$(timeslot.inicialhour)}">Editar</a>
+        </td>
+        <td><a th:href="@{/timeslot/delete/{name_a}/{inicialhour}(name_a=${timeslot.name_a}, inicialhour=$(timeslot.inicialhour)}">Borrar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="add">Añadir Timeslot</a>
+</body>
+</html>
