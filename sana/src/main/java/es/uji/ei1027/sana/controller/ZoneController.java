@@ -1,4 +1,7 @@
 package es.uji.ei1027.sana.controller;
+import es.uji.ei1027.sana.model.Zone;
+import es.uji.ei1027.sana.dao.ZoneDao;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/zone")
 public class ZoneController {
-    private ZoneDAO zoneDAO;
+    private ZoneDao zoneDAO;
 
     @Autowired
-    public void setZoneDAO(ZoneDAO zoneDAO){this.zoneDAO=zoneDAO;}
+    public void setZoneDAO(ZoneDao zoneDAO){this.zoneDAO=zoneDAO;}
 
 
     @RequestMapping("/list")
@@ -46,15 +49,7 @@ public class ZoneController {
         return "zone/update";
     }
 
-    @RequestMapping(value="/update", method = RequestMethod.POST)
-    public String processUpdateSubmit(
-            @ModelAttribute("zone") Zone zone,
-            BindingResult bindingResult) {
-        if (bindingResult.hasErrors())
-            return "zone/update";
-        zoneDAO.updateZone(zone);
-        return "redirect:list";
-    }
+  
 
 
     @RequestMapping(value="/delete/{name}")

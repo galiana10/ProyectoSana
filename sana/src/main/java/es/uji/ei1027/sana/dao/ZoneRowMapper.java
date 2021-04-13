@@ -12,7 +12,7 @@ public class ZoneRowMapper implements RowMapper<Zone> {
 
         Zone zone= new Zone();
         zone.setNumberLetter(rs.getString("letter"));
-        zone.setNumber_Area(rs.getString("area"));
+        zone.setName_Area(rs.getString("area"));
 
 
         return zone;

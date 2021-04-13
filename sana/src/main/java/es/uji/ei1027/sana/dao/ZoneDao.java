@@ -1,5 +1,6 @@
 package es.uji.ei1027.sana.dao;
 
+import es.uji.ei1027.sana.model.Zone;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;

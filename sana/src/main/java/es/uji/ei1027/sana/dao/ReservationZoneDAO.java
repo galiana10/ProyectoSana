@@ -1,5 +1,6 @@
 package es.uji.ei1027.sana.dao;
 
+import es.uji.ei1027.sana.model.Reservation;
 import es.uji.ei1027.sana.model.Reservation_Zone;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
