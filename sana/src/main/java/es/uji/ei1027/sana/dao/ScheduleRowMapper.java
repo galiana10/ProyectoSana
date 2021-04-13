@@ -15,6 +15,6 @@ public class ScheduleRowMapper implements RowMapper<Schedule> {
         schedule.setName_a(rs.getString("name_a"));
         schedule.setInicialdate(rs.getObject("inicialdate", LocalDate.class));
         schedule.setFinaldate(rs.getObject("finaldate", LocalDate.class));
-        return null;
+        return schedule;
     }
 }
