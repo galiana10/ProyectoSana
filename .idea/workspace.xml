@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87ecd0fa-9f0a-4a34-99e9-a7c862bfbbe8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ControlSatffController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ControlStaffDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ControlStaffRowMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/ControlStaff.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/control_staff/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/control_staff/list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/control_staff/update.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/static/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/sana/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,16 +37,25 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ControlStaffDao.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="461">
-                  <caret line="45" selection-start-line="45" selection-end-line="45" />
+                <state relative-caret-position="172">
+                  <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#1190#1191#0" expanded="true" />
                     <element signature="e#1276#1277#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/sana/src/main/resources/static/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="306">
+                  <caret line="18" column="62" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
                 </state>
               </provider>
             </entry>
@@ -101,15 +104,6 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="459">
                   <caret line="27" column="76" selection-start-line="27" selection-start-column="76" selection-end-line="27" selection-end-column="76" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/citizen/add.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="119">
-                  <caret line="7" column="7" selection-end-line="44" />
                 </state>
               </provider>
             </entry>
@@ -200,6 +194,7 @@
         <option value="$PROJECT_DIR$/sana/src/main/resources/templates/control_staff/list.html" />
         <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ControlSatffController.java" />
         <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ControlStaffDao.java" />
+        <option value="$PROJECT_DIR$/sana/src/main/resources/static/index.html" />
       </list>
     </option>
   </component>
@@ -302,7 +297,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SANA" type="b2602c69:ProjectViewProjectNode" />
@@ -312,7 +307,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="control_staff" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -326,7 +320,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1618338665035" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1618338963161" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/sana/pom.xml" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -455,7 +449,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20362474" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20362474" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -465,7 +459,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33261105" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33261105" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -755,13 +749,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ControlStaffDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        <state relative-caret-position="172">
+          <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1190#1191#0" expanded="true" />
             <element signature="e#1276#1277#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/static/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="62" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
         </state>
       </provider>
     </entry>
