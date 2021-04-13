@@ -1,10 +1,15 @@
 package es.uji.ei1027.sana.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalTime;
 
 public class TimeSlot {
     String name_a;
+
+    @DateTimeFormat(pattern = "HH:mm:ss")
     LocalTime inicialhour;
+    @DateTimeFormat(pattern = "HH:mm:ss")
     LocalTime finalhour;
     String season;
 
