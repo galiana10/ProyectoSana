@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar Citizens</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Lista de Control Staff</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>NIE</th>
+        <th>Email</th>
+
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="staffrow: ${staff}">
+        <td th:text="${staffrow.name}"></td>
+        <td th:text="${staffrow.nie}"></td>
+        <td th:text="${staffrow.email}"></td>
+
+        <td><a th:href="@{/control_staff/update/{nie}(nie=${staffrow.nie})}">Editar</a>
+        </td>
+        <td><a th:href="@{/control_staff/delete/{nie}(nie=${staffrow.nie})}">Borrar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="add">Añadir Control Staff</a>
+</body>
+</html>
