@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar Citizens</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Lista de Control Staff Area</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>NIE</th>
+
+
+
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="staffrow: ${staff_area}">
+        <td th:text="${staffrow.name_a}"></td>
+        <td th:text="${staffrow.nie_cs}"></td>
+
+
+        <td><a th:href="@{/control_staff_area/delete/{nie}/{name}(nie=${staffrow.nie_cs},name=${staffrow.name_a})}">Borrar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="add">Añadir Control Staff Area</a>
+</body>
+</html>
