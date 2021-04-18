@@ -1,6 +1,6 @@
 package es.uji.ei1027.sana.dao;
 
-import es.uji.ei1027.sana.model.ControlStaff_Area;
+import es.uji.ei1027.sana.model.ControlStaffArea;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @Repository
-public class ControlStaff_AreaDao {
+public class ControlStaffAreaDao {
 
     private JdbcTemplate jdbcTemplate;
 
@@ -25,13 +25,13 @@ public class ControlStaff_AreaDao {
 
     /*Añade control staff area*/
 
-    public void anadeStaffArea(ControlStaff_Area controlStaff_area) {
+    public void anadeStaffArea(ControlStaffArea controlStaff_area) {
         jdbcTemplate.update("INSERT INTO controlstaff_area VALUES(?,?)",
                 controlStaff_area.getNie_cs(), controlStaff_area.getName_a());
     }
 
     /*borra con objeto*/
-    public void deteleStaffArea(ControlStaff_Area controlStaff_area) {
+    public void deteleStaffArea(ControlStaffArea controlStaff_area) {
         jdbcTemplate.update("DELETE FROM controlstaff_area WHERE nie_cs='" + controlStaff_area.getNie_cs() + "' AND name_a='" + controlStaff_area.getName_a() + "\'");
 
     }
@@ -45,7 +45,7 @@ public class ControlStaff_AreaDao {
     public ControlStaff_Area getstaff(String NIE, String name) {
         try {
             return jdbcTemplate.queryForObject("SELECT * FROM controlstaff_area WHERE nie_cs=? AND name_a='" + name + "'",
-                    new ControlStaff_AreaRowMapper(),
+                    new ControlStaffAreaRowMapper(),
                     NIE);
         } catch (EmptyResultDataAccessException e) {
             return null;

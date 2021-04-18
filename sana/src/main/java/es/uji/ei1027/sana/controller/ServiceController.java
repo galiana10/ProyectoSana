@@ -1,7 +1,7 @@
 package es.uji.ei1027.sana.controller;
 
 
-import es.uji.ei1027.sana.dao.ServiceDAO;
+import es.uji.ei1027.sana.dao.ServiceDao;
 import es.uji.ei1027.sana.model.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/service")
 public class ServiceController {
 
-    private ServiceDAO serviceDAO;
+    private ServiceDao serviceDAO;
 
     @Autowired
-    public void setServiceDAO(ServiceDAO serviceDAO){this.serviceDAO=serviceDAO;}
+    public void setServiceDAO(ServiceDao serviceDAO){this.serviceDAO=serviceDAO;}
 
 
     @RequestMapping("/list")

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class ServiceDAO {
+public class ServiceDao {
 
     private JdbcTemplate jdbcTemplate;
 

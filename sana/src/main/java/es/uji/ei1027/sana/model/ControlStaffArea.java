@@ -1,6 +1,6 @@
 package es.uji.ei1027.sana.model;
 
-public class ControlStaff_Area {
+public class ControlStaffArea {
     private String nie_cs;
     private String name_a;
 
@@ -22,7 +22,7 @@ public class ControlStaff_Area {
 
     @Override
     public String toString() {
-        return "ControlStaff_Area{" +
+        return "ControlStaffArea{" +
                 "nie_cs='" + nie_cs + '\'' +
                 ", name_a='" + name_a + '\'' +
                 '}';
