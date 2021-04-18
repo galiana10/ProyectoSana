@@ -1,6 +1,6 @@
 package es.uji.ei1027.sana.model;
 
-public class Reservation_Zone {
+public class ReservationZone {
     String QR;
     String numberLetter;
 

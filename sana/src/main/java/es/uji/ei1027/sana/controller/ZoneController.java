@@ -43,20 +43,13 @@ public class ZoneController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/update/{name}", method = RequestMethod.GET)
+    @RequestMapping(value="/update/{numberLetter}", method = RequestMethod.GET)
     public String editZone(Model model, @PathVariable String numberLetter) {
         model.addAttribute("zone", zoneDAO.getZone(numberLetter));
         return "zone/update";
     }
 
 
-
-
-    @RequestMapping(value="/delete/{name}")
-    public String processDelete(@PathVariable String numberLetter) {
-        zoneDAO.deleteZone(numberLetter);
-        return "redirect:../list";
-    }
 
 
 
