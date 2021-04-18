@@ -21,29 +21,29 @@ public class MunicipalManagerDao {
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
-    /* Afegeix el citizen a la base de dades */
+    /* Afegeix el mm a la base de dades */
     public void addMunicipalManager(MunicipalManager mm) {
         jdbcTemplate.update("INSERT INTO MUNICIPALMANAGER VALUES(?, ?, ?, ?, ?)",
                 mm.getNIE(), mm.getName(),mm.getInicialDate(),mm.getFinalDate(),mm.getName_M());
     }
 
-    /* Esborra el citizen de la base de dades por Objeto*/
+    /* Esborra el mm de la base de dades por Objeto*/
     public void deleteMunicipalManager(MunicipalManager mm) {
         jdbcTemplate.update("DELETE FROM MUNICIPALMANAGER WHERE NIE='"+mm.getNIE()+"' ");
     }
 
-    /* Esborra el citizen de la base de dades por NIE*/
+    /* Esborra el mm de la base de dades por NIE*/
     public void deleteMunicipalManager(String NIEmm) {
         jdbcTemplate.update("DELETE FROM MUNICIPALMANAGER WHERE NIE='"+NIEmm+"' ");
     }
 
-    /* Actualitza els atributs del citizen*/
+    /* Actualitza els atributs del mm */
     public void updateMunicipalManager(MunicipalManager mm) {
         jdbcTemplate.update("UPDATE MUNICIPALMANAGER SET name=?,inicialDate=?,final_Date=?,name_M=? WHERE NIE=?",
                 mm.getName(),mm.getInicialDate(),mm.getFinalDate(),mm.getName_M(),mm.getNIE());
     }
 
-    /* Obté el citizen amb el NIE Torna null si no existeix. */
+    /* Obté el m amb el NIE Torna null si no existeix. */
     public MunicipalManager getMunicipalManager(String NIEmm) {
         try {
             return jdbcTemplate.queryForObject("SELECT * FROM MUNICIPALMANAGER WHERE NIE=?",
@@ -55,7 +55,7 @@ public class MunicipalManagerDao {
         }
     }
 
-    /* Obté tots els citizen Torna una llista buida si no n'hi ha cap. */
+    /* Obté tots els mm Torna una llista buida si no n'hi ha cap. */
     public List<MunicipalManager> getMunicipalManager() {
         try {
             return jdbcTemplate.query("SELECT * FROM MUNICPALMANAGER",
