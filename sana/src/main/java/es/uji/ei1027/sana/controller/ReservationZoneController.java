@@ -61,7 +61,7 @@ public class ReservationZoneController {
             BindingResult bindingResult) {
         if (bindingResult.hasErrors())
             return "reservationzone/update";
-        reservationZoneDao.updateReservationZone(reservationZ);
+       // reservationZoneDao.updateReservationZone(reservationZ);
         return "redirect:list";
     }
 

@@ -42,7 +42,7 @@ public class ControlStaffAreaDao {
     }
 
     /*obten relacion con nie y name*/
-    public ControlStaff_Area getstaff(String NIE, String name) {
+    public ControlStaffArea getstaff(String NIE, String name) {
         try {
             return jdbcTemplate.queryForObject("SELECT * FROM controlstaff_area WHERE nie_cs=? AND name_a='" + name + "'",
                     new ControlStaffAreaRowMapper(),
@@ -54,11 +54,11 @@ public class ControlStaffAreaDao {
     }
 
     /*obten totes les relacions*/
-    public List<ControlStaff_Area> getStaff() {
+    public List<ControlStaffArea> getStaff() {
         try {
-            return jdbcTemplate.query("SELECT * FROM controlstaff_area", new ControlStaff_AreaRowMapper());
+            return jdbcTemplate.query("SELECT * FROM controlstaff_area", new ControlStaffAreaRowMapper());
         } catch (EmptyResultDataAccessException e) {
-            return new ArrayList<ControlStaff_Area>();
+            return new ArrayList<ControlStaffArea>();
         }
 
     }
