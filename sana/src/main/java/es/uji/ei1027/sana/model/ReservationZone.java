@@ -1,8 +1,17 @@
 package es.uji.ei1027.sana.model;
 
 public class ReservationZone {
-    String QR;
-    String numberLetter;
+    private String QR;
+    private String numberLetter;
+    private String name_Area;
+
+    public String getName_Area() {
+        return name_Area;
+    }
+
+    public void setName_Area(String name_Area) {
+        this.name_Area = name_Area;
+    }
 
     public String getQR() {
         return QR;
@@ -22,9 +31,10 @@ public class ReservationZone {
 
     @Override
     public String toString() {
-        return "Reservation_Zone{" +
+        return "ReservationZone{" +
                 "QR='" + QR + '\'' +
                 ", numberLetter='" + numberLetter + '\'' +
+                ", name_Area='" + name_Area + '\'' +
                 '}';
     }
 }

@@ -10,9 +10,9 @@ public class ControlStaffRowMapper implements RowMapper<ControlStaff> {
 
     public ControlStaff mapRow(ResultSet rs, int rowNum) throws SQLException {
         ControlStaff controlStaff = new ControlStaff();
-        controlStaff.setName(rs.getString("name"));
-        controlStaff.setNie(rs.getString("nie"));
+        controlStaff.setNie(rs.getString("NIE"));
         controlStaff.setEmail(rs.getString("email"));
+        controlStaff.setName(rs.getString("name"));
 
         return controlStaff;
     }

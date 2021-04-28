@@ -13,9 +13,9 @@ public class MunicipalManagerRowMapper implements RowMapper<MunicipalManager> {
     @Override
     public MunicipalManager mapRow(ResultSet rs, int rowNum) throws SQLException {
         MunicipalManager mm = new MunicipalManager();
-        mm.setName(rs.getString("name"));
         mm.setNIE(rs.getString("NIE"));
-        mm.setInicialDate(rs.getObject("inicialDate", Date.class));
+        mm.setName(rs.getString("name"));
+        mm.setInitialDate(rs.getObject("initialDate", Date.class));
         mm.setFinalDate(rs.getObject("finalDate", Date.class));
         mm.setName_M(rs.getString("name_M"));
         return mm;

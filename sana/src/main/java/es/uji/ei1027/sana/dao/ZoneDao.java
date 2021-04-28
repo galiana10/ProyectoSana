@@ -22,35 +22,35 @@ public class ZoneDao {
 
     /* Afegeix el zone a la base de dades */
     public void addZone(Zone zone) {
-        jdbcTemplate.update("INSERT INTO zone VALUES(?, ?)",
+        jdbcTemplate.update("INSERT INTO zone VALUES(?, ?, ?)",
+                zone.getNumberLetter(),zone.getName_Area(),zone.getMaxCapacity()) ;
+    }
+
+    /*Esborra una zona*/
+    public void deleteZone(Zone zone) {
+        jdbcTemplate.update("DELETE FROM zone where numberLetter = ? AND name_Area= ?",
                 zone.getNumberLetter(),zone.getName_Area()) ;
     }
 
-    /*Esborra un servici*/
-    public void deleteZone(Zone zone) {
-        jdbcTemplate.update("DELETE FROM zone where numberLetter = ?",
-                zone.getNumberLetter()) ;
-    }
-
-    /*Esborra un servici*/
-    public void deleteZone(String zoneNumberLetter) {
-        jdbcTemplate.update("DELETE FROM zone where name = ?",
-                zoneNumberLetter) ;
+    /*Esborra un zona por atributos*/
+    public void deleteZone(String zoneNumberLetter,String nameArea) {
+        jdbcTemplate.update("DELETE FROM zone where numberLetter = ? AND name_Area= ?",
+                zoneNumberLetter,nameArea) ;
     }
 
 
-    /* Obté la classificacio amb el nom donat. Torna null si no existeix. */
-    public Zone getZone(String zoneName) {
+    /* Obté la zona. Torna null si no existeix. */
+    public Zone getZone(String zoneNumberLetter,String nameArea) {
         try {
-            return jdbcTemplate.queryForObject("SELECT * from zone WHERE numberLetter=?",
-                    new ZoneRowMapper(),zoneName);
+            return jdbcTemplate.queryForObject("SELECT * FROM zone where numberLetter = ? AND name_Area= ?",
+                    new ZoneRowMapper(),zoneNumberLetter,nameArea);
         }
         catch(EmptyResultDataAccessException e) {
             return null;
         }
     }
 
-    /* Obté la classificacio amb el nom donat. Torna null si no existeix. */
+
     public List<Zone> getZones() {
         try {
             return jdbcTemplate.query("SELECT * from zone ",

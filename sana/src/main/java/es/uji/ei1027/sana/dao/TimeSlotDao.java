@@ -24,31 +24,31 @@ public class TimeSlotDao {
     /* Afegeix el timeSlot a la base de dades */
     public void addTimeSlot(TimeSlot timeSlot) {
         jdbcTemplate.update("INSERT INTO TIMESLOT VALUES(?, ?, ?,?)",
-                timeSlot.getName_a(), timeSlot.getInicialhour(),timeSlot.getFinalhour(), timeSlot.getSeason());
+                timeSlot.getName_a(), timeSlot.getInitialhour(),timeSlot.getFinalhour(), timeSlot.getSeason());
     }
 
     /* Esborra el timeSlot de la base de dades por Objeto*/
     public void deleteTimeSlot(TimeSlot timeSlot) {
-        jdbcTemplate.update("DELETE FROM TIMESLOT WHERE name_a='" + timeSlot.getName_a() + "' AND inicialhour'" + timeSlot.getInicialhour() + "'  ");
+        jdbcTemplate.update("DELETE FROM TIMESLOT WHERE name_a='" + timeSlot.getName_a() + "' AND initialhour'" + timeSlot.getInitialhour() + "'  ");
     }
 
     /* Esborra el timeSlot de la base de dades por name_a AND inicialhour*/
-    public void deleteTimeSlot(String name_a, LocalTime inicialhour) {
-        jdbcTemplate.update("DELETE FROM TIMESLOT WHERE name_a='"+name_a+"' AND name_a='"+inicialhour.toString()+"' ");
+    public void deleteTimeSlot(String name_a, LocalTime initialhour) {
+        jdbcTemplate.update("DELETE FROM TIMESLOT WHERE name_a='"+name_a+"' AND name_a='"+initialhour.toString()+"' ");
     }
 
     /* Actualitza els atributs del timeSlot*/
     public void updateTimeSlot(TimeSlot timeSlot) {
-        jdbcTemplate.update("UPDATE TIMESLOT SET finalHour=?,season=? WHERE name_a=? AND inicialhour=?",
-                timeSlot.getFinalhour(),timeSlot.getSeason(),timeSlot.getName_a(), timeSlot.getInicialhour());
+        jdbcTemplate.update("UPDATE TIMESLOT SET finalHour=?,season=? WHERE name_a=? AND initialhour=?",
+                timeSlot.getFinalhour(),timeSlot.getSeason(),timeSlot.getName_a(), timeSlot.getInitialhour());
     }
 
     /* Obté el timeSlot amb el name_a and inicialHour, Torna null si no existeix. */
-    public TimeSlot getTimeSlot(String name_a, LocalTime inicialhour) {
+    public TimeSlot getTimeSlot(String name_a, LocalTime initialhour) {
         try {
-            return jdbcTemplate.queryForObject("SELECT * FROM MUNICIPALITY WHERE name_a=? AND inicialhour=?",
+            return jdbcTemplate.queryForObject("SELECT * FROM MUNICIPALITY WHERE name_a=? AND initialhour=?",
                     new TimeSlotRowMapper(),
-                    name_a, inicialhour);
+                    name_a, initialhour);
         }
         catch(EmptyResultDataAccessException e) {
             return null;

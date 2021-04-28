@@ -15,6 +15,10 @@
         <th>QR</th>
         <th>ReservationLimit</th>
         <th>NIE_citizen</th>
+        <th>Status</th>
+        <th>name_Area</th>
+        <th>InitialHour</th>
+
         <th></th>
         <th></th>
     </tr>
@@ -26,6 +30,9 @@
         <td th:text="${reservation.QR}"></td>
         <td th:text="${reservation.reservationLimit}"></td>
         <td th:text="${reservation.NIE_citizen}"></td>
+        <td th:text="${reservation.status}"></td>
+        <td th:text="${reservation.name_A}"></td>
+        <td th:text="${reservation.initialHour}"></td>
         <td><a th:href="@{/reservation/update/{QR}(QR=${reservation.QR})}">Editar</a>
         </td>
         <td><a th:href="@{/reservation/delete/{QR}(QR=${reservation.QR})}">Anular</a>

@@ -46,8 +46,8 @@ public class TimeSlotController {
     }
 
     @RequestMapping(value="/update/{name_a}/{inicialhour}", method = RequestMethod.GET)
-    public String editTimeslot(Model model, @PathVariable String name_a, @PathVariable LocalTime inicialhour) {
-        model.addAttribute("timeslot", timeSlotDao.getTimeSlot(name_a,inicialhour));
+    public String editTimeslot(Model model, @PathVariable String name_A, @PathVariable LocalTime initialHour) {
+        model.addAttribute("timeslot", timeSlotDao.getTimeSlot(name_A,initialHour));
         return "timeslot/update";
     }
 
@@ -61,9 +61,9 @@ public class TimeSlotController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/delete/{name_a}/{inicialhour}")
-    public String processDelete(@PathVariable String name_a, @PathVariable LocalTime inicialhour) {
-        timeSlotDao.deleteTimeSlot(name_a, inicialhour);
+    @RequestMapping(value="/delete/{name_A}/{inicialHour}")
+    public String processDelete(@PathVariable String name_A, @PathVariable LocalTime initialHour) {
+        timeSlotDao.deleteTimeSlot(name_A, initialHour);
         return "redirect:../list";
     }
 

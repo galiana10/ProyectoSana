@@ -43,9 +43,9 @@ public class ZoneController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/update/{numberLetter}", method = RequestMethod.GET)
-    public String editZone(Model model, @PathVariable String numberLetter) {
-        model.addAttribute("zone", zoneDAO.getZone(numberLetter));
+    @RequestMapping(value="/update/{numberLetter}/{name_Area}", method = RequestMethod.GET)
+    public String editZone(Model model, @PathVariable String numberLetter,@PathVariable String name_Area) {
+        model.addAttribute("zone", zoneDAO.getZone(numberLetter,name_Area));
         return "zone/update";
     }
 

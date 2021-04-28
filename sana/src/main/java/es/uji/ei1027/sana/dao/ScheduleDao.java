@@ -27,31 +27,31 @@ public class ScheduleDao {
     /* Afegeix el schedule a la base de dades */
     public void addSchedule(Schedule schedule) {
         jdbcTemplate.update("INSERT INTO SCHEDULE VALUES(?, ?, ?,?)",
-                schedule.getName_s(), schedule.getName_a(), schedule.getInicialdate(), schedule.getFinaldate());
+                schedule.getName_s(), schedule.getName_a(), schedule.getInitialdate(), schedule.getFinaldate());
     }
 
     /* Esborra el schedule de la base de dades por Objeto*/
     public void deleteSchedule(Schedule schedule) {
-        jdbcTemplate.update("DELETE FROM SCHEDULE WHERE name_s='" + schedule.getName_s() + "' AND name_a='" + schedule.getName_a() + "' AND inicialdate='" + schedule.getInicialdate() + "'  ");
+        jdbcTemplate.update("DELETE FROM SCHEDULE WHERE name_S='" + schedule.getName_s() + "' AND name_A='" + schedule.getName_a() + "' AND initialDate='" + schedule.getInitialdate() + "'  ");
     }
 
-    /* Esborra el schedule de la base de dades por name_s, name_a, inicialdate*/
-    public void deleteSchedule(String name_s, String name_a, LocalDate inicialdate) {
-        jdbcTemplate.update("DELETE FROM SCHEDULE WHERE name_s='" + name_s + "' AND name_a='" + name_a + "' AND inicialdate='" + inicialdate + "' ");
+    /* Esborra el schedule de la base de dades por name_s, name_a, initialdate*/
+    public void deleteSchedule(String name_s, String name_a, LocalDate initialdate) {
+        jdbcTemplate.update("DELETE FROM SCHEDULE WHERE name_s='" + name_s + "' AND name_a='" + name_a + "' AND initialdate='" + initialdate + "' ");
     }
 
     /* Actualitza els atributs del schedule*/
     public void updateTimeSlot(Schedule schedule) {
-        jdbcTemplate.update("UPDATE SCHEDULE SET finaldate=? WHERE name_s=? AND name_a=? AND inicialdate=?",
-                schedule.getFinaldate(),schedule.getName_s(),schedule.getName_a(), schedule.getInicialdate());
+        jdbcTemplate.update("UPDATE SCHEDULE SET finaldate=? WHERE name_s=? AND name_a=? AND initialdate=?",
+                schedule.getFinaldate(),schedule.getName_s(),schedule.getName_a(), schedule.getInitialdate());
     }
 
-    /* Obté el schedule amb el name_s, name_a and inicialDate, Torna null si no existeix. */
-    public Schedule getSchedule(String name_s, String name_a, LocalDate inicialdate) {
+    /* Obté el schedule amb el name_s, name_a and initialDate, Torna null si no existeix. */
+    public Schedule getSchedule(String name_s, String name_a, LocalDate initialdate) {
         try {
-            return jdbcTemplate.queryForObject("SELECT * FROM SCHEDULE WHERE name_s=? AND name_a=? AND inicialdate=?",
+            return jdbcTemplate.queryForObject("SELECT * FROM SCHEDULE WHERE name_s=? AND name_a=? AND initialdate=?",
                     new ScheduleRowMapper(),
-                    name_s, name_a, inicialdate);
+                    name_s, name_a, initialdate);
         }
         catch(EmptyResultDataAccessException e) {
             return null;

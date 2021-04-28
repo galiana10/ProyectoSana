@@ -49,9 +49,9 @@ public class ScheduleController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/update/{name_s}/{name_a}/{inicialdate}", method = RequestMethod.GET)
-    public String editSchedule(Model model, @PathVariable String name_s, @PathVariable String name_a, @PathVariable LocalDate inicialdate) {
-        model.addAttribute("schedule", scheduleDao.getSchedule(name_s, name_s, inicialdate));
+    @RequestMapping(value="/update/{name_s}/{name_a}/{initialDate}", method = RequestMethod.GET)
+    public String editSchedule(Model model, @PathVariable String name_s, @PathVariable String name_a, @PathVariable LocalDate initialDate) {
+        model.addAttribute("schedule", scheduleDao.getSchedule(name_s, name_s, initialDate));
         return "schedule/update";
     }
 
@@ -65,9 +65,9 @@ public class ScheduleController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/delete/{name_s}/{name_a}/{inicialdate}")
-    public String processDelete(@PathVariable String name_s,@PathVariable String name_a, @PathVariable LocalDate inicialdate) {
-        scheduleDao.deleteSchedule(name_s, name_a, inicialdate);
+    @RequestMapping(value="/delete/{name_s}/{name_a}/{initialDate}")
+    public String processDelete(@PathVariable String name_s,@PathVariable String name_a, @PathVariable LocalDate initialdate) {
+        scheduleDao.deleteSchedule(name_s, name_a, initialdate);
         return "redirect:../list";
     }
 

@@ -6,9 +6,8 @@ import java.time.LocalTime;
 
 public class TimeSlot {
     String name_a;
-
     @DateTimeFormat(pattern = "HH:mm:ss")
-    LocalTime inicialhour;
+    LocalTime initialhour;
     @DateTimeFormat(pattern = "HH:mm:ss")
     LocalTime finalhour;
     String season;
@@ -21,12 +20,12 @@ public class TimeSlot {
         this.name_a = name_a;
     }
 
-    public LocalTime getInicialhour() {
-        return inicialhour;
+    public LocalTime getInitialhour() {
+        return initialhour;
     }
 
-    public void setInicialhour(LocalTime inicialhour) {
-        this.inicialhour = inicialhour;
+    public void setInitialhour(LocalTime initialhour) {
+        this.initialhour = initialhour;
     }
 
     public LocalTime getFinalhour() {
@@ -49,7 +48,7 @@ public class TimeSlot {
     public String toString() {
         return "TimeSlot{" +
                 "name_A='" + name_a + '\'' +
-                ", inicialHour=" + inicialhour +
+                ", inicialHour=" + initialhour +
                 ", finalHour=" + finalhour +
                 ", season='" + season + '\'' +
                 '}';

@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class Schedule {
     String name_s;
     String name_a;
-    LocalDate inicialdate;
+    LocalDate initialdate;
     LocalDate finaldate;
 
     public String getName_s() {
@@ -24,12 +24,12 @@ public class Schedule {
         this.name_a = name_a;
     }
 
-    public LocalDate getInicialdate() {
-        return inicialdate;
+    public LocalDate getInitialdate() {
+        return initialdate;
     }
 
-    public void setInicialdate(LocalDate inicialdate) {
-        this.inicialdate = inicialdate;
+    public void setInitialdate(LocalDate initialdate) {
+        this.initialdate = initialdate;
     }
 
     public LocalDate getFinaldate() {
@@ -45,7 +45,7 @@ public class Schedule {
         return "Schedule{" +
                 "name_s='" + name_s + '\'' +
                 ", name_a='" + name_a + '\'' +
-                ", inicialdate=" + inicialdate +
+                ", initialdate=" + initialdate +
                 ", finaldate=" + finaldate +
                 '}';
     }

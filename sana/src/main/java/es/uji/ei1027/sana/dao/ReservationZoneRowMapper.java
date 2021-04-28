@@ -14,7 +14,7 @@ public class ReservationZoneRowMapper implements RowMapper<ReservationZone> {
 
         reservationZone.setQR(rs.getString("QR_R"));
         reservationZone.setNumberLetter(rs.getString("numberLetter_Z"));
-
+        reservationZone.setName_Area(rs.getString("name_Area"));
         return reservationZone;
     }
 }

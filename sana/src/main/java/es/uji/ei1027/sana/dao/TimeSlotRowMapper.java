@@ -11,9 +11,9 @@ public class TimeSlotRowMapper implements RowMapper<TimeSlot>{
     @Override
     public TimeSlot mapRow(ResultSet rs, int rowNum) throws SQLException {
         TimeSlot timeSlot = new TimeSlot();
-        timeSlot.setName_a(rs.getString("name_a"));
-        timeSlot.setInicialhour(rs.getObject("inicialhour", LocalTime.class));
-        timeSlot.setFinalhour(rs.getObject("finalhour", LocalTime.class));
+        timeSlot.setName_a(rs.getString("name_A"));
+        timeSlot.setInitialhour(rs.getObject("initialHour", LocalTime.class));
+        timeSlot.setFinalhour(rs.getObject("finalHour", LocalTime.class));
         timeSlot.setSeason(rs.getString("season"));
         return timeSlot;
     }

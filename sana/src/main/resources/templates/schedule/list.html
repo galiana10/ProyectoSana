@@ -20,7 +20,7 @@
   <tr th:each="schedule: ${schedules}">
     <td th:text="${schedule.name_s}"></td>
     <td th:text="${schedule.name_a}"></td>
-    <td th:text="${schedule.inicialdate}"></td>
+    <td th:text="${schedule.initialdate}"></td>
     <td th:text="${schedule.finaldate}"></td>
 
     <td><a th:href="@{/schedule/add/{name_s}/{name_a}/{inicialdate}(name_s=${schedule.name_s}, name_a=${schedule.name_a}, inicialdate=$(schedule.inicialdate)}">Editar</a>

@@ -49,9 +49,9 @@ public class ReservationZoneController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/update/{QR}", method = RequestMethod.GET)
-    public String editReservation(Model model, @PathVariable String QR) {
-        model.addAttribute("reservationzone", reservationZoneDao.getReservationZone(QR));
+    @RequestMapping(value="/update/{QR}/{numberLetter_Z}/{name_Area}", method = RequestMethod.GET)
+    public String editReservation(Model model, @PathVariable String QR,@PathVariable String numberLetter_Z,@PathVariable String name_Area) {
+        model.addAttribute("reservationzone", reservationZoneDao.getReservationZone(QR,numberLetter_Z,name_Area));
         return "reservationzone/update";
     }
 

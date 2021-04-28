@@ -25,9 +25,9 @@ public class ControlStaffAreaDao {
 
     /*Añade control staff area*/
 
-    public void anadeStaffArea(ControlStaffArea controlStaff_area) {
-        jdbcTemplate.update("INSERT INTO controlstaff_area VALUES(?,?)",
-                controlStaff_area.getNie_cs(), controlStaff_area.getName_a());
+    public void añadeStaffArea(ControlStaffArea controlStaff_area) {
+        jdbcTemplate.update("INSERT INTO controlstaff_area VALUES(?,?,?,?)",
+                controlStaff_area.getNie_cs(), controlStaff_area.getName_a(),controlStaff_area.getInitialDate(),controlStaff_area.getFinalDate());
     }
 
     /*borra con objeto*/
@@ -46,7 +46,7 @@ public class ControlStaffAreaDao {
         try {
             return jdbcTemplate.queryForObject("SELECT * FROM controlstaff_area WHERE nie_cs=? AND name_a='" + name + "'",
                     new ControlStaffAreaRowMapper(),
-                    NIE);
+                    NIE,name);
         } catch (EmptyResultDataAccessException e) {
             return null;
         }

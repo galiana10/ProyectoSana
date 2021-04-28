@@ -24,8 +24,8 @@ public class ReservationDao {
 
     /* Afegeix la reserva a la base de dades */
     public void addReservation(Reservation reservation) {
-        jdbcTemplate.update("INSERT INTO RESERVATION VALUES(?, ?, ?, ?, ?)",
-                reservation.getDate(),reservation.getPeopleNumber(),reservation.getQR(),reservation.getReservationLimit(),reservation.getNIE_citizen());
+        jdbcTemplate.update("INSERT INTO RESERVATION VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
+                reservation.getDate(),reservation.getPeopleNumber(),reservation.getQR(),reservation.getReservationLimit(),reservation.getNIE_citizen(),reservation.getStatus(),reservation.getName_A(),reservation.getInitialHour());
     }
 
     /* Esborra la reserva de la base de dades por Objeto*/
@@ -40,8 +40,8 @@ public class ReservationDao {
 
     /* Actualitza els atributs de la reserva*/
     public void updateReservation(Reservation reservation) {
-        jdbcTemplate.update("UPDATE RESERVATION SET date=?,peopleNumber=?,reservationLimit=?,NIE_citizen=? WHERE QR=?",
-                reservation.getDate(),reservation.getPeopleNumber(),reservation.getReservationLimit(),reservation.getNIE_citizen(),reservation.getQR() );
+        jdbcTemplate.update("UPDATE RESERVATION SET date=?,peopleNumber=?,reservationLimit=?,NIE_citizen=?,status=?,name_A=?,initialHour=? WHERE QR=?",
+                reservation.getDate(),reservation.getPeopleNumber(),reservation.getReservationLimit(),reservation.getNIE_citizen(),reservation.getStatus(),reservation.getName_A(),reservation.getInitialHour(),reservation.getQR() );
     }
 
     /* Obté la reserva amb el QR Torna null si no existeix. */

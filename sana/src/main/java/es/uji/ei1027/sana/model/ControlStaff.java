@@ -1,16 +1,17 @@
 package es.uji.ei1027.sana.model;
 
 public class ControlStaff {
-    private String nie;
-    private String name;
+    private String NIE;
     private String email;
+    private String name;
+
 
     public String getNie() {
-        return nie;
+        return NIE;
     }
 
     public void setNie(String nie) {
-        this.nie = nie;
+        this.NIE = nie;
     }
 
     public String getName() {
@@ -32,9 +33,9 @@ public class ControlStaff {
     @Override
     public String toString() {
         return "ControlStaff{" +
-                "nie='" + nie + '\'' +
-                ", name='" + name + '\'' +
+                "NIE='" + NIE + '\'' +
                 ", email='" + email + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 }

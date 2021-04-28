@@ -29,25 +29,25 @@ public class ControlStaffDao {
                 controlStaff.getNie(),controlStaff.getEmail(), controlStaff.getName());
     }
 
-    /* Esborra el citizen de la base de dades por Objeto*/
+    /* Esborra el cs de la base de dades por Objeto*/
     public void deleteStaff(ControlStaff controlStaff) {
         jdbcTemplate.update("DELETE FROM controlstaff WHERE NIE='"+controlStaff.getNie()+"' ");
     }
 
 
-    /* Esborra el citizen de la base de dades por NIE*/
+    /* Esborra el cs de la base de dades por NIE*/
     public void deleteStaff(String NIE) {
         jdbcTemplate.update("DELETE FROM controlstaff WHERE NIE='"+NIE+"' ");
     }
 
 
-    /* Actualitza els atributs del citizen*/
+    /* Actualitza els atributs del cs*/
     public void updateStaff(ControlStaff controlStaff) {
         jdbcTemplate.update("UPDATE controlstaff SET name=?,email=? WHERE nie=?",
                 controlStaff.getName(),controlStaff.getEmail(),controlStaff.getNie());
     }
 
-    /* Obté el citizen amb el NIE Torna null si no existeix. */
+    /* Obté el cs amb el NIE Torna null si no existeix. */
     public ControlStaff getstaff(String NIE) {
         try {
             return jdbcTemplate.queryForObject("SELECT * FROM controlstaff WHERE NIE=?",
@@ -60,7 +60,7 @@ public class ControlStaffDao {
     }
 
 
-    /* Obté tots els citizen Torna una llista buida si no n'hi ha cap. */
+    /* Obté tots els cs Torna una llista buida si no n'hi ha cap. */
     public List<ControlStaff> getStaff() {
         try {
             return jdbcTemplate.query("SELECT * FROM controlstaff",

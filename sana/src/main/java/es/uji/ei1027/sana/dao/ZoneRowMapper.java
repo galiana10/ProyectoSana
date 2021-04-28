@@ -11,8 +11,9 @@ public class ZoneRowMapper implements RowMapper<Zone> {
     public Zone mapRow(ResultSet rs, int rowNum) throws SQLException {
 
         Zone zone= new Zone();
-        zone.setNumberLetter(rs.getString("letter"));
-        zone.setName_Area(rs.getString("area"));
+        zone.setNumberLetter(rs.getString("numberLetter"));
+        zone.setName_Area(rs.getString("name_Area"));
+        zone.setMaxCapacity(rs.getInt("maxCapacity"));
 
 
         return zone;

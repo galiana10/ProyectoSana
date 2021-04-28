@@ -5,7 +5,7 @@ import java.util.Date;
 public class MunicipalManager {
     String NIE;
     String name;
-    Date inicialDate;
+    Date initialDate;
     Date finalDate;
     String name_M;
 
@@ -25,12 +25,12 @@ public class MunicipalManager {
         this.name = name;
     }
 
-    public Date getInicialDate() {
-        return inicialDate;
+    public Date getInitialDate() {
+        return initialDate;
     }
 
-    public void setInicialDate(Date inicialDate) {
-        this.inicialDate = inicialDate;
+    public void setInitialDate(Date initialDate) {
+        this.initialDate = initialDate;
     }
 
     public Date getFinalDate() {
@@ -54,7 +54,7 @@ public class MunicipalManager {
         return "MunicipalManager{" +
                 "NIE='" + NIE + '\'' +
                 ", name='" + name + '\'' +
-                ", inicialDate=" + inicialDate +
+                ", initialDate=" + initialDate +
                 ", finalDate=" + finalDate +
                 ", name_M='" + name_M + '\'' +
                 '}';

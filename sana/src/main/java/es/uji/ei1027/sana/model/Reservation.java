@@ -1,6 +1,9 @@
 package es.uji.ei1027.sana.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Reservation {
 
@@ -9,6 +12,34 @@ public class Reservation {
     private String QR;
     private Integer reservationLimit;
     private String NIE_citizen;
+    private String status;
+    private String name_A;
+    @DateTimeFormat(pattern = "HH:mm:ss")
+    LocalTime initialHour;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getName_A() {
+        return name_A;
+    }
+
+    public void setName_A(String name_A) {
+        this.name_A = name_A;
+    }
+
+    public LocalTime getInitialHour() {
+        return initialHour;
+    }
+
+    public void setInitialHour(LocalTime initialHour) {
+        this.initialHour = initialHour;
+    }
 
     public LocalDate getDate() {
         return date;
@@ -52,13 +83,15 @@ public class Reservation {
 
     @Override
     public String toString() {
-
         return "Reservation{" +
                 "date=" + date +
                 ", peopleNumber=" + peopleNumber +
                 ", QR='" + QR + '\'' +
                 ", reservationLimit=" + reservationLimit +
                 ", NIE_citizen='" + NIE_citizen + '\'' +
+                ", status='" + status + '\'' +
+                ", name_A='" + name_A + '\'' +
+                ", initialHour=" + initialHour +
                 '}';
     }
 }

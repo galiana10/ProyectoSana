@@ -24,7 +24,7 @@ public class MunicipalManagerDao {
     /* Afegeix el mm a la base de dades */
     public void addMunicipalManager(MunicipalManager mm) {
         jdbcTemplate.update("INSERT INTO MUNICIPALMANAGER VALUES(?, ?, ?, ?, ?)",
-                mm.getNIE(), mm.getName(),mm.getInicialDate(),mm.getFinalDate(),mm.getName_M());
+                mm.getNIE(), mm.getName(),mm.getInitialDate(),mm.getFinalDate(),mm.getName_M());
     }
 
     /* Esborra el mm de la base de dades por Objeto*/
@@ -39,8 +39,8 @@ public class MunicipalManagerDao {
 
     /* Actualitza els atributs del mm */
     public void updateMunicipalManager(MunicipalManager mm) {
-        jdbcTemplate.update("UPDATE MUNICIPALMANAGER SET name=?,inicialDate=?,final_Date=?,name_M=? WHERE NIE=?",
-                mm.getName(),mm.getInicialDate(),mm.getFinalDate(),mm.getName_M(),mm.getNIE());
+        jdbcTemplate.update("UPDATE MUNICIPALMANAGER SET name=?,initialDate=?,final_Date=?,name_M=? WHERE NIE=?",
+                mm.getName(),mm.getInitialDate(),mm.getFinalDate(),mm.getName_M(),mm.getNIE());
     }
 
     /* Obté el m amb el NIE Torna null si no existeix. */

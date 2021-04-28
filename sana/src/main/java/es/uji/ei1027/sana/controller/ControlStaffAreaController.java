@@ -43,13 +43,13 @@ public class ControlStaffAreaController {
                                    BindingResult bindingResult) {
         if (bindingResult.hasErrors())
             return "control_staff_area/add";
-        controlStaff_areaDao.anadeStaffArea(staffArea);
+        controlStaff_areaDao.añadeStaffArea(staffArea);
         return "redirect:list";
     }
 
-    @RequestMapping(value="/delete/{nie}/{name}")
-    public String processDelete(@PathVariable String nie,@PathVariable String name) {
-        controlStaff_areaDao.deteleStaffArea(nie,name);
+    @RequestMapping(value="/delete/{NIE_CS}/{name_A}")
+    public String processDelete(@PathVariable String NIE_CS,@PathVariable String name_A) {
+        controlStaff_areaDao.deteleStaffArea(NIE_CS,name_A);
         return "redirect:../../list";
     }
 
