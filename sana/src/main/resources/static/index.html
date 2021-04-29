@@ -1,25 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8" />
-    <title>SANA</title>
+    <title layout:title-pattern="$CONTENT_TITLE">SANA</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
 </head>
-<body>
-<h1>Gestión de SANA</h1>
-<ul>
-
-    <li><a href="/citizen/list">Gestión de Citizens</a></li>
-    <li><a href="/service/list">Gestió de Services</a></li>
-    <li><a href="/reservation/list">Gestión de Reservations</a></li>
-    <li><a href="/area/list">Gestión de Areas</a></li>
-    <li><a href="/municipality/list">Gestión de Municipios</a></li>
-    <li><a href="/timeslot/list">Gestión de TimeSlots</a></li>
-    <li><a href="/schedule/list">Gestión de Schedules</a></li>
-    <li><a href="/control_staff/list">Gestión de Control Staff</a></li>
-    <li><a href="/control_staff_area/list">Gestión de Control Staff Area</a></li>
+<body class="container">
+<header class="page-header">
+    <IMG src="LOGO.PNG">
+</header>
+<br>
+<article>
 
 
-</ul>
+    <dl>
+
+        <dt> <a class="btn btn-outline-success" role="button" href="/area/list">Information</a></dt>
+        <dt> <a class="btn btn-outline-success" role="button" href="templates/login/access.html">Access</a></dt>
+
+    </dl>
+
+
+
+</article>
+
+<footer>
+    <hr>
+    <p class="text-muted">EI1027 - Disseny i Implementació de
+        Sistemes d'Informació</p>
+</footer>
 </body>
+
 </html>
+
+
+
+
+
