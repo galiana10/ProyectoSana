@@ -28,8 +28,8 @@ public class ControlStaffDao {
         jdbcTemplate.update("INSERT INTO USERINFO VALUES(?, ?, ?, ?, ?)",
                 controlStaff.getNie(), controlStaff.getName(),controlStaff.getUsername(),controlStaff.getPassword(),1);
 
-        jdbcTemplate.update("INSERT INTO controlstaff VALUES(?, ?, ?)",
-                controlStaff.getNie(),controlStaff.getEmail(), controlStaff.getName());
+        jdbcTemplate.update("INSERT INTO controlstaff VALUES(?, ?)",
+                controlStaff.getNie(),controlStaff.getEmail());
     }
 
     /* Esborra el cs de la base de dades por Objeto*/
@@ -48,7 +48,7 @@ public class ControlStaffDao {
     public void updateStaff(ControlStaff controlStaff) {
         jdbcTemplate.update("UPDATE userinfo SET name=? WHERE nie=?",
                 controlStaff.getName(),controlStaff.getNie());
-        jdbcTemplate.update("UPDATE controlstaff email=? WHERE nie=?",
+        jdbcTemplate.update("UPDATE controlstaff set email=? WHERE nie=?",
                 controlStaff.getEmail(),controlStaff.getNie());
     }
 

@@ -2,9 +2,9 @@ package es.uji.ei1027.sana.model;
 
 import java.util.Date;
 
-public class MunicipalManager {
+public class MunicipalManager extends UserInfo{
     String NIE;
-    String name;
+
     Date initialDate;
     Date finalDate;
     String name_M;
@@ -17,13 +17,7 @@ public class MunicipalManager {
         this.NIE = NIE;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Date getInitialDate() {
         return initialDate;
@@ -60,14 +54,4 @@ public class MunicipalManager {
                 '}';
     }
 
-    //TODO incluir atributo username y devolverlo
-    public String getUsername() {
-        return null;
-    }
-
-
-    //TODO incluir atributo password y devolverlo(revisar la encriptacion)
-    public String getPassword() {
-        return null;
-    }
 }

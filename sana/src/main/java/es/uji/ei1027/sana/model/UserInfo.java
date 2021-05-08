@@ -4,6 +4,7 @@ public class UserInfo {
 
     String username;
     String password;
+    String name;
     String nie;
     int type;
 
@@ -38,4 +39,13 @@ public class UserInfo {
     public void setType(int type) {
         this.type = type;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 }

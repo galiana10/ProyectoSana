@@ -48,8 +48,8 @@ public class MunicipalManagerDao {
         jdbcTemplate.update("UPDATE userinfo SET name=?, WHERE nie=?",
                 mm.getName(),mm.getUsername(),mm.getPassword(),mm.getNIE());
 
-        jdbcTemplate.update("UPDATE MUNICIPALMANAGER SET name=?,initialDate=?,final_Date=?,name_M=? WHERE NIE=?",
-                mm.getName(),mm.getInitialDate(),mm.getFinalDate(),mm.getName_M(),mm.getNIE());
+        jdbcTemplate.update("UPDATE MUNICIPALMANAGER SET initialDate=?,final_Date=?,name_M=? WHERE NIE=?",
+                mm.getInitialDate(),mm.getFinalDate(),mm.getName_M(),mm.getNIE());
     }
 
     /* Obté el m amb el NIE Torna null si no existeix. */

@@ -1,21 +1,14 @@
 package es.uji.ei1027.sana.model;
 
-public class Citizen {
 
-    private String name;
+public class Citizen extends UserInfo {
+
     private String NIE;
     private String email;
     private String address;
     private String town;
     private String country;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getNIE() {
         return NIE;
@@ -70,14 +63,5 @@ public class Citizen {
     }
 
 
-    //TODO incluir atributo username y devolverlo
-    public String getUsername() {
-        return null;
-    }
 
-
-    //TODO incluir atributo password y devolverlo(revisar la encriptacion)
-    public String getPassword() {
-        return null;
-    }
 }
