@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      >
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
+
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+
+    <div class="login-container">
+        <IMG src="LOGO.PNG">
+        <form class="login-form" action="#" th:action="@{/login}"
+              th:object="${user}" method="post">
+            <p>
+                <label>Nom d'usuari:</label>
+                <input class="form_control" type="text" th:field="*{username}"/>
+            <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+            </p>
+            <p>
+                <label>Contrasenya:</label>
+                <input class="form_control" type="password" th:field="*{password}"/>
+            <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+            </p>
+            <input type="submit" value="Accedir" />
+        </form>
+
+    </div>
+
+</body>
+</html>

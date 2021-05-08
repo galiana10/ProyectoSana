@@ -1,8 +1,8 @@
 package es.uji.ei1027.sana.dao;
 
 import es.uji.ei1027.sana.model.TimeSlot;
-
 import org.springframework.jdbc.core.RowMapper;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalTime;

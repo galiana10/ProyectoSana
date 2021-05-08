@@ -25,32 +25,37 @@ public class ControlStaffDao {
 
     /* Afegeix el staff a la base de dades */
     public void addStaff(ControlStaff controlStaff) {
+        jdbcTemplate.update("INSERT INTO USERINFO VALUES(?, ?, ?, ?, ?)",
+                controlStaff.getNie(), controlStaff.getName(),controlStaff.getUsername(),controlStaff.getPassword(),1);
+
         jdbcTemplate.update("INSERT INTO controlstaff VALUES(?, ?, ?)",
                 controlStaff.getNie(),controlStaff.getEmail(), controlStaff.getName());
     }
 
     /* Esborra el cs de la base de dades por Objeto*/
     public void deleteStaff(ControlStaff controlStaff) {
-        jdbcTemplate.update("DELETE FROM controlstaff WHERE NIE='"+controlStaff.getNie()+"' ");
+        jdbcTemplate.update("DELETE FROM userinfo WHERE NIE='"+controlStaff.getNie()+"' ");
     }
 
 
     /* Esborra el cs de la base de dades por NIE*/
     public void deleteStaff(String NIE) {
-        jdbcTemplate.update("DELETE FROM controlstaff WHERE NIE='"+NIE+"' ");
+        jdbcTemplate.update("DELETE FROM userinfo WHERE NIE='"+NIE+"' ");
     }
 
 
     /* Actualitza els atributs del cs*/
     public void updateStaff(ControlStaff controlStaff) {
-        jdbcTemplate.update("UPDATE controlstaff SET name=?,email=? WHERE nie=?",
-                controlStaff.getName(),controlStaff.getEmail(),controlStaff.getNie());
+        jdbcTemplate.update("UPDATE userinfo SET name=? WHERE nie=?",
+                controlStaff.getName(),controlStaff.getNie());
+        jdbcTemplate.update("UPDATE controlstaff email=? WHERE nie=?",
+                controlStaff.getEmail(),controlStaff.getNie());
     }
 
     /* Obté el cs amb el NIE Torna null si no existeix. */
     public ControlStaff getstaff(String NIE) {
         try {
-            return jdbcTemplate.queryForObject("SELECT * FROM controlstaff WHERE NIE=?",
+            return jdbcTemplate.queryForObject("SELECT * FROM controlstaff join userinfo using(nie) WHERE NIE=?",
                     new ControlStaffRowMapper(),
                     NIE);
         }
@@ -59,11 +64,10 @@ public class ControlStaffDao {
         }
     }
 
-
     /* Obté tots els cs Torna una llista buida si no n'hi ha cap. */
     public List<ControlStaff> getStaff() {
         try {
-            return jdbcTemplate.query("SELECT * FROM controlstaff",
+            return jdbcTemplate.query("SELECT * FROM controlstaff join userinfo using(nie)",
                     new ControlStaffRowMapper());
         }
         catch(EmptyResultDataAccessException e) {

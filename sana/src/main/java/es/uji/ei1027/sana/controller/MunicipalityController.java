@@ -3,14 +3,13 @@ package es.uji.ei1027.sana.controller;
 
 import es.uji.ei1027.sana.dao.MunicipalityDao;
 import es.uji.ei1027.sana.model.Municipality;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 

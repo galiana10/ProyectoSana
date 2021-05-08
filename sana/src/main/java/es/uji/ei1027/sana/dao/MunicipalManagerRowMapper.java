@@ -6,8 +6,6 @@ import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import java.util.Date;
-
 public class MunicipalManagerRowMapper implements RowMapper<MunicipalManager> {
 
     @Override
@@ -15,8 +13,8 @@ public class MunicipalManagerRowMapper implements RowMapper<MunicipalManager> {
         MunicipalManager mm = new MunicipalManager();
         mm.setNIE(rs.getString("NIE"));
         mm.setName(rs.getString("name"));
-        mm.setInitialDate(rs.getObject("initialDate", Date.class));
-        mm.setFinalDate(rs.getObject("finalDate", Date.class));
+        mm.setInitialDate(rs.getDate("initialDate"));
+        mm.setFinalDate(rs.getDate("finalDate"));
         mm.setName_M(rs.getString("name_M"));
         return mm;
     }

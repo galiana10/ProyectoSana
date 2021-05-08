@@ -23,22 +23,31 @@ public class MunicipalManagerDao {
 
     /* Afegeix el mm a la base de dades */
     public void addMunicipalManager(MunicipalManager mm) {
-        jdbcTemplate.update("INSERT INTO MUNICIPALMANAGER VALUES(?, ?, ?, ?, ?)",
-                mm.getNIE(), mm.getName(),mm.getInitialDate(),mm.getFinalDate(),mm.getName_M());
+
+        jdbcTemplate.update("INSERT INTO USERINFO VALUES(?, ?, ?, ?, ?)",
+                mm.getNIE(), mm.getName(),mm.getUsername(),mm.getPassword(),2);
+
+
+        jdbcTemplate.update("INSERT INTO MUNICIPALMANAGER VALUES(?, ?, ?, ?)",
+                mm.getNIE(),mm.getInitialDate(),mm.getFinalDate(),mm.getName_M());
     }
 
     /* Esborra el mm de la base de dades por Objeto*/
     public void deleteMunicipalManager(MunicipalManager mm) {
-        jdbcTemplate.update("DELETE FROM MUNICIPALMANAGER WHERE NIE='"+mm.getNIE()+"' ");
+        jdbcTemplate.update("DELETE FROM userinfo WHERE NIE='"+mm.getNIE()+"' ");
     }
 
     /* Esborra el mm de la base de dades por NIE*/
     public void deleteMunicipalManager(String NIEmm) {
-        jdbcTemplate.update("DELETE FROM MUNICIPALMANAGER WHERE NIE='"+NIEmm+"' ");
+        jdbcTemplate.update("DELETE FROM userinfo WHERE NIE='"+NIEmm+"' ");
     }
 
     /* Actualitza els atributs del mm */
     public void updateMunicipalManager(MunicipalManager mm) {
+
+        jdbcTemplate.update("UPDATE userinfo SET name=?, WHERE nie=?",
+                mm.getName(),mm.getUsername(),mm.getPassword(),mm.getNIE());
+
         jdbcTemplate.update("UPDATE MUNICIPALMANAGER SET name=?,initialDate=?,final_Date=?,name_M=? WHERE NIE=?",
                 mm.getName(),mm.getInitialDate(),mm.getFinalDate(),mm.getName_M(),mm.getNIE());
     }
@@ -46,7 +55,7 @@ public class MunicipalManagerDao {
     /* Obté el m amb el NIE Torna null si no existeix. */
     public MunicipalManager getMunicipalManager(String NIEmm) {
         try {
-            return jdbcTemplate.queryForObject("SELECT * FROM MUNICIPALMANAGER WHERE NIE=?",
+            return jdbcTemplate.queryForObject("SELECT * FROM MUNICIPALMANAGER JOIN USERINFO USING(NIE) WHERE NIE=?",
                     new MunicipalManagerRowMapper(),
                     NIEmm);
         }
@@ -58,7 +67,7 @@ public class MunicipalManagerDao {
     /* Obté tots els mm Torna una llista buida si no n'hi ha cap. */
     public List<MunicipalManager> getMunicipalManager() {
         try {
-            return jdbcTemplate.query("SELECT * FROM MUNICPALMANAGER",
+            return jdbcTemplate.query("SELECT * FROM MUNICIPALMANAGER JOIN USERINFO USING(NIE)",
                     new MunicipalManagerRowMapper());
         }
         catch(EmptyResultDataAccessException e) {

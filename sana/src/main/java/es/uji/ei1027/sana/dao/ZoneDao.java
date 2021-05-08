@@ -40,7 +40,7 @@ public class ZoneDao {
 
 
     /* Obté la zona. Torna null si no existeix. */
-    public Zone getZone(String zoneNumberLetter,String nameArea) {
+    public Zone getZone(String zoneNumberLetter, String nameArea) {
         try {
             return jdbcTemplate.queryForObject("SELECT * FROM zone where numberLetter = ? AND name_Area= ?",
                     new ZoneRowMapper(),zoneNumberLetter,nameArea);

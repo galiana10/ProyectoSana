@@ -1,7 +1,7 @@
 package es.uji.ei1027.sana.controller;
-import es.uji.ei1027.sana.model.Zone;
-import es.uji.ei1027.sana.dao.ZoneDao;
 
+import es.uji.ei1027.sana.dao.ZoneDao;
+import es.uji.ei1027.sana.model.Zone;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

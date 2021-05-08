@@ -68,4 +68,16 @@ public class Citizen {
                 ", country='" + country + '\'' +
                 '}';
     }
+
+
+    //TODO incluir atributo username y devolverlo
+    public String getUsername() {
+        return null;
+    }
+
+
+    //TODO incluir atributo password y devolverlo(revisar la encriptacion)
+    public String getPassword() {
+        return null;
+    }
 }
