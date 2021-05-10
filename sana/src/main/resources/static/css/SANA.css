@@ -1,5 +1,29 @@
+/*  index */
+.index1{
+    display: flex;
+    justify-content: start;
+    background-color: #3B7058;
+}
+
+.logo{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+}
+
+.index2{
+    display: flex;
+    justify-content:space-around;
+}
+
+.info-index{
+   overflow: scroll;
+   height: 300px;
+    width: 600px;
+}
 
 
+/*  login */
 .login-container{
   display: flex;
   justify-content: center;
