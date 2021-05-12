@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{css/SANA.css}"/>
+
+    <meta charset="UTF-8">
+    <title>Publico</title>
+</head>
+<body>
+
+    <div th:replace="fragments/nav" >...</div>
+
+    <div class="publico-container">
+
+        <div class="publico-item">
+
+            <div class="publico-img">
+
+                <a href="/">
+                    <img src="municipios.PNG">
+                </a>
+
+            </div>
+
+
+            <div class="publico-text">
+                <h2>Municipios</h2>
+                <p>Consulta todos los municipios y sus area</p>
+            </div>
+
+        </div>
+
+        <div class="publico-item">
+
+            <div class="publico-img">
+
+                <a href="/">
+                    <img src="reservas.PNG">
+                </a>
+
+            </div>
+
+            <div class="publico-text">
+                <h2>Reservas</h2>
+                <p>Consulta todas las reservas que has realizado</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</body>
+</html>

@@ -1,26 +1,48 @@
+
+/*  General para todos */
+body{
+    font-family: "Lato";
+}
+
 /*  index */
-.index1{
-    display: flex;
-    justify-content: start;
-    background-color: #3B7058;
-}
-
-.logo{
-    width:100px;
-    height:100px;
-    border-radius:50%;
-}
-
-.index2{
+.contenedor-index{
+    margin-top: 50px;
     display: flex;
     justify-content:space-around;
 }
 
 .info-index{
    overflow: scroll;
-   height: 300px;
-    width: 600px;
+   height: 500px;
+    width: 700px;
 }
+
+
+/*  navegacion */
+
+.navegacion{
+    display: flex;
+    justify-content: space-between;
+    background-color: #3B7058;
+}
+
+.logo{
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+
+}
+
+.nav-content{
+    color:white;
+    font-size:25px;
+    position: absolute;
+    right:10px;
+    top: 60px;}
 
 
 /*  login */
@@ -32,5 +54,58 @@
 .login-form{
     position: absolute;
     top: 50%;
+    text-align:center;
 }
+
+
+/*  publico */
+.publico-container{
+    margin-top: 150px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.publico-item{
+    width: 30%;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.publico-text{
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    width: 400px;
+
+    background: rgba(192,192,192,0.4);
+    color: #1d2124;
+
+    transform: translateY(100%);
+    transition: all 0.5s ease-out;
+
+}
+.publico-text h2{
+    text-align: center;
+
+}
+.publico-text p{
+    text-align: center;
+
+}
+
+.publico-img img{
+    width: 400px;
+    height:300px;
+    border: #3b7058 5px solid;
+}
+
+.publico-item:hover .publico-text{
+    -webkit-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    transform: translateY(0%)
+
+}
+
+
 

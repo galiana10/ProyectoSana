@@ -64,7 +64,15 @@ public class LoginController {
 
         //TODO tener en cuenta a que direccion se dirije y si es el tipo de usuario adecuiado
         String nextUrl = (String) session.getAttribute("nextUrl");
-        nextUrl = (nextUrl != null) ? nextUrl : "/";
+
+        if(user.getType()==0){
+            nextUrl = (nextUrl != null) ? nextUrl : "/area/list";
+        }else if(user.getType()==1){
+            nextUrl = (nextUrl != null) ? nextUrl : "/";
+        }else if(user.getType()==2){
+            nextUrl = (nextUrl != null) ? nextUrl : "/";
+        }
+
 
         // Torna a la pàgina principal o si existeix a la que es volia anar
         return "redirect:"+nextUrl;
