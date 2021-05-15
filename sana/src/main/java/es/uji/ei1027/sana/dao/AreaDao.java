@@ -67,4 +67,16 @@ public class AreaDao {
         }
     }
 
+    /* Obté tots els areas.Torna una llista buida si no n'hi ha cap. */
+    public List<Area> getAreasMunipality(String name_M) {
+        try {
+            return jdbcTemplate.query("SELECT * FROM AREA WHERE name_M=?",
+                    new AreaRowMapper(),
+                    name_M);
+        }
+        catch(EmptyResultDataAccessException e) {
+            return new ArrayList<Area>();
+        }
+    }
+
 }

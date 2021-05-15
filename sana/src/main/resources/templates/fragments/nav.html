@@ -1,4 +1,15 @@
-<div class="navegacion">
+<div class="navegacion" xmlns:th="http://www.w3.org/1999/xhtml">
+
+    <div class="nav-content" th:object="${session}">
+        <p th:if="*{user == null}">
+            No autenticado | <a href="/login" th:href="@{/login}"> Login</a>
+        </p>
+        <p th:unless="*{user == null}">
+            <span th:text="*{user.username}"></span> <a
+                href="/logout" th:href="@{/logout}"> | Logout</a>
+        </p>
+    </div>
+
 
     <div>
         <a href="/">
@@ -7,11 +18,6 @@
     </div>
 
 
-    <div>
-        <a class="nav-content" href="login">
-            Login
-        </a>
-    </div>
 
 
 </div>

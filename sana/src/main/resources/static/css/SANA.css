@@ -108,4 +108,19 @@ body{
 }
 
 
+/*  tablas*/
 
+.contenedor-tablas{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info-tablas{
+    margin-top: 30px;
+    text-align:center;
+}
+
+.info-tablas h1{
+    color:#3b7058;
+}

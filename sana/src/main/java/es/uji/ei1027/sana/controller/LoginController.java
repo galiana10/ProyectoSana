@@ -66,7 +66,7 @@ public class LoginController {
         String nextUrl = (String) session.getAttribute("nextUrl");
 
         if(user.getType()==0){
-            nextUrl = (nextUrl != null) ? nextUrl : "/area/list";
+            nextUrl = (nextUrl != null) ? nextUrl : "publico";
         }else if(user.getType()==1){
             nextUrl = (nextUrl != null) ? nextUrl : "/";
         }else if(user.getType()==2){

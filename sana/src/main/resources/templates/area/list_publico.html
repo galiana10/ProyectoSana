@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
+
+    <meta charset="UTF-8">
+    <title>Areas</title>
+</head>
+<body>
+
+    <div th:replace="fragments/nav" >...</div>
+
+
+    <h1>Lista de areas de <span th:text="*{municipalityPublico}"></span></h1>
+
+
+
+    <div th:if="${#lists.isEmpty(areasPublico)}">
+        Este municipio no tiene areas añadidas
+    </div>
+    <table th:unless="${#lists.isEmpty(areasPublico)}"  class="table table-condensed">
+
+
+        <thead>
+        <tr>
+            <th>Areas</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="area: ${areasPublico}">
+            <td th:text="${area.name}"></td>
+            <td><a class="btn btn-outline-success" th:href="@{/area/informacion/{name}(name=${area.name})}">Informacion</a></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

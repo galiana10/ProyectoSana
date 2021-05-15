@@ -32,9 +32,16 @@ public class AreaController {
         return "area/list";
     }
 
-    @RequestMapping("/informacion")
-    public String informacionAreas(Model model) {
-        model.addAttribute("areasInfo", areaDao.getAreas());
+    @RequestMapping("/listPublico/{name_M}")
+    public String listAreasPublico(Model model,@PathVariable String name_M) {
+        model.addAttribute("areasPublico", areaDao.getAreasMunipality(name_M));
+        model.addAttribute("municipalityPublico",name_M);
+        return "area/list_publico";
+    }
+
+    @RequestMapping(value = "/informacion/{name_A}",method = RequestMethod.GET)
+    public String informacionAreas(Model model,@PathVariable String name_A) {
+        model.addAttribute("areasInfo", areaDao.getArea(name_A));
         return "area/informacion";
     }
 

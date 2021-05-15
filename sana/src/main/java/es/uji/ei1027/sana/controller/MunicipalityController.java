@@ -30,6 +30,12 @@ public class MunicipalityController {
         return "municipality/list";
     }
 
+    @RequestMapping("/listPublico")
+    public String listMunicipalitiesPublico(Model model) {
+        model.addAttribute("municipalitiesPublico", municipalityDao.getMunicipalities());
+        return "municipality/list_publico";
+    }
+
     @RequestMapping(value="/add")
     public String addMunicipality(Model model) {
         model.addAttribute("municipality", new Municipality());

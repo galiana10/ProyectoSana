@@ -9,21 +9,22 @@
 </head>
 <body >
 
-    <div class="navegacion">
+    <div class="navegacion" xmlns:th="http://www.w3.org/1999/xhtml">
+
+        <div class="nav-content">
+
+            <p>
+                No autenticado | <a href="/login" th:href="@{/login}"> Login</a>
+            </p>
+
+        </div>
+
 
         <div>
             <a href="/">
                 <img  class="logo" src="logo3.PNG">
             </a>
         </div>
-
-
-        <div>
-            <a class="nav-content" href="login">
-                Login
-            </a>
-        </div>
-
 
     </div>
 
