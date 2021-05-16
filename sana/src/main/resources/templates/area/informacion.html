@@ -3,47 +3,117 @@
 <head>
     <title>Informacion Area</title>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
 </head>
 <body>
-<h1>Informacion Area</h1>
-<table>
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>NumberOfZones</th>
-        <th>AccessType</th>
-        <th>GeographicalLocation</th>
-        <th>AreaType</th>
-        <th>PhysiscalCharacteristic</th>
-        <th>orientation</th>
-        <th>facility</th>
-        <th>comment</th>
-        <th>image</th>
-        <th>name_M</th>
-        <th></th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="area: ${areasInfo}">
-        <td th:text="${area.name}"></td>
-        <td th:text="${area.description}"></td>
-        <td th:text="${area.numberOfZone}"></td>
-        <td th:text="${area.accessType}"></td>
-        <td th:text="${area.getGeographicalLocation()}"></td>
-        <td th:text="${area.areaType}"></td>
-        <td th:text="${area.physiscalCharacteristic}"></td>
-        <td th:text="${area.orientation}"></td>
-        <td th:text="${area.facility}"></td>
-        <td th:text="${area.comment}"></td>
-        <td th:text="${area.image}"></td>
-        <td th:text="${area.name_M}"></td>
 
-    </tr>
-    </tbody>
-</table>
-<a href="/area/list">Volver</a>
+<div th:replace="fragments/nav" >...</div>
+<div class="info-area">
+
+    <h1>
+    <span th:text="${areasInfo.name}"></span> <span> - (</span><span th:text="${areasInfo.name_M}"> </span><span>)</span>
+    </h1>
+    <div class="area-info-columns">
+        <div class="area-info-column">
+            <img th:src="${areasInfo.image}" >
+
+        </div>
+        <div class="area-info-column ml-3">
+            <p>
+                <strong>Descripción: </strong><span th:text="${areasInfo.description}" ></span>
+            </p>
+
+            <p>
+                <strong>Tipo de acceso: </strong><span th:text="${areasInfo.accessType}" ></span>
+            </p>
+
+            <p>
+                <strong>Orientació: </strong><span th:text="${areasInfo.orientation}" ></span>
+            </p>
+
+            <p>
+                <strong>Comentarios: </strong><span th:text="${areasInfo.comment}" ></span>
+            </p>
+
+            <p>
+                <strong>Nummero de zonas: </strong><span th:text="${areasInfo.numberOfZone}" ></span>
+            </p>
+
+            <p>
+                <strong>Caracteristicas: </strong><span th:text="${areasInfo.physiscalCharacteristic}" ></span>
+            </p>
+
+            <p>
+                <strong>Facilidades: </strong><span th:text="${areasInfo.facility}" ></span>
+            </p>
+
+        </div>
+    </div>
+    <a class="btn btn-outline-success" role="button" th:href="@{/reservation/add/{area}(area=${areasInfo.name}})}">Reservar</a></dt>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<h1>Informacion Area</h1>-->
+<!--<table>-->
+    <!--<thead>-->
+    <!--<tr>-->
+        <!--<th>Name</th>-->
+        <!--<th>Description</th>-->
+        <!--<th>NumberOfZones</th>-->
+        <!--<th>AccessType</th>-->
+        <!--<th>GeographicalLocation</th>-->
+        <!--<th>AreaType</th>-->
+        <!--<th>PhysiscalCharacteristic</th>-->
+        <!--<th>orientation</th>-->
+        <!--<th>facility</th>-->
+        <!--<th>comment</th>-->
+        <!--<th>image</th>-->
+        <!--<th>name_M</th>-->
+        <!--<th></th>-->
+        <!--<th></th>-->
+    <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+    <!--<tr th:each="area: ${areasInfo}">-->
+        <!--<td th:text="${area.name}"></td>-->
+        <!--<td th:text="${area.description}"></td>-->
+        <!--<td th:text="${area.numberOfZone}"></td>-->
+        <!--<td th:text="${area.accessType}"></td>-->
+        <!--<td th:text="${area.getGeographicalLocation()}"></td>-->
+        <!--<td th:text="${area.areaType}"></td>-->
+        <!--<td th:text="${area.physiscalCharacteristic}"></td>-->
+        <!--<td th:text="${area.orientation}"></td>-->
+        <!--<td th:text="${area.facility}"></td>-->
+        <!--<td th:text="${area.comment}"></td>-->
+        <!--<td th:text="${area.image}"></td>-->
+        <!--<td th:text="${area.name_M}"></td>-->
+
+    <!--</tr>-->
+    <!--</tbody>-->
+<!--</table>-->
+<!--<img th:src="${areasInfo.image}" >-->
+<!--<a href="/area/list">Volver</a>-->
 </body>
 </html>

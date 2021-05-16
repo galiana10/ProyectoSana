@@ -1,5 +1,6 @@
 package es.uji.ei1027.sana.controller;
 
+import es.uji.ei1027.sana.Service.ReservationSvc;
 import es.uji.ei1027.sana.dao.ReservationDao;
 import es.uji.ei1027.sana.model.Reservation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +18,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class ReservationController {
 
     private ReservationDao reservationDao;
+    private ReservationSvc reservationService;
 
 
     @Autowired
     public void setReservationDao(ReservationDao reservationDao) {
         this.reservationDao=reservationDao;
     }
+
+    @Autowired
+    public void setClassificacioService(ReservationSvc reservationService) {
+        this.reservationService = reservationService;
+    }
+
 
     // Operacions: Crear, llistar, actualitzar, esborrar
 
@@ -49,6 +57,19 @@ public class ReservationController {
         reservationDao.addReservation(reservation);
         return "redirect:list";
     }
+
+
+    @RequestMapping(value="/add/{area}")
+    public String addReservationInArea(Model model,@PathVariable String area) {
+
+        model.addAttribute("reservation", new Reservation());
+        model.addAttribute("zones", reservationService.zonesFromArea(area));
+        return "reservation/add";
+    }
+
+
+
+
 
     @RequestMapping(value="/update/{QR}", method = RequestMethod.GET)
     public String editReservation(Model model, @PathVariable String QR) {

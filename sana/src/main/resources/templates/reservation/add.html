@@ -2,39 +2,48 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Añadir nueva reserva</title>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
-<h2>Nueva reserva</h2>
-<form action="#" th:action="@{/reservation/add}"
-      th:object="${reservation}" method="post">
-    <table>
-        <tr>
-            <td><label>Date</label></td>
-            <td><input type="text" th:field="*{date}" /></td>
-        </tr>
-        <tr>
-            <td><label>PeopleNumber</label></td>
-            <td><input type="text" th:field="*{peopleNumber}" /></td>
-        </tr>
-        <tr>
-            <td><label>QR</label></td>
-            <td><input type="text" th:field="*{QR}" /></td>
-        </tr>
-        <tr>
-            <td><label>ReservationLimit</label></td>
-            <td><input type="text" th:field="*{reservationLimit}" /></td>
-        </tr>
-        <tr>
-            <td><label>NIE_Citizen</label></td>
-            <td><input type="text" th:field="*{NIE_citizen}" /></td>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="submit" value="Añadir reserva" /></td>
-        </tr>
-    </table>
-</form>
+<div th:replace="fragments/nav" >...</div>
+<div class="add-reservation">
+    <h2 class="m-5">Nueva reserva</h2>
+    <form action="#" th:action="@{/reservation/add}"
+          th:object="${reservation}" method="post">
+        <table>
+            <tr>
+                <td><label>Date</label></td>
+                <td><input type="date" th:field="*{date}"/></td>
+            </tr>
+
+            <tr>
+                <td><label>People Number</label></td>
+                <td><input type="text" th:field="*{peopleNumber}"/></td>
+            </tr>
+            <tr>
+                <td><label>Hora</label></td>
+                <td><input type="time" id="appt" name="appt"
+                           min="09:00" max="18:00" required></td>
+            </tr>
+
+            <tr>
+                <td><label>Zona</label></td>
+                <td><select id ="letraZona" th:field ="*{status}">
+                    <option th:each="zone:${zones}"
+                            th:value="${zone}"
+                            th:text="${zone}"> </option>
+                </select></td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><input type="submit" value="Añadir reserva"/></td>
+            </tr>
+        </table>
+    </form>
+
+</div>
 </body>
 </html>
