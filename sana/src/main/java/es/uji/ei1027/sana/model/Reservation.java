@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Reservation {
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
     private Integer peopleNumber;
     private String QR;

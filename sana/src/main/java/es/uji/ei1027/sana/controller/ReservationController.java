@@ -7,10 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @Controller
@@ -61,10 +60,26 @@ public class ReservationController {
 
     @RequestMapping(value="/add/{area}")
     public String addReservationInArea(Model model,@PathVariable String area) {
-
+        model.addAttribute("areaName", area);
         model.addAttribute("reservation", new Reservation());
         model.addAttribute("zones", reservationService.zonesFromArea(area));
         return "reservation/add";
+    }
+
+
+    @RequestMapping(value="/add/{area}", method=RequestMethod.POST)
+    public String processReserveSubmit(@ModelAttribute("reservation") Reservation reservation,
+                                       @RequestParam(name="zonesList") List<String > zones,
+                                   BindingResult bindingResult) {
+        //Las areas seleccionadas en el formulario
+        //System.out.println(zones);
+        //TODO hacer validador para compribar la capcidad de las zonas
+        // y si la franja horaria esta ocupada
+        // y si estamos en un plazo correcto para hacer la reserva(entre dos dias antes y una hora antes )
+        if (bindingResult.hasErrors())
+            return "reservation/add";
+        //reservationDao.addReservation(reservation);
+        return "redirect:list";
     }
 
 

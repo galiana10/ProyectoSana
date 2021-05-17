@@ -4,14 +4,14 @@
     <title>Añadir nueva reserva</title>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
 <body>
-<div th:replace="fragments/nav" >...</div>
+<div th:replace="fragments/nav">...</div>
 <div class="add-reservation">
     <h2 class="m-5">Nueva reserva</h2>
-    <form action="#" th:action="@{/reservation/add}"
+    <form action="#" th:action="@{/reservation/add/${area}(area=${areaName})}"
           th:object="${reservation}" method="post">
         <table>
             <tr>
@@ -30,21 +30,25 @@
             </tr>
 
             <tr>
-                <td><label>Zona</label></td>
-                <td><select id ="letraZona" th:field ="*{status}">
-                    <option th:each="zone:${zones}"
-                            th:value="${zone}"
-                            th:text="${zone}"> </option>
-                </select></td>
+                <td><label>Zona/s</label></td>
+                <td class="check-list-zones" path="zones">
+                    <div class="zone-box" th:each="zone : ${zones}">
+                        <input type="checkbox" th:value="${zone}"
+                               name="zonesList"
+                               class="btn-check" th:id="${zone}" autocomplete="off">
+                        <label class="btn btn-outline-primary" th:for="${zone}" th:text="${zone}"></label><br>
+                    </div>
+                </td>
             </tr>
-            <div th:each="zone:${zones}">
-                <span th:text="${zone}"></span>
-            </div>
+
+
             <tr>
-                <td colspan="2"><input type="submit" value="Añadir reserva"/></td>
+                <td class="text-center m-5" colspan="2"><input class="btn btn-success" type="submit"
+                                                               value="Añadir reserva"/></td>
             </tr>
         </table>
     </form>
+
 
 </div>
 </body>

@@ -159,3 +159,16 @@ body{
     align-items: center;
 
 }
+
+.check-list-zones{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.zone-box{
+
+    margin-right:7px;
+    margin-top:7px;
+
+
+}

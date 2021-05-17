@@ -19,11 +19,8 @@ public class ReservationSvc {
     public List<String> zonesFromArea(String area){
 
         List<Zone> zoneList = zoneDao.getZones();
-        System.out.println(area);
-        System.out.println(zoneList);
-        List<String> areaZones = (List<String>) zoneList.stream().filter(zone -> zone.getName_Area().equals(area)).map(Zone::getNumberLetter).collect(Collectors.toList());
 
-        System.out.println(areaZones);
+        List<String> areaZones = (List<String>) zoneList.stream().filter(zone -> zone.getName_Area().equals(area)).map(Zone::getNumberLetter).collect(Collectors.toList());
 
         return  areaZones;
 
