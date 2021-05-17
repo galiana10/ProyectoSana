@@ -37,7 +37,9 @@
                             th:text="${zone}"> </option>
                 </select></td>
             </tr>
-
+            <div th:each="zone:${zones}">
+                <span th:text="${zone}"></span>
+            </div>
             <tr>
                 <td colspan="2"><input type="submit" value="Añadir reserva"/></td>
             </tr>
