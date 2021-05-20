@@ -24,8 +24,10 @@ public class ReservationDao {
 
     /* Afegeix la reserva a la base de dades */
     public void addReservation(Reservation reservation) {
-        jdbcTemplate.update("INSERT INTO RESERVATION VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
-                reservation.getDate(),reservation.getPeopleNumber(),reservation.getQR(),reservation.getReservationLimit(),reservation.getNIE_citizen(),reservation.getStatus(),reservation.getName_A(),reservation.getInitialHour());
+        //TODO
+        //jdbcTemplate.update("INSERT INTO RESERVATION VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
+                //
+                //reservation.getDate(),reservation.getPeopleNumber(),reservation.getQR(),reservation.getReservationLimit(),reservation.getNIE_citizen(),reservation.getStatus(),reservation.getName_A(),reservation.getInitialHour());
     }
 
     /* Esborra la reserva de la base de dades por Objeto*/
@@ -40,8 +42,9 @@ public class ReservationDao {
 
     /* Actualitza els atributs de la reserva*/
     public void updateReservation(Reservation reservation) {
-        jdbcTemplate.update("UPDATE RESERVATION SET date=?,peopleNumber=?,reservationLimit=?,NIE_citizen=?,status=?,name_A=?,initialHour=? WHERE QR=?",
-                reservation.getDate(),reservation.getPeopleNumber(),reservation.getReservationLimit(),reservation.getNIE_citizen(),reservation.getStatus(),reservation.getName_A(),reservation.getInitialHour(),reservation.getQR() );
+       //TODO
+        // jdbcTemplate.update("UPDATE RESERVATION SET date=?,peopleNumber=?,reservationLimit=?,NIE_citizen=?,status=?,name_A=?,initialHour=? WHERE QR=?",
+        //        reservation.getDate(),reservation.getPeopleNumber(),reservation.getReservationLimit(),reservation.getNIE_citizen(),reservation.getStatus(),reservation.getName_A(),reservation.getInitialHour(),reservation.getQR() );
     }
 
     /* Obté la reserva amb el QR Torna null si no existeix. */
@@ -65,5 +68,20 @@ public class ReservationDao {
         catch(EmptyResultDataAccessException e) {
             return new ArrayList<Reservation>();
         }
+    }
+
+
+
+    public List<Reservation> getReservationsOnZone(String areaName, String zoneId){
+        try {
+            return jdbcTemplate.query("select * from reservation_zone as rz join reservation as r ON rz.qr_r =r.qr  where numberletter_z=? and name_area = ?;",
+                    new ReservationRowMapper(),
+                    zoneId ,areaName);
+        }
+        catch(EmptyResultDataAccessException e) {
+            return new ArrayList<Reservation>();
+        }
+
+
     }
 }

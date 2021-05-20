@@ -13,7 +13,7 @@ public class Reservation {
     private Integer reservationLimit;
     private String NIE_citizen;
     private String status;
-    private String name_A;
+    private Integer id_timeslot;
     @DateTimeFormat(pattern = "HH:mm:ss")
     LocalTime initialHour;
 
@@ -25,12 +25,12 @@ public class Reservation {
         this.status = status;
     }
 
-    public String getName_A() {
-        return name_A;
+    public Integer getId_timeslot() {
+        return id_timeslot;
     }
 
-    public void setName_A(String name_A) {
-        this.name_A = name_A;
+    public void setId_timeslot(Integer id_timeslot) {
+        this.id_timeslot = id_timeslot;
     }
 
     public LocalTime getInitialHour() {
@@ -90,7 +90,7 @@ public class Reservation {
                 ", reservationLimit=" + reservationLimit +
                 ", NIE_citizen='" + NIE_citizen + '\'' +
                 ", status='" + status + '\'' +
-                ", name_A='" + name_A + '\'' +
+                ", id_timeslot=" + id_timeslot +
                 ", initialHour=" + initialHour +
                 '}';
     }

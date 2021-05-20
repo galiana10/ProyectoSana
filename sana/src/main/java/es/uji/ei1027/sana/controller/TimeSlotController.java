@@ -46,7 +46,8 @@ public class TimeSlotController {
 
     @RequestMapping(value="/update/{name_a}/{inicialhour}", method = RequestMethod.GET)
     public String editTimeslot(Model model, @PathVariable String name_A, @PathVariable LocalTime initialHour) {
-        model.addAttribute("timeslot", timeSlotDao.getTimeSlot(name_A,initialHour));
+        //TODO
+       // model.addAttribute("timeslot", timeSlotDao.getTimeSlot(name_A,initialHour));
         return "timeslot/update";
     }
 

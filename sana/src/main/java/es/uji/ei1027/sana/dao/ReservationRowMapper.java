@@ -20,8 +20,8 @@ public final class ReservationRowMapper implements RowMapper<Reservation> {
         reservation.setReservationLimit(rs.getInt("reservationLimit"));
         reservation.setNIE_citizen(rs.getString("NIE_citizen"));
         reservation.setStatus(rs.getString("status"));
-        reservation.setName_A(rs.getString("name_A"));
-        reservation.setInitialHour(rs.getObject("initialHour", LocalTime.class));
+        reservation.setId_timeslot(rs.getInt("id_timeslot"));
+
 
 
         return reservation;

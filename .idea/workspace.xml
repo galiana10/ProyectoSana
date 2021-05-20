@@ -5,9 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87ecd0fa-9f0a-4a34-99e9-a7c862bfbbe8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/Service/ReservationSvc.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/Service/ReservationSvc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/TimeSlotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/TimeSlotController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ReservationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ReservationDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ReservationRowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ReservationRowMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/TimeSlotDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/TimeSlotDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/TimeSlotRowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/TimeSlotRowMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ZoneDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ZoneDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/TimeSlot.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/TimeSlot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/add.html" afterDir="false" />
     </list>
@@ -20,132 +29,114 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.43103448">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="534">
-                  <caret line="170" column="14" selection-start-line="170" selection-start-column="14" selection-end-line="170" selection-end-column="14" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/reservation/add.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="357">
-                  <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/municipality/add.html">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/area/add.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1054">
-                  <caret line="62" column="71" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="71" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/Service/ReservationSvc.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="391">
-                  <caret line="23" selection-start-line="23" selection-end-line="23" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/Zone.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="340">
-                  <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ZoneDao.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="85">
-                  <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/area/informacion.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
-                  <caret line="53" column="111" selection-start-line="53" selection-start-column="87" selection-end-line="53" selection-end-column="111" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/Zone.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="119">
-                  <caret line="7" selection-start-line="7" selection-end-line="7" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationController.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="402">
-                  <caret line="77" column="105" selection-start-line="77" selection-start-column="105" selection-end-line="77" selection-end-column="105" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/Reservation.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="85">
-                  <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/Area.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="34">
-                  <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/AreaRowMapper.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="374">
-                  <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/TimeSlotRowMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/TimeSlotDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="48" column="56" lean-forward="true" selection-start-line="48" selection-start-column="56" selection-end-line="48" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/AreaDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-119">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/Service/ReservationSvc.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="539">
+              <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ZoneDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="215">
+              <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ReservationDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="63" column="13" lean-forward="true" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#592#593#0" expanded="true" />
+                <element signature="e#651#652#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ReservationRowMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/Reservation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="318">
+              <caret line="84" column="18" selection-start-line="84" selection-start-column="18" selection-end-line="84" selection-end-column="18" />
+              <folding>
+                <element signature="e#688#689#0" expanded="true" />
+                <element signature="e#722#723#0" expanded="true" />
+                <element signature="e#777#778#0" expanded="true" />
+                <element signature="e#823#824#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="98" column="31" selection-start-line="98" selection-start-column="31" selection-end-line="98" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationValidator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1389">
+              <caret line="84" column="53" selection-start-line="84" selection-start-column="53" selection-end-line="84" selection-end-column="53" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#252#253#0" expanded="true" />
+                <element signature="e#280#281#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -158,13 +149,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>name_s</find>
-      <find>initial</find>
-      <find>inicial</find>
-      <find>th:tex</find>
-      <find>@{</find>
-      <find>system.</find>
-      <find>th:te</find>
+      <find>timeslotda</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -173,70 +158,21 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/ReservationZone.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ReservationZoneRowMapper.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ReservationZoneDao.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationZoneController.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ServiceRowMapper.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/Schedule.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ScheduleRowMapper.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ScheduleDao.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ScheduleController.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/resources/templates/schedule/list.html" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/MunicipalManagerRowMapper.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/ControlStaffArea.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ControlStaffAreaRowMapper.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ControlStaffAreaController.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/resources/templates/timeslot/list.html" />
-        <option value="$PROJECT_DIR$/sana/src/main/resources/static/index1.html" />
-        <option value="$PROJECT_DIR$/sana/src/main/resources/templates/login/login.html" />
-        <option value="$PROJECT_DIR$/sana/src/main/resources/templates/login/access.html" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/sana/model/Municipality.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/resources/templates/citizen/add.html" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/CitizenRowMapper.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/Citizen.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/UserInfo.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ControlStaffRowMapper.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/resources/templates/control_staff/add.html" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/ControlStaff.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/MunicipalManager.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ControlStaffDao.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/MunicipalManagerDao.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/resources/templates/fragments/base.html" />
-        <option value="$PROJECT_DIR$/sana/src/main/resources/templates/login.html" />
-        <option value="$PROJECT_DIR$/sana/src/main/resources/templates/accesos/trabajador.html" />
-        <option value="$PROJECT_DIR$/sana/src/main/resources/templates/accesos/gestion.html" />
-        <option value="$PROJECT_DIR$/sana/src/main/resources/templates/accesos/publico.html" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/publicoController.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/LoginController.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/resources/static/index.html" />
-        <option value="$PROJECT_DIR$/sana/src/main/resources/templates/publico.html" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/AreaDao.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/MunicipalityController.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/AreaController.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/resources/templates/municipality/list_publico.html" />
-        <option value="$PROJECT_DIR$/sana/src/main/resources/templates/fragments/nav.html" />
-        <option value="$PROJECT_DIR$/sana/src/main/resources/templates/area/list_publico.html" />
-        <option value="$PROJECT_DIR$/sana/src/main/resources/templates/area/reserve.html" />
-        <option value="$PROJECT_DIR$/sana/src/main/resources/templates/area/informacion.html" />
         <option value="$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css" />
-        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/Reservation.java" />
+        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ZoneDao.java" />
+        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/TimeSlot.java" />
         <option value="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/add.html" />
+        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/TimeSlotController.java" />
+        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/TimeSlotRowMapper.java" />
+        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/TimeSlotDao.java" />
+        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/Reservation.java" />
+        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ReservationRowMapper.java" />
         <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/Service/ReservationSvc.java" />
+        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationValidator.java" />
         <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationController.java" />
+        <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ReservationDao.java" />
       </list>
     </option>
-  </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="proyectoSana" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-      </expand>
-      <select />
-    </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
@@ -244,11 +180,14 @@
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
+  <component name="ProjectId" id="1slG4X9OoHr99prHmwmjL9vI1Id" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -309,7 +248,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="sana" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SANA" type="b2602c69:ProjectViewProjectNode" />
@@ -365,69 +304,48 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="area" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SANA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProyectoSana" type="462c0819:PsiDirectoryNode" />
-              <item name="sana" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="fragments" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SANA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProyectoSana" type="462c0819:PsiDirectoryNode" />
-              <item name="sana" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="municipality" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SANA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProyectoSana" type="462c0819:PsiDirectoryNode" />
-              <item name="sana" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="reservation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SANA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProyectoSana" type="462c0819:PsiDirectoryNode" />
+              <item name="sana" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1621247108455" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../EI1017" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1621511058552" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\ProyectoSana\sana\src\main\resources\templates\fragments" />
-      <recent name="D:\ProyectoSana\sana\src\main\resources\templates" />
-      <recent name="D:\ProyectoSana\sana\src\main\java\es\uji\ei1027" />
-      <recent name="D:\ProyectoSana\sana\src\main\java" />
-      <recent name="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\ProyectoSana\sana\src\main\resources\static" />
       <recent name="D:\ProyectoSana\sana\src\main\resources\templates" />
       <recent name="D:\ProyectoSana\sana\src\main\resources\static\imagenes" />
       <recent name="D:\ProyectoSana\sana\src\main\resources\templates\accesos" />
       <recent name="D:\ProyectoSana\sana\src\main\resources\templates\login" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ProyectoSana\sana\src\main\resources\templates\fragments" />
+      <recent name="D:\ProyectoSana\sana\src\main\resources\templates" />
+      <recent name="D:\ProyectoSana\sana\src\main\java\es\uji\ei1027" />
+      <recent name="D:\ProyectoSana\sana\src\main\java" />
+      <recent name="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -527,6 +445,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -551,11 +470,9 @@
       <workItem from="1620988903987" duration="225000" />
       <workItem from="1621001322102" duration="526000" />
       <workItem from="1621075102001" duration="11470000" />
+      <workItem from="1621439610701" duration="894000" />
     </task>
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56874000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -570,76 +487,36 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25799572" />
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" weight="0.32936078" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32827735" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27193934" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32936078" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32936078" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.24702059" />
-      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="12" />
-      <window_info anchor="bottom" id="Spring" order="13" />
-      <window_info anchor="bottom" id="Java Enterprise" order="14" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" weight="0.32995737" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Database" order="8" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24496645" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32936078" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32936078" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.24702059" />
-      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="12" />
-      <window_info anchor="bottom" id="Spring" order="13" />
-      <window_info anchor="bottom" id="Java Enterprise" order="14" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" weight="0.32995737" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Database" order="8" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -653,315 +530,187 @@
               <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
                 <collection />
               </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
             </State>
           </value>
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1621441203720">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.262.1536.824@0.0.1920.1040" timestamp="1621441203720" />
+    <state x="667" y="241" width="585" height="558" key="find.popup" timestamp="1621439779996">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="241" width="585" height="558" key="find.popup/0.0.1920.1040/1920.262.1536.824@0.0.1920.1040" timestamp="1621439779996" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/MunicipalManagerRowMapper.java">
+    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/area/informacion.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-281" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-714">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationZoneController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/TimeSlot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="573">
+          <caret line="56" column="18" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
+          <folding>
+            <element signature="e#440#441#0" expanded="true" />
+            <element signature="e#474#475#0" expanded="true" />
+            <element signature="e#525#526#0" expanded="true" />
+            <element signature="e#571#572#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/reservation/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="30" column="53" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/publicoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/TimeSlotController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="48" column="14" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ServiceRowMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/MunicipalManagerDao.java">
+    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ServiceDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="51" column="16" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/login/access.html" />
-    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ControlStaffDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="50" column="53" selection-start-line="50" selection-start-column="53" selection-end-line="50" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/fragments/base.html" />
-    <entry file="file://$PROJECT_DIR$/sana/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-155">
-          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/SanaConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/SanaApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/static/index1.html" />
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/citizen/list.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/accesos/gestion.html" />
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/accesos/trabajador.html" />
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/accesos/publico.html" />
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/static/reservas.jpg" />
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/static/reservas.PNG">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ControlSatffController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/publicoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/static/municipios.PNG">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/encodings.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/reservation/list.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/UserInfoRowMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="17" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/UserInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-          <folding>
-            <element signature="e#734#735#0" expanded="true" />
-            <element signature="e#761#762#0" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
-            <element signature="e#833#834#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/UserInfoDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-76">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/area/list_publico.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/MunicipalManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/MunicipalityController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/AreaController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/area/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="29" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/municipality/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="51" lean-forward="true" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/municipality/list_publico.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="33" column="83" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/area/update.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-683" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/fragments/nav.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="65" lean-forward="true" selection-start-line="7" selection-start-column="53" selection-end-line="8" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/publico.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="-85">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/AreaDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="49" column="25" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/static/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/area/reserve.html" />
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/municipality/add.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/area/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="62" column="71" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ZoneDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
+        <state relative-caret-position="-119">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/Zone.java">
+    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/TimeSlotRowMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/Area.java">
+    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/TimeSlotDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="170" column="14" selection-start-line="170" selection-start-column="14" selection-end-line="170" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/AreaRowMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/area/informacion.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="53" column="111" selection-start-line="53" selection-start-column="87" selection-end-line="53" selection-end-column="111" />
+        <state relative-caret-position="242">
+          <caret line="48" column="56" lean-forward="true" selection-start-line="48" selection-start-column="56" selection-end-line="48" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/Reservation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+        <state relative-caret-position="318">
+          <caret line="84" column="18" selection-start-line="84" selection-start-column="18" selection-end-line="84" selection-end-column="18" />
+          <folding>
+            <element signature="e#688#689#0" expanded="true" />
+            <element signature="e#722#723#0" expanded="true" />
+            <element signature="e#777#778#0" expanded="true" />
+            <element signature="e#823#824#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/reservation/add.html">
+    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ReservationRowMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="289">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ZoneDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/Service/ReservationSvc.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="539">
+          <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="82" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="77" column="105" selection-start-line="77" selection-start-column="105" selection-end-line="77" selection-end-column="105" />
+        <state relative-caret-position="425">
+          <caret line="98" column="31" selection-start-line="98" selection-start-column="31" selection-end-line="98" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1389">
+          <caret line="84" column="53" selection-start-line="84" selection-start-column="53" selection-end-line="84" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#252#253#0" expanded="true" />
+            <element signature="e#280#281#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ReservationDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="63" column="13" lean-forward="true" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#592#593#0" expanded="true" />
+            <element signature="e#651#652#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
