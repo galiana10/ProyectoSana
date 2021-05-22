@@ -128,7 +128,6 @@ public class ReservationController {
         rv.validate(list,bindingResult);
         if (bindingResult.hasErrors()) {
             model.addAttribute("areaName", area);
-            //model.addAttribute("reservation", new Reservation());
             model.addAttribute("zones", reservationService.zonesFromArea(area));
             model.addAttribute("timeslots", reservationService.timeslotsFromArea(area));
             return "reservation/add";
@@ -142,10 +141,9 @@ public class ReservationController {
         reservation.setStatus("ACTIVA");
         reservation.setNIE_citizen(nie);
 
-        //reservationDao.addReservation(reservation);
         ReservationZone rzone;
         System.out.println("antes de a;adir reserva");
-        //reservationDao.addReservation(reservation);
+        reservationDao.addReservation(reservation);
         System.out.println("despues de a;adir reserva");
 
         for(String zone : zones){
@@ -154,7 +152,7 @@ public class ReservationController {
             rzone.setName_Area(area);
             rzone.setNumberLetter(zone);
 
-            //reservationZoneDao.addReservationZone(rzone);
+            reservationZoneDao.addReservationZone(rzone);
             System.out.println("despues de a;adir reserva zona");
 
         }
