@@ -11,7 +11,7 @@
 <div th:replace="fragments/nav">...</div>
 <div class="add-reservation">
     <h2 class="m-5">Nueva reserva</h2>
-    <form action="#" th:action="@{/reservation/add/${area}(area=${areaName})}"
+    <form action="#" th:action="@{/reservation/add/{area}(area=${areaName})}"
           th:object="${reservation}" method="post">
         <table>
             <tr>
@@ -25,8 +25,15 @@
             </tr>
             <tr>
                 <td><label>Hora</label></td>
-                <td><input type="time" id="appt" name="appt"
-                           min="09:00" max="18:00" required></td>
+                <td class="check-list-zones" path="timeslot">
+                    <div class="zone-box" th:each="timeslot : ${timeslots}">
+                        <input type="radio" th:value="${timeslot.id_timeslot}"
+                               name="timeslotSelected"
+                               class="btn-check" th:id="${timeslot.id_timeslot}" autocomplete="off">
+                        <label class="btn btn-outline-primary" th:for="${timeslot.id_timeslot}" th:text="${timeslot.initialhour}+' - '+${timeslot.finalhour}"></label><br>
+                    </div>
+                </td>
+                <td th:if="${#fields.hasErrors('id_timeslot')}"  class="error" th:errors="*{id_timeslot}"></td>
             </tr>
 
             <tr>
@@ -40,7 +47,6 @@
                     </div>
                 </td>
             </tr>
-
 
             <tr>
                 <td class="text-center m-5" colspan="2"><input class="btn btn-success" type="submit"

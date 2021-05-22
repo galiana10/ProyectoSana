@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalTime;
 
 public class TimeSlot {
+    int id_timeslot;
     String name_a;
     @DateTimeFormat(pattern = "HH:mm:ss")
     LocalTime initialhour;
@@ -14,6 +15,14 @@ public class TimeSlot {
 
     public String getName_a() {
         return name_a;
+    }
+
+    public int getId_timeslot() {
+        return id_timeslot;
+    }
+
+    public void setId_timeslot(int id_timeslot) {
+        this.id_timeslot = id_timeslot;
     }
 
     public void setName_a(String name_a) {
@@ -47,9 +56,10 @@ public class TimeSlot {
     @Override
     public String toString() {
         return "TimeSlot{" +
-                "name_A='" + name_a + '\'' +
-                ", inicialHour=" + initialhour +
-                ", finalHour=" + finalhour +
+                "id_timeslot=" + id_timeslot +
+                ", name_a='" + name_a + '\'' +
+                ", initialhour=" + initialhour +
+                ", finalhour=" + finalhour +
                 ", season='" + season + '\'' +
                 '}';
     }

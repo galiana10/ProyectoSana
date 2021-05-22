@@ -44,11 +44,12 @@ public class TimeSlotDao {
     }
 
     /* Obté el timeSlot amb el name_a and inicialHour, Torna null si no existeix. */
-    public TimeSlot getTimeSlot(String name_a, LocalTime initialhour) {
+    public TimeSlot getTimeSlot(int id) {
         try {
-            return jdbcTemplate.queryForObject("SELECT * FROM MUNICIPALITY WHERE name_a=? AND initialhour=?",
+            System.out.println("get time slot funcion");
+            return jdbcTemplate.queryForObject("SELECT * FROM TIMESLOT WHERE id_timeslot=?",
                     new TimeSlotRowMapper(),
-                    name_a, initialhour);
+                    id);
         }
         catch(EmptyResultDataAccessException e) {
             return null;
