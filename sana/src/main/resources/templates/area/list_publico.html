@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org"
 >
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
 
     <meta charset="UTF-8">
@@ -11,31 +11,43 @@
 </head>
 <body>
 
-    <div th:replace="fragments/nav" >...</div>
+<div th:replace="fragments/nav">...</div>
 
+<div class="contenedor-tablas">
 
-    <h1>Lista de areas de <span th:text="*{municipalityPublico}"></span></h1>
-
-
+    <div class="info-tablas">
+        <h1 >Lista de areas de <span th:text="*{municipalityPublico}"></span></h1>
+    </div>
 
     <div th:if="${#lists.isEmpty(areasPublico)}">
-        Este municipio no tiene areas añadidas
+        <h3>Este municipio no tiene areas añadidas</h3>
     </div>
-    <table th:unless="${#lists.isEmpty(areasPublico)}"  class="table table-condensed">
+
+    <div class="info-tablas">
+        <table  class="table table-sm" th:unless="${#lists.isEmpty(areasPublico)}">
+
+            <thead>
+                <tr class="table-secondary">
+                    <th>Areas</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="area: ${areasPublico}">
+                    <td class="table-success" th:text="${area.name}"></td>
+                    <td class="table-secondary table-button" >
+                        <a class="btn btn-outline-success" th:href="@{/area/informacion/{name}(name=${area.name})}">Informacion</a>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
 
 
-        <thead>
-        <tr>
-            <th>Areas</th>
-        </tr>
-        </thead>
-        <tbody>
+</div>
 
-        <tr th:each="area: ${areasPublico}">
-            <td th:text="${area.name}"></td>
-            <td><a class="btn btn-outline-success" th:href="@{/area/informacion/{name}(name=${area.name})}">Informacion</a></td>
-        </tr>
-        </tbody>
-    </table>
+
+
 </body>
 </html>
