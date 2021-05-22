@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
+
+    <meta charset="UTF-8">
+    <title>Areas_mm</title>
+</head>
+<body>
+
+<div th:replace="fragments/nav" >...</div>
+
+
+<h1>Lista de areas de <span th:text="*{municipalityMM}"></span></h1>
+
+
+
+<div th:if="${#lists.isEmpty(areasMM)}">
+    Este municipio no tiene areas añadidas
+</div>
+<table th:unless="${#lists.isEmpty(areasMM)}"  class="table table-condensed">
+
+
+    <thead>
+    <tr>
+        <th>Areas</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="area: ${areasMM}">
+        <td th:text="${area.name}"></td>
+        <td><a class="btn btn-outline-success" th:href="@{/area/update/{name}(name=${area.name})}">Modificar</a></td>
+        <td><a class="btn btn-outline-success" th:href="@{/area/informacion/{name}(name=${area.name})}">Servicios</a></td>
+        <td><a class="btn btn-outline-success" th:href="@{/area/informacion/{name}(name=${area.name})}">Reservas</a></td>
+        <td><a class="btn btn-outline-success" th:href="@{/area/informacion/{name}(name=${area.name})}">Ocupación</a></td>
+        <td><a class="btn btn-outline-success" th:href="@{/area/informacion/{name}(name=${area.name})}">Zonas</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
