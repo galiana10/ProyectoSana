@@ -1,5 +1,6 @@
 package es.uji.ei1027.sana.controller;
 
+import es.uji.ei1027.sana.Service.MMSvc;
 import es.uji.ei1027.sana.dao.UserInfoDao;
 import es.uji.ei1027.sana.model.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +35,19 @@ class UserValidator implements Validator {
 @Controller
 public class LoginController {
 
+    MMSvc MMSvc;
+
+
+
     @Autowired
     private UserInfoDao userDao;
+
+    @Autowired
+    public void setMMsvc(MMSvc MMSvc){
+        this.MMSvc=MMSvc;
+    }
+
+
 
     @RequestMapping("/login")
     public String login(Model model) {
@@ -70,7 +82,9 @@ public class LoginController {
         }else if(user.getType()==1){
             nextUrl = (nextUrl != null) ? nextUrl : "/";
         }else if(user.getType()==2){
-            nextUrl = (nextUrl != null) ? nextUrl : "/";
+            String municipality=MMSvc.municipalityFromMM(user.getNie());
+            nextUrl = (nextUrl != null) ? nextUrl : "municipalmanager/"+municipality;
+
         }
 
 

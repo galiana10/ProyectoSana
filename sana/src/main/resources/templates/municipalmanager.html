@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
+
+    <meta charset="UTF-8">
+    <title>MunicipalManager</title>
+</head>
+
+<body>
+
+    <div th:replace="fragments/nav" >...</div>
+
+
+    <h1><span th:text="*{municipalityMM}"></span></h1>
+
+    <div class="publico-container">
+
+        <div class="publico-item">
+
+
+            <div class="publico-img">
+
+                <a href="/area/listMM/{}">
+
+                    <img src="/Gestion.PNG" class="publico-imagen" >
+
+                </a>
+
+            </div>
+
+
+            <div class="publico-text">
+                <h2>Gestion</h2>
+                <p>Gestiona la información de la areas del municipio</p>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+</body>
+</html>

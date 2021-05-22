@@ -32,6 +32,7 @@ public class AreaController {
         return "area/list";
     }
 
+    //Publico
     @RequestMapping("/listPublico/{name_M}")
     public String listAreasPublico(Model model,@PathVariable String name_M) {
         model.addAttribute("areasPublico", areaDao.getAreasMunipality(name_M));
@@ -45,6 +46,20 @@ public class AreaController {
         return "area/informacion";
     }
 
+    //MM
+    @RequestMapping("/listMM/{name_M}")
+    public String listAreasMM(Model model,@PathVariable String name_M) {
+        model.addAttribute("areasMM", areaDao.getAreasMunipality(name_M));
+        model.addAttribute("municipalityMM",name_M);
+        return "area/list_mm";
+    }
+
+    @RequestMapping("/listMM/{name_M}/{name_A}")
+    public String listServicioMM(Model model,@PathVariable String name_M,@PathVariable String name_A) {
+        model.addAttribute("areasMM", areaDao.getAreasMunipality(name_M));
+        model.addAttribute("municipalityMM",name_M);
+        return "area/list_mm";
+    }
 
 
     @RequestMapping(value="/add")
