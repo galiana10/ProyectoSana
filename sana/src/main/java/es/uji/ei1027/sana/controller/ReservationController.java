@@ -82,6 +82,8 @@ public class ReservationController {
     @RequestMapping(value="/add/{area}")
     public String addReservationInArea(Model model,HttpSession session,@PathVariable String area) {
 
+        session.setAttribute("nextUrl",null);
+
         if(session.getAttribute("user")==null){
             String next = "reservation/add/".concat(area);
             session.setAttribute("nextUrl",next);
@@ -110,6 +112,8 @@ public class ReservationController {
         //TODO hacer validador para compribar la capcidad de las zonas
         // y si la franja horaria esta ocupada
         // y si estamos en un plazo correcto para hacer la reserva(entre dos dias antes y una hora antes )
+
+
 
         TimeSlot timeSlot;
         if(timeslotSelect==null)
