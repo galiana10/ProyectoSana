@@ -141,6 +141,18 @@ a{
     color:#3b7058;
 }
 
+.table-button{
+    width:20%;
+}
+
+.tabla-areas{
+    display:flex;
+    justify-content: center;
+}
+
+.tabla-areas table{
+    width:70%;
+}
 
 /*  Area informacion  */
 .info-area{
