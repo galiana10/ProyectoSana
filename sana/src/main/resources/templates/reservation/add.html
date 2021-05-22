@@ -11,7 +11,7 @@
 <div th:replace="fragments/nav">...</div>
 <div class="add-reservation">
     <h2 class="m-5">Nueva reserva</h2>
-    <form action="#" th:action="@{/reservation/add/${area}(area=${areaName})}"
+    <form action="#" th:action="@{/reservation/add/{area}(area=${areaName})}"
           th:object="${reservation}" method="post">
         <table>
             <tr>
@@ -33,6 +33,7 @@
                         <label class="btn btn-outline-primary" th:for="${timeslot.id_timeslot}" th:text="${timeslot.initialhour}+' - '+${timeslot.finalhour}"></label><br>
                     </div>
                 </td>
+                <td th:if="${#fields.hasErrors('id_timeslot')}"  class="error" th:errors="*{id_timeslot}"></td>
             </tr>
 
             <tr>

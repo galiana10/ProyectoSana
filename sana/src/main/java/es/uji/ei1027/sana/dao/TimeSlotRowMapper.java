@@ -10,7 +10,7 @@ import java.time.LocalTime;
 public class TimeSlotRowMapper implements RowMapper<TimeSlot>{
     @Override
     public TimeSlot mapRow(ResultSet rs, int rowNum) throws SQLException {
-        System.out.println("Entramos en el rowmapper");
+
         TimeSlot timeSlot = new TimeSlot();
         timeSlot.setId_timeslot(rs.getInt("id_timeslot"));
         timeSlot.setName_a(rs.getString("name_A"));

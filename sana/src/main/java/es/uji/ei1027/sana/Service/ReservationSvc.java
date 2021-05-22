@@ -21,7 +21,6 @@ public class ReservationSvc {
     @Autowired
     ZoneDao zoneDao;
 
-
     @Autowired
     ReservationDao reservationDao;
 
@@ -78,6 +77,15 @@ public class ReservationSvc {
             return false;
         }
         return true;
+
+    }
+
+    public String generateQr(){
+
+        int numReserve = reservationDao.getReservations().size()+1;
+        String qr = String.valueOf(numReserve);
+        return qr;
+
 
     }
 

@@ -45,7 +45,7 @@ public class ReservationValidator implements Validator{
 
 
             System.out.println("fecha anterior");
-            errors.rejectValue("data", "anterior",
+            errors.rejectValue("dataanterior", "diaAnterior",
                     "La reserva debe hacerse para una fecha posterior a hoy");
 
 
@@ -57,7 +57,7 @@ public class ReservationValidator implements Validator{
         if(daysElapsed>2){
             System.out.println("demasiados dias");
 
-            errors.rejectValue("data", "anterior",
+            errors.rejectValue("dataposterior", "diaPosterior",
                     "Maximo plazo para la reserva de dos dias de antelación");
         }
 
@@ -68,7 +68,7 @@ public class ReservationValidator implements Validator{
 
         if(daysElapsed==0 && hoursBetween<1) {
             System.out.println("hora anterior hoy");
-            errors.rejectValue("hour", "anterior",
+            errors.rejectValue("id_timeslot", "Hour anteior",
                     "Hora invalida debe de ser de almenos una hora de antelación");
 
         }

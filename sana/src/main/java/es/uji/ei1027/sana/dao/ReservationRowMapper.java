@@ -17,7 +17,6 @@ public final class ReservationRowMapper implements RowMapper<Reservation> {
         reservation.setDate(rs.getObject("date", LocalDate.class));
         reservation.setPeopleNumber(rs.getInt("peopleNumber"));
         reservation.setQR(rs.getString("QR"));
-        reservation.setReservationLimit(rs.getInt("reservationLimit"));
         reservation.setNIE_citizen(rs.getString("NIE_citizen"));
         reservation.setStatus(rs.getString("status"));
         reservation.setId_timeslot(rs.getInt("id_timeslot"));

@@ -24,10 +24,10 @@ public class ReservationDao {
 
     /* Afegeix la reserva a la base de dades */
     public void addReservation(Reservation reservation) {
-        //TODO
-        //jdbcTemplate.update("INSERT INTO RESERVATION VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
-                //
-                //reservation.getDate(),reservation.getPeopleNumber(),reservation.getQR(),reservation.getReservationLimit(),reservation.getNIE_citizen(),reservation.getStatus(),reservation.getName_A(),reservation.getInitialHour());
+
+        jdbcTemplate.update("INSERT INTO RESERVATION VALUES(?, ?, ?, ?, ?, ?)",
+
+                reservation.getDate(),reservation.getPeopleNumber(),reservation.getQR(),reservation.getNIE_citizen(),reservation.getStatus(),reservation.getId_timeslot());
     }
 
     /* Esborra la reserva de la base de dades por Objeto*/

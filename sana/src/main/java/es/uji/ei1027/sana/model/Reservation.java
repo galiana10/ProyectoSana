@@ -10,12 +10,10 @@ public class Reservation {
     private LocalDate date;
     private Integer peopleNumber;
     private String QR;
-    private Integer reservationLimit;
     private String NIE_citizen;
     private String status;
     private Integer id_timeslot;
-    @DateTimeFormat(pattern = "HH:mm:ss")
-    LocalTime initialHour;
+
 
     public String getStatus() {
         return status;
@@ -33,13 +31,7 @@ public class Reservation {
         this.id_timeslot = id_timeslot;
     }
 
-    public LocalTime getInitialHour() {
-        return initialHour;
-    }
 
-    public void setInitialHour(LocalTime initialHour) {
-        this.initialHour = initialHour;
-    }
 
     public LocalDate getDate() {
         return date;
@@ -65,13 +57,6 @@ public class Reservation {
         this.QR = QR;
     }
 
-    public Integer getReservationLimit() {
-        return reservationLimit;
-    }
-
-    public void setReservationLimit(Integer reservationLimit) {
-        this.reservationLimit = reservationLimit;
-    }
 
     public String getNIE_citizen() {
         return NIE_citizen;
@@ -87,11 +72,9 @@ public class Reservation {
                 "date=" + date +
                 ", peopleNumber=" + peopleNumber +
                 ", QR='" + QR + '\'' +
-                ", reservationLimit=" + reservationLimit +
                 ", NIE_citizen='" + NIE_citizen + '\'' +
                 ", status='" + status + '\'' +
                 ", id_timeslot=" + id_timeslot +
-                ", initialHour=" + initialHour +
                 '}';
     }
 }
