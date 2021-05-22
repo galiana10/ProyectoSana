@@ -38,50 +38,82 @@ public class ReservationValidator implements Validator{
         ReservationSvc svc = (ReservationSvc) params.get(3);
 
 
-
+        System.out.println("entramos en el validador");
 
         LocalDate hoy = LocalDate.now();
-        if(reservation.getDate().isBefore(hoy)){
+
+        boolean anterior = false;
 
 
-            System.out.println("fecha anterior");
-            errors.rejectValue("dataanterior", "diaAnterior",
+        if(reservation.getDate()==null){
+            errors.rejectValue("date", "dateObligatori",
+                    "La fecha es obligatoria");
+        }
+
+
+        if(reservation.getPeopleNumber()==null){
+            System.out.println("no hay egnte");
+            errors.rejectValue("peopleNumber", "peopleObligatorio",
+                    "El numero de personas es obligatorio");
+        }
+        if(timeslot==null){
+            errors.rejectValue("id_timeslot", "horaObligatoria",
+                    "La franja horaria es obligatoria");
+        }
+
+
+        if(reservation.getDate()!=null && reservation.getDate().isBefore(hoy)){
+
+
+            anterior=true;
+            errors.rejectValue("date", "diaAnterior",
                     "La reserva debe hacerse para una fecha posterior a hoy");
 
 
         }
 
 
-        Period period = Period.between ( hoy , reservation.getDate());
-        Integer daysElapsed = period.getDays ();
-        if(daysElapsed>2){
-            System.out.println("demasiados dias");
-
-            errors.rejectValue("dataposterior", "diaPosterior",
-                    "Maximo plazo para la reserva de dos dias de antelación");
+        if(zones==null ){
+            errors.rejectValue("QR", "zonaObligatoria",
+                    "Se debe elejir almenos una zona");
         }
 
+        if(reservation.getDate()!=null) {
+            Period period = Period.between(hoy, reservation.getDate());
+            Integer daysElapsed = period.getDays();
+            if (daysElapsed > 2) {
+                System.out.println("demasiados dias");
 
-        LocalTime now =  LocalTime.now();
+                errors.rejectValue("date", "diaPosterior",
+                        "Maximo plazo para la reserva de dos dias de antelación");
+            }
 
-        long hoursBetween = ChronoUnit.HOURS.between(now,timeslot.getInitialhour());
+            if (timeslot != null) {
 
-        if(daysElapsed==0 && hoursBetween<1) {
-            System.out.println("hora anterior hoy");
-            errors.rejectValue("id_timeslot", "Hour anteior",
-                    "Hora invalida debe de ser de almenos una hora de antelación");
+
+                LocalTime now = LocalTime.now();
+
+                long hoursBetween = ChronoUnit.HOURS.between(now, timeslot.getInitialhour());
+
+                if (daysElapsed == 0 && hoursBetween < 1) {
+                    anterior = true;
+                    System.out.println("hora anterior hoy");
+                    errors.rejectValue("id_timeslot", "Hour anteior",
+                            "Hora invalida debe de ser de almenos una hora de antelación");
+
+                }
+
+
+                //comprobar si el timeslot de alguna zona esta en uso
+                if (!anterior && zones!=null && !svc.zonasLibresEnHorario(zones, timeslot, reservation.getDate()))
+                    errors.rejectValue("QR", "ocupado",
+                            "La zona esta ocupada en esa fecha y horario");
+
+            }
 
         }
-
-
-        //comprobar si el timeslot de alguna zona esta en uso
-        if( ! svc.zonasLibresEnHorario(zones,timeslot,reservation.getDate()))
-            errors.rejectValue("ocupado", "ocupado",
-                    "La zona esta ocupada en esa fecha y horario");
-
-
-        if(! svc.capacityValidForZones(zones, timeslot.getName_a(),reservation.getPeopleNumber()))
-            errors.rejectValue("capacidad", "capacidadSuperada",
+        if(timeslot!=null && zones!=null && reservation.getPeopleNumber()!=null && ! svc.capacityValidForZones(zones, timeslot.getName_a(),reservation.getPeopleNumber()))
+            errors.rejectValue("peopleNumber", "capacidadSuperada",
                     "Se supera la capacidad permitida");
     }
 }

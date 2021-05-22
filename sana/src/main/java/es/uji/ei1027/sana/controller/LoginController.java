@@ -64,6 +64,7 @@ public class LoginController {
 
         //TODO tener en cuenta a que direccion se dirije y si es el tipo de usuario adecuiado
         String nextUrl = (String) session.getAttribute("nextUrl");
+        System.out.println(nextUrl);
 
         if(user.getType()==0){
             nextUrl = (nextUrl != null) ? nextUrl : "publico";

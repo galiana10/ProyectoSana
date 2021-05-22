@@ -80,7 +80,14 @@ public class ReservationController {
 
 
     @RequestMapping(value="/add/{area}")
-    public String addReservationInArea(Model model,@PathVariable String area) {
+    public String addReservationInArea(Model model,HttpSession session,@PathVariable String area) {
+
+        if(session.getAttribute("user")==null){
+            String next = "reservation/add/".concat(area);
+            session.setAttribute("nextUrl",next);
+            model.addAttribute("user", new UserInfo());
+            return "login";
+        }
 
         model.addAttribute("areaName", area);
         model.addAttribute("reservation", new Reservation());
@@ -92,8 +99,8 @@ public class ReservationController {
 
     @RequestMapping(value="/add/{area}", method=RequestMethod.POST)
     public String processReserveSubmit(@ModelAttribute("reservation") Reservation reservation,
-                                       @RequestParam(name="zonesList") List<String > zones,
-                                       @RequestParam(name="timeslotSelected") String  timeslotSelect,
+                                       @RequestParam(name="zonesList", required = false) List<String > zones,
+                                       @RequestParam(name="timeslotSelected", required = false) String  timeslotSelect,
                                        HttpSession session,
                                        Model model,
                                        @PathVariable String area,
@@ -104,8 +111,11 @@ public class ReservationController {
         // y si la franja horaria esta ocupada
         // y si estamos en un plazo correcto para hacer la reserva(entre dos dias antes y una hora antes )
 
-
-        TimeSlot timeSlot =  timeSlotDao.getTimeSlot(Integer.parseInt(timeslotSelect));
+        TimeSlot timeSlot;
+        if(timeslotSelect==null)
+            timeSlot =null;
+        else
+            timeSlot =  timeSlotDao.getTimeSlot(Integer.parseInt(timeslotSelect));
         List<Object> list = new ArrayList<>() ;
         list.add(reservation);
         list.add(zones);
@@ -117,6 +127,8 @@ public class ReservationController {
 
         rv.validate(list,bindingResult);
         if (bindingResult.hasErrors()) {
+            model.addAttribute("areaName", area);
+            //model.addAttribute("reservation", new Reservation());
             model.addAttribute("zones", reservationService.zonesFromArea(area));
             model.addAttribute("timeslots", reservationService.timeslotsFromArea(area));
             return "reservation/add";
@@ -133,7 +145,7 @@ public class ReservationController {
         //reservationDao.addReservation(reservation);
         ReservationZone rzone;
         System.out.println("antes de a;adir reserva");
-        reservationDao.addReservation(reservation);
+        //reservationDao.addReservation(reservation);
         System.out.println("despues de a;adir reserva");
 
         for(String zone : zones){
@@ -142,7 +154,7 @@ public class ReservationController {
             rzone.setName_Area(area);
             rzone.setNumberLetter(zone);
 
-            reservationZoneDao.addReservationZone(rzone);
+            //reservationZoneDao.addReservationZone(rzone);
             System.out.println("despues de a;adir reserva zona");
 
         }

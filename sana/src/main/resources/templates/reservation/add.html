@@ -17,11 +17,13 @@
             <tr>
                 <td><label>Date</label></td>
                 <td><input type="date" th:field="*{date}"/></td>
+                <td th:if="${#fields.hasErrors('date')}"  class="error" th:errors="*{date}"></td>
             </tr>
 
             <tr>
                 <td><label>People Number</label></td>
                 <td><input type="text" th:field="*{peopleNumber}"/></td>
+                <td th:if="${#fields.hasErrors('peopleNumber')}"  class="error" th:errors="*{peopleNumber}"></td>
             </tr>
             <tr>
                 <td><label>Hora</label></td>
@@ -46,6 +48,8 @@
                         <label class="btn btn-outline-primary" th:for="${zone}" th:text="${zone}"></label><br>
                     </div>
                 </td>
+                <td th:if="${#fields.hasErrors('QR')}"  class="error" th:errors="*{QR}"></td>
+
             </tr>
 
             <tr>
