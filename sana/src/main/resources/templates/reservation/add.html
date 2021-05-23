@@ -32,7 +32,7 @@
                         <input type="radio" th:value="${timeslot.id_timeslot}"
                                name="timeslotSelected"
                                class="btn-check" th:id="${timeslot.id_timeslot}" autocomplete="off">
-                        <label class="btn btn-outline-primary" th:for="${timeslot.id_timeslot}" th:text="${timeslot.initialhour}+' - '+${timeslot.finalhour}"></label><br>
+                        <label class="btn btn-outline-success" th:for="${timeslot.id_timeslot}" th:text="${timeslot.initialhour}+' - '+${timeslot.finalhour}"></label><br>
                     </div>
                 </td>
                 <td th:if="${#fields.hasErrors('id_timeslot')}"  class="error" th:errors="*{id_timeslot}"></td>
@@ -45,7 +45,7 @@
                         <input type="checkbox" th:value="${zone}"
                                name="zonesList"
                                class="btn-check" th:id="${zone}" autocomplete="off">
-                        <label class="btn btn-outline-primary" th:for="${zone}" th:text="${zone}"></label><br>
+                        <label class="btn btn-outline-success" th:for="${zone}" th:text="${zone}"></label><br>
                     </div>
                 </td>
                 <td th:if="${#fields.hasErrors('QR')}"  class="error" th:errors="*{QR}"></td>
@@ -53,8 +53,9 @@
             </tr>
 
             <tr>
-                <td class="text-center m-5" colspan="2"><input class="btn btn-success" type="submit"
-                                                               value="Añadir reserva"/></td>
+                    <td class="text-center m-5" colspan="2">
+                        <input class="btn btn-outline-success btn-add-reservation" type="submit"  value="Añadir reserva"/>
+                    </td>
             </tr>
         </table>
     </form>

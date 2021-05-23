@@ -9,7 +9,6 @@ a{
     text-decoration: none;
 }
 
-
 .btn-outline-success{
     background-color: white;
 
@@ -17,6 +16,10 @@ a{
 
 .enlace{
     color:#3b7058
+}
+
+.error {
+    color: red;
 }
 
 
@@ -71,14 +74,21 @@ a{
 
 
 /*  login */
+.login-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
 .login-container{
   display: flex;
+  flex-flow: column;
   justify-content: center;
 }
 
+
+
 .login-form{
-    position: absolute;
-    top: 45%;
+    margin-top: 50px;
     text-align:center;
     border: #3b7058 2px solid;
     padding: 20px;
@@ -209,6 +219,24 @@ a{
     flex-direction: column;
     align-items: center;
 
+}
+
+.add-reservation h2 {
+    color: #3b7058;
+}
+.add-reservation form {
+    height: 350px;
+    padding: 20px 30px;
+    border: 3px solid #3b7058;
+}
+
+.add-reservation form table {
+    height: 100%;
+}
+
+.add-reservation btn-add-reservation{
+    height: 50px;
+    width: 40%;
 }
 
 .check-list-zones{
