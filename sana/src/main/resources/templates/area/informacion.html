@@ -12,46 +12,58 @@
 <div th:replace="fragments/nav" >...</div>
 <div class="info-area">
 
-    <h1>
+    <h1 class="title-area">
     <span th:text="${areasInfo.name}"></span> <span> - (</span><span th:text="${areasInfo.name_M}"> </span><span>)</span>
     </h1>
     <div class="area-info-columns">
         <div class="area-info-column">
-            <img th:src="${areasInfo.image}" >
+            <img class="area-img" th:src="${areasInfo.image}" >
 
         </div>
         <div class="area-info-column ml-3">
-            <p>
-                <strong>Descripción: </strong><span th:text="${areasInfo.description}" ></span>
-            </p>
+            <table class="table">
+            <tbody>
+            <tr>
+                <th> <strong>Descripción: </strong></th>
+                <td>  <span th:text="${areasInfo.description}" ></span></td>
 
-            <p>
-                <strong>Tipo de acceso: </strong><span th:text="${areasInfo.accessType}" ></span>
-            </p>
+            </tr>
+            <tr>
+                <th > <strong>Tipo de acceso: </strong></th>
+                <td>   <span th:text="${areasInfo.accessType}" ></span></td>
 
-            <p>
-                <strong>Orientació: </strong><span th:text="${areasInfo.orientation}" ></span>
-            </p>
+            </tr>
+            <tr>
+                <th > <strong>Orientación: </strong></th>
+                <td>  <span th:text="${areasInfo.orientation}" ></span></td>
 
-            <p>
-                <strong>Comentarios: </strong><span th:text="${areasInfo.comment}" ></span>
-            </p>
+            </tr>
+            <tr>
+                <th >  <strong>Comentarios: </strong></th>
+                <td>   <span th:text="${areasInfo.comment}" ></span></td>
 
-            <p>
-                <strong>Nummero de zonas: </strong><span th:text="${areasInfo.numberOfZone}" ></span>
-            </p>
+            </tr>
+            <tr>
+                <th >  <strong>Número de zonas: </strong></th>
+                <td>   <span th:text="${areasInfo.numberOfZone}" ></span></td>
 
-            <p>
-                <strong>Caracteristicas: </strong><span th:text="${areasInfo.physiscalCharacteristic}" ></span>
-            </p>
+            </tr>
+            <tr>
+                <th >   <strong>Caracteristicas: </strong></th>
+                <td> <span th:text="${areasInfo.physiscalCharacteristic}" ></span></td>
 
-            <p>
-                <strong>Facilidades: </strong><span th:text="${areasInfo.facility}" ></span>
-            </p>
+            </tr>
+            <tr>
+                <th >   <strong>Facilidades: </strong></th>
+                <td>  <span th:text="${areasInfo.facility}" ></span></td>
+
+            </tr>
+            </tbody>
+            </table>
 
         </div>
     </div>
-    <a class="btn btn-outline-success" role="button" th:href="@{/reservation/add/{area}(area=${areasInfo.name})}">Reservar</a></dt>
+    <a class="btn btn-outline-success link-reserve-btn" role="button" th:href="@{/reservation/add/{area}(area=${areasInfo.name})}">Reservar</a></dt>
 </div>
 
 
