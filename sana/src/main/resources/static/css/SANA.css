@@ -8,23 +8,34 @@ body{
 a{
     color: white;
     text-decoration: none;
+}
 
-
+.btn-outline-success{
+    background-color: white;
 }
 
 /*  index */
 .contenedor-index{
-    margin-top: 50px;
+    margin: 50px 70px;
     display: flex;
     justify-content:space-around;
 }
 
 .info-index{
-   overflow: scroll;
-   height: 500px;
+    flex:6;
+    overflow: scroll;
+    height: 500px;
     width: 700px;
 }
 
+.home-cv{
+    flex: 4;
+    width:40%;
+}
+
+.home-cv img{
+    width:100%;
+}
 
 /*  navegacion */
 
@@ -145,12 +156,12 @@ a{
     width:20%;
 }
 
-.tabla-areas{
+.center-tablas{
     display:flex;
     justify-content: center;
 }
 
-.tabla-areas table{
+.center-tablas table{
     width:70%;
 }
 
