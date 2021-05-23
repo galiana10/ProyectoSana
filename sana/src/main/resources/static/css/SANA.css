@@ -2,16 +2,19 @@
 /*  General para todos */
 body{
 
-<<<<<<< HEAD
 }
 
 a{
     color: white;
     text-decoration: none;
 
-=======
->>>>>>> origin/reserveAnArea
 }
+
+.enlace{
+    color:#3b7058
+}
+
+
 
 /*  index */
 .contenedor-index{
@@ -62,8 +65,10 @@ a{
 
 .login-form{
     position: absolute;
-    top: 50%;
+    top: 45%;
     text-align:center;
+    border: #3b7058 2px solid;
+    padding: 20px;
 }
 
 
@@ -138,6 +143,10 @@ a{
     text-align:center;
 }
 
+.info_tablas a{
+    color: #3b7058 ;
+}
+
 .info-tablas h1{
     color:#3b7058;
 }
@@ -186,6 +195,5 @@ a{
 
     margin-right:7px;
     margin-top:7px;
-
 
 }

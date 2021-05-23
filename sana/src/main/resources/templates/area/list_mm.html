@@ -11,35 +11,45 @@
 </head>
 <body>
 
-<div th:replace="fragments/nav" >...</div>
+    <div th:replace="fragments/nav" >...</div>
+
+    <div class="contenedor-tablas">
+
+        <div class="info-tablas">
+            <h1>Lista de areas de <span th:text="*{municipalityMM}"></span></h1>
+        </div>
 
 
-<h1>Lista de areas de <span th:text="*{municipalityMM}"></span></h1>
 
 
+        <div th:if="${#lists.isEmpty(areasMM)}"class="info-tablas">
+            Este municipio no tiene areas añadidas
+        </div>
 
-<div th:if="${#lists.isEmpty(areasMM)}">
-    Este municipio no tiene areas añadidas
-</div>
-<table th:unless="${#lists.isEmpty(areasMM)}"  class="table table-condensed">
+        <div class="info-tablas">
+            <table th:unless="${#lists.isEmpty(areasMM)}"class="table table-sm">
 
 
-    <thead>
-    <tr>
-        <th>Areas</th>
-    </tr>
-    </thead>
-    <tbody>
+                <thead>
+                <tr class="table-secondary">
+                    <th>Areas</th>
+                </tr>
+                </thead>
+                <tbody>
 
-    <tr th:each="area: ${areasMM}">
-        <td th:text="${area.name}"></td>
-        <td><a class="btn btn-outline-success" th:href="@{/area/update/{name}(name=${area.name})}">Modificar</a></td>
-        <td><a class="btn btn-outline-success" th:href="@{/area/informacion/{name}(name=${area.name})}">Servicios</a></td>
-        <td><a class="btn btn-outline-success" th:href="@{/area/informacion/{name}(name=${area.name})}">Reservas</a></td>
-        <td><a class="btn btn-outline-success" th:href="@{/area/informacion/{name}(name=${area.name})}">Ocupación</a></td>
-        <td><a class="btn btn-outline-success" th:href="@{/area/informacion/{name}(name=${area.name})}">Zonas</a></td>
-    </tr>
-    </tbody>
-</table>
+                <tr th:each="area: ${areasMM}">
+                    <td class="table-success" th:text="${area.name}"></td>
+                    <td class="table-secondary"> <a th:href="@{/area/update/{name}(name=${area.name})}">Modificar</a></td>
+                    <td class="table-secondary"> <a th:href="@{/area/informacion/{name}(name=${area.name})}">Servicios</a></td>
+                    <td class="table-secondary"> <a  th:href="@{/area/informacion/{name}(name=${area.name})}">Reservas</a></td>
+                    <td class="table-secondary"> <a  th:href="@{/area/informacion/{name}(name=${area.name})}">Ocupación</a></td>
+                    <td class="table-secondary"> <a  th:href="@{/area/informacion/{name}(name=${area.name})}">Zonas</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
 </body>
 </html>
