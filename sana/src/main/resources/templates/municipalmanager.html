@@ -14,8 +14,10 @@
 
     <div th:replace="fragments/nav" >...</div>
 
+    <div class="info-tablas">
+        <h1><span th:text="*{municipalityMM}"></span></h1>
+    </div>
 
-    <h1><span th:text="*{municipalityMM}"></span></h1>
 
     <div class="publico-container">
 
@@ -24,7 +26,7 @@
 
             <div class="publico-img">
 
-                <a href="/area/listMM/{}">
+                <a th:href="@{/area/listMM/{name}(name=${municipalityMM})}">
 
                     <img src="/Gestion.PNG" class="publico-imagen" >
 
