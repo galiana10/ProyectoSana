@@ -185,7 +185,7 @@ a{
 }
 
 .link-reserve-btn{
-    align-self:center;
+    align-self: center !important;
 }
 
 /*  hacer reserva  */
