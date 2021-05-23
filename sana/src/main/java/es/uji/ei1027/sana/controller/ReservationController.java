@@ -61,8 +61,6 @@ public class ReservationController {
         return "reservation/list";
     }
 
-
-
     @RequestMapping(value="/add")
     public String addReservation(Model model) {
         model.addAttribute("reservation", new Reservation());
