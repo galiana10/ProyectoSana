@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f3d867f3-0745-4d4a-8b75-81aa3bc2d0ab" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/area/informacion.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/area/informacion.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/sana/target/" />
@@ -31,8 +32,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="187" column="23" lean-forward="true" selection-start-line="187" selection-start-column="23" selection-end-line="187" selection-end-column="23" />
+            <state relative-caret-position="442">
+              <caret line="170" column="18" selection-start-line="170" selection-start-column="18" selection-end-line="170" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -40,8 +41,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/area/informacion.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+            <state relative-caret-position="205">
+              <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -118,6 +119,8 @@
     <findStrings>
       <find>HEAD</find>
       <find>table-bu</find>
+      <find>auto</find>
+      <find>#3b7058</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -305,7 +308,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1621766225740" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1621767334348" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -614,15 +617,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/area/informacion.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+        <state relative-caret-position="205">
+          <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="187" column="23" lean-forward="true" selection-start-line="187" selection-start-column="23" selection-end-line="187" selection-end-column="23" />
+        <state relative-caret-position="442">
+          <caret line="170" column="18" selection-start-line="170" selection-start-column="18" selection-end-line="170" selection-end-column="18" />
         </state>
       </provider>
     </entry>

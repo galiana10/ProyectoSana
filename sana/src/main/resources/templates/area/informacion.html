@@ -20,7 +20,7 @@
             <img class="area-img" th:src="${areasInfo.image}" >
 
         </div>
-        <div class="area-info-column ml-3">
+        <div class="area-info-column right ml-3">
             <table class="table">
             <tbody>
             <tr>
@@ -63,7 +63,7 @@
 
         </div>
     </div>
-    <a class="btn btn-outline-success link-reserve-btn" role="button" th:href="@{/reservation/add/{area}(area=${areasInfo.name})}">Reservar</a></dt>
+    <a th:if="${areasInfo.accessType =='restricted'}" class="btn btn-outline-success link-reserve-btn" role="button" th:href="@{/reservation/add/{area}(area=${areasInfo.name})}">Reservar</a></dt>
 </div>
 
 
