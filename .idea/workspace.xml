@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13de6108-56b4-41aa-93b4-78e6b1fd8836" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/select_zones.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/area/informacion.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/area/informacion.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/area/list_publico.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/area/list_publico.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/municipality/list_publico.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/municipality/list_publico.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/municipalmanager.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/add.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +22,15 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/sana/src/main/resources/templates/area/informacion.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/sana/src/main/resources/templates/area/list_publico.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/sana/src/main/resources/templates/reservation/select_zones.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/Service/ReservationSvc.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/sana/src/main/resources/templates/reservation/add.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationController.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1t27iWsbooIDxMTWT52fmVMXUBR" />
   <component name="ProjectViewState">

@@ -35,8 +35,9 @@ a{
     width: 20px;
     height: 20px;
 ￼   display: inline-block;
-￼   border-radius: 50%;
-    background-color: #3b705882;
+    border-radius: 50%;
+    background-color: #3b705842;
+    margin-bottom: 20px;
 }
 .puntitos .actual{
     background-color: #3b7058;
