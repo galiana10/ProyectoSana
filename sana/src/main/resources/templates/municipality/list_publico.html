@@ -40,14 +40,18 @@
                 <td class="table-success" th:text="${municipality.address}"></td>
 
                 <td class="table-secondary">
-                    <a class="btn btn-outline-success" th:href="@{/area/listPublico/{name}(name=${municipality.name})}">Consultar</a>
+                    <a class="btn btn-outline-success"
+                       th:href="@{/area/listPublico/{name}(name=${municipality.name})}">Consultar</a>
                 </td>
-
             </tr>
             </tbody>
         </table>
-
     </div>
+
+    <div class="info-tablas">
+        <a class="btn btn-outline-success btn-volver" href="/publico">Volver</a>
+    </div>
+
 </div>
 
 </body>

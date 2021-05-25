@@ -19,7 +19,7 @@
         <h1 >Lista de areas de <span th:text="*{municipalityPublico}"></span></h1>
     </div>
 
-    <div th:if="${#lists.isEmpty(areasPublico)}">
+    <div class="info-tablas" th:if="${#lists.isEmpty(areasPublico)}">
         <h3>Este municipio no tiene areas añadidas</h3>
     </div>
 
@@ -42,6 +42,10 @@
             </tbody>
 
         </table>
+    </div>
+
+    <div class="info-tablas">
+        <a class="btn btn-outline-success btn-volver" href="/municipality/listPublico">Volver</a>
     </div>
 
 

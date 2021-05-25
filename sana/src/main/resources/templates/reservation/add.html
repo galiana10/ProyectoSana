@@ -11,19 +11,25 @@
 <div th:replace="fragments/nav">...</div>
 <div class="add-reservation">
     <h2 class="m-5">Nueva reserva</h2>
+
+    <div class="puntitos">
+        <span class="actual"> </span>
+        <span class="siguiente"> </span>
+    </div>
+
     <form action="#" th:action="@{/reservation/add/{area}(area=${areaName})}"
           th:object="${reservation}" method="post">
         <table>
             <tr>
                 <td><label>Date</label></td>
                 <td><input type="date" th:field="*{date}"/></td>
-                <td th:if="${#fields.hasErrors('date')}"  class="error" th:errors="*{date}"></td>
+                <td th:if="${#fields.hasErrors('date')}" class="error" th:errors="*{date}"></td>
             </tr>
 
             <tr>
                 <td><label>People Number</label></td>
                 <td><input type="text" th:field="*{peopleNumber}"/></td>
-                <td th:if="${#fields.hasErrors('peopleNumber')}"  class="error" th:errors="*{peopleNumber}"></td>
+                <td th:if="${#fields.hasErrors('peopleNumber')}" class="error" th:errors="*{peopleNumber}"></td>
             </tr>
             <tr>
                 <td><label>Hora</label></td>
@@ -32,12 +38,14 @@
                         <input type="radio" th:value="${timeslot.id_timeslot}"
                                name="timeslotSelected"
                                class="btn-check" th:id="${timeslot.id_timeslot}" autocomplete="off">
-                        <label class="btn btn-outline-success" th:for="${timeslot.id_timeslot}" th:text="${timeslot.initialhour}+' - '+${timeslot.finalhour}"></label><br>
+                        <label class="btn btn-outline-success" th:for="${timeslot.id_timeslot}"
+                               th:text="${timeslot.initialhour}+' - '+${timeslot.finalhour}"></label><br>
                     </div>
                 </td>
-                <td th:if="${#fields.hasErrors('id_timeslot')}"  class="error" th:errors="*{id_timeslot}"></td>
+                <td th:if="${#fields.hasErrors('id_timeslot')}" class="error" th:errors="*{id_timeslot}"></td>
             </tr>
 
+            <!--            TODO Mover a nueva vista-->
             <tr>
                 <td><label>Zona/s</label></td>
                 <td class="check-list-zones" path="zones">
@@ -48,18 +56,21 @@
                         <label class="btn btn-outline-success" th:for="${zone}" th:text="${zone}"></label><br>
                     </div>
                 </td>
-                <td th:if="${#fields.hasErrors('QR')}"  class="error" th:errors="*{QR}"></td>
+                <td th:if="${#fields.hasErrors('QR')}" class="error" th:errors="*{QR}"></td>
 
             </tr>
 
             <tr>
-                    <td class="text-center m-5" colspan="2">
-                        <input class="btn btn-outline-success btn-add-reservation" type="submit"  value="Añadir reserva"/>
-                    </td>
+                <td class="text-center m-5" colspan="2">
+                    <input class="btn btn-outline-success btn-add-reservation" type="submit" value="Añadir reserva"/>
+                </td>
             </tr>
         </table>
     </form>
 
+    <div>
+        <a class="btn btn-outline-success" th:href="@{/area/informacion/{name}(name=${areaName})}">Seleccionar Zonas</a>
+    </div>
 
 </div>
 </body>
