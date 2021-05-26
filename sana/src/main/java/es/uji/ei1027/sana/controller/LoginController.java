@@ -84,7 +84,7 @@ public class LoginController {
             nextUrl = (nextUrl != null) ? nextUrl : "/";
         }else if(user.getType()==2){
             String municipality=MMSvc.municipalityFromMM(user.getNie());
-            nextUrl = (nextUrl != null) ? nextUrl : "municipalmanager/"+municipality;
+            nextUrl = (nextUrl != null) ? nextUrl : "area/listMM/"+municipality;
 
         }
 

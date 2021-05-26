@@ -77,6 +77,8 @@ public class ReservationController {
     }
 
 
+
+
     @RequestMapping(value="/add/{area}")
     public String addReservationInArea(Model model,HttpSession session,@PathVariable String area) {
 
