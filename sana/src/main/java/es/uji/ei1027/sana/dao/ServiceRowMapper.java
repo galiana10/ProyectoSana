@@ -16,6 +16,7 @@ public class ServiceRowMapper implements RowMapper<Service> {
         service.setName(rs.getString("name"));
         service.setDescription(rs.getString("description"));
         service.setServicetype(rs.getString("serviceType"));
+        service.setHorarios(rs.getString("horarios"));
         return service;
     }
 }

@@ -4,6 +4,15 @@ public class Service {
     private String name;
     private String description;
     private String servicetype;
+    private String horarios;
+
+    public String getHorarios() {
+        return horarios;
+    }
+
+    public void setHorarios(String horarios) {
+        this.horarios = horarios;
+    }
 
     public String getName() {
         return name;
@@ -35,6 +44,7 @@ public class Service {
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", servicetype='" + servicetype + '\'' +
+                ", horarios='" + horarios + '\'' +
                 '}';
     }
 }

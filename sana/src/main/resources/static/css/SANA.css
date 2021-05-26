@@ -22,7 +22,7 @@
     display: flex;
     justify-content: space-between;
     width: 100% !important;
-￼
+
 }
 .puntitos {
     display: flex;
@@ -30,7 +30,7 @@
 .puntitos span {
     width: 20px;
     height: 20px;
-￼   display: inline-block;
+    display: inline-block;
     border-radius: 50%;
     background-color: #3b705842;
     margin-bottom: 20px;

@@ -1,11 +1,15 @@
 package es.uji.ei1027.sana.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
 
 public class Schedule {
     String name_s;
     String name_a;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     LocalDate initialdate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     LocalDate finaldate;
 
     public String getName_s() {

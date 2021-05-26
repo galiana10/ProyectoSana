@@ -55,6 +55,19 @@ public class ScheduleDao {
         }
     }
 
+
+    public Schedule getSchedule(Schedule schedule) {
+        try {
+            return jdbcTemplate.queryForObject("SELECT * FROM SCHEDULE WHERE name_s=? AND name_a=? AND initialdate=?",
+                    new ScheduleRowMapper(),
+                    schedule.getName_s(), schedule.getName_a(),schedule.getInitialdate());
+        }
+        catch(EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
+
     /* Obté tots els timeSlot torna una llista buida si no n'hi ha cap. */
     public List<Schedule> getSchedules() {
         try {

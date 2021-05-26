@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
+
+    <meta charset="UTF-8">
+    <title>Servicios_Area</title>
+</head>
+
+<body>
+
+
+<div th:replace="fragments/nav">...</div>
+
+<div class="contenedor-tablas">
+
+    <div class="info-tablas">
+        <h1>Servicios "<span th:text="*{Area}"></span>"</h1>
+    </div>
+
+
+    <div th:if="${#lists.isEmpty(servicesSchedules)}"class="info-tablas">
+        Este area no tiene servicios
+    </div>
+
+
+
+
+    <div class="info-tablas center-tablas">
+
+        <table th:unless="${#lists.isEmpty(servicesSchedules)}" class="table table-sm">
+            <thead>
+            <tr class="table-secondary">
+                <th>Name</th>
+
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="schedule: ${servicesSchedules}">
+
+                <td class="table-success" th:text="${schedule.name_s}"></td>
+
+
+
+                <td class="table-secondary">
+                    <a class="btn btn-outline-success"
+                       th:href="@{/service/delete/{nameS}/{nameA}/{InicialDate}/{municipio}(nameS=${schedule.name_s},nameA=${schedule.name_a},InicialDate=${schedule.initialdate},municipio=${Municipio})}">Borrar</a>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="info-tablas">
+        <a class="btn btn-outline-success btn-volver" th:href="@{/area/listMM/{municipality}(municipality=${Municipio})}">Volver</a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

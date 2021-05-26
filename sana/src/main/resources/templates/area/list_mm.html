@@ -26,7 +26,7 @@
             Este municipio no tiene areas añadidas
         </div>
 
-        <div class="info-tablas">
+        <div class="info-tablas center-tablas">
             <table th:unless="${#lists.isEmpty(areasMM)}"class="table table-sm">
 
 
@@ -39,15 +39,17 @@
 
                 <tr th:each="area: ${areasMM}">
                     <td class="table-success" th:text="${area.name}"></td>
-                    <td class="table-secondary"> <a th:href="@{/area/update/{name}(name=${area.name})}">Modificar</a></td>
-                    <td class="table-secondary"> <a th:href="@{/area/informacion/{name}(name=${area.name})}">Servicios</a></td>
-                    <td class="table-secondary"> <a  th:href="@{/area/informacion/{name}(name=${area.name})}">Reservas</a></td>
-                    <td class="table-secondary"> <a  th:href="@{/area/informacion/{name}(name=${area.name})}">Ocupación</a></td>
-                    <td class="table-secondary"> <a  th:href="@{/area/informacion/{name}(name=${area.name})}">Zonas</a></td>
+                    <td class="table-secondary"> <a class="btn btn-outline-success" th:href="@{/area/update/{name}(name=${area.name})}">Modificar</a></td>
+                    <td class="table-secondary"> <a class="btn btn-outline-success" th:href="@{/service/list/{municipality}/{name}(municipality=${municipalityMM},name=${area.name})}">Servicios</a></td>
+                    <td class="table-secondary"> <a class="btn btn-outline-success"  th:href="@{/area/informacion/{name}(name=${area.name}  )}">Reservas</a></td>
+                    <td class="table-secondary"> <a class="btn btn-outline-success"  th:href="@{/area/informacion/{name}(name=${area.name})}">Ocupación</a></td>
+                    <td class="table-secondary"> <a class="btn btn-outline-success" th:href="@{/area/informacion/{name}(name=${area.name})}">Zonas</a></td>
                 </tr>
                 </tbody>
             </table>
         </div>
+
+
 
     </div>
 

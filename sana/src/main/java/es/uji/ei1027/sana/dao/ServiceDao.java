@@ -25,8 +25,8 @@ public class ServiceDao {
 
     /* Afegeix el service a la base de dades */
     public void addService(Service service) {
-        jdbcTemplate.update("INSERT INTO service VALUES(?, ?, ?)",
-              service.getName(),service.getDescription(),service.getServicetype()) ;
+        jdbcTemplate.update("INSERT INTO service VALUES(?, ?, ?,?)",
+              service.getName(),service.getDescription(),service.getServicetype(),service.getHorarios()) ;
     }
 
     /*Esborra un servici*/
@@ -43,8 +43,8 @@ public class ServiceDao {
 
     /*Actualiza un service*/
     public void updateService(Service service){
-        jdbcTemplate.update("UPDATE service set description=?,servicetype=? where name=?",
-                service.getDescription(),service.getServicetype(),service.getName());
+        jdbcTemplate.update("UPDATE service set description=?,servicetype=?,horarios=? where name=?",
+                service.getDescription(),service.getServicetype(),service.getHorarios(),service.getName());
     }
 
 
