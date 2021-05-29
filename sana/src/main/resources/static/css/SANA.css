@@ -108,7 +108,12 @@
     margin-top: 50px;
     text-align:center;
     border: #3b7058 2px solid;
-    padding: 20px;
+    padding: 40px;
+}
+
+.login-form p{
+
+    text-align: end;
 }
 
 

@@ -95,7 +95,7 @@ public class ServiceController {
         scheduleDao.deleteSchedule(nameS,nameA,ini);
 
         //TODO mirar el redirect para que actualice una vez borrado
-        
+
         return "redirect:service/list/"+municipio+"/"+nameA;
     }
 

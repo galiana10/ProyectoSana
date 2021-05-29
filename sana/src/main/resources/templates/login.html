@@ -22,11 +22,14 @@
         <form class="login-form" action="#" th:action="@{/login}"
               th:object="${user}" method="post">
 
+
             <p>
-                <label>Usuario:</label>
+                <label>Nombre:</label>
                 <input class="form_control" type="text" th:field="*{username}"/>
             <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
             </p>
+
+
 
             <p>
                 <label>Contraseña:</label>
@@ -34,9 +37,14 @@
             <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
             </p>
 
+
+
+
             <p>
-                ¿No tienes cuenta? Registrate <a class="enlace" href="/publico">aquí</a>.
+                ¿No tienes cuenta? Registrate <a class="enlace" href="/register">aquí</a>.
             </p>
+
+
 
             <input class="btn btn-outline-success" type="submit" value="Accedir"/>
         </form>

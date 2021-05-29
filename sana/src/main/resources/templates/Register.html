@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
+
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+
+<body>
+
+
+    <div th:replace="fragments/nav">...</div>
+
+    <div class="login-wrapper">
+        <div class="login-container">
+
+            <div class="info-tablas">
+                <h1>"Crear Cuenta"</h1>
+            </div>
+
+
+            <form class="login-form" action="#" th:action="@{/register}"
+                  th:object="${citizen}" method="post">
+
+                <p>
+                    <label>Nombre:</label>
+                    <input class="form_control" type="text" th:field="*{name}"/>
+                </p>
+
+                <p>
+                    <label>DNI:</label>
+                    <input class="form_control" type="text" th:field="*{NIE}"/>
+                </p>
+
+                <p>
+                    <label>E-mail:</label>
+                    <input class="form_control" type="text" th:field="*{email}"/>
+                </p>
+
+                <p>
+                    <label>Direccion:</label>
+                    <input class="form_control" type="text" th:field="*{address}"/>
+                </p>
+
+                <p>
+                    <label>Ciudad:</label>
+                    <input class="form_control" type="text" th:field="*{town}"/>
+                </p>
+
+                <p>
+                    <label>País:</label>
+                    <input class="form_control" type="text" th:field="*{country}"/>
+                </p>
+
+                <input class="btn btn-outline-success" type="submit" value="Crear"/>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+</html>

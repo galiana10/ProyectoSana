@@ -25,12 +25,12 @@ class UserValidator implements Validator {
         public void validate(Object obj, Errors errors) {
             UserInfo ud=(UserInfo) obj;
             if(ud.getUsername().equals(""))
-                errors.rejectValue("nom","obligatory","Cal introduir un valor");
+                errors.rejectValue("username","obligatory","Cal introduir un valor");
             if(ud.getPassword().equals(""))
                 errors.rejectValue("password","obligatory","Cal introduir un valor");
 
         }
-    }
+}
 
 @Controller
 public class LoginController {
