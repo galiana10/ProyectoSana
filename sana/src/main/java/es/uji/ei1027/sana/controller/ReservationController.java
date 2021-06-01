@@ -93,16 +93,67 @@ public class ReservationController {
 
         model.addAttribute("areaName", area);
         model.addAttribute("reservation", new Reservation());
-        model.addAttribute("zones", reservationService.zonesFromArea(area));
+
         model.addAttribute("timeslots", reservationService.timeslotsFromArea(area));
         return "reservation/add";
+    }
+
+    @RequestMapping(value = "/add/zones/{area}")
+    public String processAddZones(@ModelAttribute("reservation")Reservation reservation,
+                                  @RequestParam(name="timeslotSelected", required = false) String  timeslotSelect,
+                                  HttpSession session,
+                                  Model model,
+                                  @PathVariable String area,
+                                  BindingResult bindingResult){
+
+
+        ReservationValidator rv = new ReservationValidator();
+
+        TimeSlot timeSlot;
+        if(timeslotSelect==null) {
+            timeSlot =null;
+        }
+        else {
+            timeSlot =  timeSlotDao.getTimeSlot(Integer.parseInt(timeslotSelect));
+        }
+        System.out.println(area);
+        List<Object> list = new ArrayList<>() ;
+        list.add(reservation);
+        list.add(timeSlot);
+        list.add(reservationService);
+        rv.validate(list,bindingResult);
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("areaName", area);
+            model.addAttribute("timeslots", reservationService.timeslotsFromArea(area));
+            return "reservation/add";
+        }
+
+        //no viene desde add/{area}
+        if(reservation==null) {
+            return "redirect:reservation/add/"+area;
+        }
+
+        String qr = reservationService.generateQr();
+        UserInfo user = (UserInfo) session.getAttribute("user");
+        String nie =  user.getNie();
+
+        reservation.setQR(qr);
+        reservation.setId_timeslot(Integer.parseInt(timeslotSelect));
+        reservation.setStatus("ACTIVA");
+        reservation.setNIE_citizen(nie);
+
+        System.out.println(reservation);
+        model.addAttribute("reservation", reservation);
+        model.addAttribute("areaName", area);
+        model.addAttribute("zones", reservationService.zonasLibresEnHorario(area,String.valueOf(reservation.getId_timeslot()),reservation.getDate()));
+        return "reservation/select_zones";
+
     }
 
 
     @RequestMapping(value="/add/{area}", method=RequestMethod.POST)
     public String processReserveSubmit(@ModelAttribute("reservation") Reservation reservation,
                                        @RequestParam(name="zonesList", required = false) List<String > zones,
-                                       @RequestParam(name="timeslotSelected", required = false) String  timeslotSelect,
                                        HttpSession session,
                                        Model model,
                                        @PathVariable String area,
@@ -114,36 +165,21 @@ public class ReservationController {
         // y si estamos en un plazo correcto para hacer la reserva(entre dos dias antes y una hora antes )
 
 
-
-        TimeSlot timeSlot;
-        if(timeslotSelect==null)
-            timeSlot =null;
-        else
-            timeSlot =  timeSlotDao.getTimeSlot(Integer.parseInt(timeslotSelect));
-        List<Object> list = new ArrayList<>() ;
-        list.add(reservation);
-        list.add(zones);
-        list.add(timeSlot);
-        list.add(reservationService);
-        ReservationValidator rv = new ReservationValidator();
-
+        System.out.println(reservation);
         System.out.println(area);
+        System.out.println(zones);
 
-        rv.validate(list,bindingResult);
-        if (bindingResult.hasErrors()) {
+        if(! reservationService.capacityValidForZones(zones, area,reservation.getPeopleNumber())) {
+
+            bindingResult.rejectValue("QR", "capacidadSuperada",
+                    "Se supera la capacidad permitida, seleccione mas zonas \n" + "Capacidad actual de zonas seleccionadas = " + reservationService.getCapacityOfZones(zones, area));
+            model.addAttribute("reservation", reservation);
             model.addAttribute("areaName", area);
-            model.addAttribute("zones", reservationService.zonesFromArea(area));
-            model.addAttribute("timeslots", reservationService.timeslotsFromArea(area));
-            return "reservation/add";
-        }
-        String qr = reservationService.generateQr();
-        UserInfo user = (UserInfo) session.getAttribute("user");
-        String nie =  user.getNie();
+            model.addAttribute("zones", reservationService.zonasLibresEnHorario(area,String.valueOf(reservation.getId_timeslot()),reservation.getDate()));
 
-        reservation.setQR(qr);
-        reservation.setId_timeslot(Integer.parseInt(timeslotSelect));
-        reservation.setStatus("ACTIVA");
-        reservation.setNIE_citizen(nie);
+            return "reservation/select_zones";
+        }
+
 
         ReservationZone rzone;
         System.out.println("antes de a;adir reserva");
@@ -152,7 +188,7 @@ public class ReservationController {
 
         for(String zone : zones){
             rzone = new ReservationZone();
-            rzone.setQR(qr);
+            rzone.setQR(reservation.getQR());
             rzone.setName_Area(area);
             rzone.setNumberLetter(zone);
 

@@ -17,8 +17,8 @@
         <span class="siguiente"> </span>
     </div>
 
-    <form action="#" th:action="@{/reservation/add/{area}(area=${areaName})}"
-          th:object="${reservation}" method="post">
+    <form action="#" th:action="@{/reservation/add/zones/{area}(area=${areaName})}"
+          th:object="${reservation}" method="get">
         <table>
             <tr>
                 <td><label>Date</label></td>

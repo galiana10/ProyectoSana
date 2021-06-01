@@ -31,11 +31,11 @@ public class ReservationValidator implements Validator{
 
         Reservation reservation =  (Reservation) params.get(0);
 
-        List<String> zones =  (List<String>) params.get(1);
+//        List<String> zones =  (List<String>) params.get(1);
 
-        TimeSlot timeslot = (TimeSlot) params.get(2);
+        TimeSlot timeslot = (TimeSlot) params.get(1);
 
-        ReservationSvc svc = (ReservationSvc) params.get(3);
+        ReservationSvc svc = (ReservationSvc) params.get(2);
 
 
         System.out.println("entramos en el validador");
@@ -72,11 +72,11 @@ public class ReservationValidator implements Validator{
 
         }
 
-
-        if(zones==null ){
-            errors.rejectValue("QR", "zonaObligatoria",
-                    "Se debe elejir almenos una zona");
-        }
+//
+//        if(zones==null ){
+//            errors.rejectValue("QR", "zonaObligatoria",
+//                    "Se debe elejir almenos una zona");
+//        }
 
         if(reservation.getDate()!=null) {
             Period period = Period.between(hoy, reservation.getDate());
@@ -104,16 +104,12 @@ public class ReservationValidator implements Validator{
                 }
 
 
-                //comprobar si el timeslot de alguna zona esta en uso
-                if (!anterior && zones!=null && !svc.zonasLibresEnHorario(zones, timeslot, reservation.getDate()))
-                    errors.rejectValue("QR", "ocupado",
-                            "La zona esta ocupada en esa fecha y horario");
 
             }
 
         }
-        if(timeslot!=null && zones!=null && reservation.getPeopleNumber()!=null && ! svc.capacityValidForZones(zones, timeslot.getName_a(),reservation.getPeopleNumber()))
-            errors.rejectValue("peopleNumber", "capacidadSuperada",
-                    "Se supera la capacidad permitida");
+//        if(timeslot!=null && zones!=null && reservation.getPeopleNumber()!=null && ! svc.capacityValidForZones(zones, timeslot.getName_a(),reservation.getPeopleNumber()))
+//            errors.rejectValue("peopleNumber", "capacidadSuperada",
+//                    "Se supera la capacidad permitida");
     }
 }
