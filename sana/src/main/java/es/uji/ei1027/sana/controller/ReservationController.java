@@ -1,6 +1,7 @@
 package es.uji.ei1027.sana.controller;
 
 import es.uji.ei1027.sana.Service.ReservationSvc;
+import es.uji.ei1027.sana.Service.TimeSlotOfReservation;
 import es.uji.ei1027.sana.dao.ReservationDao;
 import es.uji.ei1027.sana.dao.ReservationZoneDao;
 import es.uji.ei1027.sana.dao.TimeSlotDao;
@@ -28,6 +29,12 @@ public class ReservationController {
     private ReservationSvc reservationService;
     private TimeSlotDao timeSlotDao;
     private ReservationZoneDao reservationZoneDao;
+    private TimeSlotOfReservation timeSlotOfReservation;
+
+    @Autowired
+    public void setTimeSlotOfReservation(TimeSlotOfReservation timeSlotOfReservation) {
+        this.timeSlotOfReservation = timeSlotOfReservation;
+    }
 
     @Autowired
     public void setReservationDao(ReservationDao reservationDao) {
@@ -58,6 +65,7 @@ public class ReservationController {
     @RequestMapping("/list")
     public String listReservations(Model model) {
         model.addAttribute("reservations", reservationDao.getReservations());
+        model.addAttribute("timeSlotOfReservation", timeSlotOfReservation);
         return "reservation/list";
     }
 

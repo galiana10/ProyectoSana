@@ -2,8 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Gestionar Reservations</title>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
 </head>
 <body>
 <h1>Lista de Reservations</h1>
@@ -13,12 +13,10 @@
         <th>Date</th>
         <th>PeopleNumber</th>
         <th>QR</th>
-        <th>ReservationLimit</th>
         <th>NIE_citizen</th>
+        <th>Hora Inicio</th>
+        <th>Hora Fin</th>
         <th>Status</th>
-        <th>name_Area</th>
-        <th>InitialHour</th>
-
         <th></th>
         <th></th>
     </tr>
@@ -28,14 +26,16 @@
         <td th:text="${reservation.date}"></td>
         <td th:text="${reservation.peopleNumber}"></td>
         <td th:text="${reservation.QR}"></td>
-        <td th:text="${reservation.reservationLimit}"></td>
         <td th:text="${reservation.NIE_citizen}"></td>
+        <td th:text="${timeSlotOfReservation.getInicialhour(reservation)}"></td>
+        <td th:text="${timeSlotOfReservation.getFinalhour(reservation)}"></td>
         <td th:text="${reservation.status}"></td>
-        <td th:text="${reservation.name_A}"></td>
-        <td th:text="${reservation.initialHour}"></td>
+
+
         <td><a th:href="@{/reservation/update/{QR}(QR=${reservation.QR})}">Editar</a>
         </td>
-        <td><a th:href="@{/reservation/delete/{QR}(QR=${reservation.QR})}">Anular</a>
+        <td th:if="${reservation.status == 'ACTIVA'}">
+            <a th:href="@{/reservation/delete/{QR}(QR=${reservation.QR})}">Anular</a>
         </td>
     </tr>
     </tbody>

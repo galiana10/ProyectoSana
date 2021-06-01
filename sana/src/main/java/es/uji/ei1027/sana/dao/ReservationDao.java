@@ -1,6 +1,7 @@
 package es.uji.ei1027.sana.dao;
 
 import es.uji.ei1027.sana.model.Reservation;
+import es.uji.ei1027.sana.model.TimeSlot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -70,7 +71,16 @@ public class ReservationDao {
         }
     }
 
-
+    public TimeSlot getTimeSlot(Reservation reservation){
+        try {
+            return jdbcTemplate.queryForObject("SELECT * FROM TIMESLOT WHERE id_timeslot=?",
+                    new TimeSlotRowMapper(),
+                    reservation.getId_timeslot());
+        }
+        catch(EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
 
     public List<Reservation> getReservationsOnZone(String areaName, String zoneId){
         try {
