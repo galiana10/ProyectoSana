@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
 </head>
 <body>
-
+<div th:replace="fragments/nav">...</div>
 <div class="contenedor-tablas">
     <div class="info-tablas">
         <h1>Listado de tus reservas</h1>
@@ -18,13 +18,12 @@
         <table class="table table-sm" >
             <thead>
             <tr class="table-secondary">
-                <th>Date</th>
-                <th>PeopleNumber</th>
-                <th>QR</th>
-                <th>NIE_citizen</th>
+                <th>Fecha</th>
+                <th>Cantidad de Gente</th>
+                <th>Código QR</th>
                 <th>Hora Inicio</th>
                 <th>Hora Fin</th>
-                <th>Status</th>
+                <th>Estado</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -35,7 +34,6 @@
                 <td class="table-success"  th:text="${reservation.date}"></td>
                 <td class="table-success" th:text="${reservation.peopleNumber}"></td>
                 <td class="table-success" th:text="${reservation.QR}"></td>
-                <td class="table-success" th:text="${reservation.NIE_citizen}"></td>
                 <td class="table-success" th:text="${timeSlotOfReservation.getInicialhour(reservation)}"></td>
                 <td class="table-success" th:text="${timeSlotOfReservation.getFinalhour(reservation)}"></td>
                 <td class="table-success" th:text="${reservation.status}"></td>
