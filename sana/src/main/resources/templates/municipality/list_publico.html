@@ -13,46 +13,44 @@
 <body>
 
 
-    <div th:replace="fragments/nav">...</div>
+<div th:replace="fragments/nav">...</div>
 
-    <div class="contenedor-tablas">
+<div class="contenedor-tablas">
 
-        <div class="info-tablas">
-            <h1>Municipios</h1>
-        </div>
-
-
-        <div class="info-tablas center-tablas">
-            <table class="table table-sm">
-                <thead>
-                <tr class="table-secondary">
-                    <th>Name</th>
-                    <th>Tlf</th>
-                    <th>Address</th>
-                </tr>
-                </thead>
-
-                <tbody>
-                <tr th:each="municipality: ${municipalitiesPublico}">
-
-                    <td class="table-success" th:text="${municipality.name}"></td>
-                    <td class="table-success" th:text="${municipality.tlf}"></td>
-                    <td class="table-success" th:text="${municipality.address}"></td>
-
-                    <td class="table-secondary">
-                        <a class="btn btn-outline-success"
-                           th:href="@{/area/listPublico/{name}(name=${municipality.name})}">Consultar</a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="info-tablas">
-            <a class="btn btn-outline-success btn-volver" href="/publico">Volver</a>
-        </div>
-
+    <div class="info-tablas">
+        <h1>Municipios</h1>
     </div>
+
+
+    <div class="info-tablas center-tablas">
+        <table class="table table-sm">
+            <thead>
+            <tr class="table-secondary">
+                <th>Name</th>
+                <th>Tlf</th>
+                <th>Address</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="municipality: ${municipalitiesPublico}">
+                <td class="table-success" th:text="${municipality.name}"></td>
+                <td class="table-success" th:text="${municipality.tlf}"></td>
+                <td class="table-success" th:text="${municipality.address}"></td>
+                <td class="table-secondary">
+                    <a class="btn btn-outline-success"
+                       th:href="@{/area/listPublico/{name}(name=${municipality.name})}">Consultar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="info-tablas">
+        <a class="btn btn-outline-success btn-volver" href="/publico">Volver</a>
+    </div>
+
+</div>
 
 </body>
 </html>

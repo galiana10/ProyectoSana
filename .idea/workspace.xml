@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87ecd0fa-9f0a-4a34-99e9-a7c862bfbbe8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/Service/TimeSlotOfReservation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ReservationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ReservationDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/municipality/list_publico.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/municipality/list_publico.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

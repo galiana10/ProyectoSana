@@ -28,22 +28,22 @@ public class ReservationDao {
 
         jdbcTemplate.update("INSERT INTO RESERVATION VALUES(?, ?, ?, ?, ?, ?)",
 
-                reservation.getDate(),reservation.getPeopleNumber(),reservation.getQR(),reservation.getNIE_citizen(),reservation.getStatus(),reservation.getId_timeslot());
+                reservation.getDate(), reservation.getPeopleNumber(), reservation.getQR(), reservation.getNIE_citizen(), reservation.getStatus(), reservation.getId_timeslot());
     }
 
     /* Esborra la reserva de la base de dades por Objeto*/
     public void deleteReservation(Reservation reservation) {
-        jdbcTemplate.update("DELETE FROM RESERVATION WHERE QR='"+reservation.getQR()+"' ");
+        jdbcTemplate.update("DELETE FROM RESERVATION WHERE QR='" + reservation.getQR() + "' ");
     }
 
     /* Esborra al reserva de la base de dades por QR*/
     public void deleteReservation(String QRreservation) {
-        jdbcTemplate.update("DELETE FROM RESERVATION WHERE QR='"+QRreservation+"' ");
+        jdbcTemplate.update("DELETE FROM RESERVATION WHERE QR='" + QRreservation + "' ");
     }
 
     /* Actualitza els atributs de la reserva*/
     public void updateReservation(Reservation reservation) {
-       //TODO
+        //TODO
         // jdbcTemplate.update("UPDATE RESERVATION SET date=?,peopleNumber=?,reservationLimit=?,NIE_citizen=?,status=?,name_A=?,initialHour=? WHERE QR=?",
         //        reservation.getDate(),reservation.getPeopleNumber(),reservation.getReservationLimit(),reservation.getNIE_citizen(),reservation.getStatus(),reservation.getName_A(),reservation.getInitialHour(),reservation.getQR() );
     }
@@ -54,8 +54,7 @@ public class ReservationDao {
             return jdbcTemplate.queryForObject("SELECT * FROM RESERVATION WHERE QR=?",
                     new ReservationRowMapper(),
                     QRreservation);
-        }
-        catch(EmptyResultDataAccessException e) {
+        } catch (EmptyResultDataAccessException e) {
             return null;
         }
     }
@@ -65,33 +64,45 @@ public class ReservationDao {
         try {
             return jdbcTemplate.query("SELECT * FROM RESERVATION",
                     new ReservationRowMapper());
-        }
-        catch(EmptyResultDataAccessException e) {
+        } catch (EmptyResultDataAccessException e) {
             return new ArrayList<Reservation>();
         }
     }
 
-    public TimeSlot getTimeSlot(Reservation reservation){
+    public List<Reservation> getCityzenReservations(String nie) {
+        try {
+            return jdbcTemplate.query("SELECT * FROM RESERVATION WHERE nie_citizen=?",
+                    new ReservationRowMapper(),
+                    nie);
+        } catch (EmptyResultDataAccessException e) {
+            return new ArrayList<Reservation>();
+        }
+    }
+
+    public TimeSlot getTimeSlot(Reservation reservation) {
         try {
             return jdbcTemplate.queryForObject("SELECT * FROM TIMESLOT WHERE id_timeslot=?",
                     new TimeSlotRowMapper(),
                     reservation.getId_timeslot());
-        }
-        catch(EmptyResultDataAccessException e) {
+        } catch (EmptyResultDataAccessException e) {
             return null;
         }
     }
 
-    public List<Reservation> getReservationsOnZone(String areaName, String zoneId){
+    public List<Reservation> getReservationsOnZone(String areaName, String zoneId) {
         try {
             return jdbcTemplate.query("select * from reservation_zone as rz join reservation as r ON rz.qr_r =r.qr  where numberletter_z=? and name_area = ?;",
                     new ReservationRowMapper(),
-                    zoneId ,areaName);
-        }
-        catch(EmptyResultDataAccessException e) {
+                    zoneId, areaName);
+        } catch (EmptyResultDataAccessException e) {
             return new ArrayList<Reservation>();
         }
+    }
 
-
+    public void cancelReservation(String QRreservation) {
+        try {
+            jdbcTemplate.update("UPDATE reservation SET status='CANCELADA' WHERE QR='" + QRreservation + "' ");
+        } catch (Exception e) {
+        }
     }
 }

@@ -2,44 +2,61 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Gestionar Reservations</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
 </head>
 <body>
-<h1>Lista de Reservations</h1>
-<table>
-    <thead>
-    <tr>
-        <th>Date</th>
-        <th>PeopleNumber</th>
-        <th>QR</th>
-        <th>NIE_citizen</th>
-        <th>Hora Inicio</th>
-        <th>Hora Fin</th>
-        <th>Status</th>
-        <th></th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="reservation: ${reservations}">
-        <td th:text="${reservation.date}"></td>
-        <td th:text="${reservation.peopleNumber}"></td>
-        <td th:text="${reservation.QR}"></td>
-        <td th:text="${reservation.NIE_citizen}"></td>
-        <td th:text="${timeSlotOfReservation.getInicialhour(reservation)}"></td>
-        <td th:text="${timeSlotOfReservation.getFinalhour(reservation)}"></td>
-        <td th:text="${reservation.status}"></td>
 
+<div class="contenedor-tablas">
+    <div class="info-tablas">
+        <h1>Listado de tus reservas</h1>
+    </div>
 
-        <td><a th:href="@{/reservation/update/{QR}(QR=${reservation.QR})}">Editar</a>
-        </td>
-        <td th:if="${reservation.status == 'ACTIVA'}">
-            <a th:href="@{/reservation/delete/{QR}(QR=${reservation.QR})}">Anular</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<a href="add">Añadir reserva</a>
+    <div class="info-tablas center-tablas">
+        <table class="table table-sm" >
+            <thead>
+            <tr class="table-secondary">
+                <th>Date</th>
+                <th>PeopleNumber</th>
+                <th>QR</th>
+                <th>NIE_citizen</th>
+                <th>Hora Inicio</th>
+                <th>Hora Fin</th>
+                <th>Status</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="reservation: ${reservations}">
+                <td class="table-success"  th:text="${reservation.date}"></td>
+                <td class="table-success" th:text="${reservation.peopleNumber}"></td>
+                <td class="table-success" th:text="${reservation.QR}"></td>
+                <td class="table-success" th:text="${reservation.NIE_citizen}"></td>
+                <td class="table-success" th:text="${timeSlotOfReservation.getInicialhour(reservation)}"></td>
+                <td class="table-success" th:text="${timeSlotOfReservation.getFinalhour(reservation)}"></td>
+                <td class="table-success" th:text="${reservation.status}"></td>
+
+                <td class="table-secondary" >
+                    <a class="btn btn-outline-success" th:href="@{/reservation/update/{QR}(QR=${reservation.QR})}">Editar</a>
+                </td>
+
+                <td class="table-secondary"  th:if="${reservation.status == 'ACTIVA'}">
+                    <a class="btn btn-outline-success" th:href="@{/reservation/anular/{QR}(QR=${reservation.QR})}">Anular</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="info-tablas">
+        <a class="btn btn-outline-success btn-volver" href="/publico">Volver</a>
+    </div>
+
+</div>
+
 </body>
 </html>

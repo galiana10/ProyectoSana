@@ -38,7 +38,7 @@ public class ReservationController {
 
     @Autowired
     public void setReservationDao(ReservationDao reservationDao) {
-        this.reservationDao=reservationDao;
+        this.reservationDao = reservationDao;
     }
 
     @Autowired
@@ -48,34 +48,33 @@ public class ReservationController {
 
     @Autowired
     public void setTimeSlotDao(TimeSlotDao timeSlotDao) {
-        this.timeSlotDao=timeSlotDao;
+        this.timeSlotDao = timeSlotDao;
     }
 
     @Autowired
     public void setReservationZone(ReservationZoneDao reservationZoneDao) {
-        this.reservationZoneDao=reservationZoneDao;
+        this.reservationZoneDao = reservationZoneDao;
     }
-
-
 
 
     // Operacions: Crear, llistar, actualitzar, esborrar
 
 
     @RequestMapping("/list")
-    public String listReservations(Model model) {
-        model.addAttribute("reservations", reservationDao.getReservations());
+    public String listReservations(Model model, HttpSession session ) {
+        UserInfo user = (UserInfo) session.getAttribute("user");
+        model.addAttribute("reservations", reservationDao.getCityzenReservations(user.getNie()));
         model.addAttribute("timeSlotOfReservation", timeSlotOfReservation);
         return "reservation/list";
     }
 
-    @RequestMapping(value="/add")
+    @RequestMapping(value = "/add")
     public String addReservation(Model model) {
         model.addAttribute("reservation", new Reservation());
         return "reservation/add";
     }
 
-    @RequestMapping(value="/add", method=RequestMethod.POST)
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String processAddSubmit(@ModelAttribute("reservation") Reservation reservation,
                                    BindingResult bindingResult) {
         if (bindingResult.hasErrors())
@@ -85,16 +84,14 @@ public class ReservationController {
     }
 
 
+    @RequestMapping(value = "/add/{area}")
+    public String addReservationInArea(Model model, HttpSession session, @PathVariable String area) {
 
+        session.setAttribute("nextUrl", null);
 
-    @RequestMapping(value="/add/{area}")
-    public String addReservationInArea(Model model,HttpSession session,@PathVariable String area) {
-
-        session.setAttribute("nextUrl",null);
-
-        if(session.getAttribute("user")==null){
+        if (session.getAttribute("user") == null) {
             String next = "reservation/add/".concat(area);
-            session.setAttribute("nextUrl",next);
+            session.setAttribute("nextUrl", next);
             model.addAttribute("user", new UserInfo());
             return "login";
         }
@@ -107,14 +104,14 @@ public class ReservationController {
     }
 
 
-    @RequestMapping(value="/add/{area}", method=RequestMethod.POST)
+    @RequestMapping(value = "/add/{area}", method = RequestMethod.POST)
     public String processReserveSubmit(@ModelAttribute("reservation") Reservation reservation,
-                                       @RequestParam(name="zonesList", required = false) List<String > zones,
-                                       @RequestParam(name="timeslotSelected", required = false) String  timeslotSelect,
+                                       @RequestParam(name = "zonesList", required = false) List<String> zones,
+                                       @RequestParam(name = "timeslotSelected", required = false) String timeslotSelect,
                                        HttpSession session,
                                        Model model,
                                        @PathVariable String area,
-                                   BindingResult bindingResult) {
+                                       BindingResult bindingResult) {
         //Las areas seleccionadas en el formulario
         //System.out.println(timeslotSelect);
         //TODO hacer validador para compribar la capcidad de las zonas
@@ -122,13 +119,12 @@ public class ReservationController {
         // y si estamos en un plazo correcto para hacer la reserva(entre dos dias antes y una hora antes )
 
 
-
         TimeSlot timeSlot;
-        if(timeslotSelect==null)
-            timeSlot =null;
+        if (timeslotSelect == null)
+            timeSlot = null;
         else
-            timeSlot =  timeSlotDao.getTimeSlot(Integer.parseInt(timeslotSelect));
-        List<Object> list = new ArrayList<>() ;
+            timeSlot = timeSlotDao.getTimeSlot(Integer.parseInt(timeslotSelect));
+        List<Object> list = new ArrayList<>();
         list.add(reservation);
         list.add(zones);
         list.add(timeSlot);
@@ -137,7 +133,7 @@ public class ReservationController {
 
         System.out.println(area);
 
-        rv.validate(list,bindingResult);
+        rv.validate(list, bindingResult);
         if (bindingResult.hasErrors()) {
             model.addAttribute("areaName", area);
             model.addAttribute("zones", reservationService.zonesFromArea(area));
@@ -146,7 +142,7 @@ public class ReservationController {
         }
         String qr = reservationService.generateQr();
         UserInfo user = (UserInfo) session.getAttribute("user");
-        String nie =  user.getNie();
+        String nie = user.getNie();
 
         reservation.setQR(qr);
         reservation.setId_timeslot(Integer.parseInt(timeslotSelect));
@@ -158,7 +154,7 @@ public class ReservationController {
         reservationDao.addReservation(reservation);
         System.out.println("despues de a;adir reserva");
 
-        for(String zone : zones){
+        for (String zone : zones) {
             rzone = new ReservationZone();
             rzone.setQR(qr);
             rzone.setName_Area(area);
@@ -172,16 +168,13 @@ public class ReservationController {
     }
 
 
-
-
-
-    @RequestMapping(value="/update/{QR}", method = RequestMethod.GET)
+    @RequestMapping(value = "/update/{QR}", method = RequestMethod.GET)
     public String editReservation(Model model, @PathVariable String QR) {
         model.addAttribute("reservation", reservationDao.getReservation(QR));
         return "reservation/update";
     }
 
-    @RequestMapping(value="/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String processUpdateSubmit(
             @ModelAttribute("reservation") Reservation reservation,
             BindingResult bindingResult) {
@@ -191,10 +184,15 @@ public class ReservationController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/delete/{QR}")
+    @RequestMapping(value = "/delete/{QR}")
     public String processDelete(@PathVariable String QR) {
         reservationDao.deleteReservation(QR);
         return "redirect:../list";
     }
 
+    @RequestMapping(value = "/anular/{QR}")
+    public String processCancel(@PathVariable String QR) {
+        reservationDao.cancelReservation(QR);
+        return "redirect:../list";
+    }
 }
