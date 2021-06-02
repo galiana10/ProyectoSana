@@ -25,6 +25,11 @@ public class TimeSlotOfReservation {
         return timeSlot.getFinalhour();
     }
 
+    public String getArea(Reservation reservation){
+        TimeSlot timeSlot = reservationDao.getTimeSlot(reservation);
+        return timeSlot.getName_a();
+    }
+
     public boolean isExpired(Reservation reservation) {
         TimeSlot timeSlot = reservationDao.getTimeSlot(reservation);
         LocalDate hoy = LocalDate.now();
