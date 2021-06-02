@@ -14,6 +14,7 @@
   <form action="#" th:action="@{/reservation/add/{area}(area=${areaName})}"
         th:object="${reservation}" method="post">
 
+    <!--Sin esto se pierde el objeto de reservation-->
     <table hidden>
         <td><input  type="date" th:field="*{date}"/></td>
         <td><input  type="text" th:field="*{peopleNumber}"/></td>

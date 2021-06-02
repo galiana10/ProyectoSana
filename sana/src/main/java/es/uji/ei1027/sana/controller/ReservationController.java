@@ -1,5 +1,6 @@
 package es.uji.ei1027.sana.controller;
 
+import es.uji.ei1027.sana.Service.QRCodeService;
 import es.uji.ei1027.sana.Service.ReservationSvc;
 import es.uji.ei1027.sana.dao.ReservationDao;
 import es.uji.ei1027.sana.dao.ReservationZoneDao;
@@ -15,6 +16,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +30,7 @@ public class ReservationController {
     private ReservationSvc reservationService;
     private TimeSlotDao timeSlotDao;
     private ReservationZoneDao reservationZoneDao;
+    private QRCodeService qrService;
 
     @Autowired
     public void setReservationDao(ReservationDao reservationDao) {
@@ -49,6 +52,10 @@ public class ReservationController {
         this.reservationZoneDao=reservationZoneDao;
     }
 
+    @Autowired
+    public void setQRService(QRCodeService qrService) {
+        this.qrService=qrService;
+    }
 
 
 
@@ -196,6 +203,19 @@ public class ReservationController {
             System.out.println("despues de a;adir reserva zona");
 
         }
+
+        try {
+            model.addAttribute("qr",qrService.crateQRCode("http://localhost:8080/reservation/list",200,200));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        UserInfo user = (UserInfo) session.getAttribute("user");
+
+        model.addAttribute("reservation",reservation);
+        model.addAttribute("user",user);
+        model.addAttribute("zones",zones);
         return "reservation/completed";
     }
 

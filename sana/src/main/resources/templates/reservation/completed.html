@@ -9,11 +9,57 @@
 </head>
 <body>
 <div th:replace="fragments/nav">...</div>
-<div class="m-4">
+<div class="m-4 area-info">
 <h1>Reserva Completada</h1>
 
-<h3>Reserva completada correctamente para ir a la pagina de inicio pulse el boton de inicio.</h3>
-<a href="/" class="btn btn-outline-success">Inicio</a>
+<div class="area-info-columns">
+    <div class="area-info-column">
+        <img th:src="${qr}">
+    </div>
+
+    <div class="area-info-column right ml-3">
+
+        <table class="table">
+            <tbody>
+            <tr>
+                <th> <strong>Nombre: </strong></th>
+                <td>  <span th:text="${user.name}" ></span></td>
+
+            </tr>
+            <tr>
+                <th > <strong>Fecha: </strong></th>
+                <td>   <span th:text="${reservation.date}" ></span></td>
+
+            </tr>
+            <tr>
+                <th > <strong>Hora: </strong></th>
+                <td>  <span th:text="aasd" ></span></td>
+
+            </tr>
+            <tr>
+                <th >  <strong>Num. personas: </strong></th>
+                <td>   <span th:text="${reservation.peopleNumber}" ></span></td>
+
+            </tr>
+            <tr>
+                <th >  <strong>Area: </strong></th>
+                <td>   <span th:text="asdas" ></span></td>
+
+            </tr>
+            <tr>
+                <th >   <strong>zonas: </strong></th>
+                <td  th:each="zone : ${zones}">
+                    <span th:text="${zone}" ></span><span> - </span>
+                </td>
+
+            </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
 
 </div>
 </body>
