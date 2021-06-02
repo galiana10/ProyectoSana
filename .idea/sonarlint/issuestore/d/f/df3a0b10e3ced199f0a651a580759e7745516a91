@@ -1,0 +1,24 @@
+
+f
+java:S1192J"PDefine a constant instead of duplicating this literal "reservation/add" 4 times.(ÿ«©¡
+a
+java:S1192I"LDefine a constant instead of duplicating this literal "reservation" 3 times.(êò
+l	java:S117¬"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¨¶„Äøÿÿÿÿ
+l	java:S117¼"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†••Àùÿÿÿÿ
+f	java:S117Â"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹‹¬C
+J
+java:S1128"/Remove this unused import 'java.sql.SQLOutput'.(ê¤òÃùÿÿÿÿ
+`
+java:S4488M"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Ú¿Ìã
+e
+java:S4488k"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ìÆ¼¼øÿÿÿÿ
+F
+java:S6212„"/Declare this local variable with "var" instead.(ÎÆËğ
+T	java:S106†"9Replace this use of System.out or System.err by a logger.(Å÷Ø”úÿÿÿÿ
+M	java:S106™"9Replace this use of System.out or System.err by a logger.(ûæL
+T	java:S106›"9Replace this use of System.out or System.err by a logger.(ŸÍâãşÿÿÿÿ
+T	java:S106¤"9Replace this use of System.out or System.err by a logger.(»ã¦Ûıÿÿÿÿ
+^
+java:S4488«"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(½ÃÆ
+`
+java:S4488±"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ï˜¦

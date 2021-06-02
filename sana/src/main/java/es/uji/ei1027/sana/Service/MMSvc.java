@@ -12,14 +12,9 @@ public class MMSvc {
     @Autowired
     MunicipalManagerDao municipalManagerDao;
 
-
-
     public String municipalityFromMM(String NIE_MM){
         MunicipalManager municipalManager=municipalManagerDao.getMunicipalManager(NIE_MM);
-
         return municipalManager.getName_M();
     }
-
-
 
 }

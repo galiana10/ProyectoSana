@@ -2,6 +2,7 @@ package es.uji.ei1027.sana.controller;
 
 import es.uji.ei1027.sana.Service.QRCodeService;
 import es.uji.ei1027.sana.Service.ReservationSvc;
+import es.uji.ei1027.sana.Service.TimeSlotOfReservation;
 import es.uji.ei1027.sana.dao.ReservationDao;
 import es.uji.ei1027.sana.dao.ReservationZoneDao;
 import es.uji.ei1027.sana.dao.TimeSlotDao;
@@ -31,10 +32,16 @@ public class ReservationController {
     private TimeSlotDao timeSlotDao;
     private ReservationZoneDao reservationZoneDao;
     private QRCodeService qrService;
+    private TimeSlotOfReservation timeSlotOfReservation;
+
+    @Autowired
+    public void setTimeSlotOfReservation(TimeSlotOfReservation timeSlotOfReservation) {
+        this.timeSlotOfReservation = timeSlotOfReservation;
+    }
 
     @Autowired
     public void setReservationDao(ReservationDao reservationDao) {
-        this.reservationDao=reservationDao;
+        this.reservationDao = reservationDao;
     }
 
     @Autowired
@@ -44,12 +51,12 @@ public class ReservationController {
 
     @Autowired
     public void setTimeSlotDao(TimeSlotDao timeSlotDao) {
-        this.timeSlotDao=timeSlotDao;
+        this.timeSlotDao = timeSlotDao;
     }
 
     @Autowired
     public void setReservationZone(ReservationZoneDao reservationZoneDao) {
-        this.reservationZoneDao=reservationZoneDao;
+        this.reservationZoneDao = reservationZoneDao;
     }
 
     @Autowired
@@ -57,24 +64,24 @@ public class ReservationController {
         this.qrService=qrService;
     }
 
-
-
     // Operacions: Crear, llistar, actualitzar, esborrar
 
 
     @RequestMapping("/list")
-    public String listReservations(Model model) {
-        model.addAttribute("reservations", reservationDao.getReservations());
+    public String listReservations(Model model, HttpSession session ) {
+        UserInfo user = (UserInfo) session.getAttribute("user");
+        model.addAttribute("reservations", reservationDao.getCityzenReservations(user.getNie()));
+        model.addAttribute("timeSlotOfReservation", timeSlotOfReservation);
         return "reservation/list";
     }
 
-    @RequestMapping(value="/add")
+    @RequestMapping(value = "/add")
     public String addReservation(Model model) {
         model.addAttribute("reservation", new Reservation());
         return "reservation/add";
     }
 
-    @RequestMapping(value="/add", method=RequestMethod.POST)
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String processAddSubmit(@ModelAttribute("reservation") Reservation reservation,
                                    BindingResult bindingResult) {
         if (bindingResult.hasErrors())
@@ -84,16 +91,14 @@ public class ReservationController {
     }
 
 
+    @RequestMapping(value = "/add/{area}")
+    public String addReservationInArea(Model model, HttpSession session, @PathVariable String area) {
 
+        session.setAttribute("nextUrl", null);
 
-    @RequestMapping(value="/add/{area}")
-    public String addReservationInArea(Model model,HttpSession session,@PathVariable String area) {
-
-        session.setAttribute("nextUrl",null);
-
-        if(session.getAttribute("user")==null){
+        if (session.getAttribute("user") == null) {
             String next = "reservation/add/".concat(area);
-            session.setAttribute("nextUrl",next);
+            session.setAttribute("nextUrl", next);
             model.addAttribute("user", new UserInfo());
             return "login";
         }
@@ -104,6 +109,7 @@ public class ReservationController {
         model.addAttribute("timeslots", reservationService.timeslotsFromArea(area));
         return "reservation/add";
     }
+
 
     @RequestMapping(value = "/add/zones/{area}")
     public String processAddZones(@ModelAttribute("reservation")Reservation reservation,
@@ -193,7 +199,7 @@ public class ReservationController {
         reservationDao.addReservation(reservation);
         System.out.println("despues de a;adir reserva");
 
-        for(String zone : zones){
+        for (String zone : zones) {
             rzone = new ReservationZone();
             rzone.setQR(reservation.getQR());
             rzone.setName_Area(area);
@@ -220,16 +226,13 @@ public class ReservationController {
     }
 
 
-
-
-
-    @RequestMapping(value="/update/{QR}", method = RequestMethod.GET)
+    @RequestMapping(value = "/update/{QR}", method = RequestMethod.GET)
     public String editReservation(Model model, @PathVariable String QR) {
         model.addAttribute("reservation", reservationDao.getReservation(QR));
         return "reservation/update";
     }
 
-    @RequestMapping(value="/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String processUpdateSubmit(
             @ModelAttribute("reservation") Reservation reservation,
             BindingResult bindingResult) {
@@ -239,10 +242,15 @@ public class ReservationController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/delete/{QR}")
+    @RequestMapping(value = "/delete/{QR}")
     public String processDelete(@PathVariable String QR) {
         reservationDao.deleteReservation(QR);
         return "redirect:../list";
     }
 
+    @RequestMapping(value = "/anular/{QR}")
+    public String processCancel(@PathVariable String QR) {
+        reservationDao.cancelReservation(QR);
+        return "redirect:../list";
+    }
 }
