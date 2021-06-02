@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87ecd0fa-9f0a-4a34-99e9-a7c862bfbbe8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_activation_jakarta_activation_1_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_jakarta_mail_1_6_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_mail_2_5_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_5_3_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/Service/SendEmailService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sana/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/SanaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/SanaApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/SanaConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/SanaConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/Service/MMSvc.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/Service/MMSvc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,6 +255,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1622282854000" />
