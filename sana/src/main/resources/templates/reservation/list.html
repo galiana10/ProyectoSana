@@ -15,7 +15,7 @@
     </div>
 
     <div class="info-tablas center-tablas">
-        <table class="table table-sm" >
+        <table class="table table-sm">
             <thead>
             <tr class="table-secondary">
                 <th>Fecha</th>
@@ -31,20 +31,22 @@
 
             <tbody>
             <tr th:each="reservation: ${reservations}">
-                <td class="table-success"  th:text="${reservation.date}"></td>
+                <td class="table-success" th:text="${reservation.date}"></td>
                 <td class="table-success" th:text="${reservation.peopleNumber}"></td>
                 <td class="table-success" th:text="${reservation.QR}"></td>
                 <td class="table-success" th:text="${timeSlotOfReservation.getInicialhour(reservation)}"></td>
                 <td class="table-success" th:text="${timeSlotOfReservation.getFinalhour(reservation)}"></td>
                 <td class="table-success" th:text="${reservation.status}"></td>
+                <div th:if="${!timeSlotOfReservation.isExpired(reservation)}">
+                    <td class="table-secondary">
+                        <a class="btn btn-outline-success" th:href="@{/reservation/update/{QR}(QR=${reservation.QR})}">Editar</a>
+                    </td>
 
-                <td class="table-secondary" >
-                    <a class="btn btn-outline-success" th:href="@{/reservation/update/{QR}(QR=${reservation.QR})}">Editar</a>
-                </td>
-
-                <td class="table-secondary"  th:if="${reservation.status == 'ACTIVA'}">
-                    <a class="btn btn-outline-success" th:href="@{/reservation/anular/{QR}(QR=${reservation.QR})}">Anular</a>
-                </td>
+                    <td class="table-secondary">
+                        <a class="btn btn-outline-success" th:if="${reservation.status == 'ACTIVA'}"
+                           th:href="@{/reservation/anular/{QR}(QR=${reservation.QR})}">Anular</a>
+                    </td>
+                </div>
             </tr>
             </tbody>
         </table>

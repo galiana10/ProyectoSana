@@ -17,7 +17,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 
-public class ReservationValidator implements Validator{
+public class ReservationValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> cls) {
@@ -29,14 +29,13 @@ public class ReservationValidator implements Validator{
 
         List<Object> params = (List<Object>) obj;
 
-        Reservation reservation =  (Reservation) params.get(0);
+        Reservation reservation = (Reservation) params.get(0);
 
-        List<String> zones =  (List<String>) params.get(1);
+        List<String> zones = (List<String>) params.get(1);
 
         TimeSlot timeslot = (TimeSlot) params.get(2);
 
         ReservationSvc svc = (ReservationSvc) params.get(3);
-
 
         System.out.println("entramos en el validador");
 
@@ -44,41 +43,35 @@ public class ReservationValidator implements Validator{
 
         boolean anterior = false;
 
-
-        if(reservation.getDate()==null){
+        if (reservation.getDate() == null) {
             errors.rejectValue("date", "dateObligatori",
                     "La fecha es obligatoria");
         }
 
-
-        if(reservation.getPeopleNumber()==null){
+        if (reservation.getPeopleNumber() == null) {
             System.out.println("no hay egnte");
             errors.rejectValue("peopleNumber", "peopleObligatorio",
                     "El numero de personas es obligatorio");
         }
-        if(timeslot==null){
+
+        if (timeslot == null) {
             errors.rejectValue("id_timeslot", "horaObligatoria",
                     "La franja horaria es obligatoria");
         }
 
-
-        if(reservation.getDate()!=null && reservation.getDate().isBefore(hoy)){
-
-
-            anterior=true;
+        if (reservation.getDate() != null && reservation.getDate().isBefore(hoy)) {
+            anterior = true;
             errors.rejectValue("date", "diaAnterior",
                     "La reserva debe hacerse para una fecha posterior a hoy");
 
-
         }
 
-
-        if(zones==null ){
+        if (zones == null) {
             errors.rejectValue("QR", "zonaObligatoria",
                     "Se debe elejir almenos una zona");
         }
 
-        if(reservation.getDate()!=null) {
+        if (reservation.getDate() != null) {
             Period period = Period.between(hoy, reservation.getDate());
             Integer daysElapsed = period.getDays();
             if (daysElapsed > 2) {
@@ -105,14 +98,14 @@ public class ReservationValidator implements Validator{
 
 
                 //comprobar si el timeslot de alguna zona esta en uso
-                if (!anterior && zones!=null && !svc.zonasLibresEnHorario(zones, timeslot, reservation.getDate()))
+                if (!anterior && zones != null && !svc.zonasLibresEnHorario(zones, timeslot, reservation.getDate()))
                     errors.rejectValue("QR", "ocupado",
                             "La zona esta ocupada en esa fecha y horario");
 
             }
 
         }
-        if(timeslot!=null && zones!=null && reservation.getPeopleNumber()!=null && ! svc.capacityValidForZones(zones, timeslot.getName_a(),reservation.getPeopleNumber()))
+        if (timeslot != null && zones != null && reservation.getPeopleNumber() != null && !svc.capacityValidForZones(zones, timeslot.getName_a(), reservation.getPeopleNumber()))
             errors.rejectValue("peopleNumber", "capacidadSuperada",
                     "Se supera la capacidad permitida");
     }
