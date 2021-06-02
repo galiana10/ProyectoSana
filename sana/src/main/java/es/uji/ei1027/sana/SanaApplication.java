@@ -22,10 +22,10 @@ public class SanaApplication {
 		new SpringApplicationBuilder(SanaApplication.class).run(args);
 	}
 
-	@EventListener(ApplicationReadyEvent.class)
-	private void triggerWhenStarts(){
-		sendEmailService.sendEmail("marcosggarcia99@gmail.com", "TEST SANA", "Hi there!");
-	}
+//	@EventListener(ApplicationReadyEvent.class)
+//	private void triggerWhenStarts(){
+//		sendEmailService.sendEmail("marcosggarcia99@gmail.com", "TEST SANA", "Hi there!");
+//	}
 
 }
 
