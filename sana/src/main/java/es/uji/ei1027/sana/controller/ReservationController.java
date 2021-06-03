@@ -222,6 +222,7 @@ public class ReservationController {
         model.addAttribute("reservation",reservation);
         model.addAttribute("user",user);
         model.addAttribute("zones",zones);
+        model.addAttribute("timeSlotOfReservation", timeSlotOfReservation);
         return "reservation/completed";
     }
 

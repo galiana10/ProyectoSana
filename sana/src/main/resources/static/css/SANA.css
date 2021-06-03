@@ -18,10 +18,16 @@
     color: red;
 }
 
+.center-margin{
+    display: flex;
+    margin: 40px 15% !important;
+}
+
 .horizontal-links{
     display: flex;
     justify-content: space-between;
-    width: 100% !important;
+    margin: 10px 10%;
+}
 
 }
 .puntitos {
@@ -176,7 +182,9 @@
 
 
 /*  tablas*/
-
+.half{
+    width:50%;
+}
 .contenedor-tablas{
     display: flex;
     flex-direction: column;
@@ -299,7 +307,9 @@
     margin-top:7px;
 }
 
-.qr-imagen{
-
-width:50%;
+.qr{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
