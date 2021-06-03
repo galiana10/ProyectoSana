@@ -303,3 +303,18 @@
 
 width:50%;
 }
+
+.btn-add-area{
+    display: flex;
+    left: 20%;
+    width: 10%;
+    justify-content: center;
+    margin-left: 15%;
+}
+
+.container-add-area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+

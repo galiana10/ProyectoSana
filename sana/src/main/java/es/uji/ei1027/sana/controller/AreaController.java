@@ -62,19 +62,26 @@ public class AreaController {
     }
 
 
-    @RequestMapping(value="/add")
-    public String addArea(Model model) {
+    @RequestMapping(value="/add/{nameMunicipality}")
+    public String addArea(Model model,
+    @PathVariable String nameMunicipality) {
+        model.addAttribute("nameMunicipality",nameMunicipality);
         model.addAttribute("area", new Area());
+
         return "area/add";
     }
 
-    @RequestMapping(value="/add", method=RequestMethod.POST)
+    @RequestMapping(value="/add/{nameMunicipality}", method=RequestMethod.POST)
     public String processAddSubmit(@ModelAttribute("area") Area area,
+                                   @PathVariable String nameMunicipality,
                                    BindingResult bindingResult) {
+
+
+        area.setName_M(nameMunicipality);
         if (bindingResult.hasErrors())
             return "area/add";
         areaDao.addArea(area);
-        return "redirect:list";
+        return "redirect:../listMM/"+nameMunicipality;
     }
 
     @RequestMapping(value="/update/{name}", method = RequestMethod.GET)

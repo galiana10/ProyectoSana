@@ -74,7 +74,7 @@ public class ReservationDao {
 
     public List<Reservation> getReservationsOnZone(String areaName, String zoneId){
         try {
-            return jdbcTemplate.query("select * from reservation_zone as rz join reservation as r ON rz.qr_r =r.qr  where numberletter_z=? and name_area = ?;",
+            return jdbcTemplate.query("select * from reservation_zone as rz join reservation as r ON rz.qr_r =r.qr  where numberletter_z=? and name_area = ? and r.status='ACTIVA';",
                     new ReservationRowMapper(),
                     zoneId ,areaName);
         }
