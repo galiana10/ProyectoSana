@@ -129,7 +129,6 @@ public class ReservationController {
         else {
             timeSlot =  timeSlotDao.getTimeSlot(Integer.parseInt(timeslotSelect));
         }
-        System.out.println(area);
         List<Object> list = new ArrayList<>() ;
         list.add(reservation);
         list.add(timeSlot);
@@ -155,7 +154,6 @@ public class ReservationController {
         reservation.setStatus("ACTIVA");
         reservation.setNIE_citizen(nie);
 
-        System.out.println(reservation);
         model.addAttribute("reservation", reservation);
         model.addAttribute("areaName", area);
         model.addAttribute("zones", reservationService.zonasLibresEnHorario(area,String.valueOf(reservation.getId_timeslot()),reservation.getDate()));
@@ -177,11 +175,6 @@ public class ReservationController {
         // y si la franja horaria esta ocupada
         // y si estamos en un plazo correcto para hacer la reserva(entre dos dias antes y una hora antes )
 
-
-        System.out.println(reservation);
-        System.out.println(area);
-        System.out.println(zones);
-
         if(! reservationService.capacityValidForZones(zones, area,reservation.getPeopleNumber())) {
 
             bindingResult.rejectValue("QR", "capacidadSuperada",
@@ -193,11 +186,8 @@ public class ReservationController {
             return "reservation/select_zones";
         }
 
-
         ReservationZone rzone;
-        System.out.println("antes de a;adir reserva");
         reservationDao.addReservation(reservation);
-        System.out.println("despues de a;adir reserva");
 
         for (String zone : zones) {
             rzone = new ReservationZone();
@@ -206,7 +196,6 @@ public class ReservationController {
             rzone.setNumberLetter(zone);
 
             reservationZoneDao.addReservationZone(rzone);
-            System.out.println("despues de a;adir reserva zona");
 
         }
 
@@ -216,11 +205,9 @@ public class ReservationController {
             e.printStackTrace();
         }
 
-
         UserInfo user = (UserInfo) session.getAttribute("user");
-
-        model.addAttribute("reservation",reservation);
         model.addAttribute("user",user);
+        model.addAttribute("reservation",reservation);
         model.addAttribute("zones",zones);
         model.addAttribute("timeSlotOfReservation", timeSlotOfReservation);
         return "reservation/completed";

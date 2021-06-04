@@ -26,46 +26,47 @@
                 <tbody>
                 <tr>
                     <th><strong>Nombre: </strong></th>
-                    <td><span th:text="${user.name}"></span></td>
-
+                    <td><span th:text="${user.username}"></span></td>
                 </tr>
+
                 <tr>
                     <th><strong>Fecha: </strong></th>
                     <td><span th:text="${reservation.date}"></span></td>
-
                 </tr>
+
                 <tr>
                     <th><strong>Hora: </strong></th>
-                    <td><span th:text="${timeSlotOfReservation.getInicialhour(reservation}}"
-                              th:text="-"
-                              th:text="${timeSlotOfReservation.getInicialhour(reservation} - {timeSlotOfReservation.getFinalhour(reservation}}"></span></td>
-
-                </tr>
-                <tr>
-                    <th><strong>Num. personas: </strong></th>
-                    <td><span th:text="${reservation.peopleNumber}"></span></td>
-
-                </tr>
-                <tr>
-                    <th><strong>Area: </strong></th>
-                    <td><span th:text="${timeSlotOfReservation.getArea(reservaton)}"></span></td>
-
-                </tr>
-                <tr>
-                    <th><strong>zonas: </strong></th>
-                    <td th:each="zone : ${zones}">
-                        <span th:text="${zone}"></span><span> - </span>
+                    <td>
+                        <span th:text="${timeSlotOfReservation.getInicialhour(reservation)} + ' - ' + ${timeSlotOfReservation.getFinalhour(reservation)}"></span>
                     </td>
                 </tr>
 
+                <tr>
+                    <th><strong>Num. personas: </strong></th>
+                    <td><span th:text="${reservation.peopleNumber}"></span></td>
+                </tr>
+
+                <tr>
+                    <th><strong>Area: </strong></th>
+                    <td><span th:text="${timeSlotOfReservation.getArea(reservation)}"></span></td>
+                </tr>
+
+                <tr>
+                    <th><strong>Zonas: </strong></th>
+                    <td class="zonas-reserva">
+                        <div class="zona-reserva" th:each="zone : ${zones}">
+                            <span th:text="${zone}"></span>
+                        </div>
+                    </td>
+
+                </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
     <div class="info-tablas">
-<!--        TODO cambiar areaName por TimeSlot.name_a -->
-        <a class="btn btn-outline-success btn-volver" th:href="@{/municipality/listPublico)}">Volver</a>
+        <a class="btn btn-outline-success btn-volver" href="/municipality/listPublico">Volver</a>
     </div>
 
 </div>

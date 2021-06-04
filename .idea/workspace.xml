@@ -7,7 +7,6 @@
     <list default="true" id="f25f3509-df41-46e6-a422-2f0771587cdc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/completed.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/completed.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,8 +26,16 @@
     <setting file="file://$PROJECT_DIR$/sana/src/main/resources/templates/reservation/add.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationController.java" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="ProjectId" id="1tThPWOQGURAsa3aOQ1R2u4cgtt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunManager">
     <configuration name="SanaApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -50,7 +57,15 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f25f3509-df41-46e6-a422-2f0771587cdc" name="Default Changelist" comment="" />
+      <created>1622798970421</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1622798970421</updated>
+    </task>
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
