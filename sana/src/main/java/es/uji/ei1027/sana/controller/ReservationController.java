@@ -1,5 +1,6 @@
 package es.uji.ei1027.sana.controller;
 
+import es.uji.ei1027.sana.Service.MMSvc;
 import es.uji.ei1027.sana.Service.QRCodeService;
 import es.uji.ei1027.sana.Service.ReservationSvc;
 import es.uji.ei1027.sana.Service.TimeSlotOfReservation;
@@ -33,6 +34,7 @@ public class ReservationController {
     private ReservationZoneDao reservationZoneDao;
     private QRCodeService qrService;
     private TimeSlotOfReservation timeSlotOfReservation;
+
 
     @Autowired
     public void setTimeSlotOfReservation(TimeSlotOfReservation timeSlotOfReservation) {
@@ -73,6 +75,14 @@ public class ReservationController {
         model.addAttribute("reservations", reservationDao.getCityzenReservations(user.getNie()));
         model.addAttribute("timeSlotOfReservation", timeSlotOfReservation);
         return "reservation/list";
+    }
+
+    @RequestMapping("/list/{area}")
+    public String listReservationsOfArea(Model model, @PathVariable String area){
+        model.addAttribute("reservations", reservationDao.getReservationsOfArea(area));
+        model.addAttribute("timeSlotOfReservation", timeSlotOfReservation);
+        model.addAttribute("reservationSvc", reservationService);
+        return "reservation/list_mm";
     }
 
     @RequestMapping(value = "/add")
@@ -236,9 +246,17 @@ public class ReservationController {
         return "redirect:../list";
     }
 
+    @RequestMapping(value = "/anular_mm/{area}/{QR}")
+    public String processCancelMM(@PathVariable String area, @PathVariable String QR) {
+        reservationDao.cancelReservation(QR);
+        return "redirect:../../list/"+ area;
+    }
+
     @RequestMapping(value = "/anular/{QR}")
     public String processCancel(@PathVariable String QR) {
         reservationDao.cancelReservation(QR);
         return "redirect:../list";
     }
+
+
 }
