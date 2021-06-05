@@ -24,7 +24,7 @@
 
 
             <form class="login-form" action="#" th:action="@{/register}"
-                  th:object="${citizen}" method="post">
+                   method="post">
 
                 <p>
                     <label>Nombre:</label>
@@ -38,7 +38,7 @@
 
                 <p>
                     <label>E-mail:</label>
-                    <input class="form_control" type="text" th:field="*{email}"/>
+                    <input class="form_control" type="text" th:field="*{citizen.email}"/>
                 </p>
 
                 <p>
