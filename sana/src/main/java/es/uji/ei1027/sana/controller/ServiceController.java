@@ -96,7 +96,7 @@ public class ServiceController {
 
         //TODO mirar el redirect para que actualice una vez borrado
 
-        return "redirect:service/list/"+municipio+"/"+nameA;
+        return "redirect:../../../../list/"+municipio+"/"+nameA;
     }
 
 

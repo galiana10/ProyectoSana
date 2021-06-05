@@ -40,7 +40,7 @@ public class RegisterController {
     @RequestMapping(value="/register", method= RequestMethod.POST)
     public String checkRegister(@ModelAttribute("citizen") Citizen citizen,
                                 @ModelAttribute("user") UserInfo userInfo
-            , BindingResult bindingResult) {
+                                , BindingResult bindingResult) {
 
 
 
