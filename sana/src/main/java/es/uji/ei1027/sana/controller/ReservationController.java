@@ -79,6 +79,7 @@ public class ReservationController {
 
     @RequestMapping("/list/{area}")
     public String listReservationsOfArea(Model model, @PathVariable String area){
+        model.addAttribute("area", area);
         model.addAttribute("reservations", reservationDao.getReservationsOfArea(area));
         model.addAttribute("timeSlotOfReservation", timeSlotOfReservation);
         model.addAttribute("reservationSvc", reservationService);
