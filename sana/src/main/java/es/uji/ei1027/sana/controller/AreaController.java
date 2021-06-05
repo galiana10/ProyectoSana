@@ -92,14 +92,16 @@ public class AreaController {
         return "area/update";
     }
 
-    @RequestMapping(value="/update", method = RequestMethod.POST)
+    @RequestMapping(value="/update/{municipality}", method = RequestMethod.POST)
     public String processUpdateSubmit(
+            @PathVariable String municipality,
             @ModelAttribute("area") Area area,
             BindingResult bindingResult) {
         if (bindingResult.hasErrors())
             return "area/update";
         areaDao.updateArea(area);
-        return "redirect:list";
+
+        return "redirect:../../area/listMM/"+municipality;
     }
 
     @RequestMapping(value="/delete/{name}")

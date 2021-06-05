@@ -16,7 +16,7 @@
     </div>
 
     <div class="info-tablas center-tablas">
-        <form class="update-area-mm" action="#" th:action="@{/area/update}"
+        <form class="update-area-mm" action="#" th:action="@{/area/update/{name}(name=${municipality})}"
               th:object="${area}" method="post">
             <table class="table table-sm">
                 <tr>
