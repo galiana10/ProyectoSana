@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Time;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -48,31 +49,44 @@ public class ReservationSvc {
     }
 
 
-    public boolean zonasLibresEnHorario(List<String> zones, TimeSlot timeSlot, LocalDate fecha) {
+    public List<String> zonasLibresEnHorario(String area, String timeSlot, LocalDate fecha) {
+
+        List<String> zonasLibres= new ArrayList<>();
+
+        List<String> zones = zonesFromArea(area);
 
         for (String zoneName : zones) {
 
-            List<Reservation> reservationsOnZone = reservationDao.getReservationsOnZone(timeSlot.getName_a(), zoneName);
+            List<Reservation> reservationsOnZone = reservationDao.getReservationsOnZone(area, zoneName);
 
             List<Reservation> finalList =  reservationsOnZone.stream().filter(reservation -> reservation.getDate().isEqual(fecha))
-                    .filter(reservation -> reservation.getId_timeslot() == timeSlot.getId_timeslot())
+                    .filter(reservation -> reservation.getId_timeslot()==Integer.parseInt(timeSlot))
                     .collect(Collectors.toList());
 
-            if(finalList.size()>0)
-                return false;
+
+            //There is no reservation on this date and timeslot
+            if(finalList.size()==0)
+                zonasLibres.add(zoneName);
         }
 
-        return true;
+        return zonasLibres;
     }
 
 
-    public boolean capacityValidForZones(List<String> zones, String nameArea, int numOfPersons){
+    public  int getCapacityOfZones(List<String> zones, String nameArea){
+
         int capacityTotal=0;
         for (String zoneName : zones) {
             Zone zone = zoneDao.getZone(zoneName,nameArea);
 
             capacityTotal+=zone.getMaxCapacity();
         }
+        return capacityTotal;
+    }
+    public boolean capacityValidForZones(List<String> zones, String nameArea, int numOfPersons){
+        int capacityTotal=getCapacityOfZones(zones,nameArea);
+        System.out.println("capacidad de esto = "+capacityTotal);
+
         if(numOfPersons>capacityTotal){
             return false;
         }

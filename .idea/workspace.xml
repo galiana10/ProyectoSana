@@ -1,21 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="87ecd0fa-9f0a-4a34-99e9-a7c862bfbbe8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/RegisterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ServiceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/Register.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/Register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/fragments/nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/fragments/nav.html" afterDir="false" />
+=======
+    <list default="true" id="f25f3509-df41-46e6-a422-2f0771587cdc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_activation_jakarta_activation_1_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_jakarta_mail_1_6_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__es_uji_ei1027_SANA_0_0_1_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_mail_2_5_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_5_3_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/2/226e1257aff60e1b6b5235dfb7074f74eb11a4ca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/7/2756376d77516fef89bd04a61730c20ba7dcfdad" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/c/2c1472991783f7aa0c7a8fb43012ed58a0e19346" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/8/38beb105a670c208dca44af2f118f88f164d3238" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/e/6e6f5104bf91289ea837b784c517a2ef77322a6f" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/a/bac7b9e4cc29806f8ec8c5e397933536a6d9c1fd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/3/c35dbc229983eaefe3d9a88b16f27a0d56ad8f1a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/0/d047b3b020f066e7683f1e0864abeeb2ee6defce" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/f/df3a0b10e3ced199f0a651a580759e7745516a91" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/Service/SendEmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/Service/TimeSlotOfReservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_beust_jcommander_1_48.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_zxing_core_3_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_zxing_javase_3_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_xml_security_xml_security_impl_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_net_commons_net_3_7_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sana/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/SanaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/SanaApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/SanaConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/SanaConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/Service/MMSvc.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/Service/MMSvc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ReservationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/dao/ReservationDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/model/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/municipality/list_publico.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/municipality/list_publico.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/list.html" afterDir="false" />
+>>>>>>> d6d902008fee2e76a2c49d64d1eb5e9c88e8d04a
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <ignored path="$PROJECT_DIR$/sana/target/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
@@ -748,5 +789,27 @@
         </state>
       </provider>
     </entry>
+=======
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/sana/src/main/resources/templates/area/informacion.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/sana/src/main/resources/templates/area/list_publico.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/sana/src/main/resources/templates/reservation/select_zones.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/Service/ReservationSvc.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/sana/src/main/resources/templates/reservation/add.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationController.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="oldMeFiltersMigrated" value="true" />
+>>>>>>> d6d902008fee2e76a2c49d64d1eb5e9c88e8d04a
   </component>
 </project>

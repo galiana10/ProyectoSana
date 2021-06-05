@@ -13,6 +13,21 @@
   <h2 class="m-5">Nueva reserva</h2>
   <form action="#" th:action="@{/reservation/add/{area}(area=${areaName})}"
         th:object="${reservation}" method="post">
+
+    <!--Sin esto se pierde el objeto de reservation-->
+    <table hidden>
+        <td><input  type="date" th:field="*{date}"/></td>
+        <td><input  type="text" th:field="*{peopleNumber}"/></td>
+        <td><input  type="text" th:field="*{id_timeslot}"/></td>
+      <td><input  type="text" th:field="*{NIE_citizen}"/></td>
+      <td><input  type="text" th:field="*{status}"/></td>
+      <td><input  type="text" th:field="*{QR}"/></td>
+
+
+    </table>
+
+
+
     <table>
 
       <tr>

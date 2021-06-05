@@ -3,7 +3,6 @@ package es.uji.ei1027.sana.model;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 public class Reservation {
     @DateTimeFormat(pattern = "yyyy-MM-dd")

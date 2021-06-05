@@ -1,6 +1,7 @@
 package es.uji.ei1027.sana.controller;
 
 
+import es.uji.ei1027.sana.Service.QRCodeService;
 import es.uji.ei1027.sana.dao.MunicipalityDao;
 import es.uji.ei1027.sana.model.Municipality;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +13,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.io.IOException;
+
 
 @Controller
 @RequestMapping("/municipality")
 public class MunicipalityController {
 
     private MunicipalityDao municipalityDao;
+
 
     @Autowired
     public void setMunicipalityDao(MunicipalityDao municipalityDao) {
@@ -32,6 +36,7 @@ public class MunicipalityController {
 
     @RequestMapping("/listPublico")
     public String listMunicipalitiesPublico(Model model) {
+
         model.addAttribute("municipalitiesPublico", municipalityDao.getMunicipalities());
         return "municipality/list_publico";
     }

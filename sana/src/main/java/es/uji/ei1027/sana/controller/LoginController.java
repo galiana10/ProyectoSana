@@ -37,8 +37,6 @@ public class LoginController {
 
     MMSvc MMSvc;
 
-
-
     @Autowired
     private UserInfoDao userDao;
 
@@ -46,7 +44,6 @@ public class LoginController {
     public void setMMsvc(MMSvc MMSvc){
         this.MMSvc=MMSvc;
     }
-
 
 
     @RequestMapping("/login")
@@ -87,7 +84,6 @@ public class LoginController {
             nextUrl = (nextUrl != null) ? nextUrl : "area/listMM/"+municipality;
 
         }
-
 
         // Torna a la pàgina principal o si existeix a la que es volia anar
         return "redirect:"+nextUrl;
