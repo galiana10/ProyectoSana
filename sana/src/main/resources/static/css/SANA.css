@@ -33,8 +33,6 @@
     margin: 10px 10%;
 }
 
-
-
 .puntitos {
     display: flex;
 }
@@ -51,18 +49,24 @@
     margin-right: 12px;
 }
 
+
+
 /*  index */
 .contenedor-index{
     margin: 50px 70px;
     display: flex;
-    justify-content:space-around;
+    justify-content:space-evenly;
 }
 
 .info-index{
     flex:6;
-    overflow: scroll;
-    height: 500px;
-    width: 700px;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+}
+
+.info-index h2{
+    color: #3b7058;
 }
 
 .home-cv{

@@ -2,6 +2,7 @@ package es.uji.ei1027.sana.controller;
 
 import es.uji.ei1027.sana.dao.AreaDao;
 import es.uji.ei1027.sana.model.Area;
+import es.uji.ei1027.sana.model.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.http.HttpSession;
 
 
 @Controller
@@ -34,10 +37,19 @@ public class AreaController {
 
     //Publico
     @RequestMapping("/listPublico/{name_M}")
-    public String listAreasPublico(Model model,@PathVariable String name_M) {
+    public String listAreasPublico(Model model, @PathVariable String name_M, HttpSession session) {
         model.addAttribute("areasPublico", areaDao.getAreasMunipality(name_M));
         model.addAttribute("municipalityPublico",name_M);
+
+
+
+        if (session.getAttribute("user") == null) {
+            return "redirect:/";
+        }
+
+
         return "area/list_publico";
+
     }
 
     @RequestMapping(value = "/informacion/{name_A}",method = RequestMethod.GET)

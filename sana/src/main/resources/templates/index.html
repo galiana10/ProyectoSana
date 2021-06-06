@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml"
+      >
+<head>
+    <meta charset="UTF-8" />
+    <title layout:title-pattern="$CONTENT_TITLE">SANA</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
+</head>
+<body >
+
+    <div th:replace="fragments/nav">...</div>
+
+    <div class="contenedor-index">
+
+        <div class="info-index">
+
+            <div th:each="municipality: ${mapa.keySet()}">
+                <h2 th:text="${municipality}"></h2>
+                <div th:each="area: ${mapa.get(municipality)}">
+                    <a class="btn btn-outline-success" th:text="${area}" th:href="@{/area/informacion/{name}(name=${area})}"></a>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="home-cv">
+            <img src="/home.PNG">
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>
+
+
+
+
+
