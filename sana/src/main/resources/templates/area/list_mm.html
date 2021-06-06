@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
 
     <meta charset="UTF-8">
-    <title>Areas_mm</title>
+    <title>Áreas</title>
 </head>
 <body>
 
@@ -18,9 +18,6 @@
         <div class="info-tablas">
             <h1>Lista de areas de <span th:text="*{municipalityMM}"></span></h1>
         </div>
-
-
-
 
         <div th:if="${#lists.isEmpty(areasMM)}"class="info-tablas">
             Este municipio no tiene areas añadidas
@@ -41,7 +38,7 @@
                     <td class="table-success" th:text="${area.name}"></td>
                     <td class="table-secondary"> <a class="btn btn-outline-success" th:href="@{/area/update/{municipality}/{nameArea}(municipality=${municipalityMM},nameArea=${area.name})}">Modificar</a></td>
                     <td class="table-secondary"> <a class="btn btn-outline-success" th:href="@{/service/list/{municipality}/{name}(municipality=${municipalityMM},name=${area.name})}">Servicios</a></td>
-                    <td class="table-secondary"> <a class="btn btn-outline-success" th:if="${area.getAccessType() == 'restricted'}" th:href="@{/reservation/list/{area}(area=${area.name})}">Reservas</a></td>
+                    <td class="table-secondary"> <a class="btn btn-outline-success" th:if="${area.getAccessType() == 'restricted'}" th:href="@{/reservation/list/{municipality}/{area}(municipality=${municipalityMM},area=${area.name})}">Reservas</a></td>
                     <td class="table-secondary"> <a class="btn btn-outline-success"  th:href="@{/area/informacion/{name}(name=${area.name})}">Ocupación</a></td>
                     <td class="table-secondary"> <a class="btn btn-outline-success" th:href="@{/area/informacion/{name}(name=${area.name})}">Zonas</a></td>
                 </tr>

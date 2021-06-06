@@ -63,22 +63,23 @@ public class ReservationController {
 
     @Autowired
     public void setQRService(QRCodeService qrService) {
-        this.qrService=qrService;
+        this.qrService = qrService;
     }
 
     // Operacions: Crear, llistar, actualitzar, esborrar
 
 
     @RequestMapping("/list")
-    public String listReservations(Model model, HttpSession session ) {
+    public String listReservations(Model model, HttpSession session) {
         UserInfo user = (UserInfo) session.getAttribute("user");
         model.addAttribute("reservations", reservationDao.getCityzenReservations(user.getNie()));
         model.addAttribute("timeSlotOfReservation", timeSlotOfReservation);
         return "reservation/list";
     }
 
-    @RequestMapping("/list/{area}")
-    public String listReservationsOfArea(Model model, @PathVariable String area){
+    @RequestMapping("/list/{municipality}/{area}")
+    public String listReservationsOfArea(Model model, @PathVariable String municipality, @PathVariable String area) {
+        model.addAttribute("municipality", municipality);
         model.addAttribute("area", area);
         model.addAttribute("reservations", reservationDao.getReservationsOfArea(area));
         model.addAttribute("timeSlotOfReservation", timeSlotOfReservation);
@@ -123,28 +124,27 @@ public class ReservationController {
 
 
     @RequestMapping(value = "/add/zones/{area}")
-    public String processAddZones(@ModelAttribute("reservation")Reservation reservation,
-                                  @RequestParam(name="timeslotSelected", required = false) String  timeslotSelect,
+    public String processAddZones(@ModelAttribute("reservation") Reservation reservation,
+                                  @RequestParam(name = "timeslotSelected", required = false) String timeslotSelect,
                                   HttpSession session,
                                   Model model,
                                   @PathVariable String area,
-                                  BindingResult bindingResult){
+                                  BindingResult bindingResult) {
 
 
         ReservationValidator rv = new ReservationValidator();
 
         TimeSlot timeSlot;
-        if(timeslotSelect==null) {
-            timeSlot =null;
+        if (timeslotSelect == null) {
+            timeSlot = null;
+        } else {
+            timeSlot = timeSlotDao.getTimeSlot(Integer.parseInt(timeslotSelect));
         }
-        else {
-            timeSlot =  timeSlotDao.getTimeSlot(Integer.parseInt(timeslotSelect));
-        }
-        List<Object> list = new ArrayList<>() ;
+        List<Object> list = new ArrayList<>();
         list.add(reservation);
         list.add(timeSlot);
         list.add(reservationService);
-        rv.validate(list,bindingResult);
+        rv.validate(list, bindingResult);
         if (bindingResult.hasErrors()) {
             model.addAttribute("areaName", area);
             model.addAttribute("timeslots", reservationService.timeslotsFromArea(area));
@@ -152,13 +152,13 @@ public class ReservationController {
         }
 
         //no viene desde add/{area}
-        if(reservation==null) {
-            return "redirect:reservation/add/"+area;
+        if (reservation == null) {
+            return "redirect:reservation/add/" + area;
         }
 
         String qr = reservationService.generateQr();
         UserInfo user = (UserInfo) session.getAttribute("user");
-        String nie =  user.getNie();
+        String nie = user.getNie();
 
         reservation.setQR(qr);
         reservation.setId_timeslot(Integer.parseInt(timeslotSelect));
@@ -167,32 +167,32 @@ public class ReservationController {
 
         model.addAttribute("reservation", reservation);
         model.addAttribute("areaName", area);
-        model.addAttribute("zones", reservationService.zonasLibresEnHorario(area,String.valueOf(reservation.getId_timeslot()),reservation.getDate()));
+        model.addAttribute("zones", reservationService.zonasLibresEnHorario(area, String.valueOf(reservation.getId_timeslot()), reservation.getDate()));
         return "reservation/select_zones";
 
     }
 
 
-    @RequestMapping(value="/add/{area}", method=RequestMethod.POST)
+    @RequestMapping(value = "/add/{area}", method = RequestMethod.POST)
     public String processReserveSubmit(@ModelAttribute("reservation") Reservation reservation,
-                                       @RequestParam(name="zonesList", required = false) List<String > zones,
+                                       @RequestParam(name = "zonesList", required = false) List<String> zones,
                                        HttpSession session,
                                        Model model,
                                        @PathVariable String area,
-                                   BindingResult bindingResult) {
+                                       BindingResult bindingResult) {
         //Las areas seleccionadas en el formulario
         //System.out.println(timeslotSelect);
         //TODO hacer validador para compribar la capcidad de las zonas
         // y si la franja horaria esta ocupada
         // y si estamos en un plazo correcto para hacer la reserva(entre dos dias antes y una hora antes )
 
-        if(! reservationService.capacityValidForZones(zones, area,reservation.getPeopleNumber())) {
+        if (!reservationService.capacityValidForZones(zones, area, reservation.getPeopleNumber())) {
 
             bindingResult.rejectValue("QR", "capacidadSuperada",
                     "Se supera la capacidad permitida, seleccione mas zonas \n" + "Capacidad actual de zonas seleccionadas = " + reservationService.getCapacityOfZones(zones, area));
             model.addAttribute("reservation", reservation);
             model.addAttribute("areaName", area);
-            model.addAttribute("zones", reservationService.zonasLibresEnHorario(area,String.valueOf(reservation.getId_timeslot()),reservation.getDate()));
+            model.addAttribute("zones", reservationService.zonasLibresEnHorario(area, String.valueOf(reservation.getId_timeslot()), reservation.getDate()));
 
             return "reservation/select_zones";
         }
@@ -211,15 +211,15 @@ public class ReservationController {
         }
 
         try {
-            model.addAttribute("qr",qrService.crateQRCode("http://localhost:8080/reservation/list",200,200));
+            model.addAttribute("qr", qrService.crateQRCode("http://localhost:8080/reservation/list", 200, 200));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         UserInfo user = (UserInfo) session.getAttribute("user");
-        model.addAttribute("user",user);
-        model.addAttribute("reservation",reservation);
-        model.addAttribute("zones",zones);
+        model.addAttribute("user", user);
+        model.addAttribute("reservation", reservation);
+        model.addAttribute("zones", zones);
         model.addAttribute("timeSlotOfReservation", timeSlotOfReservation);
         return "reservation/completed";
     }
@@ -247,10 +247,10 @@ public class ReservationController {
         return "redirect:../list";
     }
 
-    @RequestMapping(value = "/anular_mm/{area}/{QR}")
-    public String processCancelMM(@PathVariable String area, @PathVariable String QR) {
+    @RequestMapping(value = "/anular_mm/{municipality}/{area}/{QR}")
+    public String processCancelMM(@PathVariable String municipality, @PathVariable String area, @PathVariable String QR) {
         reservationDao.cancelReservation(QR);
-        return "redirect:../../list/"+ area;
+        return "redirect:../../../list/" + municipality+ "/" + area;
     }
 
     @RequestMapping(value = "/anular/{QR}")

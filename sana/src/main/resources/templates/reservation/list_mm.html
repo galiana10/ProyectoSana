@@ -48,13 +48,17 @@
                 <td class="table-success" th:text="${reservation.status}"></td>
                 <td class="table-secondary">
                     <a class="btn btn-outline-success"
-                       th:href="@{/reservation/anular_mm/{area}/{QR}( area=${timeSlotOfReservation.getArea(reservation)}, QR=${reservation.getQR()} )}">Anular</a>
+                       th:href="@{/reservation/anular_mm/{municipality}/{area}/{QR}(municipality=${municipality},area=${timeSlotOfReservation.getArea(reservation)},QR=${reservation.getQR()} )}">Anular</a>
                 </td>
 
             </tr>
             </tbody>
 
         </table>
+    </div>
+
+    <div class="info-tablas">
+        <a class="btn btn-outline-success btn-volver" th:href="@{/area/listMM/{name_M}( name_M=${municipality} )}">Volver</a>
     </div>
 
 </div>
