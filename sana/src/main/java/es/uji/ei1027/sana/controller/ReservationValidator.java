@@ -47,7 +47,7 @@ public class ReservationValidator implements Validator {
         }
 
         if (reservation.getPeopleNumber() == null) {
-            System.out.println("no hay egnte");
+            System.out.println("no hay gente");
             errors.rejectValue("peopleNumber", "peopleObligatorio",
                     "El numero de personas es obligatorio");
         }

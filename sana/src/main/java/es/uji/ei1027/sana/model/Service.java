@@ -3,16 +3,6 @@ package es.uji.ei1027.sana.model;
 public class Service {
     private String name;
     private String description;
-    private String servicetype;
-    private String horarios;
-
-    public String getHorarios() {
-        return horarios;
-    }
-
-    public void setHorarios(String horarios) {
-        this.horarios = horarios;
-    }
 
     public String getName() {
         return name;
@@ -30,21 +20,11 @@ public class Service {
         this.description = description;
     }
 
-    public String getServicetype() {
-        return servicetype;
-    }
-
-    public void setServicetype(String servicetype) {
-        this.servicetype = servicetype;
-    }
-
     @Override
     public String toString() {
         return "Service{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", servicetype='" + servicetype + '\'' +
-                ", horarios='" + horarios + '\'' +
                 '}';
     }
 }

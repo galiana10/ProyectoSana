@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
+
+    <meta charset="UTF-8">
+    <title>Select Type</title>
+</head>
+
+<body>
+
+    <div th:replace="fragments/nav">...</div>
+
+    <div class="contenedor-selectType">
+
+
+        <div >
+            <h2>Añadir Servicio</h2>
+        </div>
+
+        <form action="#" th:action="@{/service/add/{municipio}/{area}(municipio=${Municipio},area=${Area})}"
+              th:object="${servicio}" method="post">
+
+            <div class="contenedor-selectType items">
+
+                <div class="check-list-servicio">
+
+                    <label>Servicio:</label>
+
+                    <select class="form_control" type="text" th:field="*{name_S}">
+                        <option th:each="service : ${servicios}"
+                                th:value="${service.name}"
+                                th:text="${service.name}"></option>
+                    </select>
+
+                    <div th:if="${#fields.hasErrors('name_S')}" class="error" th:errors="*{name_S}"></div>
+
+                </div>
+
+
+                <div class="check-list-servicio">
+
+                    <label>Tipo:</label>
+
+                    <div class="check-list-servicio">
+
+                        <div class="servicio-box">
+
+                            <input type="radio" value="fixed"
+                                   name="tipoServicio"
+                                   class="btn-check" id="Fijo" autocomplete="off">
+                            <label class="btn btn-outline-success" for="Fijo"
+                                   th:text="Fijo"></label><br>
+
+                        </div>
+
+                        <div class="servicio-box">
+
+                            <input type="radio" value="seasonal"
+                                   name="tipoServicio"
+                                   class="btn-check" id="Estacional" autocomplete="off">
+                            <label class="btn btn-outline-success" for="Estacional"
+                                   th:text="Estacional"></label><br>
+
+                        </div>
+
+
+                    </div>
+                    <div th:if="${#fields.hasErrors('servicetype')}" class="error" th:errors="*{servicetype}"></div>
+                </div>
+
+
+                <div class="check-list-servicio" >
+
+                    <label>Fecha Inicial:</label>
+                    <input type="date" th:field="*{initialdate}"/>
+                    <div th:if="${#fields.hasErrors('initialdate')}" class="error" th:errors="*{initialdate}"></div>
+
+
+                </div>
+
+                <div class="check-list-servicio">
+
+                    <label>Fecha Final:</label>
+                    <input type="date" th:field="*{finaldate}"/>
+                    <div th:if="${#fields.hasErrors('finaldate')}" class="error" th:errors="*{finaldate}"></div>
+
+                </div>
+
+
+                <input class="btn btn-outline-success" type="submit"  value="Añadir"/>
+
+            </div>
+
+
+
+
+        </form>
+
+        <div>
+            <a class="btn btn-outline-success" th:href="@{/service/list/{municipality}/{name}(municipality=${Municipio},name=${Area})}">Volver</a>
+        </div>
+
+
+
+
+
+    </div>
+
+</body>
+</html>

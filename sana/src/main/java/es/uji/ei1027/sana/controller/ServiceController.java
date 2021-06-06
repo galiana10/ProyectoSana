@@ -2,20 +2,73 @@ package es.uji.ei1027.sana.controller;
 
 
 import es.uji.ei1027.sana.Service.ServicesSvc;
-import es.uji.ei1027.sana.dao.ScheduleDao;
+import es.uji.ei1027.sana.dao.ServiceAreaDao;
 import es.uji.ei1027.sana.dao.ServiceDao;
-import es.uji.ei1027.sana.model.Schedule;
 import es.uji.ei1027.sana.model.Service;
+import es.uji.ei1027.sana.model.ServiceArea;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+
+class ServiceValidator implements Validator {
+
+    @Override
+    public boolean supports(Class<?> cls) {
+        return ServiceArea.class.equals(cls);
+    }
+
+    @Override
+    public void validate(Object obj, Errors errors) {
+
+        List<Object> params = (List<Object>) obj;
+
+        ServiceArea serviceArea=(ServiceArea) params.get(0);
+
+        List<String> serviciosArea=(List<String>) params.get(1);
+
+        if(serviciosArea.contains(serviceArea.getName_S())){
+            errors.rejectValue("name_S","serviceDuplicated","El servicio ya existe");
+        }
+
+        if(serviceArea.getServicetype()==null){
+            errors.rejectValue("servicetype","serviceTypeObligatorio","El tipo es obligatorio");
+        }else{
+            if(serviceArea.getServicetype().equals("fixed") && serviceArea.getInitialdate()!=null){
+                errors.rejectValue("initialdate","incialdateNoObligatori","Los servicios fijos no tiene fecha inicial");
+            }
+
+            if(serviceArea.getServicetype().equals("fixed") && serviceArea.getFinaldate()!=null){
+                errors.rejectValue("finaldate","finaldateNoObligatori","Los servicios fijos no tiene fecha final");
+            }
+
+            if(serviceArea.getServicetype().equals("seasonal") && serviceArea.getInitialdate()==null){
+                errors.rejectValue("initialdate","incialdateObligatori","Los servicios estacionales necsitan fecha inicial");
+            }
+
+            if(serviceArea.getServicetype().equals("seasonal") && serviceArea.getFinaldate()==null){
+                errors.rejectValue("finaldate","finaldateObligatori","Los servicios estacionales necesitan fecha final");
+            }
+
+            if(serviceArea.getInitialdate()!=null && serviceArea.getFinaldate()!=null){
+                if(serviceArea.getServicetype().equals("seasonal") && (serviceArea.getInitialdate().isAfter(serviceArea.getFinaldate()))){
+                    errors.rejectValue("finaldate","initialMayorFinal","La fecha inicial tiene que ser anterior a la final");
+                }
+            }
+        }
+
+
+    }
+}
+
 
 @Controller
 @RequestMapping("/service")
@@ -33,10 +86,11 @@ public class ServiceController {
     @Autowired
     public void setServiceDAO(ServiceDao serviceDAO){this.serviceDAO=serviceDAO;}
 
-    private ScheduleDao scheduleDao;
+
+    private ServiceAreaDao serviceAreaDao;
 
     @Autowired
-    public  void setScheduleDao(ScheduleDao scheduleDao){ this.scheduleDao=scheduleDao;}
+    public void setServiceAreaDao(ServiceAreaDao serviceAreaDao){ this.serviceAreaDao=serviceAreaDao;}
 
 
     @RequestMapping("/list")
@@ -48,43 +102,12 @@ public class ServiceController {
     @RequestMapping("/list/{name_M}/{name_A}")
     public String listServicesArea(Model model,@PathVariable String name_M,@PathVariable String name_A) {
 
-        model.addAttribute("servicesSchedules", servicesSvc.listaSchedule(name_A));
+        model.addAttribute("estacionales", servicesSvc.listaEstacionales(name_A));
+        model.addAttribute("fijos", servicesSvc.listaFijos(name_A));
+        model.addAttribute("servicios", servicesSvc.listaServicios(name_A));
         model.addAttribute("Area",name_A);
         model.addAttribute("Municipio",name_M);
         return "service/area_list";
-    }
-
-
-
-    @RequestMapping(value="/add")
-    public String addService(Model model) {
-        model.addAttribute("service", new Service());
-        return "service/add";
-    }
-
-    @RequestMapping(value="/add", method= RequestMethod.POST)
-    public String processAddSubmit(@ModelAttribute("+") Service service,
-                                   BindingResult bindingResult) {
-        if (bindingResult.hasErrors())
-            return "service/add";
-        serviceDAO.addService(service);
-        return "redirect:list";
-    }
-
-    @RequestMapping(value="/update/{name}", method = RequestMethod.GET)
-    public String editService(Model model, @PathVariable String name) {
-        model.addAttribute("service", serviceDAO.getService(name));
-        return "service/update";
-    }
-
-    @RequestMapping(value="/update", method = RequestMethod.POST)
-    public String processUpdateSubmit(
-            @ModelAttribute("service") Service service,
-            BindingResult bindingResult) {
-        if (bindingResult.hasErrors())
-            return "service/update";
-        serviceDAO.updateService(service);
-        return "redirect:list";
     }
 
 
@@ -92,12 +115,81 @@ public class ServiceController {
     public String processDelete(@PathVariable String nameS,@PathVariable String nameA,@PathVariable String InicialDate,@PathVariable String municipio) {
 
         LocalDate ini = LocalDate.parse(InicialDate);
-        scheduleDao.deleteSchedule(nameS,nameA,ini);
+        serviceAreaDao.deleteServiceArea(nameS,nameA,ini);
 
         //TODO mirar el redirect para que actualice una vez borrado
 
         return "redirect:../../../../list/"+municipio+"/"+nameA;
     }
+
+    @RequestMapping(value="/delete/{nameS}/{nameA}/{municipio}")
+    public String processDelete(@PathVariable String nameS,@PathVariable String nameA,@PathVariable String municipio) {
+
+
+        serviceAreaDao.deleteServiceArea(nameS,nameA);
+
+
+        return "redirect:../../../list/"+municipio+"/"+nameA;
+    }
+
+
+    //Añadir
+
+    @RequestMapping(value="/add/{municipio}/{nameA}")
+    public String añadir(Model model, @PathVariable String municipio, @PathVariable String nameA) {
+
+
+        model.addAttribute("servicio", new ServiceArea());
+        model.addAttribute("Area",nameA);
+        model.addAttribute("Municipio",municipio);
+        model.addAttribute("servicios",servicesSvc.listaServicios());
+        model.addAttribute("serviciosArea",servicesSvc.listaServicios(nameA));
+
+
+        return "service/selectType";
+    }
+
+
+    @RequestMapping(value="/add/{municipio}/{nameA}", method= RequestMethod.POST)
+    public String processAddFijoSubmit(Model model,@RequestParam(name="tipoServicio", required = false) String  tipoServicio,@ModelAttribute("servicio") ServiceArea serviceArea,
+                                       @PathVariable String nameA,
+                                       @PathVariable String municipio,BindingResult bindingResult) {
+
+        ServiceValidator sv = new ServiceValidator();
+
+        if(tipoServicio==null) {
+            tipoServicio=null;
+        }
+
+        List<Object> list = new ArrayList<>() ;
+
+        serviceArea.setName_A(nameA);
+        serviceArea.setServicetype(tipoServicio);
+
+        list.add(serviceArea);
+        list.add(servicesSvc.listaNombresServicios(nameA));
+
+        sv.validate(list,bindingResult);
+
+        if (bindingResult.hasErrors()){
+            model.addAttribute("Area",nameA);
+            model.addAttribute("Municipio",municipio);
+            model.addAttribute("servicios",servicesSvc.listaServicios());
+            model.addAttribute("serviciosArea",servicesSvc.listaServicios(nameA));
+            return "service/selectType";
+        }
+
+
+        serviceAreaDao.addServiceArea(serviceArea);
+        return "redirect:../../list/"+municipio+"/"+nameA;
+
+    }
+
+
+
+
+
+
 
 
 

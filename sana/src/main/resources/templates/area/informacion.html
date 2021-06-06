@@ -66,21 +66,18 @@
     </div>
 
 
-</div>
-
-
-
-
-    <div class="horizontal-links">
-        <div>
-            <a class="btn btn-outline-success" th:href="@{/area/listPublico/{name}(name=${areasInfo.name_M})}">Volver</a>
-        </div>
-        <div>
-            <a th:if="${areasInfo.accessType =='restricted'}" class="btn btn-outline-success link-reserve-btn" role="button" th:href="@{/reservation/add/{area}(area=${areasInfo.name})}">Reservar</a></dt>
-        </div>
     </div>
 
-</div>
+        <div class="horizontal-links">
+            <div>
+                <a class="btn btn-outline-success" th:href="@{/area/listPublico/{name}(name=${areasInfo.name_M})}">Volver</a>
+            </div>
+            <div>
+                <a th:if="${areasInfo.accessType =='restricted'}" class="btn btn-outline-success link-reserve-btn" role="button" th:href="@{/reservation/add/{area}(area=${areasInfo.name})}">Reservar</a></dt>
+            </div>
+        </div>
+
+    </div>
 
 </body>
 </html>

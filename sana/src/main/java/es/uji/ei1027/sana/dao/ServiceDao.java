@@ -25,8 +25,8 @@ public class ServiceDao {
 
     /* Afegeix el service a la base de dades */
     public void addService(Service service) {
-        jdbcTemplate.update("INSERT INTO service VALUES(?, ?, ?,?)",
-              service.getName(),service.getDescription(),service.getServicetype(),service.getHorarios()) ;
+        jdbcTemplate.update("INSERT INTO service VALUES(?, ?)",
+              service.getName(),service.getDescription()) ;
     }
 
     /*Esborra un servici*/
@@ -43,12 +43,12 @@ public class ServiceDao {
 
     /*Actualiza un service*/
     public void updateService(Service service){
-        jdbcTemplate.update("UPDATE service set description=?,servicetype=?,horarios=? where name=?",
-                service.getDescription(),service.getServicetype(),service.getHorarios(),service.getName());
+        jdbcTemplate.update("UPDATE service set description=? where name=?",
+                service.getDescription(),service.getName());
     }
 
 
-    /* Obté la classificacio amb el nom donat. Torna null si no existeix. */
+    /* Obté la service amb el nom donat. Torna null si no existeix. */
     public Service getService(String serviceName) {
         try {
             return jdbcTemplate.queryForObject("SELECT * from service WHERE name=?",
@@ -59,7 +59,7 @@ public class ServiceDao {
         }
     }
 
-    /* Obté la classificacio amb el nom donat. Torna null si no existeix. */
+    /* Obté la service amb el nom donat. Torna null si no existeix. */
     public List<Service> getServices() {
         try {
             return jdbcTemplate.query("SELECT * from service ",

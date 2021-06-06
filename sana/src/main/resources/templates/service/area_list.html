@@ -22,7 +22,7 @@
     </div>
 
 
-    <div th:if="${#lists.isEmpty(servicesSchedules)}"class="info-tablas">
+    <div th:if="${#lists.isEmpty(servicios)}"class="info-tablas">
         Este area no tiene servicios
     </div>
 
@@ -31,35 +31,67 @@
 
     <div class="info-tablas center-tablas">
 
-        <table th:unless="${#lists.isEmpty(servicesSchedules)}" class="table table-sm">
+        <table th:unless="${#lists.isEmpty(servicios)}" class="table table-sm">
             <thead>
             <tr class="table-secondary">
                 <th>Name</th>
+                <th>Type</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Fin</th>
 
             </tr>
             </thead>
 
             <tbody>
-            <tr th:each="schedule: ${servicesSchedules}">
+            <tr th:each="estacional: ${estacionales}">
 
-                <td class="table-success" th:text="${schedule.name_s}"></td>
+                <td class="table-success" th:text="${estacional.name_S}"></td>
+                <td class="table-success" > Estacional</td>
+                <td class="table-success" th:text="${estacional.initialdate}"></td>
+                <td class="table-success" th:text="${estacional.finaldate}"></td>
+
+
+                <td class="table-secondary">
+                    <a class="btn btn-outline-success"
+                       th:href="@{/service/delete/{nameS}/{nameA}/{InicialDate}/{municipio}(nameS=${estacional.name_S},nameA=${estacional.name_A},InicialDate=${estacional.initialdate},municipio=${Municipio})}">Borrar</a>
+                </td>
+
+            </tr>
+
+            <tr th:each="fijo: ${fijos}">
+
+                <td class="table-success" th:text="${fijo.name_S}"></td>
+                <td class="table-success" >Fijo</td>
+                <td class="table-success" >N/A</td>
+                <td class="table-success" >N/A</td>
 
 
 
                 <td class="table-secondary">
                     <a class="btn btn-outline-success"
-                       th:href="@{/service/delete/{nameS}/{nameA}/{InicialDate}/{municipio}(nameS=${schedule.name_s},nameA=${schedule.name_a},InicialDate=${schedule.initialdate},municipio=${Municipio})}">Borrar</a>
+                       th:href="@{/service/delete/{nameS}/{nameA}/{municipio}(nameS=${fijo.name_S},nameA=${fijo.name_A},municipio=${Municipio})}">Borrar</a>
                 </td>
 
             </tr>
+
+
             </tbody>
         </table>
     </div>
 
-    <div class="info-tablas">
-        <a class="btn btn-outline-success btn-volver" th:href="@{/area/listMM/{municipality}(municipality=${Municipio})}">Volver</a>
 
+
+    <div class="horizontal-links">
+        <div>
+            <a class="btn btn-outline-success " th:href="@{/area/listMM/{municipality}(municipality=${Municipio})}">Volver</a>
+        </div>
+        <div>
+            <a class="btn btn-outline-success " th:href="@{/service/add/{municipio}/{nameA}(municipio=${Municipio},nameA=${Area})}">Añadir</a>
+        </div>
     </div>
+
+
+
 
 </div>
 

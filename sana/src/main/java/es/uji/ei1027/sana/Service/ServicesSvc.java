@@ -1,9 +1,9 @@
 package es.uji.ei1027.sana.Service;
 
 
-import es.uji.ei1027.sana.dao.ScheduleDao;
+import es.uji.ei1027.sana.dao.ServiceAreaDao;
 import es.uji.ei1027.sana.dao.ServiceDao;
-import es.uji.ei1027.sana.model.Schedule;
+import es.uji.ei1027.sana.model.ServiceArea;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,46 +14,97 @@ import java.util.List;
 @Service
 public class ServicesSvc {
 
+
+
     @Autowired
-    ScheduleDao scheduleDao;
+    ServiceAreaDao serviceAreaDao;
 
     @Autowired
     ServiceDao serviceDao;
 
-    public List<es.uji.ei1027.sana.model.Service> listaServicios(String name_A){
 
-        List<Schedule> schedules=scheduleDao.getSchedules();
 
-        List<es.uji.ei1027.sana.model.Service> servicesArea= new LinkedList<es.uji.ei1027.sana.model.Service>();
+    public List<es.uji.ei1027.sana.model.Service> listaServicios(){
 
-        for (Schedule schedule: schedules){
+        List<es.uji.ei1027.sana.model.Service> servicios=serviceDao.getServices();
 
-            if(schedule.getName_a().equals(name_A)){
-                servicesArea.add(serviceDao.getService(schedule.getName_s()));
+
+
+
+        return servicios;
+
+    }
+    
+
+    public List<ServiceArea> listaFijos(String name_A){
+
+        List<ServiceArea> serviceAreas=serviceAreaDao.getServicesAreas();
+
+        List<ServiceArea> fijos= new LinkedList<>();
+
+        for (ServiceArea sa: serviceAreas){
+
+            if(sa.getName_A().equals(name_A) && sa.getServicetype().equals("fixed")){
+                fijos.add(sa);
             }
 
         }
 
-        return servicesArea;
+        return fijos;
 
     }
 
+    public List<ServiceArea> listaEstacionales(String name_A){
 
-    public List<Schedule> listaSchedule(String name_A){
+        List<ServiceArea> serviceAreas=serviceAreaDao.getServicesAreas();
 
-        List<Schedule> schedules=scheduleDao.getSchedules();
+        List<ServiceArea> fijos= new LinkedList<>();
 
-        List<Schedule> servicesSchedule= new LinkedList<Schedule>();
+        for (ServiceArea sa: serviceAreas){
 
-        for (Schedule schedule: schedules){
-
-            if(schedule.getName_a().equals(name_A)){
-                servicesSchedule.add(schedule);
+            if(sa.getName_A().equals(name_A) && sa.getServicetype().equals("seasonal")){
+                fijos.add(sa);
             }
 
         }
 
-        return servicesSchedule;
+        return fijos;
+
+    }
+
+    public List<ServiceArea> listaServicios(String name_A){
+
+        List<ServiceArea> serviceAreas=serviceAreaDao.getServicesAreas();
+
+        List<ServiceArea> servicios= new LinkedList<>();
+
+        for (ServiceArea sa: serviceAreas){
+
+            if(sa.getName_A().equals(name_A)){
+                servicios.add(sa);
+            }
+
+        }
+
+        return servicios;
+
+    }
+
+    public List<String> listaNombresServicios(String name_A){
+
+        List<ServiceArea> serviceAreas=serviceAreaDao.getServicesAreas();
+
+        List<String> servicios= new LinkedList<>();
+
+        for (ServiceArea sa: serviceAreas){
+
+            if(sa.getName_A().equals(name_A)){
+                servicios.add(sa.getName_S());
+            }
+
+        }
+
+        return servicios;
 
     }
 
