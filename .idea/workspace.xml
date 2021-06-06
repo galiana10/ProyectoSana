@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f25f3509-df41-46e6-a422-2f0771587cdc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/list_mm.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/list_mm.html" afterDir="false" />
-    </list>
+    <list default="true" id="f25f3509-df41-46e6-a422-2f0771587cdc" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
