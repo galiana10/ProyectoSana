@@ -2,9 +2,13 @@ package es.uji.ei1027.sana.controller;
 
 import es.uji.ei1027.sana.Service.MMSvc;
 import es.uji.ei1027.sana.dao.AreaDao;
+import es.uji.ei1027.sana.dao.MunicipalManagerDao;
+import es.uji.ei1027.sana.dao.MunicipalityDao;
 import es.uji.ei1027.sana.dao.UserInfoDao;
 import es.uji.ei1027.sana.model.Area;
+import es.uji.ei1027.sana.model.MunicipalManager;
 import es.uji.ei1027.sana.model.UserInfo;
+import org.apache.tomcat.jni.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +24,18 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/area")
 public class AreaController {
+
+    private MunicipalityDao municipalityDao ;
+    @Autowired
+    public void setMunicipalityDao(MunicipalityDao municipalityDao) {
+        this.municipalityDao=municipalityDao;
+    }
+
+    private MunicipalManagerDao municipalManagerDao ;
+    @Autowired
+    public void setMunicipalManagerDao(MunicipalManagerDao municipalManagerDao) {
+        this.municipalityDao=municipalityDao;
+    }
 
     private AreaDao areaDao;
     @Autowired
@@ -50,8 +66,12 @@ public class AreaController {
         model.addAttribute("municipalityPublico",name_M);
 
 
+        UserInfo usuario=(UserInfo) session.getAttribute("user");
+        if (usuario == null ) {
+            return "redirect:/";
+        }
 
-        if (session.getAttribute("user") == null) {
+        if(usuario.getType()!=0){
             return "redirect:/";
         }
 
@@ -68,10 +88,21 @@ public class AreaController {
 
     //MM
     @RequestMapping("/listMM/{name_M}")
-    public String listAreasMM(Model model,@PathVariable String name_M) {
+    public String listAreasMM(HttpSession session,Model model,@PathVariable String name_M) {
         model.addAttribute("areasMM", areaDao.getAreasMunipality(name_M));
         model.addAttribute("municipalityMM",name_M);
+
+        UserInfo user=(UserInfo) session.getAttribute("user");
+
+        if (user == null || user.getType()!=2) {
+            return "redirect:/";
+        }
+
         return "area/list_mm";
+
+
+
+
     }
 
     @RequestMapping("/listMM/{name_M}/{name_A}")

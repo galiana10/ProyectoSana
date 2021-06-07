@@ -24,7 +24,7 @@
 
 
             <p>
-                <label>Nombre:</label>
+                <strong>Nombre:</strong>
                 <input class="form_control" type="text" th:field="*{username}"/>
             <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
             </p>
@@ -32,7 +32,7 @@
 
 
             <p>
-                <label>Contraseña:</label>
+                <strong>Contraseña:</strong>
                 <input class="form_control" type="password" th:field="*{password}"/>
             <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
             </p>
