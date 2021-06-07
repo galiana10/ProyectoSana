@@ -53,7 +53,7 @@ public class TimeSlotController {
             return "timeslot/add";
         }
         timeSlotDao.addTimeSlot(timeslot);
-        return "redirect:list";
+        return "redirect:/timeslot/list/"+name_a;
     }
 
     @RequestMapping(value="/update/{id_timeslot}", method = RequestMethod.GET)
@@ -73,10 +73,11 @@ public class TimeSlotController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/delete/{name_A}/{inicialHour}")
-    public String processDelete(@PathVariable String name_A, @PathVariable LocalTime initialHour) {
-        timeSlotDao.deleteTimeSlot(name_A, initialHour);
-        return "redirect:../list";
+    @RequestMapping(value="/delete/{id_timeslot}")
+    public String processDelete(@PathVariable String id_timeslot ){
+        TimeSlot timeSlot = timeSlotDao.getTimeSlot(Integer.parseInt(id_timeslot));
+        timeSlotDao.deleteTimeSlot(id_timeslot);
+        return "redirect:../list/"+timeSlot.getName_a();
     }
 
 }

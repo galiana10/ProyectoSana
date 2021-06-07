@@ -29,13 +29,19 @@ public class TimeSlotDao {
 
     /* Esborra el timeSlot de la base de dades por Objeto*/
     public void deleteTimeSlot(TimeSlot timeSlot) {
-        jdbcTemplate.update("DELETE FROM TIMESLOT WHERE name_a='" + timeSlot.getName_a() + "' AND initialhour'" + timeSlot.getInitialhour() + "'  ");
+        jdbcTemplate.update("DELETE FROM TIMESLOT WHERE id_timeslot= ?",timeSlot.getId_timeslot());
     }
 
     /* Esborra el timeSlot de la base de dades por name_a AND inicialhour*/
-    public void deleteTimeSlot(String name_a, LocalTime initialhour) {
-        jdbcTemplate.update("DELETE FROM TIMESLOT WHERE name_a='"+name_a+"' AND name_a='"+initialhour.toString()+"' ");
+    public void deleteTimeSlot(String id_timeslot) {
+        jdbcTemplate.update("DELETE FROM TIMESLOT WHERE id_timeslot = ?",Integer.parseInt(id_timeslot));
     }
+
+    public void deleteTimeSlot(int id_timeslot) {
+        jdbcTemplate.update("DELETE FROM TIMESLOT WHERE id_timeslot = ?",id_timeslot);
+    }
+
+
 
     /* Actualitza els atributs del timeSlot*/
     public void updateTimeSlot(TimeSlot timeSlot) {
