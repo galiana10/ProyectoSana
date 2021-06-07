@@ -5,64 +5,90 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
+
 </head>
 <body>
-<h2>Nueva area</h2>
-<form action="#" th:action="@{/area/add}"
+<div th:replace="fragments/nav" >...</div>
+
+<div class = "container-add-area info-tablas">
+<h1>Nueva area</h1>
+<form action="#" th:action="@{/area/add/{name}(name=${nameMunicipality})}"
       th:object="${area}" method="post">
     <table>
         <tr>
-            <td><label>Name</label></td>
+            <td><label>Nombre</label></td>
             <td><input type="text" th:field="*{name}" /></td>
+            <td th:if="${#fields.hasErrors('name')}" class="error"
+                th:errors="*{name}"></td>
         </tr>
         <tr>
-            <td><label>Description</label></td>
+            <td><label>Descripción</label></td>
             <td><input type="text" th:field="*{description}" /></td>
+            <td th:if="${#fields.hasErrors('description')}" class="error"
+                th:errors="*{description}"></td>
         </tr>
         <tr>
-            <td><label>NumberOfZone</label></td>
-            <td><input type="text" th:field="*{numberOfZone}" /></td>
+            <td><label>Num. de zonas</label></td>
+            <td><input type="number" th:field="*{numberOfZone}" /></td>
+            <td th:if="${#fields.hasErrors('numberOfZone')}" class="error"
+                th:errors="*{numberOfZone}"></td>
         </tr>
         <tr>
-            <td><label>AccessType	</label></td>
+            <td><label>Tipo de acceso</label></td>
             <td><input type="text" th:field="*{accessType}" /></td>
+            <td th:if="${#fields.hasErrors('accessType')}" class="error"
+                th:errors="*{accessType}"></td>
         </tr>
         <tr>
-            <td><label>GeographicalLocation</label></td>
+            <td><label>Localización</label></td>
             <td><input type="text" th:field="*{geographicalLocation}" /></td>
+            <td th:if="${#fields.hasErrors('geographicalLocation')}" class="error"
+                th:errors="*{geographicalLocation}"></td>
         </tr>
         <tr>
-            <td><label>AreaType</label></td>
+            <td><label>Tipo de área</label></td>
             <td><input type="text" th:field="*{areaType}" /></td>
+            <td th:if="${#fields.hasErrors('areaType')}" class="error"
+                th:errors="*{areaType}"></td>
         </tr>
         <tr>
-            <td><label>PhysiscalCharacteristic</label></td>
+            <td><label>Características físicas</label></td>
             <td><input type="text" th:field="*{physiscalCharacteristic}" /></td>
+            <td th:if="${#fields.hasErrors('physiscalCharacteristic')}" class="error"
+                th:errors="*{physiscalCharacteristic}"></td>
         </tr>
         <tr>
-            <td><label>Orientation</label></td>
+            <td><label>Orientación</label></td>
             <td><input type="text" th:field="*{orientation}" /></td>
+            <td th:if="${#fields.hasErrors('orientation')}" class="error"
+                th:errors="*{orientation}"></td>
         </tr>
         <tr>
-            <td><label>Facility</label></td>
+            <td><label>Facilidades</label></td>
             <td><input type="text" th:field="*{facility}" /></td>
+            <td th:if="${#fields.hasErrors('facility')}" class="error"
+                th:errors="*{facility}"></td>
         </tr>
         <tr>
-            <td><label>Comment</label></td>
+            <td><label>Comentario</label></td>
             <td><input type="text" th:field="*{comment}" /></td>
+            <td th:if="${#fields.hasErrors('comment')}" class="error"
+                th:errors="*{comment}"></td>
         </tr>
         <tr>
-            <td><label>Image</label></td>
+            <td><label>Url de imagen</label></td>
             <td><input type="text" th:field="*{image}" /></td>
+            <td th:if="${#fields.hasErrors('image')}" class="error"
+                th:errors="*{image}"></td>
         </tr>
+
         <tr>
-            <td><label>Name_M</label></td>
-            <td><input type="text" th:field="*{name_M}" /></td>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="submit" value="Añadir area" /></td>
+            <td colspan="2"><input class = "btn btn-outline-success" type="submit" value="Añadir area" /></td>
         </tr>
     </table>
 </form>
+
+</div>
 </body>
 </html>
