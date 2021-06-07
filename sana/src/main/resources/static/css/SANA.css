@@ -30,7 +30,7 @@
 .horizontal-links{
     display: flex;
     justify-content: space-between;
-    margin: 10px 10%;
+    margin: 25px 10%;
 }
 
 .puntitos {
@@ -55,28 +55,71 @@
 .contenedor-index{
     margin: 50px 70px;
     display: flex;
-    justify-content:space-evenly;
+    flex-flow: column;
 }
 
-.info-index{
-    flex:6;
-    overflow: auto;
-    height: 100%;
-    width: 100%;
-}
-
-.info-index h2{
+.titulo-index{
+    text-align: center;
     color: #3b7058;
 }
 
-.home-cv{
-    flex: 4;
-    width:40%;
+.titulo-index h1{
+    font-weight: 500;
+    font-size: 70px;
+    margin-bottom: 19px;
 }
 
-.home-cv img{
-    width:100%;
+.wrapper-index{
+    display:flex;
+    flex-flow: row;
 }
+
+.home-cv{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home-cv img{
+    width: 50%;
+}
+
+.info-index{
+    width: 50%;
+}
+
+.info-index .titulo-info-index{
+    text-align:center;
+    margin: 25px 0px;
+}
+
+.info-index div:last-child hr{
+    display:none;
+}
+
+.municipio-index{
+    margin: 20px 0px;
+}
+.municipio-wrapper{
+    display: flex;
+    align-items: center;
+}
+
+.municipality-name-index{
+    flex: 2;
+}
+
+.municipality-name-index *{
+    margin: 0;
+}
+
+.municipios-area{
+    display: flex;
+    justify-content: space-between;
+    flex: 8;
+}
+
+
 
 /*  navegacion */
 
@@ -240,6 +283,7 @@
     flex-direction: row;
     justify-content: center;
     margin-top: 30px;
+    align-items: center;
 }
 
 .area-info-column .table th,
@@ -309,13 +353,31 @@
 .add-reservation form {
     padding: 30px;
     border: 3px solid #3b7058;
-    width:50%;
+    width:40%;
     margin-bottom: 30px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
-.add-reservation form table {
-    height: 100%;
+.reservation-input{
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 25px;
+    text-align: center;
 }
+.reservation-input .input-data{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.reservation-input p{
+    margin: 0px 15px;
+}
+
 
 .add-reservation btn-add-reservation{
     height: 50px;

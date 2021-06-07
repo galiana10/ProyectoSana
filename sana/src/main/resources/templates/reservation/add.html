@@ -17,23 +17,30 @@
         <span class="siguiente"> </span>
     </div>
 
-    <form action="#" th:action="@{/reservation/add/zones/{area}(area=${areaName})}"
-          th:object="${reservation}" method="get">
-        <table>
-            <tr>
-                <td><label>Date</label></td>
-                <td><input type="date" th:field="*{date}"/></td>
-                <td th:if="${#fields.hasErrors('date')}" class="error" th:errors="*{date}"></td>
-            </tr>
+    <form action="#" th:action="@{/reservation/add/zones/{area}(area=${areaName})}" th:object="${reservation}"
+          method="get">
 
-            <tr>
-                <td><label>People Number</label></td>
-                <td><input type="text" th:field="*{peopleNumber}"/></td>
-                <td th:if="${#fields.hasErrors('peopleNumber')}" class="error" th:errors="*{peopleNumber}"></td>
-            </tr>
-            <tr>
-                <td><label>Hora</label></td>
-                <td class="check-list-zones" path="timeslot">
+        <div class="reservation-input">
+            <p th:if="${#fields.hasErrors('date')}" class="error" th:errors="*{date}"></p>
+            <div class="input-data">
+                <p>Date</p>
+                <input type="date" th:field="*{date}"/>
+            </div>
+        </div>
+
+        <div class="reservation-input">
+            <p th:if="${#fields.hasErrors('peopleNumber')}" class="error" th:errors="*{peopleNumber}"></p>
+            <div class="input-data">
+                <p>People Number</p>
+                <input type="text" th:field="*{peopleNumber}"/>
+            </div>
+        </div>
+
+        <div class="reservation-input">
+            <p th:if="${#fields.hasErrors('id_timeslot')}" class="error" th:errors="*{id_timeslot}"></p>
+            <div class="input-data">
+                <p>Hora</p>
+                <div class="check-list-zones" path="timeslot">
                     <div class="zone-box" th:each="timeslot : ${timeslots}">
                         <input type="radio" th:value="${timeslot.id_timeslot}"
                                name="timeslotSelected"
@@ -41,31 +48,13 @@
                         <label class="btn btn-outline-success" th:for="${timeslot.id_timeslot}"
                                th:text="${timeslot.initialhour}+' - '+${timeslot.finalhour}"></label><br>
                     </div>
-                </td>
-                <td th:if="${#fields.hasErrors('id_timeslot')}" class="error" th:errors="*{id_timeslot}"></td>
-            </tr>
+                </div>
+            </div>
+        </div>
 
-            <!--            TODO Mover a nueva vista-->
-            <tr>
-                <td><label>Zona/s</label></td>
-                <td class="check-list-zones" path="zones">
-                    <div class="zone-box" th:each="zone : ${zones}">
-                        <input type="checkbox" th:value="${zone}"
-                               name="zonesList"
-                               class="btn-check" th:id="${zone}" autocomplete="off">
-                        <label class="btn btn-outline-success" th:for="${zone}" th:text="${zone}"></label><br>
-                    </div>
-                </td>
-                <td th:if="${#fields.hasErrors('QR')}" class="error" th:errors="*{QR}"></td>
-
-            </tr>
-
-            <tr>
-                <td class="text-center m-5" colspan="2">
-                    <input class="btn btn-outline-success btn-add-reservation" type="submit" value="Seleccionar Zonas"/>
-                </td>
-            </tr>
-        </table>
+        <div class="reservation-input">
+            <input class="btn btn-outline-success btn-add-reservation" type="submit" value="Seleccionar Zonas"/>
+        </div>
     </form>
 
     <div>

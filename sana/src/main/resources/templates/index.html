@@ -1,36 +1,57 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml"
-      >
+>
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title layout:title-pattern="$CONTENT_TITLE">SANA</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
 </head>
-<body >
+<body>
 
-    <div th:replace="fragments/nav">...</div>
+<div th:replace="fragments/nav">...</div>
 
-    <div class="contenedor-index">
+<div class="contenedor-index">
+
+    <div class="titulo-index">
+        <h1>SANA</h1>
+    </div>
+
+    <div class="wrapper-index">
+        <div class="home-cv">
+            <img src="/homeRecortada.PNG">
+        </div>
 
         <div class="info-index">
-
-            <div th:each="municipality: ${mapa.keySet()}">
-                <h2 th:text="${municipality}"></h2>
-                <div th:each="area: ${mapa.get(municipality)}">
-                    <a class="btn btn-outline-success" th:text="${area}" th:href="@{/area/informacion/{name}(name=${area})}"></a>
-
-                </div>
+            <div class="titulo-info-index">
+                <h2>Información de las áreas</h2>
             </div>
 
-        </div>
 
-        <div class="home-cv">
-            <img src="/home.PNG">
-        </div>
+            <div class="municipio-index" th:each="municipality: ${mapa.keySet()}">
+                <div class="municipio-wrapper">
+                    <div class="municipality-name-index">
+                        <h5 th:text="${municipality} + ':'"></h5>
+                    </div>
 
+                    <div class="municipios-area">
+                        <div th:each="area: ${mapa.get(municipality)}">
+                            <a class="btn btn-outline-success" th:text="${area}"
+                               th:href="@{/area/informacion/{name}(name=${area})}"></a>
+
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+
+        </div>
 
     </div>
+
+
+</div>
 
 
 </body>
