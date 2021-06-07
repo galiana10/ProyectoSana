@@ -12,12 +12,17 @@
 <div class="consulta-wrapper">
     <h1>Ocupación en <span th:text="${area}"></span></h1>
 
-    <from action="#" th:action="@{/ocupacion/{area}( area=${area} )}" method="post">
+    <form action="#" th:action="@{/ocupacion/{area}(area=${area})}" th:object="${area}"
+          method="post">
         <input type="date" name="date">
         <input type="time" name="hour">
-        <input type="submit">
-    </from>
+        <input  class="btn btn-outline-success" type="submit" value="Consultar">
+    </form>
 
+    <h1 th:if="${reservas != null}">Hay reservas</h1>
+    <div th:each="reserva : ${reservas}">
+        <h3>Numero de gente : <span th:text="*{reserva.peopleNumber}"></span></h3>
+    </div>
     <div class="info-tablas">
         <a class="btn btn-outline-success btn-volver" th:href="@{/area/listMM/{name_M}( name_M=${municipality} )}">Volver</a>
     </div>

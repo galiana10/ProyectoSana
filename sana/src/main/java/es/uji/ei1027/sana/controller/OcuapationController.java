@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.List;
 
 
 @Controller
@@ -34,9 +36,13 @@ public class OcuapationController {
     }
 
     @RequestMapping(value = "/{area}", method = RequestMethod.POST)
-    public String ocupacionPerAreaSubmit(Model model, @PathVariable String area, @RequestParam(name="date")LocalDate date, @RequestParam(name="hour")LocalDate hour) {
+    public String ocupacionPerAreaSubmit(Model model, @PathVariable String area, @RequestParam(name="date")String date, @RequestParam(name="hour") String hour) {
+        LocalDate localDate = LocalDate.parse(date);
+        LocalTime localTime = LocalTime.parse(hour);
+
+
         model.addAttribute("area", area);
-        model.addAttribute("reservas", reservationDao.getReservationsOnDate(area, fecha, hora));
+        model.addAttribute("reservas", reservationDao.getReservationsOnDate(area, localDate, localTime));
         return "ocupation/consulta";
     }
 }

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -128,7 +129,7 @@ public class ReservationDao {
         }
     }
 
-    public List<Reservation> getReservationsOnDate (String area, LocalDate fecha, LocalDate hora){
+    public List<Reservation> getReservationsOnDate (String area, LocalDate fecha, LocalTime hora){
         try {
             return jdbcTemplate.query("select * from reservation where id_timeslot in (select id_timeslot from timeslot where initialhour<=? and finalhour>=? AND name_A = ?) and date  = ? ",
                     new ReservationRowMapper(), hora, hora, area, fecha);
