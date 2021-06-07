@@ -2,47 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab5ea26d-0b22-4b80-86e0-2151fc2c0154" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/Service/ZoneSvc.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/zona/add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/AreaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/AreaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/CitizenController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ControlSatffController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ControlStaffAreaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ServiceAreaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ServiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ZoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ZoneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/area/informacion.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/area/informacion.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/area/list_mm.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/area/list_mm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/area/list_publico.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/area/list_publico.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/area/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/area/update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/citizen/add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/citizen/list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/citizen/update.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/control_staff/add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/control_staff/list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/control_staff/update.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/control_staff_area/add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/control_staff_area/list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/fragments/nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/fragments/nav.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/municipality/list_publico.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/municipality/list_publico.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/publico.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/publico.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/completed.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/completed.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/select_zones.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/select_zones.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/schedule/list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/service/add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/service/area_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/service/area_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/service/list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/service/selectType.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/service/selectType.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/service/update.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/sana/target/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -53,7 +15,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -105,7 +77,6 @@
         <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/Service/ServicesSvc.java" />
         <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/Service/GeneralSVC.java" />
         <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/GeneralController.java" />
-        <option value="$PROJECT_DIR$/sana/src/main/resources/templates/index.html" />
         <option value="$PROJECT_DIR$/sana/src/main/resources/templates/fragments/footer.html" />
         <option value="$PROJECT_DIR$/sana/src/main/resources/templates/zona/zona_add.html" />
         <option value="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ServiceAreaController.java" />
@@ -123,7 +94,6 @@
         <option value="$PROJECT_DIR$/sana/src/main/resources/templates/area/update.html" />
         <option value="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/add.html" />
         <option value="$PROJECT_DIR$/sana/src/main/resources/templates/reservation/select_zones.html" />
-        <option value="$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css" />
         <option value="$PROJECT_DIR$/sana/src/main/resources/templates/area/informacion.html" />
         <option value="$PROJECT_DIR$/sana/src/main/resources/templates/area/list_publico.html" />
         <option value="$PROJECT_DIR$/sana/src/main/resources/templates/service/selectType.html" />
@@ -133,10 +103,12 @@
         <option value="$PROJECT_DIR$/sana/src/main/resources/templates/service/area_list.html" />
         <option value="$PROJECT_DIR$/sana/src/main/resources/templates/publico.html" />
         <option value="$PROJECT_DIR$/sana/src/main/resources/templates/register.html" />
+        <option value="$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css" />
+        <option value="$PROJECT_DIR$/sana/src/main/resources/templates/index.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="600" />
     <option name="y" value="11" />
     <option name="width" value="980" />
@@ -271,6 +243,16 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="SANA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProyectoSana" type="462c0819:PsiDirectoryNode" />
+              <item name="sana" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="fragments" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -285,7 +267,7 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1623082921318" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1623088084747" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -330,17 +312,18 @@
       <option name="presentableId" value="Default" />
       <updated>1622798970421</updated>
       <workItem from="1622967395364" duration="31417000" />
-      <workItem from="1623054934061" duration="25671000" />
+      <workItem from="1623054934061" duration="30080000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23740000" />
+    <option name="totallyTimeSpent" value="28149000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24362417" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24362417" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -572,13 +555,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/area/add.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -627,13 +603,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/fragments/footer.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/fragments/nav.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="75" selection-start-line="11" selection-start-column="75" selection-end-line="11" selection-end-column="75" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/municipality/add.html">
       <provider selected="true" editor-type-id="text-editor" />
@@ -715,9 +684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -736,6 +702,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/fragments/nav.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="75" selection-start-line="11" selection-start-column="75" selection-end-line="11" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
