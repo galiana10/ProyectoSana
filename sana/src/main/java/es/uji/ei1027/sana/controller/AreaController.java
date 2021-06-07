@@ -1,6 +1,8 @@
 package es.uji.ei1027.sana.controller;
 
+import es.uji.ei1027.sana.Service.MMSvc;
 import es.uji.ei1027.sana.dao.AreaDao;
+import es.uji.ei1027.sana.dao.UserInfoDao;
 import es.uji.ei1027.sana.model.Area;
 import es.uji.ei1027.sana.model.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +22,19 @@ import javax.servlet.http.HttpSession;
 public class AreaController {
 
     private AreaDao areaDao;
-
     @Autowired
     public void setAreaDao(AreaDao areaDao) {
         this.areaDao=areaDao;
     }
 
-    // Operacions: Crear, llistar, actualitzar, esborrar
+    @Autowired
+    private UserInfoDao userDao;
+
+    MMSvc MMSvc;
+    @Autowired
+    public void setMMsvc(MMSvc MMSvc){
+        this.MMSvc=MMSvc;
+    }
 
 
     @RequestMapping("/list")
@@ -89,20 +97,23 @@ public class AreaController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/update/{name}", method = RequestMethod.GET)
-    public String editArea(Model model, @PathVariable String name) {
-        model.addAttribute("area", areaDao.getArea(name));
+    @RequestMapping(value="/update/{municipality}/{nameArea}", method = RequestMethod.GET)
+    public String editArea(Model model, @PathVariable String municipality, @PathVariable String nameArea ) {
+        model.addAttribute("municipality", municipality);
+        model.addAttribute("area", areaDao.getArea(nameArea));
         return "area/update";
     }
 
-    @RequestMapping(value="/update", method = RequestMethod.POST)
+    @RequestMapping(value="/update/{municipality}", method = RequestMethod.POST)
     public String processUpdateSubmit(
+            @PathVariable String municipality,
             @ModelAttribute("area") Area area,
             BindingResult bindingResult) {
         if (bindingResult.hasErrors())
             return "area/update";
         areaDao.updateArea(area);
-        return "redirect:list";
+
+        return "redirect:../../area/listMM/"+municipality;
     }
 
     @RequestMapping(value="/delete/{name}")

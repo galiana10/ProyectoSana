@@ -1,6 +1,8 @@
 package es.uji.ei1027.sana.dao;
 
+import es.uji.ei1027.sana.model.Area;
 import es.uji.ei1027.sana.model.Reservation;
+import es.uji.ei1027.sana.model.ReservationZone;
 import es.uji.ei1027.sana.model.TimeSlot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -69,6 +71,15 @@ public class ReservationDao {
         }
     }
 
+    public List<Reservation> getReservationsOfArea(String area) {
+        try {
+            return jdbcTemplate.query("SELECT * FROM reservation WHERE id_timeslot IN( SELECT id_timeslot FROM timeslot WHERE timeslot.name_a = ?)",
+                    new ReservationRowMapper(), area);
+        } catch (EmptyResultDataAccessException e) {
+            return new ArrayList<Reservation>();
+        }
+    }
+
     public List<Reservation> getCityzenReservations(String nie) {
         try {
             return jdbcTemplate.query("SELECT * FROM RESERVATION WHERE nie_citizen=?",
@@ -99,10 +110,20 @@ public class ReservationDao {
         }
     }
 
+    public List<ReservationZone> getZonesOnReservation(String qr_r) {
+        try {
+            return jdbcTemplate.query("select * from reservation_zone where qr_r = ?",
+                    new ReservationZoneRowMapper(), qr_r);
+        } catch (EmptyResultDataAccessException e) {
+            return new ArrayList<ReservationZone>();
+        }
+    }
+
     public void cancelReservation(String QRreservation) {
         try {
             jdbcTemplate.update("UPDATE reservation SET status='CANCELADA' WHERE QR='" + QRreservation + "' ");
         } catch (Exception e) {
         }
     }
+
 }

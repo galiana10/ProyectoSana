@@ -4,9 +4,7 @@ package es.uji.ei1027.sana.Service;
 import es.uji.ei1027.sana.dao.ReservationDao;
 import es.uji.ei1027.sana.dao.TimeSlotDao;
 import es.uji.ei1027.sana.dao.ZoneDao;
-import es.uji.ei1027.sana.model.Reservation;
-import es.uji.ei1027.sana.model.TimeSlot;
-import es.uji.ei1027.sana.model.Zone;
+import es.uji.ei1027.sana.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -51,7 +49,7 @@ public class ReservationSvc {
 
     public List<String> zonasLibresEnHorario(String area, String timeSlot, LocalDate fecha) {
 
-        List<String> zonasLibres= new ArrayList<>();
+        List<String> zonasLibres = new ArrayList<>();
 
         List<String> zones = zonesFromArea(area);
 
@@ -59,13 +57,13 @@ public class ReservationSvc {
 
             List<Reservation> reservationsOnZone = reservationDao.getReservationsOnZone(area, zoneName);
 
-            List<Reservation> finalList =  reservationsOnZone.stream().filter(reservation -> reservation.getDate().isEqual(fecha))
-                    .filter(reservation -> reservation.getId_timeslot()==Integer.parseInt(timeSlot))
+            List<Reservation> finalList = reservationsOnZone.stream().filter(reservation -> reservation.getDate().isEqual(fecha))
+                    .filter(reservation -> reservation.getId_timeslot() == Integer.parseInt(timeSlot))
                     .collect(Collectors.toList());
 
 
             //There is no reservation on this date and timeslot
-            if(finalList.size()==0)
+            if (finalList.size() == 0)
                 zonasLibres.add(zoneName);
         }
 
@@ -73,34 +71,37 @@ public class ReservationSvc {
     }
 
 
-    public  int getCapacityOfZones(List<String> zones, String nameArea){
+    public int getCapacityOfZones(List<String> zones, String nameArea) {
 
-        int capacityTotal=0;
+        int capacityTotal = 0;
         for (String zoneName : zones) {
-            Zone zone = zoneDao.getZone(zoneName,nameArea);
+            Zone zone = zoneDao.getZone(zoneName, nameArea);
 
-            capacityTotal+=zone.getMaxCapacity();
+            capacityTotal += zone.getMaxCapacity();
         }
         return capacityTotal;
     }
-    public boolean capacityValidForZones(List<String> zones, String nameArea, int numOfPersons){
-        int capacityTotal=getCapacityOfZones(zones,nameArea);
-        System.out.println("capacidad de esto = "+capacityTotal);
 
-        if(numOfPersons>capacityTotal){
+    public boolean capacityValidForZones(List<String> zones, String nameArea, int numOfPersons) {
+        int capacityTotal = getCapacityOfZones(zones, nameArea);
+        System.out.println("capacidad de esto = " + capacityTotal);
+
+        if (numOfPersons > capacityTotal) {
             return false;
         }
         return true;
-
     }
 
-    public String generateQr(){
-
-        int numReserve = reservationDao.getReservations().size()+1;
+    public String generateQr() {
+        int numReserve = reservationDao.getReservations().size() + 1;
         String qr = String.valueOf(numReserve);
         return qr;
-
-
     }
+
+    public List<ReservationZone> getZonesOfReservation(String qr_r){
+        return reservationDao.getZonesOnReservation(qr_r);
+    }
+
+
 
 }

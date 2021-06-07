@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Reservas de Área</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
+</head>
+<body>
+<div th:replace="fragments/nav">...</div>
+
+
+<div class="contenedor-tablas">
+    <div class="info-tablas">
+        <h1>Reservas de <span th:text="${area}"></span></h1>
+    </div>
+
+    <div class="info-tablas center-tablas">
+        <table class="table table-sm">
+            <thead>
+            <tr class="table-secondary">
+                <th>Usuario</th>
+                <th>Fecha</th>
+                <th>Cantidad de Gente</th>
+                <th>Zonas reservadas</th>
+                <th>Hora Inicio</th>
+                <th>Hora Fin</th>
+                <th>Estado</th>
+                <th></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="reservation: ${reservations}" th:if="${reservation.status == 'ACTIVA'}">
+                <td class="table-success" th:text="${reservation.getNIE_citizen()}"></td>
+                <td class="table-success" th:text="${reservation.getDate()}"></td>
+                <td class="table-success" th:text="${reservation.getPeopleNumber()}"></td>
+
+                <td class="table-success">
+                    <div class="zona-reserva" th:each="zone : ${reservationSvc.getZonesOfReservation(reservation.getQR())}">
+                        <span th:text="${zone.getNumberLetter()}"></span>
+                    </div>
+                </td>
+
+                <td class="table-success" th:text="${timeSlotOfReservation.getInicialhour(reservation)}"></td>
+                <td class="table-success" th:text="${timeSlotOfReservation.getFinalhour(reservation)}"></td>
+
+                <td class="table-success" th:text="${reservation.status}"></td>
+                <td class="table-secondary">
+                    <a class="btn btn-outline-success"
+                       th:href="@{/reservation/anular_mm/{municipality}/{area}/{QR}(municipality=${municipality},area=${timeSlotOfReservation.getArea(reservation)},QR=${reservation.getQR()} )}">Anular</a>
+                </td>
+
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+    <div class="info-tablas">
+        <a class="btn btn-outline-success btn-volver" th:href="@{/area/listMM/{name_M}( name_M=${municipality} )}">Volver</a>
+    </div>
+
+</div>
+</body>
+</html>
