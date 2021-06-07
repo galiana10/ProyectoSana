@@ -4,12 +4,15 @@ import es.uji.ei1027.sana.model.Area;
 import es.uji.ei1027.sana.model.Reservation;
 import es.uji.ei1027.sana.model.ReservationZone;
 import es.uji.ei1027.sana.model.TimeSlot;
+import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -102,7 +105,7 @@ public class ReservationDao {
 
     public List<Reservation> getReservationsOnZone(String areaName, String zoneId) {
         try {
-            return jdbcTemplate.query("select * from reservation_zone as rz join reservation as r ON rz.qr_r =r.qr  where numberletter_z=? and name_area = ?;",
+            return jdbcTemplate.query("select * from reservation_zone as rz join reservation as r ON rz.qr_r =r.qr  where numberletter_z=? and name_area = ? and r.status='ACTIVA';",
                     new ReservationRowMapper(),
                     zoneId, areaName);
         } catch (EmptyResultDataAccessException e) {
@@ -124,6 +127,16 @@ public class ReservationDao {
             jdbcTemplate.update("UPDATE reservation SET status='CANCELADA' WHERE QR='" + QRreservation + "' ");
         } catch (Exception e) {
         }
+    }
+
+    public List<Reservation> getReservationsOnDate (String area, LocalDate fecha, LocalTime hora){
+        try {
+            return jdbcTemplate.query("select * from reservation where id_timeslot in (select id_timeslot from timeslot where initialhour<=? and finalhour>=? AND name_A = ?) and date  = ? ",
+                    new ReservationRowMapper(), hora, hora, area, fecha);
+        } catch (EmptyResultDataAccessException e) {
+            return new ArrayList<Reservation>();
+        }
+
     }
 
 }

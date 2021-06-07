@@ -1,11 +1,14 @@
 package es.uji.ei1027.sana.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class MunicipalManager extends UserInfo{
     String NIE;
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     Date initialDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     Date finalDate;
     String name_M;
 

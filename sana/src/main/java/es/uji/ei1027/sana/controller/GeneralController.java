@@ -69,6 +69,12 @@ public class GeneralController {
 
 
 
+    @RequestMapping("/admin")
+    public String environmentalManager(Model model) {
+
+
+        return "admin_home";
+    }
 }
 
 

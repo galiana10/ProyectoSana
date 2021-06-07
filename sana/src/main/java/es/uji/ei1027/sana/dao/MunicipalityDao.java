@@ -23,7 +23,7 @@ public class MunicipalityDao {
     /* Afegeix el municipality a la base de dades */
     public void addMunicipality(Municipality municipality) {
         jdbcTemplate.update("INSERT INTO MUNICIPALITY VALUES(?, ?, ?)",
-                municipality.getName(), municipality.getTlf(),municipality.getAddress());
+                municipality.getName(),municipality.getAddress() ,municipality.getTlf());
     }
 
     /* Esborra el municipality de la base de dades por Objeto*/

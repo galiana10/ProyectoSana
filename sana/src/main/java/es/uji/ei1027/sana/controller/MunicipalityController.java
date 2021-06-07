@@ -40,8 +40,14 @@ public class MunicipalityController {
         model.addAttribute("municipalitiesPublico", municipalityDao.getMunicipalities());
         return "municipality/list_publico";
     }
+    @RequestMapping("/listEM")
+    public String listMunicipalitiesEM(Model model) {
 
-    @RequestMapping(value="/add")
+        model.addAttribute("municipalitiesPublico", municipalityDao.getMunicipalities());
+        return "municipality/list_em";
+    }
+
+    @RequestMapping("/add")
     public String addMunicipality(Model model) {
         model.addAttribute("municipality", new Municipality());
         return "municipality/add";
@@ -50,10 +56,12 @@ public class MunicipalityController {
     @RequestMapping(value="/add", method= RequestMethod.POST)
     public String processAddSubmit(@ModelAttribute("municipality") Municipality municipality,
                                    BindingResult bindingResult) {
+        MunicipalityValidator mv = new MunicipalityValidator();
+        mv.validate(municipality,bindingResult);
         if (bindingResult.hasErrors())
             return "municipality/add";
         municipalityDao.addMunicipality(municipality);
-        return "redirect:list";
+        return "redirect:listEM";
     }
 
     @RequestMapping(value="/update/{name}", method = RequestMethod.GET)
@@ -75,7 +83,7 @@ public class MunicipalityController {
     @RequestMapping(value="/delete/{name}")
     public String processDelete(@PathVariable String name) {
         municipalityDao.deleteMunicipality(name);
-        return "redirect:../list";
+        return "redirect:../listEM";
     }
 
 

@@ -69,7 +69,7 @@ public class MunicipalManagerDao {
     /* Obté tots els mm Torna una llista buida si no n'hi ha cap. */
     public List<MunicipalManager> getMunicipalManager() {
         try {
-            return jdbcTemplate.query("SELECT  FROM MUNICIPALMANAGER JOIN USERINFO USING(NIE)",
+            return jdbcTemplate.query("SELECT * FROM MUNICIPALMANAGER JOIN USERINFO USING(NIE)",
                     new MunicipalManagerRowMapper());
         }
         catch(EmptyResultDataAccessException e) {

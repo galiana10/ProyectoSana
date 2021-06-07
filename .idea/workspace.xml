@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="ChangeListManager">
     <list default="true" id="ab5ea26d-0b22-4b80-86e0-2151fc2c0154" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
@@ -7,11 +8,21 @@
     <ignored path="$PROJECT_DIR$/sana/target/" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+=======
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7e69956a-f37e-4936-bfe2-46a2cd6a4558" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+>>>>>>> e41b9dc0245ea2ac7b2b8fd868f88f08fc567fa9
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
@@ -25,10 +36,13 @@
       </file>
     </leaf>
   </component>
+=======
+>>>>>>> e41b9dc0245ea2ac7b2b8fd868f88f08fc567fa9
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+<<<<<<< HEAD
     <setting file="file://$PROJECT_DIR$/sana/src/main/resources/templates/reservation/select_zones.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/Service/ReservationSvc.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationController.java" root0="FORCE_HIGHLIGHTING" />
@@ -243,6 +257,19 @@
   </component>
   <component name="RunManager">
     <configuration name="SanaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+=======
+    <setting file="file://$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/sana/src/main/resources/templates/area/informacion.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/sana/src/main/resources/templates/area/list_publico.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/sana/src/main/resources/templates/reservation/select_zones.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/Service/ReservationSvc.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/sana/src/main/resources/templates/reservation/add.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ReservationController.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="RunManager">
+    <configuration name="SanaApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="es.uji.ei1027.sana.SanaApplication" />
+>>>>>>> e41b9dc0245ea2ac7b2b8fd868f88f08fc567fa9
       <module name="SANA" />
       <extension name="coverage">
         <pattern>
@@ -250,13 +277,17 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+<<<<<<< HEAD
       <option name="SPRING_BOOT_MAIN_CLASS" value="es.uji.ei1027.sana.SanaApplication" />
+=======
+>>>>>>> e41b9dc0245ea2ac7b2b8fd868f88f08fc567fa9
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+<<<<<<< HEAD
         <item itemvalue="Spring Boot.SanaApplication" />
       </list>
     </recent_temporary>
@@ -366,5 +397,16 @@
         </entry>
       </map>
     </option>
+=======
+        <item itemvalue="Application.SanaApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="oldMeFiltersMigrated" value="true" />
+>>>>>>> e41b9dc0245ea2ac7b2b8fd868f88f08fc567fa9
   </component>
 </project>

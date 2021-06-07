@@ -1,56 +1,89 @@
 package es.uji.ei1027.sana.controller;
 
 
+import es.uji.ei1027.sana.Service.GeneratorService;
 import es.uji.ei1027.sana.dao.MunicipalManagerDao;
+import es.uji.ei1027.sana.dao.MunicipalityDao;
 import es.uji.ei1027.sana.model.MunicipalManager;
+import es.uji.ei1027.sana.model.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/municipalManager")
 public class MunicipalManagerController {
 
     private MunicipalManagerDao mmDao;
+    private MunicipalityDao municipalityDao;
+    private GeneratorService generatorService;
 
     @Autowired
     public void setMunicipalManagerDao(MunicipalManagerDao mmDao) {
         this.mmDao = mmDao;
     }
 
+    @Autowired
+    public void setMunicipalityDao(MunicipalityDao municipalityDao) {
+        this.municipalityDao = municipalityDao;
+    }
+
+    @Autowired
+    public void setGeneratorService(GeneratorService generatorService) {
+        this.generatorService = generatorService;
+    }
+
 
     @RequestMapping("/list")
     public String listMunicipalManager(Model model) {
-        model.addAttribute("municipalManager", mmDao.getMunicipalManager());
-        return "municipalManager/list";
+        model.addAttribute("managers", mmDao.getMunicipalManager());
+        System.out.println(generatorService.generateRandomString());
+        return "municipal_manager/list";
     }
 
-    @RequestMapping(value="/add")
+    @RequestMapping(value = "/add")
     public String addMunicipalManager(Model model) {
+
+
         model.addAttribute("municipalManager", new MunicipalManager());
-        return "municipalManager/add";
+        model.addAttribute("municipios", municipalityDao.getMunicipalities());
+
+        return "municipal_manager/add";
     }
-    @RequestMapping(value="/add", method= RequestMethod.POST)
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String processAddSubmit(@ModelAttribute("municipalManager") MunicipalManager mm,
+                                   @RequestParam(name = "name", required = false) String name,
+                                   @RequestParam(name = "nie", required = false) String nie,
+                                   Model model,
                                    BindingResult bindingResult) {
-        if (bindingResult.hasErrors())
-            return "municipalManager/add";
+        mm.setName(name);
+        mm.setNIE(nie);
+        mm.setUsername("mm" + generatorService.generateRandomString());
+        mm.setPassword(generatorService.generateRandomString());
+
+        MunicipalManagerValidator mmv = new MunicipalManagerValidator();
+
+        mmv.validate(mm, bindingResult);
+
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("municipalManager", new MunicipalManager());
+            model.addAttribute("municipios", municipalityDao.getMunicipalities());
+            return "municipal_manager/add";
+        }
         mmDao.addMunicipalManager(mm);
         return "redirect:list";
     }
 
-    @RequestMapping(value="/update/{nieMM}", method = RequestMethod.GET)
+    @RequestMapping(value = "/update/{nieMM}", method = RequestMethod.GET)
     public String editMunicipalManager(Model model, @PathVariable String nieMM) {
         model.addAttribute("municipalManager", mmDao.getMunicipalManager(nieMM));
         return "municipalManager/update";
     }
 
-    @RequestMapping(value="/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String processUpdateSubmit(
             @ModelAttribute("municipalManager") MunicipalManager mm,
             BindingResult bindingResult) {
@@ -60,12 +93,11 @@ public class MunicipalManagerController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/delete/{nieMM}")
+    @RequestMapping(value = "/delete/{nieMM}")
     public String processDelete(@PathVariable String nieMM) {
         mmDao.deleteMunicipalManager(nieMM);
         return "redirect:../list";
     }
-
 
 
 }

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
+    <title>Consulta de Ocupación Temporal</title>
+</head>
+<body>
+
+<div th:replace="fragments/nav">...</div>
+<div class="consulta-wrapper">
+    <h1>Ocupación en <span th:text="${area}"></span></h1>
+
+    <form action="#" th:action="@{/ocupacion/{area}(area=${area})}" th:object="${area}"
+          method="post">
+        <input type="date" name="date">
+        <input type="time" name="hour">
+        <input class="btn btn-outline-success" type="submit" value="Consultar">
+    </form>
+
+    <h1 th:if="${reservas != null}">Hay reservas</h1>
+    <div th:each="reserva : ${reservas}">
+        <h3>Numero de gente : <span th:text="*{reserva.peopleNumber}"></span></h3>
+    </div>
+    <div class="info-tablas">
+        <a class="btn btn-outline-success btn-volver" th:href="@{/area/listMM/{name_A}( name_A=${area} )}">Volver</a>
+    </div>
+</div>
+
+
+</body>
+</html>

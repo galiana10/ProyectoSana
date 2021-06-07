@@ -23,31 +23,43 @@ public class TimeSlotController {
         this.timeSlotDao = timeSlotDao;
     }
 
-    @RequestMapping("/list")
-    public String listTimeSlots(Model model) {
-        model.addAttribute("timeslots", timeSlotDao.getTimeSlots());
+    @RequestMapping("/list/{name_a}")
+    public String listTimeSlots(Model model , @PathVariable String name_a) {
+        model.addAttribute("timeslots", timeSlotDao.getTimeSlotsFromArea(name_a));
+        model.addAttribute("area",name_a);
         return "timeslot/list";
     }
 
-    @RequestMapping(value = "/add")
-    public String addTimeslot(Model model) {
+    @RequestMapping(value = "/add/{name_a}")
+    public String addTimeslot(Model model, @PathVariable String name_a) {
         model.addAttribute("timeslot", new TimeSlot());
+        model.addAttribute("area", name_a);
         return "timeslot/add";
     }
 
-    @RequestMapping(value="/add", method= RequestMethod.POST)
-    public String processAddSubmit(@ModelAttribute("timeslot") TimeSlot timeslot,
+    @RequestMapping(value="/add/{name_a}", method= RequestMethod.POST)
+    public String processAddSubmit(@ModelAttribute("timeslot") TimeSlot timeslot
+                                     , @PathVariable String name_a,
+                                   Model model,
                                    BindingResult bindingResult) {
-        if (bindingResult.hasErrors())
+
+        TimeSlotValidator tv = new TimeSlotValidator();
+        timeslot.setName_a(name_a);
+        tv.validate(timeslot,bindingResult);
+
+        if (bindingResult.hasErrors()){
+            model.addAttribute("area", name_a);
+
             return "timeslot/add";
+        }
         timeSlotDao.addTimeSlot(timeslot);
-        return "redirect:list";
+        return "redirect:/timeslot/list/"+name_a;
     }
 
-    @RequestMapping(value="/update/{name_a}/{inicialhour}", method = RequestMethod.GET)
-    public String editTimeslot(Model model, @PathVariable String name_A, @PathVariable LocalTime initialHour) {
-        //TODO
-       // model.addAttribute("timeslot", timeSlotDao.getTimeSlot(name_A,initialHour));
+    @RequestMapping(value="/update/{id_timeslot}", method = RequestMethod.GET)
+    public String editTimeslot(Model model,  @PathVariable int id_timeslot) {
+
+        model.addAttribute("timeslot", timeSlotDao.getTimeSlot(id_timeslot));
         return "timeslot/update";
     }
 
@@ -61,10 +73,11 @@ public class TimeSlotController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/delete/{name_A}/{inicialHour}")
-    public String processDelete(@PathVariable String name_A, @PathVariable LocalTime initialHour) {
-        timeSlotDao.deleteTimeSlot(name_A, initialHour);
-        return "redirect:../list";
+    @RequestMapping(value="/delete/{id_timeslot}")
+    public String processDelete(@PathVariable String id_timeslot ){
+        TimeSlot timeSlot = timeSlotDao.getTimeSlot(Integer.parseInt(id_timeslot));
+        timeSlotDao.deleteTimeSlot(id_timeslot);
+        return "redirect:../list/"+timeSlot.getName_a();
     }
 
 }

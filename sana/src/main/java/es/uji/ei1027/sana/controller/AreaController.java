@@ -14,7 +14,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+
 import javax.servlet.http.HttpSession;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
 
 
 @Controller
@@ -49,15 +54,11 @@ public class AreaController {
         model.addAttribute("areasPublico", areaDao.getAreasMunipality(name_M));
         model.addAttribute("municipalityPublico",name_M);
 
-
-
         if (session.getAttribute("user") == null) {
             return "redirect:/";
         }
 
-
         return "area/list_publico";
-
     }
 
     @RequestMapping(value = "/informacion/{name_A}",method = RequestMethod.GET)
@@ -82,19 +83,32 @@ public class AreaController {
     }
 
 
-    @RequestMapping(value="/add")
-    public String addArea(Model model) {
+    @RequestMapping(value="/add/{nameMunicipality}")
+    public String addArea(Model model,
+    @PathVariable String nameMunicipality) {
+        model.addAttribute("nameMunicipality",nameMunicipality);
         model.addAttribute("area", new Area());
+
         return "area/add";
     }
 
-    @RequestMapping(value="/add", method=RequestMethod.POST)
+    @RequestMapping(value="/add/{nameMunicipality}", method=RequestMethod.POST)
     public String processAddSubmit(@ModelAttribute("area") Area area,
+                                   @PathVariable String nameMunicipality,
                                    BindingResult bindingResult) {
+
+
+        area.setName_M(nameMunicipality);
+        AreaValidator av= new AreaValidator();
+        av.validate(area,bindingResult);
+        List<String> areas = areaDao.getAreas().stream().map(area1 -> area1.getName()).collect(Collectors.toList());
+        if(areas.contains(area.getName()))
+            bindingResult.rejectValue("name","nameduplicated",
+                    "Este nombre ya esta en uso");
         if (bindingResult.hasErrors())
             return "area/add";
         areaDao.addArea(area);
-        return "redirect:list";
+        return "redirect:../listMM/"+nameMunicipality;
     }
 
     @RequestMapping(value="/update/{municipality}/{nameArea}", method = RequestMethod.GET)
