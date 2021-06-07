@@ -23,7 +23,7 @@ public class TimeSlotDao {
 
     /* Afegeix el timeSlot a la base de dades */
     public void addTimeSlot(TimeSlot timeSlot) {
-        jdbcTemplate.update("INSERT INTO TIMESLOT VALUES(?, ?, ?,?)",
+        jdbcTemplate.update("INSERT INTO TIMESLOT VALUES(DEFAULT,?, ?, ?,?)",
                 timeSlot.getName_a(), timeSlot.getInitialhour(),timeSlot.getFinalhour(), timeSlot.getSeason());
     }
 
@@ -61,6 +61,17 @@ public class TimeSlotDao {
         try {
             return jdbcTemplate.query("SELECT * FROM TIMESLOT",
                     new TimeSlotRowMapper());
+        }
+        catch(EmptyResultDataAccessException e) {
+            return new ArrayList<TimeSlot>();
+        }
+    }
+
+    /* Obté tots els timeSlot torna una llista buida si no n'hi ha cap. */
+    public List<TimeSlot> getTimeSlotsFromArea(String area) {
+        try {
+            return jdbcTemplate.query("SELECT * FROM TIMESLOT where name_a=?",
+                    new TimeSlotRowMapper(),area);
         }
         catch(EmptyResultDataAccessException e) {
             return new ArrayList<TimeSlot>();

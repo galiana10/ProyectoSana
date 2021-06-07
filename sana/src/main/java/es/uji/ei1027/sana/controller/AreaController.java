@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 
 @Controller
 @RequestMapping("/area")
@@ -78,6 +81,12 @@ public class AreaController {
 
 
         area.setName_M(nameMunicipality);
+        AreaValidator av= new AreaValidator();
+        av.validate(area,bindingResult);
+        List<String> areas = areaDao.getAreas().stream().map(area1 -> area1.getName()).collect(Collectors.toList());
+        if(areas.contains(area.getName()))
+            bindingResult.rejectValue("name","nameduplicated",
+                    "Este nombre ya esta en uso");
         if (bindingResult.hasErrors())
             return "area/add";
         areaDao.addArea(area);

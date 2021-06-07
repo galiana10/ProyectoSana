@@ -324,4 +324,6 @@ width:50%;
     align-self: center;
 }
 
-
+.form-regular{
+width:auto!important;
+}
