@@ -278,6 +278,22 @@
     align-self: center !important;
 }
 
+ /*  modificar area  */
+ .update-area-mm{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+ }
+
+ .update-area-mm label{
+    font-weight: bolder;
+ }
+
+ .update-area-mm .on-submit{
+    margin-top: 24px;
+ }
+
+
 /*  hacer reserva  */
 
 .add-reservation{
@@ -324,6 +340,7 @@
 }
 
 
+
 /*  añadir servicio */
 
 .contenedor-selectType{
@@ -360,6 +377,3 @@
     margin-right:7px;
     margin-top:7px;
 }
-
-
-

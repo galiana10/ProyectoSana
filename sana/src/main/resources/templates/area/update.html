@@ -2,67 +2,84 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Modificar area</title>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
 </head>
 <body>
-<h2>Modificar area</h2>
-<form action="#" th:action="@{/area/update}"
-      th:object="${area}" method="post">
-    <table>
-        <tr>
-            <td><label>Name</label></td>
-            <td><input type="text" th:field="*{name}" /></td>
-        </tr>
-        <tr>
-            <td><label>Description</label></td>
-            <td><input type="text" th:field="*{description}" /></td>
-        </tr>
-        <tr>
-            <td><label>NumberOfZone</label></td>
-            <td><input type="text" th:field="*{numberOfZone}" /></td>
-        </tr>
-        <tr>
-            <td><label>AccessType	</label></td>
-            <td><input type="text" th:field="*{accessType}" /></td>
-        </tr>
-        <tr>
-            <td><label>GeographicalLocation</label></td>
-            <td><input type="text" th:field="*{geographicalLocation}" /></td>
-        </tr>
-        <tr>
-            <td><label>AreaType</label></td>
-            <td><input type="text" th:field="*{areaType}" /></td>
-        </tr>
-        <tr>
-            <td><label>PhysiscalCharacteristic</label></td>
-            <td><input type="text" th:field="*{physiscalCharacteristic}" /></td>
-        </tr>
-        <tr>
-            <td><label>Orientation</label></td>
-            <td><input type="text" th:field="*{orientation}" /></td>
-        </tr>
-        <tr>
-            <td><label>Facility</label></td>
-            <td><input type="text" th:field="*{facility}" /></td>
-        </tr>
-        <tr>
-            <td><label>Comment</label></td>
-            <td><input type="text" th:field="*{comment}" /></td>
-        </tr>
-        <tr>
-            <td><label>Image</label></td>
-            <td><input type="text" th:field="*{image}" /></td>
-        </tr>
-        <tr>
-            <td><label>Name_M</label></td>
-            <td><input type="text" th:field="*{name_M}" /></td>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="submit" value="Añadir area" /></td>
-        </tr>
-    </table>
-</form>
+
+<div th:replace="fragments/nav">...</div>
+<div class="contenedor-tablas">
+
+    <div class="info-tablas">
+        <h1>Modificar area</h1>
+    </div>
+
+    <div class="info-tablas center-tablas">
+        <form class="update-area-mm" action="#" th:action="@{/area/update/{name}(name=${municipality})}"
+              th:object="${area}" method="post">
+            <table class="table table-sm">
+                <tr>
+                    <td><label>Name</label></td>
+                    <td><input type="text" th:field="*{name}"/></td>
+                </tr>
+                <tr>
+                    <td><label>Description</label></td>
+                    <td><input type="text" th:field="*{description}"/></td>
+                </tr>
+                <tr>
+                    <td><label>NumberOfZone</label></td>
+                    <td><input type="text" th:field="*{numberOfZone}"/></td>
+                </tr>
+                <tr>
+                    <td><label>AccessType </label></td>
+                    <td><input type="text" th:field="*{accessType}"/></td>
+                </tr>
+                <tr>
+                    <td><label>GeographicalLocation</label></td>
+                    <td><input type="text" th:field="*{geographicalLocation}"/></td>
+                </tr>
+                <tr>
+                    <td><label>AreaType</label></td>
+                    <td><input type="text" th:field="*{areaType}"/></td>
+                </tr>
+                <tr>
+                    <td><label>PhysiscalCharacteristic</label></td>
+                    <td><input type="text" th:field="*{physiscalCharacteristic}"/></td>
+                </tr>
+                <tr>
+                    <td><label>Orientation</label></td>
+                    <td><input type="text" th:field="*{orientation}"/></td>
+                </tr>
+                <tr>
+                    <td><label>Facility</label></td>
+                    <td><input type="text" th:field="*{facility}"/></td>
+                </tr>
+                <tr>
+                    <td><label>Comment</label></td>
+                    <td><input type="text" th:field="*{comment}"/></td>
+                </tr>
+                <tr>
+                    <td><label>Image</label></td>
+                    <td><input type="text" th:field="*{image}"/></td>
+                </tr>
+                <tr>
+                    <td><label>Name_M</label></td>
+                    <td><input type="text" th:field="*{name_M}"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input  class="btn btn-outline-success on-submit" type="submit" value="Actualizar área"/></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <div class="info-tablas">
+        <a class="btn btn-outline-success" th:href="@{/area/listMM/{name}(name=${municipality})}">Volver</a>
+    </div>
+
+
+</div>
+
 </body>
 </html>
