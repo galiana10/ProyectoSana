@@ -16,7 +16,7 @@
           method="post">
         <input type="date" name="date">
         <input type="time" name="hour">
-        <input  class="btn btn-outline-success" type="submit" value="Consultar">
+        <input class="btn btn-outline-success" type="submit" value="Consultar">
     </form>
 
     <h1 th:if="${reservas != null}">Hay reservas</h1>
@@ -24,7 +24,7 @@
         <h3>Numero de gente : <span th:text="*{reserva.peopleNumber}"></span></h3>
     </div>
     <div class="info-tablas">
-        <a class="btn btn-outline-success btn-volver" th:href="@{/area/listMM/{name_M}( name_M=${municipality} )}">Volver</a>
+        <a class="btn btn-outline-success btn-volver" th:href="@{/area/listMM/{name_A}( name_A=${area} )}">Volver</a>
     </div>
 </div>
 

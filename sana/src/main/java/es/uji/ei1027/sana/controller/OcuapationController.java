@@ -24,8 +24,9 @@ import java.util.List;
 public class OcuapationController {
 
     private ReservationDao reservationDao;
+
     @Autowired
-    public void setReservationDao (ReservationDao reservationDao){
+    public void setReservationDao(ReservationDao reservationDao) {
         this.reservationDao = reservationDao;
     }
 
@@ -36,10 +37,12 @@ public class OcuapationController {
     }
 
     @RequestMapping(value = "/{area}", method = RequestMethod.POST)
-    public String ocupacionPerAreaSubmit(Model model, @PathVariable String area, @RequestParam(name="date")String date, @RequestParam(name="hour") String hour) {
+    public String ocupacionPerAreaSubmit(Model model, @PathVariable String area,
+                                         @RequestParam(name = "date") String date,
+                                         @RequestParam(name = "hour") String hour) {
+
         LocalDate localDate = LocalDate.parse(date);
         LocalTime localTime = LocalTime.parse(hour);
-
 
         model.addAttribute("area", area);
         model.addAttribute("reservas", reservationDao.getReservationsOnDate(area, localDate, localTime));
