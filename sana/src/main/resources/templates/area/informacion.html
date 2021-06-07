@@ -9,73 +9,79 @@
 </head>
 <body>
 
-<div th:replace="fragments/nav" >...</div>
+    <div th:replace="fragments/nav">...</div>
 
-<div class="info-area">
+    <div class="info-area">
 
-    <h1 class="title-area">
-    <span th:text="${areasInfo.name}"></span> <span> - (</span><span th:text="${areasInfo.name_M}"> </span><span>)</span>
-    </h1>
-    <div class="area-info-columns">
-        <div class="area-info-column">
-            <img class="area-img" th:src="${areasInfo.image}" >
+        <h1 class="title-area">
+        <span th:text="${areasInfo.name}"></span> <span> - (</span><span th:text="${areasInfo.name_M}"> </span><span>)</span>
+        </h1>
+        <div class="area-info-columns">
 
-        </div>
-        <div class="area-info-column right ml-3">
-            <table class="table">
-            <tbody>
-            <tr>
-                <th> <strong>Descripción: </strong></th>
-                <td>  <span th:text="${areasInfo.description}" ></span></td>
+            <div class="area-info-column">
 
-            </tr>
-            <tr>
-                <th > <strong>Tipo de acceso: </strong></th>
-                <td>   <span th:text="${areasInfo.accessType}" ></span></td>
+                <img class="area-img" th:src="${areasInfo.image}" >
 
-            </tr>
-            <tr>
-                <th > <strong>Orientación: </strong></th>
-                <td>  <span th:text="${areasInfo.orientation}" ></span></td>
-
-            </tr>
-            <tr>
-                <th >  <strong>Comentarios: </strong></th>
-                <td>   <span th:text="${areasInfo.comment}" ></span></td>
-
-            </tr>
-            <tr>
-                <th >   <strong>Caracteristicas: </strong></th>
-                <td> <span th:text="${areasInfo.physiscalCharacteristic}" ></span></td>
-
-            </tr>
-            <tr>
-                <th >   <strong>Facilidades: </strong></th>
-                <td>  <span th:text="${areasInfo.facility}" ></span></td>
-
-            </tr>
-            </tbody>
-            </table>
-
-        </div>
-    </div>
-
-
-    </div>
-
-        <div class="horizontal-links">
-            <div>
-                <a class="btn btn-outline-success" th:href="@{/area/listPublico/{name}(name=${areasInfo.name_M})}">Volver</a>
             </div>
-            <div>
-                <a th:if="${areasInfo.accessType =='restricted'}" class="btn btn-outline-success link-reserve-btn" role="button" th:href="@{/reservation/add/{area}(area=${areasInfo.name})}">Reservar</a></dt>
+
+            <div class="area-info-column right ml-3">
+                <table class="table">
+                <tbody>
+                <tr>
+                    <th> <strong>Descripción: </strong></th>
+                    <td>  <span th:text="${areasInfo.description}" ></span></td>
+
+                </tr>
+                <tr>
+                    <th > <strong>Tipo de acceso: </strong></th>
+                    <td>   <span th:text="${areasInfo.accessType}" ></span></td>
+
+                </tr>
+                <tr>
+                    <th > <strong>Orientación: </strong></th>
+                    <td>  <span th:text="${areasInfo.orientation}" ></span></td>
+
+                </tr>
+                <tr>
+                    <th >  <strong>Comentarios: </strong></th>
+                    <td>   <span th:text="${areasInfo.comment}" ></span></td>
+
+                </tr>
+                <tr>
+                    <th >   <strong>Caracteristicas: </strong></th>
+                    <td> <span th:text="${areasInfo.physiscalCharacteristic}" ></span></td>
+
+                </tr>
+                <tr>
+                    <th >   <strong>Facilidades: </strong></th>
+                    <td>  <span th:text="${areasInfo.facility}" ></span></td>
+
+                </tr>
+                </tbody>
+                </table>
+
             </div>
+
+        </div>
+
+
+        </div>
+
+            <div class="horizontal-links">
+                <div>
+                    <a class="btn btn-outline-success" th:href="@{/area/listPublico/{name}(name=${areasInfo.name_M})}">Volver</a>
+                </div>
+                <div>
+                    <a th:if="${areasInfo.accessType =='restricted'}" class="btn btn-outline-success link-reserve-btn" role="button" th:href="@{/reservation/add/{area}(area=${areasInfo.name})}">Reservar</a></dt>
+                </div>
+            </div>
+
         </div>
 
     </div>
 
 
-    
+
 
 
 </body>
