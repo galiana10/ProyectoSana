@@ -42,9 +42,13 @@
                     <td class="table-secondary"> <a class="btn btn-outline-success" th:href="@{/ocupacion/{area}(area=${area.name} )}">Ocupación</a></td>
                     <td class="table-secondary"> <a class="btn btn-outline-success" th:href="@{/area/informacion/{name}(name=${area.name})}">Zonas</a></td>
                 </tr>
+
                 </tbody>
             </table>
+
         </div>
+
+        <a class="btn btn-outline-success btn-add-area" th:href="@{/area/add/{name}(name=${municipalityMM})}">Añadir area</a>
 
 
 

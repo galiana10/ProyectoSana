@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
+
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+
+<body>
+
+
+<div th:replace="fragments/nav">...</div>
+
+<div class="login-wrapper">
+    <div class="login-container">
+
+        <div class="info-tablas">
+            <h1>"Crear Gestor de municipio"</h1>
+        </div>
+
+
+        <form class="login-form" action="#" th:action="@{/municipalManager/add}"
+              th:object="${municipalManager}" method="post">
+            <table>
+                <tr>
+                    <td><label>Nombre:</label></td>
+                    <td><input name="name" class="form_control" type="text" /></td>
+                    <td th:if="${#fields.hasErrors('name')}" class="error"
+                        th:errors="*{name}"></td>
+                </tr>
+
+                <tr>
+                    <td><label>DNI:</label></td>
+                    <td><input name="nie" class="form_control" type="text" /></td>
+                    <td th:if="${#fields.hasErrors('nie')}" class="error"
+                        th:errors="*{nie}"></td>
+                </tr>
+
+                <tr>
+                    <td><label>Fecha inicio:</label></td>
+                    <td><input class="form_control" type="date" th:field="*{initialDate}"/></td>
+                    <td th:if="${#fields.hasErrors('initialDate')}" class="error"
+                        th:errors="*{initialDate}"></td>
+                </tr>
+
+                <tr>
+                    <td><label>Fecha fin:</label></td>
+                    <td><input class="form_control" type="date" th:field="*{finalDate}"/></td>
+                    <td th:if="${#fields.hasErrors('finalDate')}" class="error"
+                        th:errors="*{finalDate}"></td>
+                </tr>
+
+                <tr>
+                    <td><label>Municipio</label></td>
+                    <td><select class="form_control" type="text"
+                                th:class="${#fields.hasErrors('name_M')} ? needcorrection" th:field="*{name_M}">
+                        <option th:each="municipio : ${municipios}"
+                                th:value="${municipio.name}"
+                                th:text="${municipio.name}"></option>
+                    </select>
+                    </td>
+                    <td th:if="${#fields.hasErrors('name_M')}" class="error"
+                        th:errors="*{name_M}"></td>
+                </tr>
+
+
+            </table>
+
+            <input class="btn btn-outline-success" type="submit" value="Crear"/>
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>

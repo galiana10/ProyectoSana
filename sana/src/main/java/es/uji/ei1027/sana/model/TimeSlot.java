@@ -7,9 +7,9 @@ import java.time.LocalTime;
 public class TimeSlot {
     int id_timeslot;
     String name_a;
-    @DateTimeFormat(pattern = "HH:mm:ss")
+    @DateTimeFormat(pattern = "HH:mm")
     LocalTime initialhour;
-    @DateTimeFormat(pattern = "HH:mm:ss")
+    @DateTimeFormat(pattern = "HH:mm")
     LocalTime finalhour;
     String season;
 

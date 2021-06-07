@@ -83,6 +83,9 @@ public class LoginController {
             String municipality=MMSvc.municipalityFromMM(user.getNie());
             nextUrl = (nextUrl != null) ? nextUrl : "area/listMM/"+municipality;
 
+        }else{
+            nextUrl = (nextUrl != null) ? nextUrl : "/admin";
+
         }
 
         // Torna a la pàgina principal o si existeix a la que es volia anar

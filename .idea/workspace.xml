@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5a78783-b916-444f-a79e-3c8d2ce8fac9" name="Default Changelist" comment="">
+    <list default="true" id="7e69956a-f37e-4936-bfe2-46a2cd6a4558" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/OcuapationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/OcuapationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/area/list_mm.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/area/list_mm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/ocupation/consulta.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/ocupation/consulta.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

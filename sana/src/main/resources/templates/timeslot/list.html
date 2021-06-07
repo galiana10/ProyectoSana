@@ -3,33 +3,50 @@
 <head>
     <title>Gestionar TimeSlot</title>
     <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
 </head>
 <body>
-<h1>Lista de TimeSlot</h1>
-<table>
-    <thead>
-    <tr>
-        <th>Name Area</th>
-        <th>Inicial hour</th>
-        <th>Final hour</th>
-        <th>Season</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="timeslot: ${timeslots}">
-        <td th:text="${timeslot.name_a}"></td>
-        <td th:text="${timeslot.initialhour}"></td>
-        <td th:text="${timeslot.finalhour}"></td>
-        <td th:text="${timeslot.season}"></td>
 
-        <td><a th:href="@{/timeslot/update/{name_a}/{inicialhour}(name_a=${timeslot.name_a}, inicialhour=$(timeslot.inicialhour)}">Editar</a>
-        </td>
-        <td><a th:href="@{/timeslot/delete/{name_a}/{inicialhour}(name_a=${timeslot.name_a}, inicialhour=$(timeslot.inicialhour)}">Borrar</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<a href="add">Añadir Timeslot</a>
+<div th:replace="fragments/nav">...</div>
+
+<div class="contenedor-tablas">
+
+    <div class="info-tablas">
+        <h1>Lista de TimeSlot</h1>
+    </div>
+    <div class="info-tablas center-tablas">
+        <table class="table table-sm">
+            <thead>
+            <tr class="table-secondary">
+
+                <th>Hora de inicio</th>
+                <th>Hora final</th>
+                <th>Estación</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each=" timeslot: ${timeslots}">
+
+                <td class="table-success" th:text="${timeslot.initialhour}"></td>
+                <td class="table-success" th:text="${timeslot.finalhour}"></td>
+                <td class="table-success" th:text="${timeslot.season}"></td>
+
+                <td class="table-secondary"><a class="btn btn-outline-success"
+                                               th:href="@{/timeslot/update/{name_a}/{id_timeslot}(id_timeslot=${timeslot.id_timeslot})}">Editar</a>
+                </td>
+                <td class="table-secondary"><a class="btn btn-outline-success"
+                                               th:href="@{/timeslot/delete/{id_timeslot}(id_timeslot=${timeslot.id_timeslot})}">Borrar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="info-tablas btn-group-sana">
+        <a class="btn btn-outline-success btn-volver" href="/publico">Volver</a>
+        <a class="btn btn-outline-success"  th:href="@{/timeslot/add/{area}(area=${area})}">Añadir Timeslot</a>
+    </div>
+</div>
 </body>
 </html>

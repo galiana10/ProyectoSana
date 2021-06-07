@@ -3,30 +3,40 @@
 <head>
   <title>Añadir nuevo municipio</title>
   <meta charset="UTF-8" />
+  <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
   <link rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
-<h2>Nuevo municipio</h2>
+<div th:replace="fragments/nav">...</div>
+<div class = "add-reservation info-tablas">
+<h1>Nuevo municipio</h1>
 <form action="#" th:action="@{/municipality/add}"
       th:object="${municipality}" method="post">
   <table>
     <tr>
       <td><label>Name</label></td>
       <td><input type="text" th:field="*{name}" /></td>
+      <td th:if="${#fields.hasErrors('name')}" class="error"
+          th:errors="*{name}"></td>
     </tr>
     <tr>
       <td><label>Tlf</label></td>
-      <td><input type="text" th:field="*{tlf  }" /></td>
+      <td><input type="number" th:field="*{tlf}" /></td>
+      <td th:if="${#fields.hasErrors('tlf')}" class="error"
+          th:errors="*{tlf}"></td>
     </tr>
     <tr>
       <td><label>Address</label></td>
       <td><input type="text" th:field="*{address}" /></td>
+      <td th:if="${#fields.hasErrors('address')}" class="error"
+          th:errors="*{address}"></td>
     </tr>
     <tr>
-      <td colspan="2"><input type="submit" value="Añadir municipio" /></td>
+      <td colspan="2"><input class="btn btn-outline-success"  type="submit" value="Añadir municipio" /></td>
     </tr>
   </table>
 </form>
+</div>
 </body>
 </html>

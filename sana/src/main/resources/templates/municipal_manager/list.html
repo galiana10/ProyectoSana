@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
+
+    <meta charset="UTF-8">
+    <title>Municipalities</title>
+</head>
+
+<body>
+
+
+<div th:replace="fragments/nav">...</div>
+
+<div class="contenedor-tablas">
+
+    <div class="info-tablas">
+        <h1>Gestores de municipios</h1>
+    </div>
+
+
+    <div class="info-tablas center-tablas">
+        <table class="table table-sm">
+            <thead>
+            <tr class="table-secondary">
+                <th>NIE</th>
+                <th>Nombre</th>
+                <th>Municipio</th>
+                <th>Fecha inicio</th>
+                <th>Fecha fin</th>
+
+
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="manager: ${managers}">
+
+                <td class="table-success" th:text="${manager.NIE}"></td>
+                <td class="table-success" th:text="${manager.getName()}"></td>
+                <td class="table-success" th:text="${manager.name_M}"></td>
+                <td class="table-success" th:text="${manager.initialDate}"></td>
+                <td class="table-success" th:text="${manager.finalDate}"></td>
+
+                <td class="table-secondary">
+                    <a class="btn btn-outline-success"
+                       th:href="@{/municipalManager/delete/{nieMM}(nieMM=${manager.NIE})}" >Borrar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="info-tablas btn-group-sana">
+        <a class="btn btn-outline-success btn-volver" href="/admin">Volver</a>
+        <a class="btn btn-outline-success btn-volver" href="/municipalManager/add">Añadir nuevo</a>
+    </div>
+
+</div>
+
+</body>
+</html>
