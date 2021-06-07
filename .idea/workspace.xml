@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ab5ea26d-0b22-4b80-86e0-2151fc2c0154" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/area/informacion.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/area/informacion.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/fragments/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/fragments/footer.html" afterDir="false" />
-    </list>
+    <list default="true" id="ab5ea26d-0b22-4b80-86e0-2151fc2c0154" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/sana/target/" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,25 +16,25 @@
         <entry file="file://$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="553">
-              <caret line="365" lean-forward="true" selection-start-line="365" selection-end-line="365" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="19" column="59" lean-forward="true" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="59" />
+              <caret line="365" selection-start-line="365" selection-end-line="365" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/Service/GeneralSVC.java">
+        <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
-              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+            <state relative-caret-position="281">
+              <caret line="19" column="59" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ServiceController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1984">
+              <caret line="153" column="69" selection-start-line="153" selection-start-column="69" selection-end-line="153" selection-end-column="83" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -227,6 +222,17 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="sana" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="ServiceController.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+            <path>
+              <item name="SANA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProyectoSana" type="462c0819:PsiDirectoryNode" />
+              <item name="sana" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sana" type="462c0819:PsiDirectoryNode" />
               <item name="Service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -271,7 +277,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1623056299600" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1623056598880" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -322,12 +328,12 @@
       <option name="presentableId" value="Default" />
       <updated>1622798970421</updated>
       <workItem from="1622967395364" duration="31417000" />
-      <workItem from="1623054934061" duration="1313000" />
+      <workItem from="1623054934061" duration="1643000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49572000" />
+    <option name="totallyTimeSpent" value="49902000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -645,16 +651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ServiceController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="76" column="4" selection-start-line="76" selection-start-column="4" selection-end-line="81" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/RegisterController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -741,7 +737,7 @@
     <entry file="file://$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="553">
-          <caret line="365" lean-forward="true" selection-start-line="365" selection-end-line="365" />
+          <caret line="365" selection-start-line="365" selection-end-line="365" />
         </state>
       </provider>
     </entry>
@@ -768,7 +764,17 @@
     <entry file="file://$PROJECT_DIR$/sana/src/main/resources/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
-          <caret line="19" column="59" lean-forward="true" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="59" />
+          <caret line="19" column="59" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ServiceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1984">
+          <caret line="153" column="69" selection-start-line="153" selection-start-column="69" selection-end-line="153" selection-end-column="83" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
