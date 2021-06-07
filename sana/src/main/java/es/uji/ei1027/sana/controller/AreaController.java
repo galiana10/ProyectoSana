@@ -69,7 +69,7 @@ public class AreaController {
     public String listAreasPublico(Model model, @PathVariable String name_M, HttpSession session) {
         model.addAttribute("areasPublico", areaDao.getAreasMunipality(name_M));
         model.addAttribute("municipalityPublico",name_M);
-        
+
         UserInfo usuario=(UserInfo) session.getAttribute("user");
         if (usuario == null ) {
             return "redirect:/";

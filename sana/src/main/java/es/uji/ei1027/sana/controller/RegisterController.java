@@ -1,6 +1,7 @@
 package es.uji.ei1027.sana.controller;
 
 
+import es.uji.ei1027.sana.Service.GeneratorService;
 import es.uji.ei1027.sana.Service.SendEmailService;
 import es.uji.ei1027.sana.dao.CitizenDao;
 import es.uji.ei1027.sana.dao.UserInfoDao;
@@ -68,6 +69,11 @@ class RegisterValidator implements Validator {
 @Controller
 public class RegisterController {
 
+    private GeneratorService generatorService;
+
+    @Autowired
+    public void setGeneratorService(GeneratorService generatorService){this.generatorService=generatorService;}
+
     private SendEmailService sendEmailService;
 
 
@@ -108,9 +114,9 @@ public class RegisterController {
         citizen.setNIE(dni);
         citizen.setName(name);
 
-        //TODO CAMBIAR POR EL SERVICIO QUE GENERA CONTRASEÑA Y USERNAME
-        citizen.setPassword("holi");
-        citizen.setUsername("holi");
+        String username="ci"+dni;
+        citizen.setPassword(generatorService.generateRandomString());
+        citizen.setUsername(username);
 
         rv.validate(citizen,bindingResult);
 
