@@ -93,11 +93,8 @@ public class ServiceController {
     public void setServiceAreaDao(ServiceAreaDao serviceAreaDao){ this.serviceAreaDao=serviceAreaDao;}
 
 
-    @RequestMapping("/list")
-    public String listServices(Model model) {
-        model.addAttribute("services", serviceDAO.getServices());
-        return "service/list";
-    }
+
+    //Lista servicios
 
     @RequestMapping("/list/{name_M}/{name_A}")
     public String listServicesArea(Model model,@PathVariable String name_M,@PathVariable String name_A) {
@@ -110,6 +107,8 @@ public class ServiceController {
         return "service/area_list";
     }
 
+
+    //Borrar servicios
 
     @RequestMapping(value="/delete/{nameS}/{nameA}/{InicialDate}/{municipio}")
     public String processDelete(@PathVariable String nameS,@PathVariable String nameA,@PathVariable String InicialDate,@PathVariable String municipio) {
@@ -166,6 +165,7 @@ public class ServiceController {
         serviceArea.setName_A(nameA);
         serviceArea.setServicetype(tipoServicio);
 
+
         list.add(serviceArea);
         list.add(servicesSvc.listaNombresServicios(nameA));
 
@@ -184,13 +184,6 @@ public class ServiceController {
         return "redirect:../../list/"+municipio+"/"+nameA;
 
     }
-
-
-
-
-
-
-
 
 
 }

@@ -41,6 +41,7 @@
                     <td class="table-secondary"> <a class="btn btn-outline-success" th:if="${area.getAccessType() == 'restricted'}" th:href="@{/reservation/list/{municipality}/{area}(municipality=${municipalityMM},area=${area.name})}">Reservas</a></td>
                     <td class="table-secondary"> <a class="btn btn-outline-success" th:href="@{/ocupacion/{area}(area=${area.name} )}">Ocupación</a></td>
                     <td class="table-secondary"> <a class="btn btn-outline-success" th:href="@{/area/informacion/{name}(name=${area.name})}">Zonas</a></td>
+
                 </tr>
 
                 </tbody>

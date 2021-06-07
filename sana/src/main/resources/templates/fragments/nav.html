@@ -6,7 +6,16 @@
         </p>
         <p th:unless="*{user == null}">
             Hola, <span th:text="*{user.username}"></span>
+
+            <a th:if="*{tipo == 0}" class="a1" href="/publico" th:href="@{/publico}">| Menu</a>
+            <a th:if="*{tipo == 2}" class="a1" th:href="@{/area/listMM/{municipality}(municipality=*{municipio})}">| Gestion</a>
+            <a th:if="*{tipo == 3}" class="a1" href="/publico" th:href="@{/}">| Gestion</a>
+
             <a class="a1" href="/logout" th:href="@{/logout}"> | Salir</a>
+
+
+
+
 
         </p>
     </div>

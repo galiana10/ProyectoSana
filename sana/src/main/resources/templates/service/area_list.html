@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
 
     <meta charset="UTF-8">
-    <title>Servicios_Area</title>
+    <title>Servicios Area</title>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
 
 
     <div th:if="${#lists.isEmpty(servicios)}"class="info-tablas">
-        Este area no tiene servicios
+        <h3>Este area no tiene servicios</h3>
     </div>
 
 
@@ -34,8 +34,8 @@
         <table th:unless="${#lists.isEmpty(servicios)}" class="table table-sm">
             <thead>
             <tr class="table-secondary">
-                <th>Name</th>
-                <th>Type</th>
+                <th>Nombre</th>
+                <th>Tipo</th>
                 <th>Fecha Inicio</th>
                 <th>Fecha Fin</th>
 
@@ -46,7 +46,7 @@
             <tr th:each="estacional: ${estacionales}">
 
                 <td class="table-success" th:text="${estacional.name_S}"></td>
-                <td class="table-success" > Estacional</td>
+                <td class="table-success" >Estacional</td>
                 <td class="table-success" th:text="${estacional.initialdate}"></td>
                 <td class="table-success" th:text="${estacional.finaldate}"></td>
 

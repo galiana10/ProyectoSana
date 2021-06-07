@@ -107,12 +107,18 @@ public class ReservationController {
     public String addReservationInArea(Model model, HttpSession session, @PathVariable String area) {
 
         session.setAttribute("nextUrl", null);
+        UserInfo usuario=(UserInfo) session.getAttribute("user");
 
-        if (session.getAttribute("user") == null) {
+
+        if (usuario== null) {
             String next = "reservation/add/".concat(area);
             session.setAttribute("nextUrl", next);
             model.addAttribute("user", new UserInfo());
             return "login";
+        }
+
+        if(usuario.getType()!=0){
+            return "redirect:/";
         }
 
         model.addAttribute("areaName", area);

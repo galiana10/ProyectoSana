@@ -70,6 +70,8 @@ public class LoginController {
         // Autenticats correctament.
         // Guardem les dades de l'usuari autenticat a la sessió
         session.setAttribute("user", user);
+        session.setAttribute("tipo", user.getType());
+
 
         //TODO tener en cuenta a que direccion se dirije y si es el tipo de usuario adecuiado
         String nextUrl = (String) session.getAttribute("nextUrl");
@@ -81,6 +83,7 @@ public class LoginController {
             nextUrl = (nextUrl != null) ? nextUrl : "/";
         }else if(user.getType()==2){
             String municipality=MMSvc.municipalityFromMM(user.getNie());
+            session.setAttribute("municipio", municipality);
             nextUrl = (nextUrl != null) ? nextUrl : "area/listMM/"+municipality;
 
         }else{

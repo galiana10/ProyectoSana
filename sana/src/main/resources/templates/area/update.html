@@ -20,55 +20,55 @@
               th:object="${area}" method="post">
             <table class="table table-sm">
                 <tr>
-                    <td><label>Name</label></td>
-                    <td><input type="text" th:field="*{name}"/></td>
+                    <td><strong>Nombre:</strong></td>
+                    <td><input disabled type="text" th:field="*{name}"/></td>
                 </tr>
                 <tr>
-                    <td><label>Description</label></td>
+                    <td><strong>Descripcion:</strong></td>
                     <td><input type="text" th:field="*{description}"/></td>
                 </tr>
                 <tr>
-                    <td><label>NumberOfZone</label></td>
+                    <td><strong>Número de Zonas:</strong></td>
                     <td><input type="text" th:field="*{numberOfZone}"/></td>
                 </tr>
                 <tr>
-                    <td><label>AccessType </label></td>
+                    <td><strong>Tipo de acceso:</strong></td>
                     <td><input type="text" th:field="*{accessType}"/></td>
                 </tr>
                 <tr>
-                    <td><label>GeographicalLocation</label></td>
+                    <td><strong>Localización Geográfica:</strong></td>
                     <td><input type="text" th:field="*{geographicalLocation}"/></td>
                 </tr>
                 <tr>
-                    <td><label>AreaType</label></td>
+                    <td><strong>Tipo de área: </strong></td>
                     <td><input type="text" th:field="*{areaType}"/></td>
                 </tr>
                 <tr>
-                    <td><label>PhysiscalCharacteristic</label></td>
+                    <td><strong>Características físicas:</strong></td>
                     <td><input type="text" th:field="*{physiscalCharacteristic}"/></td>
                 </tr>
                 <tr>
-                    <td><label>Orientation</label></td>
+                    <td><strong>Orientación:</strong></td>
                     <td><input type="text" th:field="*{orientation}"/></td>
                 </tr>
                 <tr>
-                    <td><label>Facility</label></td>
+                    <td><strong>Facilidad:</strong></td>
                     <td><input type="text" th:field="*{facility}"/></td>
                 </tr>
                 <tr>
-                    <td><label>Comment</label></td>
+                    <td><strong>Comentarios:</strong></td>
                     <td><input type="text" th:field="*{comment}"/></td>
                 </tr>
                 <tr>
-                    <td><label>Image</label></td>
+                    <td><strong>Imagen:</strong></td>
                     <td><input type="text" th:field="*{image}"/></td>
                 </tr>
                 <tr>
-                    <td><label>Name_M</label></td>
-                    <td><input type="text" th:field="*{name_M}"/></td>
+                    <td><strong>Municipio:</strong></td>
+                    <td><input disabled type="text" th:field="*{name_M}"/></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input  class="btn btn-outline-success on-submit" type="submit" value="Actualizar área"/></td>
+                    <td colspan="2"><input  class="btn btn-outline-success on-submit" type="submit" value="Actualizar Área"/></td>
                 </tr>
             </table>
         </form>

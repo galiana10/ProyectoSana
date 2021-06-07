@@ -11,6 +11,12 @@
 <div th:replace="fragments/nav">...</div>
 <div class="add-reservation">
   <h2 class="m-5">Nueva reserva</h2>
+
+  <div class="puntitos">
+    <span class="siguiente"> </span>
+    <span class="actual"> </span>
+  </div>
+
   <form action="#" th:action="@{/reservation/add/{area}(area=${areaName})}"
         th:object="${reservation}" method="post">
 
@@ -31,7 +37,7 @@
     <table>
 
       <tr>
-        <td><label>Zona/s</label></td>
+        <td><strong>Zona/s:</strong></td>
         <td class="check-list-zones" path="zones">
           <div class="zone-box" th:each="zone : ${zones}">
             <input type="checkbox" th:value="${zone}"
@@ -53,7 +59,7 @@
   </form>
 
   <div>
-    <a class="btn btn-outline-success" th:href="@{/area/add/{name}(name=${areaName})}">Volver</a>
+    <a class="btn btn-outline-success" th:href="@{/reservation/add/{name}(name=${areaName})}">Volver</a>
   </div>
 
 </div>

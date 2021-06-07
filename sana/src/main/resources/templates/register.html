@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
 
     <meta charset="UTF-8">
-    <title>Register</title>
+    <title>Registro</title>
 </head>
 
 <body>
@@ -19,47 +19,68 @@
         <div class="login-container">
 
             <div class="info-tablas">
-                <h1>"Crear Cuenta"</h1>
+                <h1>Crear Cuenta</h1>
             </div>
 
 
             <form class="login-form" action="#" th:action="@{/register}"
-                   method="post">
+                  th:object="${citizen}" method="post">
 
                 <p>
-                    <label>Nombre:</label>
-                    <input class="form_control" type="text" th:field="*{name}"/>
+                    <strong>Nombre:</strong>
+                    <input name="name" class="form_control" type="text"/>
+                    <p th:if="${#fields.hasErrors('name')}" class="error" th:errors="*{name}"></p>
                 </p>
 
                 <p>
-                    <label>DNI:</label>
-                    <input class="form_control" type="text" th:field="*{NIE}"/>
+                    <strong>DNI:</strong>
+                    <input name="dni" class="form_control" type="text"/>
+                    <p th:if="${#fields.hasErrors('NIE')}" class="error" th:errors="*{NIE}"></p>
                 </p>
 
                 <p>
-                    <label>E-mail:</label>
-                    <input class="form_control" type="text" th:field="*{citizen.email}"/>
+                    <strong>E-mail:</strong>
+                    <input class="form_control" type="text" th:field="*{email}"/>
+                    <p th:if="${#fields.hasErrors('email')}" class="error" th:errors="*{email}"></p>
                 </p>
 
                 <p>
-                    <label>Direccion:</label>
+                    <strong>Direccion:</strong>
                     <input class="form_control" type="text" th:field="*{address}"/>
+                    <p th:if="${#fields.hasErrors('address')}" class="error" th:errors="*{address}"></p>
                 </p>
 
                 <p>
-                    <label>Ciudad:</label>
+                    <strong>Ciudad:</strong>
                     <input class="form_control" type="text" th:field="*{town}"/>
+                    <p th:if="${#fields.hasErrors('town')}" class="error" th:errors="*{town}"></p>
                 </p>
 
                 <p>
-                    <label>País:</label>
+                    <strong>País:</strong>
                     <input class="form_control" type="text" th:field="*{country}"/>
+                    <p th:if="${#fields.hasErrors('country')}" class="error" th:errors="*{country}"></p>
                 </p>
 
-                <input class="btn btn-outline-success" type="submit" value="Crear"/>
+                <input class="btn btn-outline-success" type="submit" value="Registrarse"/>
+
+
             </form>
+
+            <div class="info-tablas">
+                <p class="gris">*Tu usuario y contraseña serán enviados al correo proporcionado*</p>
+                <a class="btn btn-outline-success" th:href="@{/login}">Volver</a>
+            </div>
+
+
+
         </div>
+
+
+
     </div>
+
+
 
 
 </body>

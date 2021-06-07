@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
 
     <meta charset="UTF-8">
-    <title>Select Type</title>
+    <title>Añadir Servicio</title>
 </head>
 
 <body>
@@ -29,7 +29,7 @@
 
                 <div class="check-list-servicio">
 
-                    <label>Servicio:</label>
+                    <strong>Servicio:</strong>
 
                     <select class="form_control" type="text" th:field="*{name_S}">
                         <option th:each="service : ${servicios}"
@@ -44,7 +44,7 @@
 
                 <div class="check-list-servicio">
 
-                    <label>Tipo:</label>
+                    <strong>Tipo:</strong>
 
                     <div class="check-list-servicio">
 
@@ -76,7 +76,7 @@
 
                 <div class="check-list-servicio" >
 
-                    <label>Fecha Inicial:</label>
+                    <strong>Fecha inicial:</strong>
                     <input type="date" th:field="*{initialdate}"/>
                     <div th:if="${#fields.hasErrors('initialdate')}" class="error" th:errors="*{initialdate}"></div>
 
@@ -85,7 +85,7 @@
 
                 <div class="check-list-servicio">
 
-                    <label>Fecha Final:</label>
+                    <strong>Fecha final:</strong>
                     <input type="date" th:field="*{finaldate}"/>
                     <div th:if="${#fields.hasErrors('finaldate')}" class="error" th:errors="*{finaldate}"></div>
 
@@ -97,17 +97,11 @@
             </div>
 
 
-
-
         </form>
 
         <div>
             <a class="btn btn-outline-success" th:href="@{/service/list/{municipality}/{name}(municipality=${Municipio},name=${Area})}">Volver</a>
         </div>
-
-
-
-
 
     </div>
 

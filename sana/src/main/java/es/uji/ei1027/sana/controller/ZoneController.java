@@ -1,5 +1,6 @@
 package es.uji.ei1027.sana.controller;
 
+import es.uji.ei1027.sana.Service.ZoneSvc;
 import es.uji.ei1027.sana.dao.ZoneDao;
 import es.uji.ei1027.sana.model.Zone;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,39 +15,49 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/zone")
 public class ZoneController {
+
+    ZoneSvc zoneSvc;
+
+    @Autowired
+    public void setZoneSvc(ZoneSvc zoneSvc){
+        this.zoneSvc=zoneSvc;
+    }
+
+
     private ZoneDao zoneDAO;
 
     @Autowired
     public void setZoneDAO(ZoneDao zoneDAO){this.zoneDAO=zoneDAO;}
 
+    //Añadir zonas
 
-    @RequestMapping("/list")
-    public String listZones(Model model) {
-        model.addAttribute("zones", zoneDAO.getZones());
-        return "zones/list";
+    @RequestMapping(value="/add/{Municipio}/{name_Area}")
+    public String addZone(Model model, @PathVariable String Municipio,@PathVariable String name_Area) {
+
+        model.addAttribute("zona",new Zone());
+        model.addAttribute("Municipio",Municipio);
+        model.addAttribute("Area",name_Area);
+
+        return "zona/add";
     }
 
 
+    @RequestMapping(value="/add/{Municipio}/{name_Area}", method = RequestMethod.POST)
+    public String checkAddZone(@ModelAttribute("zona") Zone zone, BindingResult bindingResultModel,
+                               Model model, @PathVariable String Municipio,@PathVariable String name_Area) {
 
-    @RequestMapping(value="/add")
-    public String addZone(Model model) {
-        model.addAttribute("zone", new Zone());
-        return "zone/add";
-    }
 
-    @RequestMapping(value="/add", method= RequestMethod.POST)
-    public String processAddSubmit(@ModelAttribute("+") Zone zone,
-                                   BindingResult bindingResult) {
-        if (bindingResult.hasErrors())
-            return "zone/add";
+        model.addAttribute("zona",new Zone());
+        model.addAttribute("Municipio",Municipio);
+        model.addAttribute("Area",name_Area);
+
+        zone.setName_Area(name_Area);
+        zone.setNumberLetter(zoneSvc.nombreZona(name_Area));
+
         zoneDAO.addZone(zone);
-        return "redirect:list";
-    }
 
-    @RequestMapping(value="/update/{numberLetter}/{name_Area}", method = RequestMethod.GET)
-    public String editZone(Model model, @PathVariable String numberLetter,@PathVariable String name_Area) {
-        model.addAttribute("zone", zoneDAO.getZone(numberLetter,name_Area));
-        return "zone/update";
+
+        return "redirect:../../../area/listMM/"+Municipio;
     }
 
 

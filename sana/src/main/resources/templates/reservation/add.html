@@ -17,6 +17,7 @@
         <span class="siguiente"> </span>
     </div>
 
+
     <form action="#" th:action="@{/reservation/add/zones/{area}(area=${areaName})}" th:object="${reservation}"
           method="get">
 
@@ -41,6 +42,7 @@
             <div class="input-data">
                 <p>Hora</p>
                 <div class="check-list-zones" path="timeslot">
+
                     <div class="zone-box" th:each="timeslot : ${timeslots}">
                         <input type="radio" th:value="${timeslot.id_timeslot}"
                                name="timeslotSelected"
@@ -48,9 +50,11 @@
                         <label class="btn btn-outline-success" th:for="${timeslot.id_timeslot}"
                                th:text="${timeslot.initialhour}+' - '+${timeslot.finalhour}"></label><br>
                     </div>
+
                 </div>
             </div>
         </div>
+
 
         <div class="reservation-input">
             <input class="btn btn-outline-success btn-add-reservation" type="submit" value="Seleccionar Zonas"/>
