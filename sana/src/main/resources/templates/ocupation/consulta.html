@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
+    <title>Consulta de Ocupación Temporal</title>
+</head>
+<body>
+
+<div th:replace="fragments/nav">...</div>
+<div class="consulta-wrapper">
+    <h1>Ocupación en <span th:text="${area}"></span></h1>
+
+    <from action="#" th:action="@{/ocupacion/{area}( area=${area} )}" method="post">
+        <input type="date" name="date">
+        <input type="time" name="hour">
+        <input type="submit">
+    </from>
+
+    <div class="info-tablas">
+        <a class="btn btn-outline-success btn-volver" th:href="@{/area/listMM/{name_M}( name_M=${municipality} )}">Volver</a>
+    </div>
+</div>
+
+
+</body>
+</html>

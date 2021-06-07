@@ -49,15 +49,11 @@ public class AreaController {
         model.addAttribute("areasPublico", areaDao.getAreasMunipality(name_M));
         model.addAttribute("municipalityPublico",name_M);
 
-
-
         if (session.getAttribute("user") == null) {
             return "redirect:/";
         }
 
-
         return "area/list_publico";
-
     }
 
     @RequestMapping(value = "/informacion/{name_A}",method = RequestMethod.GET)
