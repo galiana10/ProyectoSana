@@ -82,6 +82,11 @@ public class ReservationSvc {
         return capacityTotal;
     }
 
+    public int getCapacityOfArea(String nameArea){
+        List<String> zones = zonesFromArea(nameArea);
+        return getCapacityOfZones(zones, nameArea);
+    }
+
     public boolean capacityValidForZones(List<String> zones, String nameArea, int numOfPersons) {
         int capacityTotal = getCapacityOfZones(zones, nameArea);
         System.out.println("capacidad de esto = " + capacityTotal);
