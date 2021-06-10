@@ -16,23 +16,24 @@ public class MunicipalManagerValidator implements Validator {
     public void validate(Object target, Errors errors) {
 
         MunicipalManager mm = (MunicipalManager) target;
-        if(mm.getName()==null || mm.getName().equals(""))
-        errors.rejectValue("name", "nameEmpty",
-                "El nombre es obligatorio");
+        if(mm.getName()==null || mm.getName().equals("")){
+            errors.rejectValue("name", "nameEmpty",
+                    "El nombre es obligatorio");
+        }
 
         if(mm.getNIE()==null || mm.getNIE().equals(""))
-            errors.rejectValue("NIE", "nameEmpty",
+            errors.rejectValue("nie", "nieEmpty",
                     "El DNI es obligatorio");
 
 
         if(mm.getInitialDate()==null){
-            errors.rejectValue("initialDate", "nameEmpty",
+            errors.rejectValue("initialDate", "inidateEmpty",
                     "El la fecha de inicio es obligatoria");
         }
         if(mm.getInitialDate() != null && mm.getFinalDate()!=null){
 
             if(mm.getFinalDate().before(mm.getInitialDate())){
-                errors.rejectValue("finalDate", "nameEmpty",
+                errors.rejectValue("finalDate", "findateEmpty",
                         "El la fecha final ha de ser posterior a la de inicio");
             }
 
