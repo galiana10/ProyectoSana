@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
+
+    <meta charset="UTF-8">
+    <title>Servicios Area</title>
+</head>
+
+<body>
+
+
+<div th:replace="fragments/nav">...</div>
+
+<div class="contenedor-tablas">
+
+    <div class="info-tablas">
+        <h1>Servicios </h1>
+    </div>
+
+
+    <div class="info-tablas center-tablas">
+
+        <table class="table table-sm">
+            <thead>
+            <tr class="table-secondary">
+                <th>Nombre</th>
+                <th>Descripción</th>
+
+
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="servicio: ${servicios}">
+
+                <td class="table-success" th:text="${servicio.name}"></td>
+                <td class="table-success" th:text="${servicio.description}"></td>
+
+
+                <td class="table-secondary">
+                    <a class="btn btn-outline-success"
+                       th:href="@{/service/delete/{name}(name=${servicio.name})}">Borrar</a>
+                </td>
+
+            </tr>
+
+
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <div class="horizontal-links">
+        <div>
+            <a class="btn btn-outline-success " th:href="@{/admin}">Volver</a>
+        </div>
+        <div>
+            <a class="btn btn-outline-success " th:href="@{/service/add}">Añadir</a>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+</body>
+</html>
