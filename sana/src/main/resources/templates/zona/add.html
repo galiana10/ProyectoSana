@@ -17,25 +17,24 @@
 
     <div class="contenedor-selectType">
 
-
-        <div >
+        <div>
             <h2>Añadir zonas a <span th:text="*{Area}"></span>( <span th:text="*{Municipio}"></span> )</h2>
         </div>
 
         <form action="#" th:action="@{/zone/add/{municipio}/{area}(municipio=${Municipio},area=${Area})}"
               th:object="${zona}" method="post">
 
-            <div class="contenedor-selectType items">
+            <div class="zone-input">
+                <p th:if="${#fields.hasErrors('maxCapacity')}" class="error" th:errors="*{maxCapacity}"></p>
 
                 <div class="check-list-servicio">
-
-                    <label>Capacidad:</label>
+                    <strong>Capacidad:</strong>
                     <input type="number" th:field="*{maxCapacity}"/>
-
                 </div>
+            </div>
 
+            <div class="zone-input">
                 <input class="btn btn-outline-success" type="submit"  value="Añadir"/>
-
             </div>
 
         </form>

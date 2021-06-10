@@ -76,7 +76,6 @@ public class AreaController {
         }
 
         if(usuario.getType()!=0){
-
             return "redirect:/";
         }
 
@@ -90,7 +89,7 @@ public class AreaController {
         UserInfo user=(UserInfo) session.getAttribute("user");
 
 
-        if (user == null || user.getType()!=2) {
+        if (user == null || user.getType()!=0) {
             return "redirect:/";
         }
         return "area/informacion";
@@ -184,6 +183,8 @@ public class AreaController {
             BindingResult bindingResult) {
         if (bindingResult.hasErrors())
             return "area/update";
+        System.out.println(area);
+        area.setName_M(municipality);
         areaDao.updateArea(area);
 
         return "redirect:../../area/listMM/"+municipality;

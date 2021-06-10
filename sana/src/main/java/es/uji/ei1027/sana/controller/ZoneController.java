@@ -60,6 +60,17 @@ public class ZoneController {
     public String checkAddZone(@ModelAttribute("zona") Zone zone, BindingResult bindingResultModel,
                                Model model, @PathVariable String Municipio,@PathVariable String name_Area) {
 
+        if(zone.getMaxCapacity()  == null || zone.getMaxCapacity() < 1){
+            bindingResultModel.rejectValue("maxCapacity", "Capacidadminina", "La capacidad tiene que ser mayor a 1");
+        }
+
+        if(bindingResultModel.hasErrors()){
+
+            model.addAttribute("Municipio",Municipio);
+            model.addAttribute("Area",name_Area);
+            return "zona/add";
+
+        }
 
         model.addAttribute("zona",new Zone());
         model.addAttribute("Municipio",Municipio);

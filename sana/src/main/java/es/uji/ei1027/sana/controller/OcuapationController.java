@@ -33,31 +33,49 @@ public class OcuapationController {
     }
 
     @Autowired
-    public void setReservationSvc(ReservationSvc reservationSvc) { this.reservationSvc = reservationSvc;}
-
+    public void setReservationSvc(ReservationSvc reservationSvc) {
+        this.reservationSvc = reservationSvc;
+    }
 
 
     @RequestMapping("/{municipio}/{area}")
-    public String ocupacionPerArea(Model model, @PathVariable String municipio, @PathVariable String area) {
+    public String ocupacionPerArea(HttpSession session,Model model, @PathVariable String municipio, @PathVariable String area) {
         model.addAttribute("area", area);
         model.addAttribute("municipio", municipio);
+
+        UserInfo user=(UserInfo) session.getAttribute("user");
+
+        if (user == null || user.getType()<2) {
+            return "redirect:/";
+        }
         return "ocupation/consulta";
     }
 
     @RequestMapping(value = "/{municipio}/{area}", method = RequestMethod.POST)
-    public String ocupacionPerAreaSubmit(Model model, @PathVariable String municipio, @PathVariable String area,
-                                         @RequestParam(name = "date") String date,
-                                         @RequestParam(name = "hour") String hour) {
+    public String ocupacionPerAreaSubmit(HttpSession session,Model model,  @PathVariable String municipio, @PathVariable String area,
+                                         @RequestParam(name = "date", required = false) String date,
+                                         @RequestParam(name = "hour", required = false) String hour) {
+        UserInfo user=(UserInfo) session.getAttribute("user");
 
+        if (user == null || user.getType()<2) {
+            return "redirect:/";
+        }
+
+
+        if (date.equals("") || hour.equals("")) {
+
+            System.out.println("entramos");
+            return "redirect:/ocupacion/"+municipio+"/"+area;
+        }
+        System.out.println("no entramos");
         LocalDate localDate = LocalDate.parse(date);
         LocalTime localTime = LocalTime.parse(hour);
-
-        System.out.println("LocalDate" + localDate + "LocalTime" + localTime);
 
         model.addAttribute("area", area);
         model.addAttribute("municipio", municipio);
         model.addAttribute("reservationSvc", reservationSvc);
         model.addAttribute("reservas", reservationDao.getReservationsOnDate(area, localDate, localTime));
+
         return "ocupation/consulta";
     }
 }

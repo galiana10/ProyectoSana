@@ -500,7 +500,9 @@ width:auto!important;
     display: flex;
     flex-flow: column;
     align-items: center;
-    margin: 6%;
+    margin: 3%;
+    border: solid 2px #3b7058;
+    padding: 30px;
 }
 
 .consulta-inputs{
@@ -513,3 +515,30 @@ width:auto!important;
     align-items: center;
 }
 
+/* Zona */
+.contenedor-selectType {
+    margin-top: 40px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.contenedor-selectType form{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: 3%;
+    border: solid 3px #3b7058;
+    padding: 25px;
+}
+
+.contenedor-selectType h2{
+    color: #3B7058;
+}
+
+.zone-input{
+    margin-bottom: 12px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
