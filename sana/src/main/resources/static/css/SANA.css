@@ -19,6 +19,7 @@
 
 .error {
     color: red;
+    margin: 10px 0px;
 }
 
 .boton{
@@ -94,7 +95,7 @@
 
 .info-index .titulo-info-index{
     text-align:center;
-    margin: 25px 0px;
+    margin-top: 50px;
 }
 
 .info-index div:last-child hr{
@@ -123,7 +124,15 @@
     flex: 8;
 }
 
-
+/*  register */
+.register-input{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.register-submit{
+    margin-bottom: 30px;
+}
 
 /*  navegacion */
 
@@ -410,44 +419,51 @@
 
 /*  añadir servicio */
 
-.contenedor-selectType{
-
+.add-service{
     display: flex;
     flex-flow: column;
     align-items: center;
-
-
-}
-.contenedor-selectType items{
-    display: flex;
-    flex-flow: column;
-    align-items: center;
+    margin: 4% 0px;
 }
 
-.contenedor-selectType h2{
+.add-service h2{
     color: #3b7058;
 }
 
-.contenedor-selectType form{
-    padding: 30px;
-    border: 3px solid #3b7058;
-    width:30%;
-    margin-bottom: 30px;
-}
-
-
-.check-list-servicio{
+.add-service-form{
+    margin: 3% 0px;
+    height: 380px;
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    border: #3b7058 2px solid;
+    padding: 17px 54px;
 }
 
-.servicio-box{
-    margin-right:7px;
-    margin-top:7px;
-
-width:50%;
+.service-type-wrapper{
+    text-align: center;
 }
 
+.service-type{
+    display:flex;
+    width: 240px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.service-input{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.service-list-links{
+    margin: 27px 15% !important;
+}
+
+
+/*  añadir area */
 .btn-add-area{
     display: flex;
     left: 20%;

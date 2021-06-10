@@ -37,14 +37,15 @@ public class OcuapationController {
 
 
 
-    @RequestMapping("/{area}")
-    public String ocupacionPerArea(Model model, @PathVariable String area) {
+    @RequestMapping("/{municipio}/{area}")
+    public String ocupacionPerArea(Model model, @PathVariable String municipio, @PathVariable String area) {
         model.addAttribute("area", area);
+        model.addAttribute("municipio", municipio);
         return "ocupation/consulta";
     }
 
-    @RequestMapping(value = "/{area}", method = RequestMethod.POST)
-    public String ocupacionPerAreaSubmit(Model model, @PathVariable String area,
+    @RequestMapping(value = "/{municipio}/{area}", method = RequestMethod.POST)
+    public String ocupacionPerAreaSubmit(Model model, @PathVariable String municipio, @PathVariable String area,
                                          @RequestParam(name = "date") String date,
                                          @RequestParam(name = "hour") String hour) {
 
@@ -54,6 +55,7 @@ public class OcuapationController {
         System.out.println("LocalDate" + localDate + "LocalTime" + localTime);
 
         model.addAttribute("area", area);
+        model.addAttribute("municipio", municipio);
         model.addAttribute("reservationSvc", reservationSvc);
         model.addAttribute("reservas", reservationDao.getReservationsOnDate(area, localDate, localTime));
         return "ocupation/consulta";
