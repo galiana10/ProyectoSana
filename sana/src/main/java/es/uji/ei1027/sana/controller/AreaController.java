@@ -84,8 +84,15 @@ public class AreaController {
     }
 
     @RequestMapping(value = "/informacion/{name_A}",method = RequestMethod.GET)
-    public String informacionAreas(Model model,@PathVariable String name_A) {
+    public String informacionAreas(HttpSession session,Model model,@PathVariable String name_A) {
         model.addAttribute("areasInfo", areaDao.getArea(name_A));
+
+        UserInfo user=(UserInfo) session.getAttribute("user");
+
+
+        if (user == null || user.getType()!=2) {
+            return "redirect:/";
+        }
         return "area/informacion";
     }
 
@@ -96,10 +103,17 @@ public class AreaController {
         model.addAttribute("municipalityMM",name_M);
 
         UserInfo user=(UserInfo) session.getAttribute("user");
+        String Municipio=(String) session.getAttribute("municipio");
 
         if (user == null || user.getType()!=2) {
             return "redirect:/";
+        }else{
+            if(!Municipio.equals(name_M)){
+                return "redirect:/";
+            }
         }
+
+
 
         return "area/list_mm";
 
@@ -145,9 +159,21 @@ public class AreaController {
     }
 
     @RequestMapping(value="/update/{municipality}/{nameArea}", method = RequestMethod.GET)
-    public String editArea(Model model, @PathVariable String municipality, @PathVariable String nameArea ) {
+    public String editArea(HttpSession session,Model model, @PathVariable String municipality, @PathVariable String nameArea ) {
         model.addAttribute("municipality", municipality);
         model.addAttribute("area", areaDao.getArea(nameArea));
+
+        UserInfo user=(UserInfo) session.getAttribute("user");
+        String Municipio=(String) session.getAttribute("municipio");
+
+        if (user == null || user.getType()!=2) {
+            return "redirect:/";
+        }else{
+            if(!Municipio.equals(municipality)){
+                return "redirect:/";
+            }
+        }
+
         return "area/update";
     }
 

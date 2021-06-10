@@ -6,6 +6,7 @@ import es.uji.ei1027.sana.dao.ServiceAreaDao;
 import es.uji.ei1027.sana.dao.ServiceDao;
 import es.uji.ei1027.sana.model.Service;
 import es.uji.ei1027.sana.model.ServiceArea;
+import es.uji.ei1027.sana.model.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -97,13 +99,24 @@ public class ServiceController {
     //Lista servicios
 
     @RequestMapping("/list/{name_M}/{name_A}")
-    public String listServicesArea(Model model,@PathVariable String name_M,@PathVariable String name_A) {
+    public String listServicesArea(HttpSession session,Model model, @PathVariable String name_M, @PathVariable String name_A) {
 
         model.addAttribute("estacionales", servicesSvc.listaEstacionales(name_A));
         model.addAttribute("fijos", servicesSvc.listaFijos(name_A));
         model.addAttribute("servicios", servicesSvc.listaServicios(name_A));
         model.addAttribute("Area",name_A);
         model.addAttribute("Municipio",name_M);
+
+        UserInfo user=(UserInfo) session.getAttribute("user");
+        String Municipio=(String) session.getAttribute("municipio");
+
+        if (user == null || user.getType()!=2) {
+            return "redirect:/";
+        }else{
+            if(!Municipio.equals(name_M)){
+                return "redirect:/";
+            }
+        }
         return "service/area_list";
     }
 
@@ -135,7 +148,7 @@ public class ServiceController {
     //Añadir
 
     @RequestMapping(value="/add/{municipio}/{nameA}")
-    public String añadir(Model model, @PathVariable String municipio, @PathVariable String nameA) {
+    public String añadir(HttpSession session,Model model, @PathVariable String municipio, @PathVariable String nameA) {
 
 
         model.addAttribute("servicio", new ServiceArea());
@@ -143,6 +156,18 @@ public class ServiceController {
         model.addAttribute("Municipio",municipio);
         model.addAttribute("servicios",servicesSvc.listaServicios());
         model.addAttribute("serviciosArea",servicesSvc.listaServicios(nameA));
+
+
+        UserInfo user=(UserInfo) session.getAttribute("user");
+        String Municipio=(String) session.getAttribute("municipio");
+
+        if (user == null || user.getType()!=2) {
+            return "redirect:/";
+        }else{
+            if(!Municipio.equals(municipio)){
+                return "redirect:/";
+            }
+        }
 
 
         return "service/selectType";

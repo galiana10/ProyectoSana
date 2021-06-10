@@ -2,6 +2,7 @@ package es.uji.ei1027.sana.controller;
 
 import es.uji.ei1027.sana.Service.ZoneSvc;
 import es.uji.ei1027.sana.dao.ZoneDao;
+import es.uji.ei1027.sana.model.UserInfo;
 import es.uji.ei1027.sana.model.Zone;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/zone")
@@ -32,11 +35,22 @@ public class ZoneController {
     //Añadir zonas
 
     @RequestMapping(value="/add/{Municipio}/{name_Area}")
-    public String addZone(Model model, @PathVariable String Municipio,@PathVariable String name_Area) {
+    public String addZone(HttpSession session,Model model, @PathVariable String Municipio, @PathVariable String name_Area) {
 
         model.addAttribute("zona",new Zone());
         model.addAttribute("Municipio",Municipio);
         model.addAttribute("Area",name_Area);
+
+        UserInfo user=(UserInfo) session.getAttribute("user");
+        String municipio=(String) session.getAttribute("municipio");
+
+        if (user == null || user.getType()!=2) {
+            return "redirect:/";
+        }else{
+            if(!municipio.equals(Municipio)){
+                return "redirect:/";
+            }
+        }
 
         return "zona/add";
     }

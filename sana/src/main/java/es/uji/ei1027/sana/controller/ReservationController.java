@@ -74,17 +74,38 @@ public class ReservationController {
         UserInfo user = (UserInfo) session.getAttribute("user");
         model.addAttribute("reservations", reservationDao.getCityzenReservations(user.getNie()));
         model.addAttribute("timeSlotOfReservation", timeSlotOfReservation);
+
+        UserInfo usuario=(UserInfo) session.getAttribute("user");
+
+
+        if (usuario == null || user.getType()!=0) {
+            return "redirect:/";
+        }
         return "reservation/list";
     }
 
     @RequestMapping("/list/{municipality}/{area}")
-    public String listReservationsOfArea(Model model, @PathVariable String municipality, @PathVariable String area) {
+    public String listReservationsOfArea(HttpSession session,Model model, @PathVariable String municipality, @PathVariable String area) {
         model.addAttribute("municipality", municipality);
         model.addAttribute("area", area);
         model.addAttribute("reservations", reservationDao.getReservationsOfArea(area));
         model.addAttribute("timeSlotOfReservation", timeSlotOfReservation);
         model.addAttribute("reservationSvc", reservationService);
+
+        UserInfo user=(UserInfo) session.getAttribute("user");
+        String Municipio=(String) session.getAttribute("municipio");
+
+        if (user == null || user.getType()!=2) {
+            return "redirect:/";
+        }else{
+            if(!Municipio.equals(municipality)){
+                return "redirect:/";
+            }
+        }
+
         return "reservation/list_mm";
+
+
     }
 
     @RequestMapping(value = "/add")

@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class GeneralController {
 
@@ -54,7 +56,14 @@ public class GeneralController {
 
 
     @RequestMapping("/publico")
-    public String publico(Model model) {
+    public String publico(HttpSession session,Model model) {
+
+        UserInfo user=(UserInfo) session.getAttribute("user");
+        String municipio=(String) session.getAttribute("municipio");
+
+        if (user == null || user.getType()!=0) {
+            return "redirect:/";
+        }
 
         return "publico";
     }
@@ -70,7 +79,14 @@ public class GeneralController {
 
 
     @RequestMapping("/admin")
-    public String environmentalManager(Model model) {
+    public String environmentalManager(HttpSession session,Model model) {
+
+        UserInfo user=(UserInfo) session.getAttribute("user");
+
+
+        if (user == null || user.getType()!=3) {
+            return "redirect:/";
+        }
 
 
         return "admin_home";

@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/municipalManager")
 public class MunicipalManagerController {
@@ -37,18 +39,32 @@ public class MunicipalManagerController {
 
 
     @RequestMapping("/list")
-    public String listMunicipalManager(Model model) {
+    public String listMunicipalManager(HttpSession session,Model model) {
         model.addAttribute("managers", mmDao.getMunicipalManager());
         System.out.println(generatorService.generateRandomString());
+
+        UserInfo user=(UserInfo) session.getAttribute("user");
+
+
+        if (user == null || user.getType()!=3) {
+            return "redirect:/";
+        }
         return "municipal_manager/list";
     }
 
     @RequestMapping(value = "/add")
-    public String addMunicipalManager(Model model) {
+    public String addMunicipalManager(HttpSession session,Model model) {
 
 
         model.addAttribute("municipalManager", new MunicipalManager());
         model.addAttribute("municipios", municipalityDao.getMunicipalities());
+
+        UserInfo user=(UserInfo) session.getAttribute("user");
+
+
+        if (user == null || user.getType()!=3) {
+            return "redirect:/";
+        }
 
         return "municipal_manager/add";
     }
