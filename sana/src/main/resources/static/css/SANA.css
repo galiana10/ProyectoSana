@@ -472,3 +472,28 @@ width:50%;
 width:auto!important;
 
 }
+
+/*  consulta ocupación */
+.consulta-wrapper{
+    display:flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.consulta-wrapper form{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: 6%;
+}
+
+.consulta-inputs{
+    margin-bottom: 30px;
+}
+
+.consulta-reservation-info{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+

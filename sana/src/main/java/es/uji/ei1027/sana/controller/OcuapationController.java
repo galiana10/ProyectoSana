@@ -1,6 +1,7 @@
 package es.uji.ei1027.sana.controller;
 
 import es.uji.ei1027.sana.Service.MMSvc;
+import es.uji.ei1027.sana.Service.ReservationSvc;
 import es.uji.ei1027.sana.dao.AreaDao;
 import es.uji.ei1027.sana.dao.ReservationDao;
 import es.uji.ei1027.sana.dao.UserInfoDao;
@@ -24,11 +25,17 @@ import java.util.List;
 public class OcuapationController {
 
     private ReservationDao reservationDao;
+    private ReservationSvc reservationSvc;
 
     @Autowired
     public void setReservationDao(ReservationDao reservationDao) {
         this.reservationDao = reservationDao;
     }
+
+    @Autowired
+    public void setReservationSvc(ReservationSvc reservationSvc) { this.reservationSvc = reservationSvc;}
+
+
 
     @RequestMapping("/{area}")
     public String ocupacionPerArea(Model model, @PathVariable String area) {
@@ -44,7 +51,10 @@ public class OcuapationController {
         LocalDate localDate = LocalDate.parse(date);
         LocalTime localTime = LocalTime.parse(hour);
 
+        System.out.println("LocalDate" + localDate + "LocalTime" + localTime);
+
         model.addAttribute("area", area);
+        model.addAttribute("reservationSvc", reservationSvc);
         model.addAttribute("reservas", reservationDao.getReservationsOnDate(area, localDate, localTime));
         return "ocupation/consulta";
     }

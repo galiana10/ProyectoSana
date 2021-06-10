@@ -10,22 +10,43 @@
 
 <div th:replace="fragments/nav">...</div>
 <div class="consulta-wrapper">
-    <h1>Ocupación en <span th:text="${area}"></span></h1>
+
+    <div class="info-tablas">
+        <h1>Ocupación en <span th:text="${area}"></span></h1>
+    </div>
+
 
     <form action="#" th:action="@{/ocupacion/{area}(area=${area})}" th:object="${area}"
           method="post">
-        <input type="date" name="date">
-        <input type="time" name="hour">
+        <div class="consulta-inputs">
+            <input type="date" name="date">
+            <input type="time" name="hour">
+        </div>
+
         <input class="btn btn-outline-success" type="submit" value="Consultar">
     </form>
 
-    <h1 th:if="${reservas != null}">Hay reservas</h1>
-    <div th:each="reserva : ${reservas}">
-        <h3>Numero de gente : <span th:text="*{reserva.peopleNumber}"></span></h3>
-    </div>
+
+
+
+        <div th:if="${reservas != null}">
+            <div th:if="${reservas.isEmpty()}">
+                <h3 >No hay reservas para el prediodo seleccionado</h3>
+            </div>
+
+            <div class="consulta-reservation-info" th:if="${!reservas.isEmpty()}">
+                <h3 >Hay reservas</h3>
+                <div th:each="reserva : ${reservas}">
+                    <h4>Numero de gente : <span th:text="*{reserva.peopleNumber}"></span> / <span th:text="${reservationSvc.getCapacityOfArea(area)}"></span> </h4>
+                </div>
+            </div>
+        </div>
+
+
     <div class="info-tablas">
         <a class="btn btn-outline-success btn-volver" th:href="@{/area/listMM/{name_A}( name_A=${area} )}">Volver</a>
     </div>
+
 </div>
 
 
