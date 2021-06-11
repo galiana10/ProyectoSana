@@ -6,6 +6,7 @@ import es.uji.ei1027.sana.dao.MunicipalManagerDao;
 import es.uji.ei1027.sana.dao.MunicipalityDao;
 import es.uji.ei1027.sana.model.MunicipalManager;
 import es.uji.ei1027.sana.model.UserInfo;
+import org.jasypt.util.password.BasicPasswordEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -78,7 +79,11 @@ public class MunicipalManagerController {
         mm.setName(name);
         mm.setNIE(nie);
         mm.setUsername("mm" + generatorService.generateRandomString());
-        mm.setPassword(generatorService.generateRandomString());
+
+        BasicPasswordEncryptor basicPasswordEncryptor=new BasicPasswordEncryptor();
+        String pw=generatorService.generateRandomString();
+
+        mm.setPassword(basicPasswordEncryptor.encryptPassword(pw));
 
         MunicipalManagerValidator mmv = new MunicipalManagerValidator();
 

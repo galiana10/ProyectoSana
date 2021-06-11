@@ -23,17 +23,19 @@ public class TimeSlotController {
         this.timeSlotDao = timeSlotDao;
     }
 
-    @RequestMapping("/list/{name_a}")
-    public String listTimeSlots(Model model , @PathVariable String name_a) {
+    @RequestMapping("/list/{municipio}/{name_a}")
+    public String listTimeSlots(Model model ,@PathVariable String municipio, @PathVariable String name_a) {
         model.addAttribute("timeslots", timeSlotDao.getTimeSlotsFromArea(name_a));
         model.addAttribute("area",name_a);
+        model.addAttribute("municipio",municipio);
         return "timeslot/list";
     }
 
-    @RequestMapping(value = "/add/{name_a}")
-    public String addTimeslot(Model model, @PathVariable String name_a) {
+    @RequestMapping(value = "/add/{municipio}/{name_a}")
+    public String addTimeslot(Model model, @PathVariable String municipio,@PathVariable String name_a) {
         model.addAttribute("timeslot", new TimeSlot());
         model.addAttribute("area", name_a);
+        model.addAttribute("municipio",municipio);
         return "timeslot/add";
     }
 

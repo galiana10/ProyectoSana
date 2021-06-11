@@ -172,7 +172,7 @@
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  width: 22%;
+  width: 25%;
 }
 
 .login-container .login-logo{
@@ -180,6 +180,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.login-container .login-form{
+    margin-bottom: 15px;
 }
 
 
@@ -194,7 +198,10 @@
 .login-form p{
     display: flex;
     justify-content: space-between;
+    width: 80%;
 }
+
+
 .login-form .submit-form{
     margin-top: 30px;
 }

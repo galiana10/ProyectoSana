@@ -44,8 +44,8 @@
         </table>
     </div>
     <div class="info-tablas btn-group-sana">
-        <a class="btn btn-outline-success btn-volver" href="/publico">Volver</a>
-        <a class="btn btn-outline-success"  th:href="@{/timeslot/add/{area}(area=${area})}">Añadir Timeslot</a>
+        <a class="btn btn-outline-success btn-volver" th:href="@{/area/listMM/{municipio}(municipio=${municipio})}">Volver</a>
+        <a class="btn btn-outline-success"  th:href="@{/timeslot/add/{municipio}/{area}(municipio=${municipio},area=${area})}">Añadir Timeslot</a>
     </div>
 </div>
 </body>

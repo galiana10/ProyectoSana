@@ -86,15 +86,9 @@ public class AreaController {
     }
 
     @RequestMapping(value = "/informacion/{name_A}", method = RequestMethod.GET)
-    public String informacionAreas(HttpSession session, Model model, @PathVariable String name_A) {
+    public String informacionAreas( Model model, @PathVariable String name_A) {
         model.addAttribute("areasInfo", areaDao.getArea(name_A));
 
-        UserInfo user = (UserInfo) session.getAttribute("user");
-
-
-        if (user == null || user.getType() != 0) {
-            return "redirect:/";
-        }
         return "area/informacion";
     }
 

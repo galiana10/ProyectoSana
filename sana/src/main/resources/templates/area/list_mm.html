@@ -39,7 +39,7 @@
                     <td class="table-secondary"> <a class="btn btn-outline-success" th:href="@{/area/update/{municipality}/{nameArea}(municipality=${municipalityMM},nameArea=${area.name})}">Modificar</a></td>
                     <td class="table-secondary"> <a class="btn btn-outline-success" th:href="@{/service/list/{municipality}/{name}(municipality=${municipalityMM},name=${area.name})}">Servicios</a></td>
                     <td class="table-secondary"> <a class="btn btn-outline-success" th:if="${area.getAccessType() == 'restricted'}" th:href="@{/reservation/list/{municipality}/{area}(municipality=${municipalityMM},area=${area.name})}">Reservas</a></td>
-                    <td class="table-secondary"> <a class="btn btn-outline-success" th:href="@{/timeslot/list/{area}(area=${area.name} )}">Horarios</a></td>
+                    <td class="table-secondary"> <a class="btn btn-outline-success" th:href="@{/timeslot/list/{municipio}/{area}(municipio=${municipalityMM},area=${area.name} )}">Horarios</a></td>
                     <td class="table-secondary"> <a class="btn btn-outline-success" th:href="@{/ocupacion/{municipio}/{area}(municipio=${municipalityMM},area=${area.name} )}">Ocupación</a></td>
                     <td class="table-secondary"> <a class="btn btn-outline-success" th:href="@{/zone/add/{Municipio}/{name}(Municipio=${municipalityMM},name=${area.name})}">Zonas</a></td>
                 </tr>

@@ -34,8 +34,10 @@
                 </tr>
                 <tr>
                     <th > <strong>Tipo de acceso: </strong></th>
-                    <td>   <span th:text="${areasInfo.accessType}" ></span></td>
-
+                    <td>
+                        <p th:if="${areasInfo.accessType=='nonRestricted'}">Zona no Restringida</p>
+                        <p th:if="${areasInfo.accessType=='restricted'}" >Zona Restringida</p>
+                    </td>
                 </tr>
                 <tr>
                     <th > <strong>Orientación: </strong></th>

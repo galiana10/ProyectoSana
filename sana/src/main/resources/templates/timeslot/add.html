@@ -14,7 +14,7 @@
 
 <div class="add-reservation info-tablas">
     <h1>Nuevo TimeSlot</h1>
-    <form class="form-regular" action="#" th:action="@{/timeslot/add/{area}(area=${name_a})}"
+    <form class="form-regular" action="#" th:action="@{/timeslot/add/{municipio}/{area}(municipio=${municipio},area=${name_a})}"
           th:object="${timeslot}" method="post">
         <table>
 
@@ -48,7 +48,7 @@
         </table>
     </form>
     <div>
-        <a class="btn btn-outline-success" th:href="@{/timeslot/list/{area}(area=${name_a})}">Volver</a>
+        <a class="btn btn-outline-success" th:href="@{/timeslot/list/{municipio}/{area}(municipio=${municipio},area=${name_a})}">Volver</a>
     </div>
 </div>
 </body>
