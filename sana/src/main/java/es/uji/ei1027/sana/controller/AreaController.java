@@ -104,9 +104,12 @@ public class AreaController {
         UserInfo user=(UserInfo) session.getAttribute("user");
         String Municipio=(String) session.getAttribute("municipio");
 
-        if (user == null || user.getType()!=2) {
+
+        if (user == null || user.getType()<2) {
             return "redirect:/";
         }else{
+            if( user.getType()==3)
+                return "redirect:/area/listEM/"+name_M;
             if(!Municipio.equals(name_M)){
                 return "redirect:/";
             }
@@ -115,6 +118,28 @@ public class AreaController {
 
 
         return "area/list_mm";
+
+
+
+
+    }
+
+    @RequestMapping("/listEM/{name_M}")
+    public String listAreasEM(HttpSession session,Model model,@PathVariable String name_M) {
+        model.addAttribute("areasMM", areaDao.getAreasMunipality(name_M));
+        model.addAttribute("municipio", name_M);
+
+
+        UserInfo user=(UserInfo) session.getAttribute("user");
+
+
+        if (user == null || user.getType()!=3) {
+            return "redirect:/";
+        }
+
+
+
+        return "area/list_em";
 
 
 

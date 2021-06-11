@@ -61,6 +61,8 @@ public class MunicipalityController {
         return "municipality/list_em";
     }
 
+
+
     @RequestMapping("/add")
     public String addMunicipality(HttpSession session,Model model) {
         model.addAttribute("municipality", new Municipality());
