@@ -1,5 +1,7 @@
 package es.uji.ei1027.sana.model;
 
+import org.jasypt.util.password.BasicPasswordEncryptor;
+
 public class UserInfo {
 
     String username;
@@ -21,7 +23,15 @@ public class UserInfo {
     }
 
     public void setPassword(String password) {
+
+
         this.password = password;
+    }
+
+    public void setPasswordEncripted(String password) {
+        BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor();
+
+        this.password = passwordEncryptor.encryptPassword(password);
     }
 
     public String getNie() {
