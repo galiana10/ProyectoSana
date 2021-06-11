@@ -2,38 +2,46 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Añadir nuevo municipio</title>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
 <div th:replace="fragments/nav">...</div>
-<div class = "add-reservation info-tablas">
+<div class="add-reservation info-tablas">
     <h1>Nuevo Servicio</h1>
     <form action="#" th:action="@{/service/add}"
           th:object="${servicio}" method="post">
-        <table>
-            <tr>
-                <td><label>Nombre</label></td>
-                <td><input type="text" th:field="*{name}" /></td>
-                <td th:if="${#fields.hasErrors('name')}" class="error"
-                    th:errors="*{name}"></td>
-            </tr>
-            <tr>
-                <td><label>Descripción</label></td>
-                <td><input type="text" th:field="*{description}" /></td>
-                <td th:if="${#fields.hasErrors('description')}" class="error"
-                    th:errors="*{description}"></td>
-            </tr>
-            <tr>
-                <td colspan="2"><input class="btn btn-outline-success"  type="submit" value="Añadir servicio" /></td>
-            </tr>
-        </table>
+
+        <div class="add-service-wrapper">
+            <p th:if="${#fields.hasErrors('name')}" class="error"
+               th:errors="*{name}"></p>
+            <div class="add-service-input">
+                <label><strong>Nombre:</strong></label>
+                <input type="text" th:field="*{name}"/>
+            </div>
+        </div>
+
+        <div class="add-service-wrapper">
+            <p th:if="${#fields.hasErrors('description')}" class="error"
+               th:errors="*{description}"></p>
+            <div class="add-service-input">
+                <label><strong>Descripción:</strong></label>
+                <input type="text" th:field="*{description}"/>
+            </div>
+        </div>
+
+        <div class="add-service-wrapper">
+            <div class="add-service-submit">
+                <input class="btn btn-outline-success" type="submit" value="Añadir servicio"/>
+            </div>
+        </div>
+
     </form>
     <div>
-    <a class="btn btn-outline-success" href="/service/list">Volver</a>
-</div>
+        <a class="btn btn-outline-success" href="/service/list">Volver</a>
+    </div>
 </div>
 </body>
 </html>

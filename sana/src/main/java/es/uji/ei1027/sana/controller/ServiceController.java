@@ -126,7 +126,14 @@ public class ServiceController {
     }
 
     @RequestMapping("/list")
-    public String listServices(Model model) {
+    public String listServices(HttpSession session, Model model) {
+
+        UserInfo user = (UserInfo) session.getAttribute("user");
+        String Municipio = (String) session.getAttribute("municipio");
+
+        if (user == null || user.getType() != 3) {
+            return "redirect:/";
+        }
 
         model.addAttribute("servicios", serviceDAO.getServices());
         return "service/list";
@@ -185,8 +192,14 @@ public class ServiceController {
     }
 
     @RequestMapping(value = "/add")
-    public String añadirServicio(Model model) {
+    public String añadirServicio(HttpSession session, Model model) {
 
+        UserInfo user = (UserInfo) session.getAttribute("user");
+        String Municipio = (String) session.getAttribute("municipio");
+
+        if (user == null || user.getType() != 3) {
+            return "redirect:/";
+        }
 
         model.addAttribute("servicio", new Service());
 

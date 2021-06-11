@@ -1,42 +1,61 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Añadir nuevo municipio</title>
-  <meta charset="UTF-8" />
-  <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
-  <link rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+    <title>Añadir nuevo municipio</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
 <div th:replace="fragments/nav">...</div>
-<div class = "add-reservation info-tablas">
-<h1>Nuevo municipio</h1>
-<form action="#" th:action="@{/municipality/add}"
-      th:object="${municipality}" method="post">
-  <table>
-    <tr>
-      <td><label>Name</label></td>
-      <td><input type="text" th:field="*{name}" /></td>
-      <td th:if="${#fields.hasErrors('name')}" class="error"
-          th:errors="*{name}"></td>
-    </tr>
-    <tr>
-      <td><label>Tlf</label></td>
-      <td><input type="number" th:field="*{tlf}" /></td>
-      <td th:if="${#fields.hasErrors('tlf')}" class="error"
-          th:errors="*{tlf}"></td>
-    </tr>
-    <tr>
-      <td><label>Address</label></td>
-      <td><input type="text" th:field="*{address}" /></td>
-      <td th:if="${#fields.hasErrors('address')}" class="error"
-          th:errors="*{address}"></td>
-    </tr>
-    <tr>
-      <td colspan="2"><input class="btn btn-outline-success"  type="submit" value="Añadir municipio" /></td>
-    </tr>
-  </table>
-</form>
+<div class="add-reservation info-tablas add-municipio">
+    <div>
+        <h1>Nuevo municipio</h1>
+    </div>
+
+    <form action="#" th:action="@{/municipality/add}"
+          th:object="${municipality}" method="post">
+
+        <div class="add-municipio-wrapper">
+            <p th:if="${#fields.hasErrors('name')}" class="error"
+               th:errors="*{name}"></p>
+            <div class="add-municipio-input">
+                <label><strong>Name:</strong></label>
+                <input type="text" th:field="*{name}"/>
+            </div>
+        </div>
+
+        <div class="add-municipio-wrapper">
+            <p th:if="${#fields.hasErrors('tlf')}" class="error"
+               th:errors="*{tlf}"></p>
+            <div class="add-municipio-input">
+                <label><strong>Tlf:</strong></label>
+                <input type="number" th:field="*{tlf}"/>
+            </div>
+        </div>
+
+        <div class="add-municipio-wrapper">
+            <p th:if="${#fields.hasErrors('address')}" class="error"
+               th:errors="*{address}"></p>
+            <div class="add-municipio-input">
+                <label><strong>Address:</strong></label>
+                <input type="text" th:field="*{address}"/>
+            </div>
+        </div>
+
+        <div class="add-municipio-wrapper">
+            <div class="add-municipio-input municipio-submit">
+                <input class="btn btn-outline-success" type="submit" value="Añadir municipio"/>
+            </div>
+        </div>
+    </form>
+
+    <div class="info-tablas">
+        <a class="btn btn-outline-success btn-volver"
+           th:href="@{/area/listMM/{municipality} (municipality=${municipality})}">Volver</a>
+    </div>
+
 </div>
 </body>
 </html>

@@ -15,20 +15,18 @@
 
 <div class="login-wrapper">
     <div class="login-container">
-        <div>
+        <div class="login-logo">
             <img src="/LOGO.PNG">
         </div>
 
         <form class="login-form" action="#" th:action="@{/login}"
               th:object="${user}" method="post">
 
-
             <p>
                 <strong>Nombre:</strong>
                 <input class="form_control" type="text" th:field="*{username}"/>
             <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
             </p>
-
 
 
             <p>
@@ -40,13 +38,13 @@
 
 
 
-            <p>
+            <div>
                 ¿No tienes cuenta? Registrate <a class="enlace" href="/register">aquí</a>.
-            </p>
+            </div>
 
 
 
-            <input class="btn btn-outline-success" type="submit" value="Accedir"/>
+            <input class="btn btn-outline-success submit-form" type="submit" value="Accedir"/>
         </form>
     </div>
 </div>

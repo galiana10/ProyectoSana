@@ -5,15 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a51f2db0-c21a-4d36-a2d5-916784693e8b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/AreaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/AreaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/OcuapationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/OcuapationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ZoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ZoneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/java/es/uji/ei1027/sana/controller/ServiceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/static/css/SANA.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/area/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/area/update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/ocupation/consulta.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/ocupation/consulta.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/timeslot/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/timeslot/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/timeslot/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/timeslot/update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/zona/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/zona/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/area/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/area/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/municipality/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/municipality/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/service/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/service/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sana/src/main/resources/templates/service/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/sana/src/main/resources/templates/service/list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

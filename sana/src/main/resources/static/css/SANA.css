@@ -172,8 +172,15 @@
   flex-flow: column;
   justify-content: center;
   align-items: center;
+  width: 22%;
 }
 
+.login-container .login-logo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 .login-form{
@@ -181,13 +188,16 @@
     text-align:center;
     border: #3b7058 2px solid;
     padding: 40px;
+    width: 100%;
 }
 
 .login-form p{
-
-    text-align: end;
+    display: flex;
+    justify-content: space-between;
 }
-
+.login-form .submit-form{
+    margin-top: 30px;
+}
 
 /*  publico */
 .publico-container{
@@ -441,8 +451,11 @@
     padding: 17px 54px;
 }
 
-.service-type-wrapper{
-    text-align: center;
+.add-service-wrapper{
+    display: flex;
+    flex-flow: column;
+    width: 45%;
+    margin: 15px 0px;
 }
 
 .service-type{
@@ -452,16 +465,24 @@
     align-items: center;
 }
 
-.service-input{
+.add-service-input{
     display: flex;
-    flex-flow: column;
-    align-items: center;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.add-service-submit{
+    margin-top: 20px;
 }
 
 .service-list-links{
     margin: 27px 15% !important;
 }
 
+
+.em-service-links{
+    margin: 25px 15% !important;
+}
 
 /*  añadir area */
 .btn-add-area{
@@ -486,8 +507,33 @@
 
 .form-regular{
 width:auto!important;
-
 }
+
+
+
+.container-add-area form{
+    border: solid 3px #3b7058;
+    padding: 30px;
+    margin: 1% 0px;
+}
+.container-add-area form .input-wrapp{
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 7px;
+    min-height: 79px;
+    justify-content: center;
+    align-items: center;
+}
+form .input-wrapp .area-input{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.area-add-submit{
+    justify-content: center !important;
+}
+
 
 /*  consulta ocupación */
 .consulta-wrapper{
@@ -541,4 +587,26 @@ width:auto!important;
     display: flex;
     flex-flow: column;
     align-items: center;
+}
+
+/* Añadir municipio EM */
+.add-municipio form{
+    margin-top: 2%;
+    width: 30% !important;
+}
+
+.add-municipio-wrapper{
+    width: 60%;
+}
+
+.add-municipio-input{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+form .municipio-submit{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
 }
