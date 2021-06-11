@@ -2,6 +2,7 @@ package es.uji.ei1027.sana.controller;
 
 
 import es.uji.ei1027.sana.Service.GeneratorService;
+import es.uji.ei1027.sana.Service.RegisterSvc;
 import es.uji.ei1027.sana.Service.SendEmailService;
 import es.uji.ei1027.sana.dao.CitizenDao;
 import es.uji.ei1027.sana.dao.UserInfoDao;
@@ -32,7 +33,11 @@ class RegisterValidator implements Validator {
     @Override
     public void validate(Object obj, Errors errors) {
 
-        Citizen citizen=(Citizen)obj;
+        List<Object> params = (List<Object>) obj;
+
+        Citizen citizen=(Citizen)params.get(0);
+
+        List<String> emails=(List<String>) params.get(1);
 
         if(citizen.getName()==null || citizen.getName().equals("") ){
             errors.rejectValue("name","NAMEObligatori","Name Obligatorio");
@@ -44,6 +49,10 @@ class RegisterValidator implements Validator {
 
         if(citizen.getEmail()==null || citizen.getEmail().equals("") ){
             errors.rejectValue("email","EmailObligatori","Email Obligatorio");
+        }else{
+            if(emails.contains(citizen.getEmail())){
+                errors.rejectValue("email","EmailObligatori","Email ya existe");
+            }
         }
 
         if(citizen.getAddress()==null || citizen.getAddress().equals("") ){
@@ -93,6 +102,13 @@ public class RegisterController {
     @Autowired
     public void setCitizenDao(CitizenDao citizenDao){ this.citizenDao=citizenDao;}
 
+    private RegisterSvc registerSvc;
+
+    @Autowired
+    public void setRegisterSvc(RegisterSvc registerSvc) {
+        this.registerSvc=registerSvc;
+    }
+
 
     @RequestMapping("/register")
     public String register(Model model) {
@@ -118,7 +134,16 @@ public class RegisterController {
         citizen.setPassword(generatorService.generateRandomString());
         citizen.setUsername(username);
 
-        rv.validate(citizen,bindingResult);
+
+
+
+        List<Object> list = new ArrayList<>();
+
+
+        list.add(citizen);
+        list.add(registerSvc.listaEmails());
+
+        rv.validate(list,bindingResult);
 
         if(citizenDao.getCitizen(dni)!=null){
             bindingResult.rejectValue("NIE","NIEduplicado","Usario ya existe");
