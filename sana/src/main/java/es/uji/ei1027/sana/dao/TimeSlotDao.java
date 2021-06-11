@@ -45,6 +45,7 @@ public class TimeSlotDao {
 
     /* Actualitza els atributs del timeSlot*/
     public void updateTimeSlot(TimeSlot timeSlot) {
+        System.out.println(timeSlot);
         jdbcTemplate.update("UPDATE TIMESLOT SET finalHour=?,season=? WHERE name_a=? AND initialhour=?",
                 timeSlot.getFinalhour(),timeSlot.getSeason(),timeSlot.getName_a(), timeSlot.getInitialhour());
     }

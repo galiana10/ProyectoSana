@@ -2,92 +2,129 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Añadir nueva area</title>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
 
 </head>
 <body>
-<div th:replace="fragments/nav" >...</div>
+<div th:replace="fragments/nav">...</div>
 
-<div class = "container-add-area info-tablas">
-<h1>Nueva area</h1>
-<form action="#" th:action="@{/area/add/{name}(name=${nameMunicipality})}"
-      th:object="${area}" method="post">
-    <table>
-        <tr>
-            <td><label>Nombre</label></td>
-            <td><input type="text" th:field="*{name}" /></td>
-            <td th:if="${#fields.hasErrors('name')}" class="error"
-                th:errors="*{name}"></td>
-        </tr>
-        <tr>
-            <td><label>Descripción</label></td>
-            <td><input type="text" th:field="*{description}" /></td>
-            <td th:if="${#fields.hasErrors('description')}" class="error"
-                th:errors="*{description}"></td>
-        </tr>
-        <tr>
-            <td><label>Num. de zonas</label></td>
-            <td><input type="number" th:field="*{numberOfZone}" /></td>
-            <td th:if="${#fields.hasErrors('numberOfZone')}" class="error"
-                th:errors="*{numberOfZone}"></td>
-        </tr>
-        <tr>
-            <td><label>Tipo de acceso</label></td>
-            <td><input type="text" th:field="*{accessType}" /></td>
-            <td th:if="${#fields.hasErrors('accessType')}" class="error"
-                th:errors="*{accessType}"></td>
-        </tr>
-        <tr>
-            <td><label>Localización</label></td>
-            <td><input type="text" th:field="*{geographicalLocation}" /></td>
-            <td th:if="${#fields.hasErrors('geographicalLocation')}" class="error"
-                th:errors="*{geographicalLocation}"></td>
-        </tr>
-        <tr>
-            <td><label>Tipo de área</label></td>
-            <td><input type="text" th:field="*{areaType}" /></td>
-            <td th:if="${#fields.hasErrors('areaType')}" class="error"
-                th:errors="*{areaType}"></td>
-        </tr>
-        <tr>
-            <td><label>Características físicas</label></td>
-            <td><input type="text" th:field="*{physiscalCharacteristic}" /></td>
-            <td th:if="${#fields.hasErrors('physiscalCharacteristic')}" class="error"
-                th:errors="*{physiscalCharacteristic}"></td>
-        </tr>
-        <tr>
-            <td><label>Orientación</label></td>
-            <td><input type="text" th:field="*{orientation}" /></td>
-            <td th:if="${#fields.hasErrors('orientation')}" class="error"
-                th:errors="*{orientation}"></td>
-        </tr>
-        <tr>
-            <td><label>Facilidades</label></td>
-            <td><input type="text" th:field="*{facility}" /></td>
-            <td th:if="${#fields.hasErrors('facility')}" class="error"
-                th:errors="*{facility}"></td>
-        </tr>
-        <tr>
-            <td><label>Comentario</label></td>
-            <td><input type="text" th:field="*{comment}" /></td>
-            <td th:if="${#fields.hasErrors('comment')}" class="error"
-                th:errors="*{comment}"></td>
-        </tr>
-        <tr>
-            <td><label>Url de imagen</label></td>
-            <td><input type="text" th:field="*{image}" /></td>
-            <td th:if="${#fields.hasErrors('image')}" class="error"
-                th:errors="*{image}"></td>
-        </tr>
+<div class="container-add-area info-tablas">
+    <h1>Nueva area</h1>
+    <form action="#" th:action="@{/area/add/{name}(name=${nameMunicipality})}"
+          th:object="${area}" method="post">
 
-        <tr>
-            <td colspan="2"><input class = "btn btn-outline-success" type="submit" value="Añadir area" /></td>
-        </tr>
-    </table>
-</form>
+        <div class="input-wrapp">
+            <p th:if="${#fields.hasErrors('name')}" class="error"
+               th:errors="*{name}"></p>
+            <div class="area-input">
+                <label><strong>Nombre:</strong></label>
+                <input type="text" th:field="*{name}"/>
+            </div>
+        </div>
+
+        <div class="input-wrapp">
+            <p th:if="${#fields.hasErrors('description')}" class="error"
+               th:errors="*{description}"></p>
+            <div class="area-input">
+                <label><strong>Descripción:</strong></label>
+                <input type="text" th:field="*{description}"/>
+            </div>
+        </div>
+
+        <div class="input-wrapp">
+            <p th:if="${#fields.hasErrors('numberOfZone')}" class="error"
+               th:errors="*{numberOfZone}"></p>
+            <div class="area-input">
+                <label><strong>Num. de zonas:</strong></label>
+                <input type="number" th:field="*{numberOfZone}"/>
+            </div>
+        </div>
+
+        <div class="input-wrapp">
+            <p th:if="${#fields.hasErrors('accessType')}" class="error"
+               th:errors="*{accessType}"></p>
+            <div class="area-input">
+                <label><strong>Tipo de acceso:</strong></label>
+                <input type="text" th:field="*{accessType}"/>
+            </div>
+        </div>
+
+        <div class="input-wrapp">
+            <p th:if="${#fields.hasErrors('geographicalLocation')}" class="error"
+               th:errors="*{geographicalLocation}"></p>
+            <div class="area-input">
+                <label><strong>Localización:</strong></label>
+                <input type="text" th:field="*{geographicalLocation}"/>
+            </div>
+        </div>
+
+        <div class="input-wrapp">
+            <p th:if="${#fields.hasErrors('areaType')}" class="error"
+               th:errors="*{areaType}"></p>
+            <div class="area-input">
+                <label><strong>Tipo de área:</strong></label>
+                <input type="text" th:field="*{areaType}"/>
+            </div>
+        </div>
+
+        <div class="input-wrapp">
+            <p th:if="${#fields.hasErrors('physiscalCharacteristic')}" class="error"
+               th:errors="*{physiscalCharacteristic}"></p>
+            <div class="area-input">
+                <label><strong>Características físicas:</strong></label>
+                <input type="text" th:field="*{physiscalCharacteristic}"/>
+            </div>
+        </div>
+
+        <div class="input-wrapp">
+            <p th:if="${#fields.hasErrors('orientation')}" class="error"
+               th:errors="*{orientation}"></p>
+            <div class="area-input">
+                <label><strong>Orientación:</strong></label>
+                <input type="text" th:field="*{orientation}"/>
+            </div>
+        </div>
+
+        <div class="input-wrapp">
+            <p th:if="${#fields.hasErrors('facility')}" class="error"
+               th:errors="*{facility}"></p>
+            <div class="area-input">
+                <label><strong>Facilidades:</strong></label>
+                <input type="text" th:field="*{facility}"/>
+            </div>
+        </div>
+
+        <div class="input-wrapp">
+            <p th:if="${#fields.hasErrors('comment')}" class="error"
+            th:errors="*{comment}"></p>
+            <div class="area-input">
+                <label><strong>Comentario:</strong></label>
+                <input type="text" th:field="*{comment}"/>
+            </div>
+        </div>
+
+        <div class="input-wrapp">
+            <p th:if="${#fields.hasErrors('image')}" class="error"
+               th:errors="*{image}"></p>
+            <div class="area-input">
+                <label><strong>Enlace a la imagen:</strong></label>
+                <input type="text" th:field="*{image}"/>
+            </div>
+        </div>
+
+        <div class="input-wrapp">
+            <div class="area-input area-add-submit">
+                <input class="btn btn-outline-success" type="submit" value="Añadir area"/>
+            </div>
+        </div>
+    </form>
+
+    <div class="info-tablas">
+        <a class="btn btn-outline-success btn-volver" th:href="@{/area/listMM/{municipality} (municipality=${municipality})}">Volver</a>
+    </div>
 
 </div>
 </body>

@@ -1,37 +1,59 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Modificar Timeslot</title>
-  <meta charset="UTF-8" />
+  <title>Añadir nuevo timeslot</title>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" type="text/css" href="/css/SANA.css" th:href="@{/css/SANA.css}"/>
+
   <link rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
-<h2>Modificar Timeslot</h2>
-<form action="#" th:action="@{/timeslot/update}"
-      th:object="${timeslot}" method="post">
-  <table>
-    <tr>
-      <td><label>Nombre Area</label></td>
-      <td><input type="text" th:field="*{name_a}" /></td>
-    </tr>
-    <tr>
-      <td><label>Inicial Hour</label></td>
-      <td><input type="text" th:field="*{inicialhour}" /></td>
-    </tr>
-    <tr>
-      <td><label>Final Hour</label></td>
-      <td><input type="text" th:field="*{finalhour}" /></td>
-    </tr>
-    <tr>
-      <td><label>Final Hour</label></td>
-      <td><input type="text" th:field="*{season}" /></td>
-    </tr>
+<div th:replace="fragments/nav" >...</div>
 
-    <tr>
-      <td colspan="2"><input type="submit" value="Modificar Timeslot" /></td>
-    </tr>
-  </table>
-</form>
+<div class="add-reservation info-tablas">
+  <h1>Nuevo TimeSlot</h1>
+  <form class="form-regular" action="#" th:action="@{/timeslot/update/{id_timeslot}(id_timeslot=${timeslot.id_timeslot})}"
+        th:object="${timeslot}" method="post">
+    <table>
+
+      <tr hidden>
+
+        <td><input type="text" th:field="*{name_a}"/></td>
+
+      </tr>
+      <tr>
+        <td><strong>Hora inicial:</strong></td>
+        <td><input type="time" th:field="*{initialhour}"/></td>
+        <td th:if="${#fields.hasErrors('initialhour')}" class="error"
+            th:errors="*{initialhour}"></td>
+      </tr>
+      <tr>
+        <td><strong>Hora final:</strong></td>
+        <td><input type="time" th:field="*{finalhour}"/></td>
+        <td th:if="${#fields.hasErrors('finalhour')}" class="error"
+            th:errors="*{finalhour}"></td>
+      </tr>
+      <tr>
+        <td><strong>Estación:</strong></td>
+        <td><select class="form_control" type="text"
+                    th:class="${#fields.hasErrors('season')} ? needcorrection" th:field="*{season}">
+          <option value="Verano">Verano</option>
+          <option value="Invierno">Invierno</option>
+          <option value="Otoño">Otoño</option>
+          <option value="Primavera">Primavera</option>
+        </select>
+        </td>
+
+      </tr>
+      <tr>
+        <td colspan="2"><input class="btn btn-outline-success" type="submit" value="Actualizar horario"/></td>
+      </tr>
+    </table>
+  </form>
+    <div>
+        <a class="btn btn-outline-success" th:href="@{/timeslot/list/{area}(area=${timeslot.name_a})}">Volver</a>
+    </div>
+</div>
 </body>
 </html>

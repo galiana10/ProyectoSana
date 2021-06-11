@@ -26,48 +26,61 @@
             <form class="login-form" action="#" th:action="@{/register}"
                   th:object="${citizen}" method="post">
 
-                <p>
-                    <strong>Nombre:</strong>
-                    <input name="name" class="form_control" type="text"/>
+                <div class="register-input">
                     <p th:if="${#fields.hasErrors('name')}" class="error" th:errors="*{name}"></p>
-                </p>
+                    <p>
+                        <strong>Nombre:</strong>
+                        <input name="name" class="form_control" type="text"/>
+                    </p>
+                </div>
 
-                <p>
-                    <strong>DNI:</strong>
-                    <input name="dni" class="form_control" type="text"/>
+                <div class="register-input">
                     <p th:if="${#fields.hasErrors('NIE')}" class="error" th:errors="*{NIE}"></p>
-                </p>
+                    <p>
+                        <strong>DNI:</strong>
+                        <input name="dni" class="form_control" type="text"/>
+                    </p>
+                </div>
 
-                <p>
-                    <strong>E-mail:</strong>
-                    <input class="form_control" type="text" th:field="*{email}"/>
+                <div class="register-input">
                     <p th:if="${#fields.hasErrors('email')}" class="error" th:errors="*{email}"></p>
-                </p>
+                    <p>
+                        <strong>E-mail:</strong>
+                        <input class="form_control" type="text" th:field="*{email}"/>
+                    </p>
+                </div>
 
-                <p>
-                    <strong>Direccion:</strong>
-                    <input class="form_control" type="text" th:field="*{address}"/>
+                <div class="register-input">
                     <p th:if="${#fields.hasErrors('address')}" class="error" th:errors="*{address}"></p>
-                </p>
+                    <p>
+                        <strong>Direccion:</strong>
+                        <input class="form_control" type="text" th:field="*{address}"/>
+                    </p>
+                </div>
 
-                <p>
-                    <strong>Ciudad:</strong>
-                    <input class="form_control" type="text" th:field="*{town}"/>
+                <div class="register-input">
                     <p th:if="${#fields.hasErrors('town')}" class="error" th:errors="*{town}"></p>
-                </p>
+                    <p>
+                        <strong>Ciudad:</strong>
+                        <input class="form_control" type="text" th:field="*{town}"/>
+                    </p>
+                </div>
 
-                <p>
-                    <strong>País:</strong>
-                    <input class="form_control" type="text" th:field="*{country}"/>
+                <div class="register-input">
                     <p th:if="${#fields.hasErrors('country')}" class="error" th:errors="*{country}"></p>
-                </p>
+                    <p>
+                        <strong>País:</strong>
+                        <input class="form_control" type="text" th:field="*{country}"/>
+                    </p>
+                </div>
+
 
                 <input class="btn btn-outline-success" type="submit" value="Registrarse"/>
 
 
             </form>
 
-            <div class="info-tablas">
+            <div class="info-tablas register-submit">
                 <p class="gris">*Tu usuario y contraseña serán enviados al correo proporcionado*</p>
                 <a class="btn btn-outline-success" th:href="@{/login}">Volver</a>
             </div>

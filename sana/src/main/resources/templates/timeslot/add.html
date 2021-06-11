@@ -9,6 +9,9 @@
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
+
+<div th:replace="fragments/nav" >...</div>
+
 <div class="add-reservation info-tablas">
     <h1>Nuevo TimeSlot</h1>
     <form class="form-regular" action="#" th:action="@{/timeslot/add/{area}(area=${name_a})}"
@@ -16,19 +19,19 @@
         <table>
 
             <tr>
-                <td><label>Hora inicial</label></td>
+                <td><strong>Hora inicial:</strong></td>
                 <td><input type="time" th:field="*{initialhour}"/></td>
                 <td th:if="${#fields.hasErrors('initialhour')}" class="error"
                     th:errors="*{initialhour}"></td>
             </tr>
             <tr>
-                <td><label>Hora final</label></td>
+                <td><strong>Hora final:</strong></td>
                 <td><input type="time" th:field="*{finalhour}"/></td>
                 <td th:if="${#fields.hasErrors('finalhour')}" class="error"
                     th:errors="*{finalhour}"></td>
             </tr>
             <tr>
-                <td><label>Estación</label></td>
+                <td><strong>Estación:</strong></td>
                 <td><select class="form_control" type="text"
                             th:class="${#fields.hasErrors('season')} ? needcorrection" th:field="*{season}">
                     <option value="Verano">Verano</option>
@@ -44,6 +47,9 @@
             </tr>
         </table>
     </form>
+    <div>
+        <a class="btn btn-outline-success" th:href="@{/timeslot/list/{area}(area=${name_a})}">Volver</a>
+    </div>
 </div>
 </body>
 </html>

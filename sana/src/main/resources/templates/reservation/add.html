@@ -24,7 +24,7 @@
         <div class="reservation-input">
             <p th:if="${#fields.hasErrors('date')}" class="error" th:errors="*{date}"></p>
             <div class="input-data">
-                <p>Date</p>
+                <p><strong>Fecha:</strong></p>
                 <input type="date" th:field="*{date}"/>
             </div>
         </div>
@@ -32,7 +32,7 @@
         <div class="reservation-input">
             <p th:if="${#fields.hasErrors('peopleNumber')}" class="error" th:errors="*{peopleNumber}"></p>
             <div class="input-data">
-                <p>People Number</p>
+                <p><strong>Número de personas:</strong></p>
                 <input type="text" th:field="*{peopleNumber}"/>
             </div>
         </div>
@@ -40,7 +40,7 @@
         <div class="reservation-input">
             <p th:if="${#fields.hasErrors('id_timeslot')}" class="error" th:errors="*{id_timeslot}"></p>
             <div class="input-data">
-                <p>Hora</p>
+                <p><strong>Hora:</strong></p>
                 <div class="check-list-zones" path="timeslot">
 
                     <div class="zone-box" th:each="timeslot : ${timeslots}">

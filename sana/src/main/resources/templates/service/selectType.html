@@ -13,97 +13,88 @@
 
 <body>
 
-    <div th:replace="fragments/nav">...</div>
+<div th:replace="fragments/nav">...</div>
 
-    <div class="contenedor-selectType">
+<div class="add-service">
 
+    <div>
+        <h2>Añadir Servicio</h2>
+    </div>
 
-        <div >
-            <h2>Añadir Servicio</h2>
+    <form class="add-service-form" action="#"
+          th:action="@{/service/add/{municipio}/{area}(municipio=${Municipio},area=${Area})}"
+          th:object="${servicio}" method="post">
+
+        <div class="service-input">
+            <div th:if="${#fields.hasErrors('name_S')}" class="error" th:errors="*{name_S}"></div>
+
+            <div class="check-list-servicio">
+                <strong>Servicio:</strong>
+                <select class="form_control" type="text" th:field="*{name_S}">
+                    <option th:each="service : ${servicios}"
+                            th:value="${service.name}"
+                            th:text="${service.name}"></option>
+                </select>
+            </div>
         </div>
 
-        <form action="#" th:action="@{/service/add/{municipio}/{area}(municipio=${Municipio},area=${Area})}"
-              th:object="${servicio}" method="post">
 
-            <div class="contenedor-selectType items">
+        <div class="service-input service-type-wrapper">
+            <div th:if="${#fields.hasErrors('servicetype')}" class="error" th:errors="*{servicetype}"></div>
 
-                <div class="check-list-servicio">
+            <div class="service-type">
+                <strong>Tipo:</strong>
 
-                    <strong>Servicio:</strong>
 
-                    <select class="form_control" type="text" th:field="*{name_S}">
-                        <option th:each="service : ${servicios}"
-                                th:value="${service.name}"
-                                th:text="${service.name}"></option>
-                    </select>
-
-                    <div th:if="${#fields.hasErrors('name_S')}" class="error" th:errors="*{name_S}"></div>
-
+                <div class="servicio-box">
+                    <input type="radio" value="fixed"
+                           name="tipoServicio"
+                           class="btn-check" id="Fijo" autocomplete="off">
+                    <label class="btn btn-outline-success" for="Fijo"
+                           th:text="Fijo"></label><br>
                 </div>
 
-
-                <div class="check-list-servicio">
-
-                    <strong>Tipo:</strong>
-
-                    <div class="check-list-servicio">
-
-                        <div class="servicio-box">
-
-                            <input type="radio" value="fixed"
-                                   name="tipoServicio"
-                                   class="btn-check" id="Fijo" autocomplete="off">
-                            <label class="btn btn-outline-success" for="Fijo"
-                                   th:text="Fijo"></label><br>
-
-                        </div>
-
-                        <div class="servicio-box">
-
-                            <input type="radio" value="seasonal"
-                                   name="tipoServicio"
-                                   class="btn-check" id="Estacional" autocomplete="off">
-                            <label class="btn btn-outline-success" for="Estacional"
-                                   th:text="Estacional"></label><br>
-
-                        </div>
-
-
-                    </div>
-                    <div th:if="${#fields.hasErrors('servicetype')}" class="error" th:errors="*{servicetype}"></div>
+                <div class="servicio-box">
+                    <input type="radio" value="seasonal"
+                           name="tipoServicio"
+                           class="btn-check" id="Estacional" autocomplete="off">
+                    <label class="btn btn-outline-success" for="Estacional"
+                           th:text="Estacional"></label><br>
                 </div>
-
-
-                <div class="check-list-servicio" >
-
-                    <strong>Fecha inicial:</strong>
-                    <input type="date" th:field="*{initialdate}"/>
-                    <div th:if="${#fields.hasErrors('initialdate')}" class="error" th:errors="*{initialdate}"></div>
-
-
-                </div>
-
-                <div class="check-list-servicio">
-
-                    <strong>Fecha final:</strong>
-                    <input type="date" th:field="*{finaldate}"/>
-                    <div th:if="${#fields.hasErrors('finaldate')}" class="error" th:errors="*{finaldate}"></div>
-
-                </div>
-
-
-                <input class="btn btn-outline-success" type="submit"  value="Añadir"/>
 
             </div>
-
-
-        </form>
-
-        <div>
-            <a class="btn btn-outline-success" th:href="@{/service/list/{municipality}/{name}(municipality=${Municipio},name=${Area})}">Volver</a>
         </div>
 
+
+        <div class="service-input">
+            <div th:if="${#fields.hasErrors('initialdate')}" class="error" th:errors="*{initialdate}"></div>
+            <div class="check-list-servicio">
+                <strong>Fecha inicial:</strong>
+                <input type="date" th:field="*{initialdate}"/>
+            </div>
+        </div>
+
+
+        <div class="service-input">
+            <div th:if="${#fields.hasErrors('finaldate')}" class="error" th:errors="*{finaldate}"></div>
+            <div class="check-list-servicio">
+                <strong>Fecha final:</strong>
+                <input type="date" th:field="*{finaldate}"/>
+            </div>
+        </div>
+
+
+        <div class="service-input">
+            <input class="btn btn-outline-success" type="submit" value="Añadir"/>
+        </div>
+
+    </form>
+
+    <div>
+        <a class="btn btn-outline-success" th:href="@{/service/list/{municipality}/{name}(municipality=${Municipio},name=${Area})}">Volver</a>
     </div>
+
+</div>
 
 </body>
 </html>

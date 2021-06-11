@@ -63,14 +63,19 @@ public class TimeSlotController {
         return "timeslot/update";
     }
 
-    @RequestMapping(value="/update", method = RequestMethod.POST)
+    @RequestMapping(value="/update/{id_timeslot}", method = RequestMethod.POST)
     public String processUpdateSubmit(
             @ModelAttribute("timeslot") TimeSlot timeSlot,
+            Model model,
             BindingResult bindingResult) {
-        if (bindingResult.hasErrors())
+        TimeSlotValidator tv = new TimeSlotValidator();
+        tv.validate(timeSlot,bindingResult);
+        if (bindingResult.hasErrors()){
+            model.addAttribute("timeslot",timeSlot);
             return "timeslot/update";
+        }
         timeSlotDao.updateTimeSlot(timeSlot);
-        return "redirect:list";
+        return "redirect:/timeslot/list/"+timeSlot.getName_a();
     }
 
     @RequestMapping(value="/delete/{id_timeslot}")

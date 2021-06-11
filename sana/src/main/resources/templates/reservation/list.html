@@ -24,7 +24,6 @@
                 <th>Hora Fin</th>
                 <th>Estado</th>
                 <th></th>
-                <th></th>
             </tr>
             </thead>
 
@@ -53,10 +52,6 @@
 
                             <div th:case="ACTIVA">
                                 <td class="table-success" th:text="${reservation.status}"></td>
-                                <td class="table-secondary">
-                                    <a class="btn btn-outline-success"
-                                       th:href="@{/reservation/update/{QR}(QR=${reservation.QR})}">Editar</a>
-                                </td>
                                 <td class="table-secondary">
                                     <a class="btn btn-outline-success"
                                        th:href="@{/reservation/anular/{QR}(QR=${reservation.QR})}">Anular</a>

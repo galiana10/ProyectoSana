@@ -19,6 +19,7 @@
 
 .error {
     color: red;
+    margin: 10px 0px;
 }
 
 .boton{
@@ -94,7 +95,7 @@
 
 .info-index .titulo-info-index{
     text-align:center;
-    margin: 25px 0px;
+    margin-top: 50px;
 }
 
 .info-index div:last-child hr{
@@ -123,7 +124,15 @@
     flex: 8;
 }
 
-
+/*  register */
+.register-input{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.register-submit{
+    margin-bottom: 30px;
+}
 
 /*  navegacion */
 
@@ -163,8 +172,15 @@
   flex-flow: column;
   justify-content: center;
   align-items: center;
+  width: 22%;
 }
 
+.login-container .login-logo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 .login-form{
@@ -172,13 +188,16 @@
     text-align:center;
     border: #3b7058 2px solid;
     padding: 40px;
+    width: 100%;
 }
 
 .login-form p{
-
-    text-align: end;
+    display: flex;
+    justify-content: space-between;
 }
-
+.login-form .submit-form{
+    margin-top: 30px;
+}
 
 /*  publico */
 .publico-container{
@@ -410,44 +429,62 @@
 
 /*  añadir servicio */
 
-.contenedor-selectType{
-
+.add-service{
     display: flex;
     flex-flow: column;
     align-items: center;
-
-
-}
-.contenedor-selectType items{
-    display: flex;
-    flex-flow: column;
-    align-items: center;
+    margin: 4% 0px;
 }
 
-.contenedor-selectType h2{
+.add-service h2{
     color: #3b7058;
 }
 
-.contenedor-selectType form{
-    padding: 30px;
-    border: 3px solid #3b7058;
-    width:30%;
-    margin-bottom: 30px;
-}
-
-
-.check-list-servicio{
+.add-service-form{
+    margin: 3% 0px;
+    height: 380px;
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    border: #3b7058 2px solid;
+    padding: 17px 54px;
 }
 
-.servicio-box{
-    margin-right:7px;
-    margin-top:7px;
-
-width:50%;
+.add-service-wrapper{
+    display: flex;
+    flex-flow: column;
+    width: 45%;
+    margin: 15px 0px;
 }
 
+.service-type{
+    display:flex;
+    width: 240px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.add-service-input{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.add-service-submit{
+    margin-top: 20px;
+}
+
+.service-list-links{
+    margin: 27px 15% !important;
+}
+
+
+.em-service-links{
+    margin: 25px 15% !important;
+}
+
+/*  añadir area */
 .btn-add-area{
     display: flex;
     left: 20%;
@@ -470,5 +507,106 @@ width:50%;
 
 .form-regular{
 width:auto!important;
+}
 
+
+
+.container-add-area form{
+    border: solid 3px #3b7058;
+    padding: 30px;
+    margin: 1% 0px;
+}
+.container-add-area form .input-wrapp{
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 7px;
+    min-height: 79px;
+    justify-content: center;
+    align-items: center;
+}
+form .input-wrapp .area-input{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.area-add-submit{
+    justify-content: center !important;
+}
+
+
+/*  consulta ocupación */
+.consulta-wrapper{
+    display:flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.consulta-wrapper form{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: 3%;
+    border: solid 2px #3b7058;
+    padding: 30px;
+}
+
+.consulta-inputs{
+    margin-bottom: 30px;
+}
+
+.consulta-reservation-info{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+/* Zona */
+.contenedor-selectType {
+    margin-top: 40px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.contenedor-selectType form{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: 3%;
+    border: solid 3px #3b7058;
+    padding: 25px;
+}
+
+.contenedor-selectType h2{
+    color: #3B7058;
+}
+
+.zone-input{
+    margin-bottom: 12px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+/* Añadir municipio EM */
+.add-municipio form{
+    margin-top: 2%;
+    width: 30% !important;
+}
+
+.add-municipio-wrapper{
+    width: 60%;
+}
+
+.add-municipio-input{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+form .municipio-submit{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
 }

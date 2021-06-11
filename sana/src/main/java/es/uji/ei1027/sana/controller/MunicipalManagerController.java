@@ -85,7 +85,8 @@ public class MunicipalManagerController {
         mmv.validate(mm, bindingResult);
 
         if (bindingResult.hasErrors()) {
-            model.addAttribute("municipalManager", new MunicipalManager());
+            System.out.println("entro en validador");
+            //model.addAttribute("municipalManager", new MunicipalManager());
             model.addAttribute("municipios", municipalityDao.getMunicipalities());
             return "municipal_manager/add";
         }
