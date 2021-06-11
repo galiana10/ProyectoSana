@@ -15,7 +15,7 @@ public class UserInfoRowMapper implements RowMapper<UserInfo> {
         UserInfo ui= new UserInfo();
         ui.setNie(rs.getString("nie"));
         ui.setUsername(rs.getString("username"));
-        ui.setPasswordEncripted(rs.getString("password"));
+        ui.setPassword(rs.getString("password"));
         ui.setType(rs.getInt("type"));
 
 

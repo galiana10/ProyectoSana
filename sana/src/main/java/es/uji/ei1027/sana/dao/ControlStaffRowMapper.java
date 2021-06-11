@@ -15,7 +15,7 @@ public class ControlStaffRowMapper implements RowMapper<ControlStaff> {
         controlStaff.setEmail(rs.getString("email"));
         controlStaff.setName(rs.getString("name"));
         controlStaff.setUsername(rs.getString("username"));
-        controlStaff.setPasswordEncripted(rs.getString("password"));
+        controlStaff.setPassword(rs.getString("password"));
         controlStaff.setType(rs.getInt("type"));
 
         return controlStaff;

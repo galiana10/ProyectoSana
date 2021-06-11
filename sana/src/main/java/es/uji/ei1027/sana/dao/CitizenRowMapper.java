@@ -17,7 +17,7 @@ public final class CitizenRowMapper implements RowMapper<Citizen> {
         citizen.setTown(rs.getString("town"));
         citizen.setCountry(rs.getString("country"));
         citizen.setUsername(rs.getString("username"));
-        citizen.setPasswordEncripted(rs.getString("password"));
+        citizen.setPassword(rs.getString("password"));
         citizen.setType(rs.getInt("type"));
 
         return citizen;
