@@ -7,6 +7,7 @@ import es.uji.ei1027.sana.dao.CitizenDao;
 import es.uji.ei1027.sana.dao.UserInfoDao;
 import es.uji.ei1027.sana.model.Citizen;
 import es.uji.ei1027.sana.model.UserInfo;
+import org.jasypt.util.password.BasicPasswordEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -105,7 +106,7 @@ public class RegisterController {
                                 @RequestParam(name="dni", required = false) String  dni,
                                 @ModelAttribute("citizen") Citizen citizen,
                                 BindingResult bindingResult) {
-
+        BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor();
 
         RegisterValidator rv=new RegisterValidator();
 
@@ -115,7 +116,8 @@ public class RegisterController {
         citizen.setName(name);
 
         String username="ci"+dni;
-        citizen.setPassword(generatorService.generateRandomString());
+        String password = generatorService.generateRandomString();
+        citizen.setPassword(passwordEncryptor.encryptPassword(password));
         citizen.setUsername(username);
 
         rv.validate(citizen,bindingResult);
@@ -132,7 +134,7 @@ public class RegisterController {
         //Con este dao ya se añade el UserInfo tambien
         citizenDao.addCitizen(citizen);
 
-        String mensaje= "Usuario: "+citizen.getUsername()+ " Contraseña: "+citizen.getPassword();
+        String mensaje= "Usuario: "+citizen.getUsername()+ " Contraseña: "+password;
         sendEmailService.sendEmail(citizen.getEmail(),"Bienvenido a SANA",mensaje);
 
 
